@@ -37,14 +37,17 @@ img { display: block; width: 100%; object-fit: cover; }
 .hero-section.dark-emblem-hero {
   position: relative;
   width: 100%;
-  min-height: 85vh;
-  padding: 100px 20px 80px;
+  height: 100vh;
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: 100px 20px 40px;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
   background: #050508;
   background-image: radial-gradient(circle at 50% 40%, #151520 0%, #050508 70%);
+  box-sizing: border-box;
 }
 
 .hero-section.dark-emblem-hero::before {
@@ -250,12 +253,44 @@ img { display: block; width: 100%; object-fit: cover; }
 
 /* Mobile hero */
 @media (max-width: 600px) {
-  .hero-section { min-height: 100svh; }
-  .hero-headline { font-size: clamp(36px, 11vw, 56px); }
-  .hero-sub { font-size: 14px; }
-  .hero-search { padding: 6px 6px 6px 18px; }
-  .hero-search-btn { padding: 11px 20px; }
-  .hero-cta-row { flex-direction: column; gap: 14px; }
+  .hero-section.dark-emblem-hero {
+    height: 100dvh;
+    min-height: 100dvh;
+    padding: 85px 16px 30px;
+    box-sizing: border-box;
+  }
+  .hero-banner-container {
+    max-width: 320px;
+    margin-bottom: 16px;
+  }
+  .hero-subtext-clean {
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    margin-bottom: 24px;
+  }
+  .hero-search {
+    padding: 6px 6px 6px 14px;
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 100%;
+  }
+  .hero-search input { font-size: 13px; }
+  .hero-search-btn { padding: 10px 16px; font-size: 10px; }
+  .hero-cta-row {
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+  }
+  .hero-cta-primary {
+    width: 100%;
+    text-align: center;
+    padding: 13px 20px;
+  }
+  .hero-cta-ghost {
+    justify-content: center;
+    width: 100%;
+    font-size: 11px;
+  }
 }
 
 /* Inventory Layout */
