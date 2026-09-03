@@ -49,18 +49,23 @@ const DEFAULT_FILTERS: FilterState = {
   maxPrice: 700000,
 };
 
-const ALL_MAKES = ['Toyota', 'Mercedes-Benz', 'Honda', 'Lexus'];
+const ALL_MAKES = ['Mercedes-Benz', 'Porsche', 'BMW', 'Land Rover', 'Jeep', 'Toyota', 'Honda', 'Lexus'];
 
 const MAKE_MODELS_MAP: Record<string, string[]> = {
+  'Mercedes-Benz': ['C-Class', 'GLC Series', 'S550', 'ML400', 'GLK350', 'E300', 'CLA250'],
+  'Porsche': ['Macan'],
+  'BMW': ['3 Series', '4 Series', 'X6'],
+  'Land Rover': ['Range Rover Sport', 'Range Rover Velar', 'Range Rover Evoque'],
+  'Jeep': ['Grand Cherokee'],
   'Toyota': ['Land Cruiser', 'Camry', 'Highlander'],
-  'Mercedes-Benz': ['C-Class', 'S550', 'ML400', 'GLK350', 'E300', 'CLA250'],
   'Lexus': ['IS250'],
   'Honda': ['Accord'],
 };
 
-const ALL_MODELS = ['Land Cruiser', 'C-Class', 'IS250', 'S550', 'ML400', 'Camry', 'GLK350', 'E300', 'Accord', 'CLA250', 'Highlander'];
+const ALL_MODELS = ['C-Class', 'GLC Series', 'Macan', '3 Series', '4 Series', 'X6', 'Range Rover Sport', 'Range Rover Velar', 'Range Rover Evoque', 'Grand Cherokee', 'Land Cruiser', 'IS250', 'S550', 'ML400', 'Camry', 'GLK350', 'E300', 'Accord', 'CLA250', 'Highlander'];
 
-const ALL_YEARS = [2024, 2022, 2021, 2020, 2019, 2017, 2015, 2014, 2013];
+const ALL_YEARS = [2024, 2022, 2021, 2020, 2019, 2018, 2017, 2015, 2014, 2013];
+
 const ALL_FUELS = ['Petrol', 'Diesel'];
 const ALL_TRANSMISSIONS = ['Automatic', 'Manual'];
 
@@ -77,23 +82,284 @@ type Car = {
   fuel: string;
   transmission: string;
   image: string;
+  images?: string[];
   tag?: string;
   description: string;
 };
 
 const cars: Car[] = [
-  { id: 1, name: 'Toyota Land Cruiser', make: 'Toyota', model: 'Land Cruiser', year: 2021, price: '$204,550 CAD', mileage: '18,400 km', fuel: 'Petrol', transmission: 'Automatic', image: 'https://images.pexels.com/photos/27497571/pexels-photo-27497571.jpeg?auto=compress&cs=tinysrgb&h=650&w=940', description: 'Our electric 2023 Mercedes-Benz AMG EQS MATIC Sedan in Obsidian Black Metallic...' },
-  { id: 2, name: 'Mercedes-Benz C-Class', make: 'Mercedes-Benz', model: 'C-Class', year: 2020, price: '$217,994 CAD', mileage: '20,270 km', fuel: 'Petrol', transmission: 'Automatic', image: 'https://images.pexels.com/photos/14217531/pexels-photo-14217531.jpeg?auto=compress&cs=tinysrgb&h=650&w=940', description: 'The 2021 Mercedes-Benz AMG G63 comes with a twin-turbocharged 4.0-liter V8 engine...' },
-  { id: 3, name: 'Lexus IS250', make: 'Lexus', model: 'IS250', year: 2015, price: '$288,231 CAD', mileage: '21,300 km', fuel: 'Petrol', transmission: 'Automatic', image: 'https://images.pexels.com/photos/9803057/pexels-photo-9803057.png?auto=compress&cs=tinysrgb&h=650&w=940', description: 'NO LUX TAX, CARBON TRIM, RACE START FUNCTION' },
-  { id: 4, name: 'Mercedes-Benz S550', make: 'Mercedes-Benz', model: 'S550', year: 2019, price: '$599,995 CAD', mileage: '17,260 km', fuel: 'Petrol', transmission: 'Automatic', image: 'https://images.pexels.com/photos/15513826/pexels-photo-15513826.jpeg?auto=compress&cs=tinysrgb&h=650&w=940', description: 'NO LUX FEDERAL LUXURY TAX...' },
-  { id: 5, name: 'Mercedes-Benz ML400', make: 'Mercedes-Benz', model: 'ML400', year: 2015, price: '$289,887 CAD', mileage: '18,220 km', fuel: 'Diesel', transmission: 'Automatic', image: 'https://images.pexels.com/photos/4909544/pexels-photo-4909544.jpeg?auto=compress&cs=tinysrgb&h=650&w=940', description: '2020 LAMBORGHINI URUS 641HP LAMBIGHINI...' },
-  { id: 6, name: 'Toyota Camry XSE', make: 'Toyota', model: 'Camry', year: 2019, price: '$429,311 CAD', mileage: '28,390 km', fuel: 'Petrol', transmission: 'Automatic', image: 'https://images.pexels.com/photos/5213990/pexels-photo-5213990.jpeg?auto=compress&cs=tinysrgb&h=650&w=940', description: 'LP640-4 PERFORMANTE, SPYDER, CARBON PKG...' },
-  { id: 7, name: 'Mercedes-Benz GLK350', make: 'Mercedes-Benz', model: 'GLK350', year: 2013, price: '$169,800 CAD', mileage: '19,250 km', fuel: 'Petrol', transmission: 'Automatic', image: 'https://images.pexels.com/photos/12532746/pexels-photo-12532746.jpeg?auto=compress&cs=tinysrgb&h=650&w=940', description: 'V8 SPORT SEATS, ALCANTARA INTERIOR...' },
-  { id: 8, name: 'Mercedes-Benz E300', make: 'Mercedes-Benz', model: 'E300', year: 2017, price: '$548,800 CAD', mileage: '22,300 km', fuel: 'Petrol', transmission: 'Automatic', image: 'https://images.pexels.com/photos/17370575/pexels-photo-17370575.jpeg?auto=compress&cs=tinysrgb&h=650&w=940', description: 'SUPERCHARGED V8, COLLECTORS CAR, 54 MILES...' },
-  { id: 9, name: 'Honda Accord', make: 'Honda', model: 'Accord', year: 2024, price: '$329,800 CAD', mileage: '30,380 km', fuel: 'Petrol', transmission: 'Automatic', image: 'https://images.pexels.com/photos/18108314/pexels-photo-18108314.jpeg?auto=compress&cs=tinysrgb&h=650&w=940', description: '671HP, TECH PACK, BLACK PACK...' },
-  { id: 10, name: 'Mercedes-Benz CLA250', make: 'Mercedes-Benz', model: 'CLA250', year: 2014, price: '$449,800 CAD', mileage: '26,380 km', fuel: 'Petrol', transmission: 'Automatic', image: 'https://images.pexels.com/photos/29566879/pexels-photo-29566879.jpeg?auto=compress&cs=tinysrgb&h=650&w=940', description: '617HP, SUPER RARE, CARBON FIBER...' },
-  { id: 11, name: 'Toyota Camry SE', make: 'Toyota', model: 'Camry', year: 2022, price: '$489,900 CAD', mileage: '28,390 km', fuel: 'Petrol', transmission: 'Automatic', image: 'https://images.pexels.com/photos/27497572/pexels-photo-27497572.jpeg?auto=compress&cs=tinysrgb&h=650&w=940', description: 'Our 2021 Rolls-Royce Ghost Bespoke Interior...' },
-  { id: 12, name: 'Toyota Highlander XLE', make: 'Toyota', model: 'Highlander', year: 2022, price: '$509,900 CAD', mileage: '21,290 km', fuel: 'Petrol', transmission: 'Automatic', image: 'https://images.pexels.com/photos/33980827/pexels-photo-33980827.jpeg?auto=compress&cs=tinysrgb&h=650&w=940', description: "Our LaFerrari-F8 Tributo 2021." },
+  { 
+    id: 1, 
+    name: 'Mercedes-Benz C300 AMG Shadow Edition', 
+    make: 'Mercedes-Benz', 
+    model: 'C-Class', 
+    year: 2022, 
+    price: 'Call 03 / 82 05 82', 
+    mileage: '60,000 miles', 
+    fuel: 'Petrol', 
+    transmission: 'Automatic', 
+    image: '/c300-amg/front-angle.jpg', 
+    images: [
+      '/c300-amg/front-angle.jpg',
+      '/c300-amg/front.jpg',
+      '/c300-amg/rear.jpg',
+      '/c300-amg/interior.jpg'
+    ],
+    tag: 'AMG SHADOW EDITION',
+    description: '2022 Mercedes Benz C300 AMG SHADOW EDITION featuring AMG Line, LED Headlights + Adaptive Highbeam, 11.9" MBUX Touchscreen, 360° Camera / Parking Assistance, Panoramic Sunroof, Power-folding mirrors, AMG sport seats, Blind Spot Assist, and Attention Assist. For more info call us or WhatsApp on: 03 / 82 05 82.' 
+  },
+  { 
+    id: 2, 
+    name: 'BMW 316i Sport Line', 
+    make: 'BMW', 
+    model: '3 Series', 
+    year: 2015, 
+    price: 'Call 03 / 82 05 82', 
+    mileage: '75,000 km', 
+    fuel: 'Petrol', 
+    transmission: 'Automatic', 
+    image: '/bmw-316i/front-angle.jpg', 
+    images: [
+      '/bmw-316i/front-angle.jpg',
+      '/bmw-316i/front.jpg',
+      '/bmw-316i/rear-angle.jpg',
+      '/bmw-316i/interior.jpg',
+      '/bmw-316i/wheel.jpg'
+    ],
+    tag: 'SPORT LINE',
+    description: '2015 BMW 316i Sport Line featuring a 2.0L 4-Cylinder engine, black leather interior (Like NEW), Company source, Premium Package, Dynamic headlights, Auto park system, and 75,000 km. For more info call us or WhatsApp on: 03 / 82 05 82.' 
+  },
+  { 
+    id: 3, 
+    name: 'BMW 430i Gran Coupé', 
+    make: 'BMW', 
+    model: '4 Series', 
+    year: 2017, 
+    price: 'Call 03 / 82 05 82', 
+    mileage: 'Excellent Condition', 
+    fuel: 'Petrol', 
+    transmission: 'Automatic', 
+    image: '/bmw-430i/front-angle.jpg', 
+    images: [
+      '/bmw-430i/front-angle.jpg',
+      '/bmw-430i/front.jpg',
+      '/bmw-430i/badge.jpg',
+      '/bmw-430i/rear.jpg',
+      '/bmw-430i/rear-angle.jpg'
+    ],
+    tag: 'GRAN COUPÉ',
+    description: '2017 BMW 430i Gran Coupé featuring a 2.0L Turbo engine with 8-speed automatic transmission and paddle shifters, Head-Up Display (HUD), Rear view camera, Black-on-Black spec, Sunroof, Power folding mirrors, and Electric trunk. For more info call us or WhatsApp on: 03 / 82 05 82.' 
+  },
+  { 
+    id: 4, 
+    name: 'Range Rover Sport HSE V6', 
+    make: 'Land Rover', 
+    model: 'Range Rover Sport', 
+    year: 2019, 
+    price: 'Call 03 / 82 05 82', 
+    mileage: '63,000 miles', 
+    fuel: 'Petrol', 
+    transmission: 'Automatic', 
+    image: '/range-rover-sport/front-angle.jpg', 
+    images: [
+      '/range-rover-sport/front-angle.jpg',
+      '/range-rover-sport/front.jpg',
+      '/range-rover-sport/rear-angle.jpg',
+      '/range-rover-sport/interior-console.jpg',
+      '/range-rover-sport/interior-cockpit.jpg'
+    ],
+    tag: 'HSE V6 TURBO',
+    description: '2019 Land Rover Range Rover Sport HSE V6 featuring a 3.0L Turbo V6 engine, Clean Carfax, Black on Black specification, Panoramic roof, Heated seats, 360° Surround Camera system, Fully loaded package, 63,000 miles, Car loan available with 2 months warranty. For more info call us or WhatsApp on: 03 / 82 05 82.' 
+  },
+  { 
+    id: 5, 
+    name: 'Mercedes-Benz GLC 300 4MATIC', 
+    make: 'Mercedes-Benz', 
+    model: 'GLC Series', 
+    year: 2019, 
+    price: 'Call 03 / 82 05 82', 
+    mileage: '31,000 miles', 
+    fuel: 'Petrol', 
+    transmission: 'Automatic', 
+    image: '/mercedes-glc/front-angle.jpg', 
+    images: [
+      '/mercedes-glc/front-angle.jpg',
+      '/mercedes-glc/front.jpg',
+      '/mercedes-glc/rear-angle.jpg',
+      '/mercedes-glc/dashboard.jpg',
+      '/mercedes-glc/interior.jpg'
+    ],
+    tag: 'GLC 300 4MATIC',
+    description: '2019 Mercedes-Benz GLC 300 4MATIC featuring a Black-on-Black color combination, Panoramic Sunroof, LED lighting system, Full Oxford Perforated Leather Seating, Navigation System, Remote keyless entry, Seat Memory, Blind Spot Monitor Closing Vehicle Sensing, Rear Parking Aid, 360° Surround Camera, Back-Up Camera, and Heated door mirrors. 31,000 miles, Car loan available with 2 months warranty. For more info call us or WhatsApp on: 03 / 82 05 82.' 
+  },
+  { 
+    id: 6, 
+    name: 'Mercedes-Benz C300 Coupé', 
+    make: 'Mercedes-Benz', 
+    model: 'C-Class', 
+    year: 2018, 
+    price: 'Call 03 / 82 05 82', 
+    mileage: '91,000 miles', 
+    fuel: 'Petrol', 
+    transmission: 'Automatic', 
+    image: '/c300-coupe/front-angle.jpg', 
+    images: [
+      '/c300-coupe/front-angle.jpg',
+      '/c300-coupe/front.jpg',
+      '/c300-coupe/rear-angle.jpg',
+      '/c300-coupe/interior.jpg',
+      '/c300-coupe/cockpit.jpg'
+    ],
+    tag: 'C300 COUPÉ',
+    description: '2018 Mercedes-Benz C300 Coupé featuring a Black-on-Black color specification, zero accident history, 91,000 miles, Panoramic roof, LED lighting, Full Oxford Perforated Leather Seating, Navigation System, Remote keyless entry, Seat Memory, Blind Spot Monitor, Rear Parking Aid, 360° Surround Camera, Heated door mirrors, and 4 brand new tires. Car loan available with 2 months warranty. For more info call us or WhatsApp on: 03 / 82 05 82.' 
+  },
+  { 
+    id: 7, 
+    name: 'Porsche Macan S', 
+    make: 'Porsche', 
+    model: 'Macan', 
+    year: 2018, 
+    price: 'Call 03 / 82 05 82', 
+    mileage: '77,000 miles', 
+    fuel: 'Petrol', 
+    transmission: 'Automatic', 
+    image: '/porsche-macan/front-angle.jpg', 
+    images: [
+      '/porsche-macan/front-angle.jpg',
+      '/porsche-macan/front.jpg',
+      '/porsche-macan/rear-angle.jpg',
+      '/porsche-macan/cockpit.jpg',
+      '/porsche-macan/dashboard.jpg'
+    ],
+    tag: 'SPORT CHRONO 340HP',
+    description: '2018 Porsche Macan S featuring a 3.0L Twin-Turbocharged V6 Engine (340 HP) with 7-Speed PDK AWD, Sport Chrono Package with Dash Stopwatch & Sport Plus Mode, Porsche Torque Vectoring Plus (PTV+), Aggressive Sport Exhaust, 14-Way Power Sport Black Leather Seats with 3 Memory positions, Heated & Cooled seats, Heated Steering Wheel, Adaptive Cruise Control (ACC) with PAS Self-Braking, Lane Change Assist, 360-degree cameras, 4 original new disc brakes and pads, and fresh oil service. 77,000 miles. For more info call us or WhatsApp on: 03 / 82 05 82.' 
+  },
+  { 
+    id: 8, 
+    name: 'Range Rover Velar P380 R-Dynamic', 
+    make: 'Land Rover', 
+    model: 'Range Rover Velar', 
+    year: 2018, 
+    price: 'Call 03 / 82 05 82', 
+    mileage: '98,000 miles', 
+    fuel: 'Petrol', 
+    transmission: 'Automatic', 
+    image: '/range-rover-velar/front-angle.jpg', 
+    images: [
+      '/range-rover-velar/front-angle.jpg',
+      '/range-rover-velar/front.jpg',
+      '/range-rover-velar/rear-angle.jpg',
+      '/range-rover-velar/rear.jpg',
+      '/range-rover-velar/interior.jpg'
+    ],
+    tag: 'R-DYNAMIC P380 380HP',
+    description: '2018 Land Rover Range Rover Velar P380 R-Dynamic featuring a 3.0L Supercharged V6 engine producing 380 HP with AWD, Panoramic Roof, Digital Dashboard, Meridian Sound System, Memory Seats, Ambient Lighting, Lane Assist, and Adaptive Cruise Control. 98,000 miles. For more info call us or WhatsApp on: 03 / 82 05 82.' 
+  },
+  { 
+    id: 9, 
+    name: 'Range Rover Sport HSE V6 (7 Seats)', 
+    make: 'Land Rover', 
+    model: 'Range Rover Sport', 
+    year: 2018, 
+    price: 'Call 03 / 82 05 82', 
+    mileage: 'Clean Carfax', 
+    fuel: 'Petrol', 
+    transmission: 'Automatic', 
+    image: '/range-rover-sport-2018/front-angle.jpg', 
+    images: [
+      '/range-rover-sport-2018/front-angle.jpg',
+      '/range-rover-sport-2018/front.jpg',
+      '/range-rover-sport-2018/rear-angle.jpg',
+      '/range-rover-sport-2018/interior-console.jpg',
+      '/range-rover-sport-2018/cockpit.jpg'
+    ],
+    tag: '7 SEATER HSE V6',
+    description: '2018 Land Rover Range Rover Sport HSE V6 featuring 7-passenger seating, 3.0L Turbo V6 engine, Clean Carfax, Black-on-Black specification, Panoramic roof, Heated seats, 360° Surround Camera system, Fully loaded option package, Car loan available with 2 months warranty. For more info call us or WhatsApp on: 03 / 82 05 82.' 
+  },
+  { 
+    id: 10, 
+    name: 'BMW X6 Individual Edition Twin Turbo', 
+    make: 'BMW', 
+    model: 'X6', 
+    year: 2015, 
+    price: 'Call 03 / 82 05 82', 
+    mileage: '92,000 km', 
+    fuel: 'Petrol', 
+    transmission: 'Automatic', 
+    image: '/bmw-x6/front-angle.jpg', 
+    images: [
+      '/bmw-x6/front-angle.jpg',
+      '/bmw-x6/front.jpg',
+      '/bmw-x6/rear-angle.jpg',
+      '/bmw-x6/dashboard.jpg',
+      '/bmw-x6/rear-seats.jpg'
+    ],
+    tag: 'INDIVIDUAL TWIN TURBO',
+    description: '2015 BMW X6 Individual Edition Twin Turbo featuring a 6-Cylinder Twin Turbo engine, Clean Carfax, Company source, Black exterior on Cognac Extra-vaganza leather interior (Like NEW), Premium Package, Sunroof, Adaptive LED headlights, New Bridgestone tires, Auto park system, Heated & Ventilated (Cooled) seats, and 360º View Camera. 92,000 km. For more info call us or WhatsApp on: 03 / 82 05 82.' 
+  },
+  { 
+    id: 11, 
+    name: 'Mercedes-Benz C300 AMG Package', 
+    make: 'Mercedes-Benz', 
+    model: 'C-Class', 
+    year: 2019, 
+    price: 'Call 03 / 82 05 82', 
+    mileage: '82,000 miles', 
+    fuel: 'Petrol', 
+    transmission: 'Automatic', 
+    image: '/c300-white/front-angle.jpg', 
+    images: [
+      '/c300-white/front-angle.jpg',
+      '/c300-white/front.jpg',
+      '/c300-white/rear-angle.jpg',
+      '/c300-white/dashboard.jpg',
+      '/c300-white/interior-rear.jpg'
+    ],
+    tag: 'WHITE AMG PACKAGE',
+    description: '2019 Mercedes-Benz C300 AMG Package featuring a Polar White exterior on Cognac/Basket interior, Clean Carfax, AMG Line styling, Big Widescreen Infotainment with Apple CarPlay & Android Auto, Radar Distronic Function, Panoramic Roof, Blind Spot Assist, and Paddle Shifters. 82,000 miles. For more info call us or WhatsApp on: 03 / 82 05 82.' 
+  },
+  { 
+    id: 12, 
+    name: 'Jeep Grand Cherokee Limited 4x4', 
+    make: 'Jeep', 
+    model: 'Grand Cherokee', 
+    year: 2018, 
+    price: 'Call 03 / 82 05 82', 
+    mileage: 'Excellent Condition', 
+    fuel: 'Petrol', 
+    transmission: 'Automatic', 
+    image: '/jeep-grand-cherokee/front-angle.jpg', 
+    images: [
+      '/jeep-grand-cherokee/front-angle.jpg',
+      '/jeep-grand-cherokee/front.jpg',
+      '/jeep-grand-cherokee/rear.jpg',
+      '/jeep-grand-cherokee/cockpit.jpg',
+      '/jeep-grand-cherokee/dashboard.jpg'
+    ],
+    tag: 'LIMITED 4X4',
+    description: '2018 Jeep Grand Cherokee Limited featuring 4x4 Drive system, Grey exterior on Black leather interior, Sunroof, Touchscreen Infotainment System with Bluetooth & USB connectivity, Rear Camera + Parking Sensors, Lane Assist, Cruise Control, Keyless Entry & Push Button Start, Electric Power Seats, 2 months warranty. For more info call us or WhatsApp on: 03 / 82 05 82.' 
+  },
+  { 
+    id: 13, 
+    name: 'Range Rover Evoque HSE Dynamic V4', 
+    make: 'Land Rover', 
+    model: 'Range Rover Evoque', 
+    year: 2018, 
+    price: 'Call 03 / 82 05 82', 
+    mileage: '74,000 miles', 
+    fuel: 'Petrol', 
+    transmission: 'Automatic', 
+    image: '/range-rover-evoque/front-angle.jpg', 
+    images: [
+      '/range-rover-evoque/front-angle.jpg',
+      '/range-rover-evoque/front.jpg',
+      '/range-rover-evoque/rear.jpg',
+      '/range-rover-evoque/cockpit.jpg',
+      '/range-rover-evoque/dashboard.jpg'
+    ],
+    tag: 'HSE DYNAMIC V4',
+    description: '2018 Land Rover Range Rover Evoque HSE Dynamic V4 featuring 4-cylinder engine, Clean CarFax, Black-on-Black specification, Front & Rear parking sensors, Multifunction steering wheel with Paddle shifters, Electric Trunk, Front and Rear heated seats + Front cooled seats, Meridian Surround Sound System, Memory Seats, Panoramic Sunroof, Terrain Selector, Park Assist, LED headlights, Car loan available with 2 months warranty. For more info call us or WhatsApp on: 03 / 82 05 82.' 
+  },
 ];
 
 const inveltaClubPosts = [
@@ -105,7 +371,7 @@ const inveltaClubPosts = [
 function Logo({ onNavigate }: { onNavigate: (p: Page) => void }) {
   return (
     <div className="logo" onClick={() => onNavigate('home')}>
-      <span>INVELTA<br /><small>WEBAPP</small></span>
+      <span>MOUAWAD<br /><small>AUTOMOTIVE</small></span>
     </div>
   );
 }
@@ -139,7 +405,7 @@ function Header({ page, onNavigate }: { page: Page; onNavigate: (page: Page) => 
         <nav className="nav-links desktop-nav nav-left">
           <button className={page === 'inventory' ? 'nav-active' : ''} onClick={() => navigate('inventory')}>INVENTORY</button>
           <button className={page === 'about' ? 'nav-active' : ''} onClick={() => navigate('about')}>ABOUT</button>
-          <button className={page === 'journal' ? 'nav-active' : ''} onClick={() => navigate('journal')}>INVELTA CLUB +</button>
+          <button className={page === 'journal' ? 'nav-active' : ''} onClick={() => navigate('journal')}>MOUAWAD CLUB +</button>
         </nav>
         <Logo onNavigate={navigate} />
         <nav className="nav-links desktop-nav nav-right">
@@ -164,7 +430,7 @@ function Header({ page, onNavigate }: { page: Page; onNavigate: (page: Page) => 
               ABOUT
             </button>
             <button className={page === 'journal' ? 'nav-active' : ''} onClick={() => navigate('journal')}>
-              INVELTA CLUB +
+              MOUAWAD CLUB +
             </button>
             <div className="mobile-nav-divider" />
             <button className={page === 'contact' ? 'nav-active' : ''} onClick={() => navigate('contact')}>
@@ -192,9 +458,8 @@ function CarCard({ car, onClick }: { car: Car; onClick: () => void }) {
         <h3 className="car-name">{car.name}</h3>
         <p className="car-specs-line">{car.mileage} • {car.fuel} • {car.transmission}</p>
         <div className="car-price-row">
-          <span className="car-price">{car.price}</span>
-          <button className="car-view-btn">
-            VIEW <ArrowRight size={12} />
+          <button className="car-more-details-btn">
+            <span>MORE DETAILS</span> <ArrowRight size={13} />
           </button>
         </div>
       </div>
@@ -213,16 +478,18 @@ function HomePage({ onNavigate, onSelectCar }: { onNavigate: (page: Page) => voi
   return (
     <div className="home-page-container">
       {/* Hero Section */}
-      <section className="hero-section">
-        <div className="hero-overlay" />
+      <section className="hero-section dark-emblem-hero">
+        <div className="hero-glow-bg" />
         <div className="hero-content">
-          <p className="hero-eyebrow">PREMIUM PRE-OWNED VEHICLES</p>
-          <h1 className="hero-headline">
-            Drive Something<br />
-            <em>Remarkable.</em>
-          </h1>
-          <p className="hero-sub">
-            Curated luxury and performance cars, inspected to the highest standard. Your next vehicle is waiting.
+          <div className="hero-banner-container">
+            <img
+              src="/roland-mouawad-expo-logo.png"
+              alt="Roland Mouawad Expo"
+              className="hero-banner-img"
+            />
+          </div>
+          <p className="hero-subtext-clean">
+            SHOWROOM & PRE-OWNED LUXURY VEHICLES • SIN EL FIL, BEIRUT
           </p>
           <form className="hero-search" onSubmit={handleSearch}>
             <Search size={20} className="hero-search-icon" />
@@ -236,7 +503,15 @@ function HomePage({ onNavigate, onSelectCar }: { onNavigate: (page: Page) => voi
           </form>
           <div className="hero-cta-row">
             <button className="hero-cta-primary" onClick={() => onNavigate('inventory')}>EXPLORE INVENTORY</button>
-            <button className="hero-cta-ghost" onClick={() => onNavigate('inventory')}>VIEW ALL CARS <ArrowRight size={15} /></button>
+            <a
+              href="https://wa.me/96103820582"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hero-cta-ghost"
+              style={{ textDecoration: 'none' }}
+            >
+              WHATSAPP CONCIERGE (03 82 05 82) <ArrowRight size={15} />
+            </a>
           </div>
         </div>
       </section>
@@ -289,7 +564,7 @@ function HomePage({ onNavigate, onSelectCar }: { onNavigate: (page: Page) => voi
             VIEW FULL COLLECTION ({cars.length} CARS) <ArrowRight size={14} />
           </button>
           <button className="outline-button" onClick={() => onNavigate('about')}>
-            THE INVELTA STANDARD
+            THE MOUAWAD STANDARD
           </button>
         </div>
       </section>
@@ -340,7 +615,7 @@ function HomePage({ onNavigate, onSelectCar }: { onNavigate: (page: Page) => voi
       <section className="home-why-section">
         <div className="home-why-inner">
           <div className="home-section-header">
-            <p className="home-section-eyebrow">WHY CHOOSE INVELTA</p>
+            <p className="home-section-eyebrow">WHY CHOOSE MOUAWAD</p>
             <h2 className="home-section-title">A Quieter Kind of Confidence</h2>
             <p className="home-section-subtitle">
               We believe purchasing a remarkable pre-owned vehicle should feel as seamless as driving one.
@@ -372,7 +647,7 @@ function HomePage({ onNavigate, onSelectCar }: { onNavigate: (page: Page) => voi
       {/* Invelta Club Journal Preview */}
       <section className="home-journal-section">
         <div className="home-section-header">
-          <p className="home-section-eyebrow">INVELTA CLUB +</p>
+          <p className="home-section-eyebrow">MOUAWAD CLUB +</p>
           <h2 className="home-section-title">Latest Journal Stories</h2>
         </div>
         <div className="journal-preview-grid">
@@ -655,16 +930,32 @@ function InventoryPage({ onSelectCar }: { onSelectCar: (id: number) => void }) {
     // Year Range
     result = result.filter(car => car.year >= filters.minYear && car.year <= filters.maxYear);
 
-    // Price — strip non-digits then compare
+    // Price — strip non-digits then compare (allow 'Call for Price' cars to always pass)
     result = result.filter(car => {
-      const p = parseInt(car.price.replace(/\D/g, ''));
+      if (car.price.toLowerCase().includes('call') || car.price.toLowerCase().includes('inquire') || car.price.toLowerCase().includes('poa')) {
+        return true;
+      }
+      const p = parseInt(car.price.replace(/\D/g, ''), 10);
+      if (isNaN(p)) return true;
       return p >= filters.minPrice && p <= filters.maxPrice;
     });
 
     // Sort
-    if (sort === 'Price: low to high') result = [...result].sort((a, b) => parseInt(a.price.replace(/\D/g, '')) - parseInt(b.price.replace(/\D/g, '')));
-    else if (sort === 'Price: high to low') result = [...result].sort((a, b) => parseInt(b.price.replace(/\D/g, '')) - parseInt(a.price.replace(/\D/g, '')));
-    else result = [...result].sort((a, b) => b.year - a.year);
+    if (sort === 'Price: low to high') {
+      result = [...result].sort((a, b) => {
+        const pA = parseInt(a.price.replace(/\D/g, ''), 10) || 0;
+        const pB = parseInt(b.price.replace(/\D/g, ''), 10) || 0;
+        return pA - pB;
+      });
+    } else if (sort === 'Price: high to low') {
+      result = [...result].sort((a, b) => {
+        const pA = parseInt(a.price.replace(/\D/g, ''), 10) || 0;
+        const pB = parseInt(b.price.replace(/\D/g, ''), 10) || 0;
+        return pB - pA;
+      });
+    } else {
+      result = [...result].sort((a, b) => b.year - a.year);
+    }
 
     return result;
   }, [searchQuery, filters, sort]);
@@ -741,36 +1032,121 @@ function InventoryPage({ onSelectCar }: { onSelectCar: (id: number) => void }) {
 
 function CarDetailsPage({ carId, onNavigate }: { carId: number; onNavigate: (page: Page) => void }) {
   const car = cars.find(c => c.id === carId);
+  const [activeImgIndex, setActiveImgIndex] = useState(0);
+
   if (!car) return <div style={{ padding: '100px 40px', textAlign: 'center' }}>Car not found.</div>;
+
+  const gallery = car.images && car.images.length > 0 ? car.images : [car.image];
+  const activeImage = gallery[activeImgIndex] || car.image;
+  const whatsappMessage = encodeURIComponent(`Hello Mouawad Automotive, I am interested in the ${car.year} ${car.name}.`);
+
   return (
     <main className="car-details-page">
-      <div className="car-details-header">
-        <button className="back-btn" onClick={() => onNavigate('inventory')}>
-          <ChevronLeft size={16} /> <span>BACK TO INVENTORY</span>
-        </button>
-      </div>
-      <div className="car-details-hero"><img src={car.image} alt={car.name} /></div>
-      <div className="car-details-content">
-        <div className="car-details-main">
-          <h1>{car.year} {car.name}</h1>
-          <div className="car-badges"><span className="badge">Pre-Owned</span><span className="badge">Certified</span></div>
-          <div className="car-description-section">
-            <h2>Vehicle Overview</h2>
-            <p>{car.description}</p>
-            <p>Experience the perfect blend of performance, luxury, and advanced technology. This exceptionally maintained vehicle has passed our rigorous inspection process and is ready for its next owner.</p>
-          </div>
+      <div className="car-details-wrapper">
+        <div className="car-details-top-bar">
+          <button className="back-btn" onClick={() => onNavigate('inventory')}>
+            <ChevronLeft size={16} /> <span>BACK TO INVENTORY</span>
+          </button>
         </div>
-        <div className="car-details-sidebar">
-          <div className="pricing-card">
-            <div className="price">{car.price}</div>
-            <div className="specs-grid">
-              <div className="spec-item"><Gauge size={20} strokeWidth={1.5} /><div><span className="spec-label">Mileage</span><span className="spec-value">{car.mileage}</span></div></div>
-              <div className="spec-item"><Fuel size={20} strokeWidth={1.5} /><div><span className="spec-label">Fuel</span><span className="spec-value">{car.fuel}</span></div></div>
-              <div className="spec-item"><SlidersHorizontal size={20} strokeWidth={1.5} /><div><span className="spec-label">Transmission</span><span className="spec-value">{car.transmission}</span></div></div>
+
+        <div className="car-details-showcase">
+          {/* Left Column: Photo Frame & Thumbnails */}
+          <div className="car-gallery-column">
+            <div className="car-main-photo-frame">
+              <img src={activeImage} alt={car.name} />
+              {car.tag && <span className="photo-tag-badge">{car.tag}</span>}
             </div>
-            <div className="action-buttons">
-              <button className="primary-button full-width">INQUIRE NOW</button>
-              <button className="outline-button full-width">BOOK TEST DRIVE</button>
+
+            {gallery.length > 1 && (
+              <div className="car-details-thumbnails-bar">
+                {gallery.map((imgUrl, idx) => (
+                  <button
+                    key={idx}
+                    className={`thumb-btn ${activeImgIndex === idx ? 'active' : ''}`}
+                    onClick={() => setActiveImgIndex(idx)}
+                  >
+                    <img src={imgUrl} alt={`${car.name} view ${idx + 1}`} />
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
+
+          {/* Right Column: Information, Specs & Actions */}
+          <div className="car-info-column">
+            <div className="car-title-block">
+              <span className="car-eyebrow">MOUAWAD AUTOMOTIVE • {car.make.toUpperCase()}</span>
+              <h1>{car.year} {car.name}</h1>
+              <div className="car-badges">
+                {car.tag && <span className="badge tag-badge">{car.tag}</span>}
+                <span className="badge make-badge">{car.make}</span>
+                <span className="badge year-badge">{car.year}</span>
+              </div>
+            </div>
+
+            {/* Quick Specs Grid */}
+            <div className="specs-grid-luxury">
+              <div className="spec-card">
+                <Gauge size={18} strokeWidth={1.5} className="spec-icon" />
+                <div className="spec-meta">
+                  <span className="spec-label">MILEAGE</span>
+                  <span className="spec-val">{car.mileage}</span>
+                </div>
+              </div>
+              <div className="spec-card">
+                <Fuel size={18} strokeWidth={1.5} className="spec-icon" />
+                <div className="spec-meta">
+                  <span className="spec-label">FUEL TYPE</span>
+                  <span className="spec-val">{car.fuel}</span>
+                </div>
+              </div>
+              <div className="spec-card">
+                <SlidersHorizontal size={18} strokeWidth={1.5} className="spec-icon" />
+                <div className="spec-meta">
+                  <span className="spec-label">TRANSMISSION</span>
+                  <span className="spec-val">{car.transmission}</span>
+                </div>
+              </div>
+              <div className="spec-card">
+                <ShieldCheck size={18} strokeWidth={1.5} className="spec-icon" />
+                <div className="spec-meta">
+                  <span className="spec-label">WARRANTY</span>
+                  <span className="spec-val">2 Months Included</span>
+                </div>
+              </div>
+            </div>
+
+            {/* CTAs */}
+            <div className="car-action-buttons">
+              <a
+                href={`https://wa.me/96103820582?text=${whatsappMessage}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="whatsapp-concierge-btn"
+              >
+                <MessageSquare size={16} /> WHATSAPP CONCIERGE (03 82 05 82)
+              </a>
+              <button className="book-testdrive-btn" onClick={() => onNavigate('contact')}>
+                BOOK A TEST DRIVE
+              </button>
+            </div>
+
+            {/* Vehicle Features Checklist */}
+            <div className="car-full-description">
+              <h2>VEHICLE FEATURES & HIGHLIGHTS</h2>
+              <div className="car-features-checklist">
+                {car.description
+                  .split(/(?:✅|•|\n|, |; )/)
+                  .map(p => p.trim())
+                  .filter(p => p.length > 0 && !p.toLowerCase().startsWith('for more info') && !p.toLowerCase().startsWith('call us'))
+                  .map(p => p.replace(/^(?:featuring|includes|equipped with)\s+/i, ''))
+                  .map((feature, idx) => (
+                    <div key={idx} className="feature-check-item">
+                      <CheckCircle size={16} className="check-icon" />
+                      <span>{feature}</span>
+                    </div>
+                  ))}
+              </div>
             </div>
           </div>
         </div>
@@ -809,7 +1185,7 @@ function InveltaClub() {
   return (
     <main className="page-main club-page">
       <section className="standard-hero dark-hero">
-        <p className="eyebrow">INVELTA CLUB +</p>
+        <p className="eyebrow">MOUAWAD CLUB +</p>
         <h1>NOTES ON THE ROAD LESS TRAVELLED.</h1>
         <p>Stories, ideas, and considered advice for a life in motion.</p>
       </section>
@@ -820,7 +1196,7 @@ function InveltaClub() {
             <div className="club-copy">
               <p className="club-category">{post.category}</p>
               <h2>{post.title}</h2>
-              <div className="club-meta"><span>{post.date}</span><ArrowRight size={17} /></div>
+          <div className="club-meta"><span>{post.date}</span><ArrowRight size={17} /></div>
             </div>
           </article>
         ))}
@@ -843,26 +1219,22 @@ function ContactPage() {
     name: '',
     email: '',
     phone: '',
-    subject: 'General Inquiry',
+    subject: 'Vehicle Purchase',
     message: '',
   });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setFormSubmitted(true);
-    setTimeout(() => {
-      setFormSubmitted(false);
-      setFormData({ name: '', email: '', phone: '', subject: 'General Inquiry', message: '' });
-    }, 6000);
   };
 
   return (
     <main className="page-main contact-page">
       {/* Hero Header */}
       <section className="standard-hero contact-hero">
-        <p className="eyebrow">GET IN TOUCH</p>
-        <h1>WE'RE HERE TO HELP.</h1>
-        <p>Whether you're looking for your next vehicle, scheduling a test drive, or exploring VIP concierge care, our dedicated team is at your service.</p>
+        <p className="eyebrow">EXPO ROLAND MOUAWAD</p>
+        <h1>MOUAWAD AUTOMOTIVE</h1>
+        <p>Whether you're looking for your next vehicle, scheduling a test drive, or inquiring about financing, our dedicated showroom team is at your service.</p>
       </section>
 
       {/* Main Channels Grid */}
@@ -874,12 +1246,12 @@ function ContactPage() {
               <Phone size={24} />
             </div>
             <h3>PHONE & HOTLINE</h3>
-            <p className="contact-card-desc">Call our sales specialists or VIP concierge team directly.</p>
+            <p className="contact-card-desc">Call our sales specialists or showroom hotline directly.</p>
             <div className="contact-card-details">
-              <a href="tel:18005550199" className="contact-link-bold">+1 (800) 555-0199</a>
-              <a href="tel:14165558471" className="contact-link-sub">+1 (416) 555-VIP1 (Local)</a>
+              <a href="tel:+9613820582" className="contact-link-bold">03 / 82 05 82 (+961 3 820 582)</a>
+              <a href="tel:+9613669915" className="contact-link-sub">03 / 66 99 15 (Showroom Line 2)</a>
             </div>
-            <a href="tel:18005550199" className="contact-card-action">CALL US NOW <ArrowRight size={14} /></a>
+            <a href="tel:+9613820582" className="contact-card-action">CALL US NOW <ArrowRight size={14} /></a>
           </div>
 
           {/* WhatsApp */}
@@ -890,11 +1262,11 @@ function ContactPage() {
             <h3>WHATSAPP CHAT</h3>
             <p className="contact-card-desc">Instant 1-on-1 concierge assistance for quick inquiries and vehicle photos.</p>
             <div className="contact-card-details">
-              <span className="contact-link-bold">+1 (416) 555-0199</span>
+              <span className="contact-link-bold">03 / 82 05 82</span>
               <span className="contact-status-badge">• Online & Ready</span>
             </div>
             <a
-              href="https://wa.me/14165550199?text=Hello%20Invelta%20Concierge,%20I%20would%20like%20to%20inquire%20about%20a%20vehicle."
+              href="https://wa.me/96103820582?text=Hello%20Mouawad%20Automotive,%20I%20would%20like%20to%20inquire%20about%20a%20vehicle."
               target="_blank"
               rel="noopener noreferrer"
               className="contact-card-action whatsapp-action"
@@ -903,38 +1275,24 @@ function ContactPage() {
             </a>
           </div>
 
-          {/* Email */}
-          <div className="contact-card">
-            <div className="contact-card-icon">
-              <Mail size={24} />
-            </div>
-            <h3>EMAIL US</h3>
-            <p className="contact-card-desc">Send us your specifications or inquiries anytime. We respond within 2 hours.</p>
-            <div className="contact-card-details">
-              <a href="mailto:concierge@inveltawebapp.com" className="contact-link-bold">concierge@inveltawebapp.com</a>
-              <a href="mailto:sales@inveltawebapp.com" className="contact-link-sub">sales@inveltawebapp.com</a>
-            </div>
-            <a href="mailto:concierge@inveltawebapp.com" className="contact-card-action">SEND AN EMAIL <ArrowRight size={14} /></a>
-          </div>
-
-          {/* Social Media */}
+          {/* Social Media & Instagram */}
           <div className="contact-card">
             <div className="contact-card-icon">
               <Instagram size={24} />
             </div>
-            <h3>SOCIAL MEDIA</h3>
-            <p className="contact-card-desc">Follow our latest arrivals, private collections, and automobile stories.</p>
+            <h3>INSTAGRAM & FACEBOOK</h3>
+            <p className="contact-card-desc">Follow our official Instagram & Facebook pages for new inventory arrivals, vehicle photos, and videos.</p>
             <div className="social-links-grid">
-              <a href="https://instagram.com" target="_blank" rel="noreferrer" className="social-chip">
-                <Instagram size={14} /> @inveltawebapp
+              <a href="https://www.instagram.com/r.mouawad.expo/?hl=en" target="_blank" rel="noreferrer" className="social-chip">
+                <Instagram size={14} /> @r.mouawad.expo
               </a>
-              <a href="https://facebook.com" target="_blank" rel="noreferrer" className="social-chip">
-                <Facebook size={14} /> /invelta.official
-              </a>
-              <a href="https://twitter.com" target="_blank" rel="noreferrer" className="social-chip">
-                <Twitter size={14} /> @invelta_official
+              <a href="https://www.facebook.com/exporolandmouawad/" target="_blank" rel="noreferrer" className="social-chip">
+                <Facebook size={14} /> Expo Roland Mouawad
               </a>
             </div>
+            <a href="https://www.instagram.com/r.mouawad.expo/?hl=en" target="_blank" rel="noreferrer" className="contact-card-action">
+              FOLLOW ON INSTAGRAM <ArrowRight size={14} />
+            </a>
           </div>
         </div>
       </section>
@@ -951,7 +1309,7 @@ function ContactPage() {
               <div className="form-success-box">
                 <CheckCircle size={32} color="#10b981" />
                 <h3>THANK YOU FOR YOUR MESSAGE</h3>
-                <p>Your inquiry has been received. One of our senior concierges will reach out to you within 2 business hours.</p>
+                <p>Your inquiry has been received. One of our concierges will reach out to you shortly via phone or WhatsApp.</p>
               </div>
             ) : (
               <form className="contact-form" onSubmit={handleSubmit}>
@@ -962,18 +1320,17 @@ function ContactPage() {
                       id="c-name"
                       type="text"
                       required
-                      placeholder="e.g. Alexander Vance"
+                      placeholder="e.g. John Doe"
                       value={formData.name}
                       onChange={e => setFormData({ ...formData, name: e.target.value })}
                     />
                   </div>
                   <div className="form-group">
-                    <label htmlFor="c-email">EMAIL ADDRESS *</label>
+                    <label htmlFor="c-email">EMAIL ADDRESS</label>
                     <input
                       id="c-email"
                       type="email"
-                      required
-                      placeholder="alexander@example.com"
+                      placeholder="name@example.com"
                       value={formData.email}
                       onChange={e => setFormData({ ...formData, email: e.target.value })}
                     />
@@ -982,11 +1339,12 @@ function ContactPage() {
 
                 <div className="form-row">
                   <div className="form-group">
-                    <label htmlFor="c-phone">PHONE NUMBER</label>
+                    <label htmlFor="c-phone">PHONE / WHATSAPP NUMBER *</label>
                     <input
                       id="c-phone"
                       type="tel"
-                      placeholder="+1 (555) 000-0000"
+                      required
+                      placeholder="+961 3 000 000"
                       value={formData.phone}
                       onChange={e => setFormData({ ...formData, phone: e.target.value })}
                     />
@@ -1001,7 +1359,7 @@ function ContactPage() {
                       <option value="Vehicle Purchase">Vehicle Purchase</option>
                       <option value="Book Test Drive">Book Test Drive</option>
                       <option value="Sell / Trade-in">Sell / Trade-in Vehicle</option>
-                      <option value="VIP Concierge">VIP Concierge Care</option>
+                      <option value="Car Financing">Car Financing / Loan</option>
                       <option value="General Inquiry">General Inquiry</option>
                     </select>
                   </div>
@@ -1034,14 +1392,14 @@ function ContactPage() {
                 <MapPin size={20} className="info-icon" />
                 <div>
                   <span className="info-label">SHOWROOM ADDRESS</span>
-                  <span className="info-val">100 Yorkville Avenue, Suite 400<br />Toronto, ON M5R 1B9, Canada</span>
+                  <span className="info-val">Sin El Fil, Chalouhi Highway<br />Beirut, Lebanon</span>
                 </div>
               </div>
               <div className="info-item">
                 <Clock size={20} className="info-icon" />
                 <div>
                   <span className="info-label">OPERATING HOURS</span>
-                  <span className="info-val">Mon – Fri: 9:00 AM – 7:00 PM<br />Saturday: 10:00 AM – 6:00 PM<br />Sunday: By Appointment</span>
+                  <span className="info-val">Monday – Saturday: 9:00 AM – 7:00 PM<br />Sunday: By Appointment</span>
                 </div>
               </div>
             </div>
@@ -1049,8 +1407,8 @@ function ContactPage() {
             {/* Google Map iFrame */}
             <div className="google-map-wrapper">
               <iframe
-                title="Invelta Webapp Showroom Location"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2885.836881729237!2d-79.3956371!3d43.6702651!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b34a87e5b2923%3A0x7d025114a82087d!2sYorkville%20Ave%2C%20Toronto%2C%20ON!5e0!3m2!1sen!2sca!4v1700000000000!5m2!1sen!2sca"
+                title="Expo Roland Mouawad Showroom Location"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13251.107936173024!2d35.5342!3d33.8768!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151f173b22b10a2f%3A0x6b7774e1d528b3a0!2sSin%20El%20Fil%2C%20Lebanon!5e0!3m2!1sen!2slb!4v1700000000000!5m2!1sen!2slb"
                 width="100%"
                 height="320"
                 style={{ border: 0 }}
@@ -1086,10 +1444,13 @@ function App() {
         <div>
           <button onClick={() => navigate('inventory')}>INVENTORY</button>
           <button onClick={() => navigate('about')}>ABOUT</button>
-          <button onClick={() => navigate('journal')}>INVELTA CLUB +</button>
+          <button onClick={() => navigate('journal')}>MOUAWAD CLUB +</button>
           <button onClick={() => navigate('contact')}>CONTACT US</button>
+          <a href="https://www.instagram.com/r.mouawad.expo/?hl=en" target="_blank" rel="noreferrer" style={{ color: 'inherit', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '4px', fontSize: '11px', fontWeight: 600 }}>
+            <Instagram size={14} /> @r.mouawad.expo
+          </a>
         </div>
-        <span>© 2024 Invelta Webapp</span>
+        <span>© 2024 Mouawad Automotive</span>
       </footer>
     </div>
   );
