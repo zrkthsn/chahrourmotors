@@ -32,7 +32,7 @@ img { display: block; width: 100%; object-fit: cover; }
 .mobile-menu-btn { display: none; background: none; color: #182128; }
 .mobile-nav { display: none; }
 /* ═══════════════════════════════════════════════
-   HERO SECTION (CLEAN PURE BLACK SCREEN)
+   HERO SECTION (CLEAN PURE BLACK WITH EMBLEM)
 ═══════════════════════════════════════════════ */
 .hero-section.dark-emblem-hero {
   position: relative;
@@ -40,7 +40,7 @@ img { display: block; width: 100%; object-fit: cover; }
   height: 100vh;
   min-height: 100vh;
   min-height: 100dvh;
-  padding: 120px 20px 60px;
+  padding: 100px 20px 40px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -55,7 +55,7 @@ img { display: block; width: 100%; object-fit: cover; }
   z-index: 2;
   text-align: center;
   color: #fff;
-  max-width: 960px;
+  max-width: 900px;
   width: 100%;
   padding: 0 20px;
   display: flex;
@@ -64,32 +64,34 @@ img { display: block; width: 100%; object-fit: cover; }
   gap: 0;
 }
 
-.hero-eyebrow-minimal {
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.35em;
-  color: rgba(255, 255, 255, 0.45);
-  margin: 0 0 18px;
-  text-transform: uppercase;
+.hero-logo-wrapper {
+  width: 100%;
+  max-width: 760px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
 }
 
-.hero-title-clean {
-  font-size: clamp(36px, 5.8vw, 76px);
-  font-weight: 800;
-  letter-spacing: 0.16em;
-  color: #ffffff;
-  margin: 0 0 22px;
-  text-transform: uppercase;
-  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-  line-height: 1.12;
+.hero-logo-img {
+  width: 100%;
+  max-width: 700px;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.9));
+  transition: transform 0.3s ease;
+}
+
+.hero-logo-img:hover {
+  transform: scale(1.02);
 }
 
 .hero-subtext-clean {
-  font-size: 11px;
-  font-weight: 700;
+  font-size: 12px;
+  font-weight: 800;
   letter-spacing: 0.28em;
-  color: rgba(255, 255, 255, 0.6);
-  margin: 0 0 38px;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0 0 36px;
   text-transform: uppercase;
 }
 
@@ -241,14 +243,13 @@ img { display: block; width: 100%; object-fit: cover; }
     box-sizing: border-box;
     justify-content: center;
   }
-  .hero-title-clean {
-    font-size: 32px;
-    letter-spacing: 0.12em;
+  .hero-logo-wrapper {
+    max-width: 330px;
     margin-bottom: 16px;
   }
   .hero-subtext-clean {
     font-size: 10px;
-    letter-spacing: 0.18em;
+    letter-spacing: 0.16em;
     margin-bottom: 24px;
   }
   .hero-search {

@@ -495,8 +495,13 @@ function HomePage({
       {/* Hero Section */}
       <section className="hero-section dark-emblem-hero">
         <div className="hero-content">
-          <p className="hero-eyebrow-minimal">MOUAWAD AUTOMOTIVE</p>
-          <h1 className="hero-title-clean">ROLAND MOUAWAD EXPO</h1>
+          <div className="hero-logo-wrapper">
+            <img
+              src="/roland-mouawad-expo-logo.png"
+              alt="Roland Mouawad Expo"
+              className="hero-logo-img"
+            />
+          </div>
           <p className="hero-subtext-clean">
             SHOWROOM & PRE-OWNED LUXURY VEHICLES • SIN EL FIL, BEIRUT
           </p>
