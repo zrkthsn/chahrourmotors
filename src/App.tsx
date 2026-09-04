@@ -468,9 +468,24 @@ function CarCard({ car, onClick }: { car: Car; onClick: () => void }) {
 }
 
 /* ─── Home Page ─────────────────────────────────────── */
-function HomePage({ onNavigate, onSelectCar }: { onNavigate: (page: Page) => void; onSelectCar: (id: number) => void }) {
+function HomePage({
+  onNavigate,
+  onSelectCar,
+  onSearch,
+}: {
+  onNavigate: (page: Page) => void;
+  onSelectCar: (id: number) => void;
+  onSearch: (query: string) => void;
+}) {
   const [q, setQ] = useState('');
-  const handleSearch = (e: React.FormEvent) => { e.preventDefault(); onNavigate('inventory'); };
+  const handleSearch = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (q.trim()) {
+      onSearch(q.trim());
+    } else {
+      onNavigate('inventory');
+    }
+  };
 
   // Select 4 featured cars for the 4-in-a-row grid
   const featuredCars = cars.slice(0, 4);
@@ -479,15 +494,9 @@ function HomePage({ onNavigate, onSelectCar }: { onNavigate: (page: Page) => voi
     <div className="home-page-container">
       {/* Hero Section */}
       <section className="hero-section dark-emblem-hero">
-        <div className="hero-glow-bg" />
         <div className="hero-content">
-          <div className="hero-banner-container">
-            <img
-              src="/roland-mouawad-expo-logo.png"
-              alt="Roland Mouawad Expo"
-              className="hero-banner-img"
-            />
-          </div>
+          <p className="hero-eyebrow-minimal">MOUAWAD AUTOMOTIVE</p>
+          <h1 className="hero-title-clean">ROLAND MOUAWAD EXPO</h1>
           <p className="hero-subtext-clean">
             SHOWROOM & PRE-OWNED LUXURY VEHICLES • SIN EL FIL, BEIRUT
           </p>
@@ -870,13 +879,23 @@ function SidebarFilter({
   );
 }
 
-function InventoryPage({ onSelectCar }: { onSelectCar: (id: number) => void }) {
+function InventoryPage({
+  initialQuery = '',
+  onSelectCar,
+}: {
+  initialQuery?: string;
+  onSelectCar: (id: number) => void;
+}) {
   const [sort, setSort] = useState('Newest first');
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState(initialQuery);
   const [filters, setFilters] = useState<FilterState>(DEFAULT_FILTERS);
   const [sortOpen, setSortOpen] = useState(false);
   const [mobileFilterOpen, setMobileFilterOpen] = useState(false);
   const sortOptions = ['Newest first', 'Price: low to high', 'Price: high to low'];
+
+  useEffect(() => {
+    setSearchQuery(initialQuery);
+  }, [initialQuery]);
 
   const activeCount =
     filters.makes.length +
@@ -890,26 +909,23 @@ function InventoryPage({ onSelectCar }: { onSelectCar: (id: number) => void }) {
   const displayCars = useMemo(() => {
     let result = cars;
 
-    // Search
+    // Enhanced Multi-keyword Search
     if (searchQuery.trim() !== '') {
-      const q = searchQuery.toLowerCase();
-      result = result.filter(car =>
-        car.name.toLowerCase().includes(q) ||
-        car.make.toLowerCase().includes(q) ||
-        car.model.toLowerCase().includes(q) ||
-        car.description.toLowerCase().includes(q) ||
-        car.year.toString().includes(q)
-      );
+      const terms = searchQuery.toLowerCase().trim().split(/\s+/);
+      result = result.filter(car => {
+        const searchableText = `${car.name} ${car.make} ${car.model} ${car.tag || ''} ${car.year} ${car.fuel} ${car.transmission} ${car.description}`.toLowerCase();
+        return terms.every(term => searchableText.includes(term));
+      });
     }
 
     // Make / Brand
     if (filters.makes.length > 0) {
-      result = result.filter(car => filters.makes.includes(car.make) || filters.makes.some(m => car.name.startsWith(m)));
+      result = result.filter(car => filters.makes.includes(car.make) || filters.makes.some(m => car.name.toLowerCase().includes(m.toLowerCase())));
     }
 
     // Model
     if (filters.models.length > 0) {
-      result = result.filter(car => filters.models.includes(car.model) || filters.models.some(mod => car.name.includes(mod)));
+      result = result.filter(car => filters.models.includes(car.model) || filters.models.some(mod => car.name.toLowerCase().includes(mod.toLowerCase())));
     }
 
     // Exact Specific Years
@@ -999,7 +1015,7 @@ function InventoryPage({ onSelectCar }: { onSelectCar: (id: number) => void }) {
             {displayCars.length > 0 ? (
               displayCars.map((car) => <CarCard key={car.id} car={car} onClick={() => onSelectCar(car.id)} />)
             ) : (
-              <div className="no-results">No vehicles match your filters.</div>
+              <div className="no-results">No vehicles match your search. Try a different keyword or clear filters.</div>
             )}
           </div>
         </main>
@@ -1427,14 +1443,32 @@ function ContactPage() {
 function App() {
   const [page, setPage] = useState<Page>('home');
   const [activeCarId, setActiveCarId] = useState<number | null>(null);
-  const navigate = (nextPage: Page) => { setPage(nextPage); window.scrollTo({ top: 0, behavior: 'smooth' }); };
-  const handleSelectCar = (id: number) => { setActiveCarId(id); navigate('car'); };
+  const [searchQuery, setSearchQuery] = useState<string>('');
+
+  const navigate = (nextPage: Page) => {
+    if (nextPage !== 'inventory') {
+      setSearchQuery('');
+    }
+    setPage(nextPage);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleHeroSearch = (query: string) => {
+    setSearchQuery(query);
+    setPage('inventory');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleSelectCar = (id: number) => {
+    setActiveCarId(id);
+    navigate('car');
+  };
 
   return (
     <div className="app-shell">
-      <Header page={page} onNavigate={navigate} />
-      {page === 'home'      && <HomePage onNavigate={navigate} onSelectCar={handleSelectCar} />}
-      {page === 'inventory' && <InventoryPage onSelectCar={handleSelectCar} />}
+      <Header page={page} onNavigate={(p) => { if (p === 'inventory') setSearchQuery(''); navigate(p); }} />
+      {page === 'home'      && <HomePage onNavigate={navigate} onSelectCar={handleSelectCar} onSearch={handleHeroSearch} />}
+      {page === 'inventory' && <InventoryPage initialQuery={searchQuery} onSelectCar={handleSelectCar} />}
       {page === 'about'     && <About onNavigate={navigate} />}
       {page === 'journal'   && <InveltaClub />}
       {page === 'contact'   && <ContactPage />}
@@ -1442,7 +1476,7 @@ function App() {
       <footer className="site-footer">
         <Logo onNavigate={navigate} />
         <div>
-          <button onClick={() => navigate('inventory')}>INVENTORY</button>
+          <button onClick={() => { setSearchQuery(''); navigate('inventory'); }}>INVENTORY</button>
           <button onClick={() => navigate('about')}>ABOUT</button>
           <button onClick={() => navigate('journal')}>MOUAWAD CLUB +</button>
           <button onClick={() => navigate('contact')}>CONTACT US</button>
