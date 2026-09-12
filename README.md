@@ -1,9 +1,14 @@
-# Mouawad Automotive • Expo Roland Mouawad
+# Premier Automotive Showroom
 
-Official web platform for **Mouawad Automotive / Expo Roland Mouawad**, showcasing premium pre-owned and certified vehicles in Beirut, Lebanon.
+Modern luxury web platform for **Premier Automotive**, showcasing certified pre-owned and premium vehicles.
 
-## Showroom Location
-- **Address**: Sin El Fil, Chalouhi Highway, Beirut, Lebanon
-- **Hotline**: 03 / 82 05 82 (+961 3 820 582) | 03 / 66 99 15
-- **Instagram**: [@r.mouawad.expo](https://www.instagram.com/r.mouawad.expo/?hl=en)
-- **Facebook**: [Expo Roland Mouawad](https://www.facebook.com/exporolandmouawad/)
+## Features
+- Dynamic vehicle inventory with multi-faceted filtering (brand, model, year, fuel, transmission, price).
+- Responsive vehicle details page with interactive image gallery, vehicle specs, and concierge inquiry.
+- Showroom story and heritage overview.
+- Concierge and contact booking with responsive interactive forms.
+
+## Tech Stack
+- React 18 + TypeScript + Vite
+- Lucide React Icons
+- Vanilla CSS design system
