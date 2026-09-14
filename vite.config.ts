@@ -11,6 +11,9 @@ export default defineConfig({
     },
   },
   optimizeDeps: {
-    exclude: ['lucide-react'],
+    include: ['react', 'react-dom', 'lucide-react'],
+  },
+  server: {
+    host: true,
   },
 });

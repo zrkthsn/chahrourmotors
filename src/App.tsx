@@ -41,31 +41,74 @@ const DEFAULT_FILTERS: FilterState = {
   years: [],
   fuels: [],
   transmissions: [],
-  minYear: 2013,
-  maxYear: 2024,
+  minYear: 2019,
+  maxYear: 2025,
   minPrice: 0,
-  maxPrice: 700000,
+  maxPrice: 600000,
 };
 
-const ALL_MAKES = ['Mercedes-Benz', 'Porsche', 'BMW', 'Land Rover', 'Jeep', 'Toyota', 'Honda', 'Lexus'];
+const ALL_MAKES = [
+  'Porsche',
+  'Ferrari',
+  'Mercedes-AMG',
+  'Lamborghini',
+  'Aston Martin',
+  'Rolls-Royce',
+  'Bentley',
+  'BMW M',
+  'Audi Sport',
+  'Land Rover',
+  'McLaren',
+];
 
 const MAKE_MODELS_MAP: Record<string, string[]> = {
-  'Mercedes-Benz': ['C-Class', 'GLC Series', 'S550', 'ML400', 'GLK350', 'E300', 'CLA250'],
-  'Porsche': ['Macan'],
-  'BMW': ['3 Series', '4 Series', 'X6'],
-  'Land Rover': ['Range Rover Sport', 'Range Rover Velar', 'Range Rover Evoque'],
-  'Jeep': ['Grand Cherokee'],
-  'Toyota': ['Land Cruiser', 'Camry', 'Highlander'],
-  'Lexus': ['IS250'],
-  'Honda': ['Accord'],
+  'Porsche': ['911 GT3 RS', 'Taycan Turbo S', 'Cayenne Turbo GT'],
+  'Ferrari': ['296 GTB Assetto Fiorano', 'Roma Spider', 'SF90 Stradale'],
+  'Mercedes-AMG': ['G 63 AMG Edition 55', 'AMG GT 63 S 4-Door', 'SL 63 AMG'],
+  'Lamborghini': ['Urus Performante', 'Huracán Tecnica', 'Revuelto'],
+  'Aston Martin': ['DB12 Coupe', 'Vantage V8', 'DBX 707'],
+  'Rolls-Royce': ['Ghost Black Badge', 'Cullinan Series II'],
+  'Bentley': ['Continental GT V8 Azure', 'Flying Spur Speed'],
+  'BMW M': ['M4 Competition xDrive', 'M8 Competition Gran Coupé', 'M3 CS'],
+  'Audi Sport': ['RS6 Avant Dynamic', 'RS e-tron GT'],
+  'Land Rover': ['Range Rover SV Autobiography', 'Range Rover Sport SV'],
+  'McLaren': ['750S Spider', 'Artura'],
 };
 
-const ALL_MODELS = ['C-Class', 'GLC Series', 'Macan', '3 Series', '4 Series', 'X6', 'Range Rover Sport', 'Range Rover Velar', 'Range Rover Evoque', 'Grand Cherokee', 'Land Cruiser', 'IS250', 'S550', 'ML400', 'Camry', 'GLK350', 'E300', 'Accord', 'CLA250', 'Highlander'];
+const ALL_MODELS = [
+  '911 GT3 RS',
+  'Taycan Turbo S',
+  'Cayenne Turbo GT',
+  '296 GTB Assetto Fiorano',
+  'Roma Spider',
+  'SF90 Stradale',
+  'G 63 AMG Edition 55',
+  'AMG GT 63 S 4-Door',
+  'SL 63 AMG',
+  'Urus Performante',
+  'Huracán Tecnica',
+  'Revuelto',
+  'DB12 Coupe',
+  'Vantage V8',
+  'DBX 707',
+  'Ghost Black Badge',
+  'Cullinan Series II',
+  'Continental GT V8 Azure',
+  'Flying Spur Speed',
+  'M4 Competition xDrive',
+  'M8 Competition Gran Coupé',
+  'M3 CS',
+  'RS6 Avant Dynamic',
+  'RS e-tron GT',
+  'Range Rover SV Autobiography',
+  'Range Rover Sport SV',
+  '750S Spider',
+  'Artura',
+];
 
-const ALL_YEARS = [2024, 2022, 2021, 2020, 2019, 2018, 2017, 2015, 2014, 2013];
-
-const ALL_FUELS = ['Petrol', 'Diesel'];
-const ALL_TRANSMISSIONS = ['Automatic', 'Manual'];
+const ALL_YEARS = [2025, 2024, 2023, 2022, 2021, 2020, 2019];
+const ALL_FUELS = ['Petrol', 'Hybrid', 'Electric'];
+const ALL_TRANSMISSIONS = ['Automatic (PDK)', 'Automatic', 'Dual-Clutch'];
 
 type Page = 'home' | 'inventory' | 'about' | 'journal' | 'car' | 'contact';
 
@@ -86,278 +129,237 @@ type Car = {
 };
 
 const cars: Car[] = [
-  { 
-    id: 1, 
-    name: 'Mercedes-Benz C300 AMG Shadow Edition', 
-    make: 'Mercedes-Benz', 
-    model: 'C-Class', 
-    year: 2022, 
-    price: '$47,900', 
-    mileage: '60,000 miles', 
-    fuel: 'Petrol', 
-    transmission: 'Automatic', 
-    image: '/c300-amg/front-angle.jpg', 
+  {
+    id: 1,
+    name: 'Porsche 911 GT3 RS (992)',
+    make: 'Porsche',
+    model: '911 GT3 RS',
+    year: 2024,
+    price: '$345,000',
+    mileage: '1,450 miles',
+    fuel: 'Petrol',
+    transmission: 'Automatic (PDK)',
+    image: 'https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?auto=format&fit=crop&w=1200&q=80',
     images: [
-      '/c300-amg/front-angle.jpg',
-      '/c300-amg/front.jpg',
-      '/c300-amg/rear.jpg',
-      '/c300-amg/interior.jpg'
+      'https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=1200&q=80'
     ],
-    tag: 'AMG SHADOW EDITION',
-    description: '2022 Mercedes-Benz C300 AMG SHADOW EDITION featuring AMG Line, LED Headlights + Adaptive Highbeam, 11.9" MBUX Touchscreen, 360° Camera / Parking Assistance, Panoramic Sunroof, Power-folding mirrors, AMG sport seats, Blind Spot Assist, and Attention Assist.' 
+    tag: 'WEISSACH PACKAGE',
+    description: '2024 Porsche 911 GT3 RS Weissach Package finished in Arctic Grey with Carbon Aero Wing and Magnesium Forged Wheels. Powered by a naturally aspirated 4.0L flat-six revving to 9,000 RPM (518 hp) paired with a 7-speed PDK transmission. Features Front Axle Lift, Carbon Ceramic Brakes (PCCB), Clubsport roll cage, and full carbon bucket seats.'
   },
-  { 
-    id: 2, 
-    name: 'BMW 316i Sport Line', 
-    make: 'BMW', 
-    model: '3 Series', 
-    year: 2015, 
-    price: '$22,500', 
-    mileage: '75,000 km', 
-    fuel: 'Petrol', 
-    transmission: 'Automatic', 
-    image: '/bmw-316i/front-angle.jpg', 
+  {
+    id: 2,
+    name: 'Ferrari 296 GTB Assetto Fiorano',
+    make: 'Ferrari',
+    model: '296 GTB Assetto Fiorano',
+    year: 2023,
+    price: '$389,000',
+    mileage: '2,800 miles',
+    fuel: 'Hybrid',
+    transmission: 'Dual-Clutch',
+    image: 'https://images.unsplash.com/photo-1583121274602-3e2820c69888?auto=format&fit=crop&w=1200&q=80',
     images: [
-      '/bmw-316i/front-angle.jpg',
-      '/bmw-316i/front.jpg',
-      '/bmw-316i/rear-angle.jpg',
-      '/bmw-316i/interior.jpg',
-      '/bmw-316i/wheel.jpg'
+      'https://images.unsplash.com/photo-1583121274602-3e2820c69888?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1592198084033-aade902d1aae?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1563720223185-11003d516935?auto=format&fit=crop&w=1200&q=80'
     ],
-    tag: 'SPORT LINE',
-    description: '2015 BMW 316i Sport Line featuring a 2.0L 4-Cylinder engine, black leather interior, Premium Package, Dynamic headlights, Auto park system, and 75,000 km.' 
+    tag: 'ASSETTO FIORANO',
+    description: '2023 Ferrari 296 GTB in classic Rosso Corsa with Assetto Fiorano Track Package. Featuring an 819 hp twin-turbo 120° V6 plug-in hybrid drivetrain, Multimatic shock absorbers, carbon fiber aero package, titanium exhaust, Lexan rear window, and carbon racing Daytona seats.'
   },
-  { 
-    id: 3, 
-    name: 'BMW 430i Gran Coupé', 
-    make: 'BMW', 
-    model: '4 Series', 
-    year: 2017, 
-    price: '$34,900', 
-    mileage: '42,000 miles', 
-    fuel: 'Petrol', 
-    transmission: 'Automatic', 
-    image: '/bmw-430i/front-angle.jpg', 
+  {
+    id: 3,
+    name: 'Mercedes-AMG G 63 "Edition 55"',
+    make: 'Mercedes-AMG',
+    model: 'G 63 AMG Edition 55',
+    year: 2023,
+    price: '$245,000',
+    mileage: '7,100 miles',
+    fuel: 'Petrol',
+    transmission: 'Automatic',
+    image: 'https://images.unsplash.com/photo-1520050206274-a1ae44613e6d?auto=format&fit=crop&w=1200&q=80',
     images: [
-      '/bmw-430i/front-angle.jpg',
-      '/bmw-430i/front.jpg',
-      '/bmw-430i/badge.jpg',
-      '/bmw-430i/rear.jpg',
-      '/bmw-430i/rear-angle.jpg'
+      'https://images.unsplash.com/photo-1520050206274-a1ae44613e6d?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1606016159991-dfe4f2746ad5?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1508974239320-0a029497e820?auto=format&fit=crop&w=1200&q=80'
     ],
-    tag: 'GRAN COUPÉ',
-    description: '2017 BMW 430i Gran Coupé featuring a 2.0L Turbo engine with 8-speed automatic transmission and paddle shifters, Head-Up Display (HUD), Rear view camera, Black-on-Black spec, Sunroof, Power folding mirrors, and Electric trunk.' 
+    tag: 'EDITION 55 V8 BITURBO',
+    description: '2023 Mercedes-AMG G 63 Edition 55 in Obsidian Black Metallic with Red Nappa leather interior. Handcrafted 4.0L V8 Biturbo producing 577 hp, AMG Night Package II, 22-inch forged matte grey cross-spoke wheels, AMG Performance Exhaust, Burmester 3D Surround Sound, and carbon fiber trim.'
   },
-  { 
-    id: 4, 
-    name: 'Range Rover Sport HSE V6', 
-    make: 'Land Rover', 
-    model: 'Range Rover Sport', 
-    year: 2019, 
-    price: '$62,500', 
-    mileage: '63,000 miles', 
-    fuel: 'Petrol', 
-    transmission: 'Automatic', 
-    image: '/range-rover-sport/front-angle.jpg', 
+  {
+    id: 4,
+    name: 'Lamborghini Urus Performante',
+    make: 'Lamborghini',
+    model: 'Urus Performante',
+    year: 2024,
+    price: '$318,000',
+    mileage: '3,200 miles',
+    fuel: 'Petrol',
+    transmission: 'Automatic',
+    image: 'https://images.unsplash.com/photo-1544829099-b9a0c07fad1a?auto=format&fit=crop&w=1200&q=80',
     images: [
-      '/range-rover-sport/front-angle.jpg',
-      '/range-rover-sport/front.jpg',
-      '/range-rover-sport/rear-angle.jpg',
-      '/range-rover-sport/interior-console.jpg',
-      '/range-rover-sport/interior-cockpit.jpg'
+      'https://images.unsplash.com/photo-1544829099-b9a0c07fad1a?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1563720223185-11003d516935?auto=format&fit=crop&w=1200&q=80'
     ],
-    tag: 'HSE V6 TURBO',
-    description: '2019 Land Rover Range Rover Sport HSE V6 featuring a 3.0L Turbo V6 engine, Clean Carfax, Black on Black specification, Panoramic roof, Heated seats, 360° Surround Camera system, Fully loaded package, and warranty.' 
+    tag: 'PERFORMANTE 666HP',
+    description: '2024 Lamborghini Urus Performante in Giallo Inti with Full Visible Carbon Fiber Bonnet and Aero package. Twin-turbo 4.0L V8 with 657 hp (666 CV), Akrapovič Titanium Sport Exhaust, 23-inch Pelope diamond-cut rims, Bang & Olufsen 3D sound system, and Rally Mode telemetry.'
   },
-  { 
-    id: 5, 
-    name: 'Mercedes-Benz GLC 300 4MATIC', 
-    make: 'Mercedes-Benz', 
-    model: 'GLC Series', 
-    year: 2019, 
-    price: '$46,000', 
-    mileage: '31,000 miles', 
-    fuel: 'Petrol', 
-    transmission: 'Automatic', 
-    image: '/mercedes-glc/front-angle.jpg', 
+  {
+    id: 5,
+    name: 'Aston Martin DB12 Super Tourer',
+    make: 'Aston Martin',
+    model: 'DB12 Coupe',
+    year: 2024,
+    price: '$279,000',
+    mileage: '1,100 miles',
+    fuel: 'Petrol',
+    transmission: 'Automatic',
+    image: 'https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=1200&q=80',
     images: [
-      '/mercedes-glc/front-angle.jpg',
-      '/mercedes-glc/front.jpg',
-      '/mercedes-glc/rear-angle.jpg',
-      '/mercedes-glc/dashboard.jpg',
-      '/mercedes-glc/interior.jpg'
+      'https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1563720223185-11003d516935?auto=format&fit=crop&w=1200&q=80'
     ],
-    tag: 'GLC 300 4MATIC',
-    description: '2019 Mercedes-Benz GLC 300 4MATIC featuring a Black-on-Black color combination, Panoramic Sunroof, LED lighting system, Full Oxford Perforated Leather Seating, Navigation System, Remote keyless entry, Seat Memory, Blind Spot Monitor Closing Vehicle Sensing, Rear Parking Aid, 360° Surround Camera, and Heated door mirrors.' 
+    tag: 'NEXT-GEN SUPER TOURER',
+    description: '2024 Aston Martin DB12 Coupe finished in Satin Aston Martin Racing Green over Oxford Tan Semi-Aniline Leather. 4.0L Twin-Turbo V8 producing 671 hp, Bowers & Wilkins 15-speaker audio, brand-new 10.25-inch dual-screen infotainment, electronic rear differential, and carbon ceramic brakes.'
   },
-  { 
-    id: 6, 
-    name: 'Mercedes-Benz C300 Coupé', 
-    make: 'Mercedes-Benz', 
-    model: 'C-Class', 
-    year: 2018, 
-    price: '$35,500', 
-    mileage: '91,000 miles', 
-    fuel: 'Petrol', 
-    transmission: 'Automatic', 
-    image: '/c300-coupe/front-angle.jpg', 
+  {
+    id: 6,
+    name: 'Rolls-Royce Ghost Black Badge',
+    make: 'Rolls-Royce',
+    model: 'Ghost Black Badge',
+    year: 2023,
+    price: '$420,000',
+    mileage: '4,500 miles',
+    fuel: 'Petrol',
+    transmission: 'Automatic',
+    image: 'https://images.unsplash.com/photo-1631295868223-63265b40d9e4?auto=format&fit=crop&w=1200&q=80',
     images: [
-      '/c300-coupe/front-angle.jpg',
-      '/c300-coupe/front.jpg',
-      '/c300-coupe/rear-angle.jpg',
-      '/c300-coupe/interior.jpg',
-      '/c300-coupe/cockpit.jpg'
+      'https://images.unsplash.com/photo-1631295868223-63265b40d9e4?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1563720223185-11003d516935?auto=format&fit=crop&w=1200&q=80'
     ],
-    tag: 'C300 COUPÉ',
-    description: '2018 Mercedes-Benz C300 Coupé featuring a Black-on-Black color specification, zero accident history, 91,000 miles, Panoramic roof, LED lighting, Full Oxford Perforated Leather Seating, Navigation System, Remote keyless entry, Seat Memory, Blind Spot Monitor, Rear Parking Aid, 360° Surround Camera, and Heated door mirrors.' 
+    tag: 'BLACK BADGE V12',
+    description: '2023 Rolls-Royce Ghost Black Badge with Diamond Black exterior and Mandarin/Black bespoke leather. Twin-Turbocharged 6.75L V12 (592 hp, 900 Nm torque), Shooting Star Starlight Headliner, Illuminated Grille, Planar Suspension System, Immersive Seating with Champagne Cooler, and Bespoke Audio.'
   },
-  { 
-    id: 7, 
-    name: 'Porsche Macan S', 
-    make: 'Porsche', 
-    model: 'Macan', 
-    year: 2018, 
-    price: '$54,000', 
-    mileage: '77,000 miles', 
-    fuel: 'Petrol', 
-    transmission: 'Automatic', 
-    image: '/porsche-macan/front-angle.jpg', 
+  {
+    id: 7,
+    name: 'Bentley Continental GT V8 Azure',
+    make: 'Bentley',
+    model: 'Continental GT V8 Azure',
+    year: 2023,
+    price: '$268,000',
+    mileage: '5,900 miles',
+    fuel: 'Petrol',
+    transmission: 'Dual-Clutch',
+    image: 'https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?auto=format&fit=crop&w=1200&q=80',
     images: [
-      '/porsche-macan/front-angle.jpg',
-      '/porsche-macan/front.jpg',
-      '/porsche-macan/rear-angle.jpg',
-      '/porsche-macan/cockpit.jpg',
-      '/porsche-macan/dashboard.jpg'
+      'https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1563720223185-11003d516935?auto=format&fit=crop&w=1200&q=80'
     ],
-    tag: 'SPORT CHRONO 340HP',
-    description: '2018 Porsche Macan S featuring a 3.0L Twin-Turbocharged V6 Engine (340 HP) with 7-Speed PDK AWD, Sport Chrono Package with Dash Stopwatch & Sport Plus Mode, Porsche Torque Vectoring Plus (PTV+), Aggressive Sport Exhaust, 14-Way Power Sport Black Leather Seats with 3 Memory positions, Heated & Cooled seats, Heated Steering Wheel, Adaptive Cruise Control (ACC) with PAS Self-Braking, Lane Change Assist, and 360-degree cameras.' 
+    tag: 'AZURE WELLBEING SPEC',
+    description: '2023 Bentley Continental GT V8 Azure in Portofino Blue with Linen/Imperial Blue diamond-quilted hide. 4.0L Twin-Turbo V8 with 542 hp, Bentley Rotating Display, Touring Specification, Front Seat Comfort Specification with massage and ventilation, Naim for Bentley 2,200W audio system.'
   },
-  { 
-    id: 8, 
-    name: 'Range Rover Velar P380 R-Dynamic', 
-    make: 'Land Rover', 
-    model: 'Range Rover Velar', 
-    year: 2018, 
-    price: '$56,500', 
-    mileage: '98,000 miles', 
-    fuel: 'Petrol', 
-    transmission: 'Automatic', 
-    image: '/range-rover-velar/front-angle.jpg', 
+  {
+    id: 8,
+    name: 'BMW M4 Competition xDrive (G82)',
+    make: 'BMW M',
+    model: 'M4 Competition xDrive',
+    year: 2024,
+    price: '$104,500',
+    mileage: '2,900 miles',
+    fuel: 'Petrol',
+    transmission: 'Automatic',
+    image: 'https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=1200&q=80',
     images: [
-      '/range-rover-velar/front-angle.jpg',
-      '/range-rover-velar/front.jpg',
-      '/range-rover-velar/rear-angle.jpg',
-      '/range-rover-velar/rear.jpg',
-      '/range-rover-velar/interior.jpg'
+      'https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1556189250-72ba954cfc2b?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&w=1200&q=80'
     ],
-    tag: 'R-DYNAMIC P380 380HP',
-    description: '2018 Land Rover Range Rover Velar P380 R-Dynamic featuring a 3.0L Supercharged V6 engine producing 380 HP with AWD, Panoramic Roof, Digital Dashboard, Meridian Sound System, Memory Seats, Ambient Lighting, Lane Assist, and Adaptive Cruise Control.' 
+    tag: 'COMPETITION M XDRIVE',
+    description: '2024 BMW M4 Competition Coupe with M xDrive All-Wheel Drive in Isle of Man Green. 3.0L BMW M TwinPower Turbo inline 6-cylinder delivering 503 hp, M Carbon Bucket Seats in Kyalami Orange, M Carbon Ceramic Brakes, Carbon Exterior Package, Curved Display with iDrive 8.5, and Head-Up Display.'
   },
-  { 
-    id: 9, 
-    name: 'Range Rover Sport HSE V6 (7 Seats)', 
-    make: 'Land Rover', 
-    model: 'Range Rover Sport', 
-    year: 2018, 
-    price: '$58,000', 
-    mileage: '54,000 miles', 
-    fuel: 'Petrol', 
-    transmission: 'Automatic', 
-    image: '/range-rover-sport-2018/front-angle.jpg', 
+  {
+    id: 9,
+    name: 'Audi RS6 Avant Dynamic Package',
+    make: 'Audi Sport',
+    model: 'RS6 Avant Dynamic',
+    year: 2023,
+    price: '$142,000',
+    mileage: '8,400 miles',
+    fuel: 'Petrol',
+    transmission: 'Automatic',
+    image: 'https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?auto=format&fit=crop&w=1200&q=80',
     images: [
-      '/range-rover-sport-2018/front-angle.jpg',
-      '/range-rover-sport-2018/front.jpg',
-      '/range-rover-sport-2018/rear-angle.jpg',
-      '/range-rover-sport-2018/interior-console.jpg',
-      '/range-rover-sport-2018/cockpit.jpg'
+      'https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1606220838315-056192d5e927?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1617788138017-80ad40651399?auto=format&fit=crop&w=1200&q=80'
     ],
-    tag: '7 SEATER HSE V6',
-    description: '2018 Land Rover Range Rover Sport HSE V6 featuring 7-passenger seating, 3.0L Turbo V6 engine, Clean Carfax, Black-on-Black specification, Panoramic roof, Heated seats, 360° Surround Camera system, and fully loaded option package.' 
+    tag: 'TWIN TURBO V8 WAGON',
+    description: '2023 Audi RS6 Avant Quattro finished in Nardo Grey with Black Optic Package and Valcona RS Sport Leather. 4.0L Twin-Turbo V8 with 591 hp and 48V Mild Hybrid system, RS Dynamic Package Plus, Ceramic Brakes with Red Calipers, Sport Exhaust, Bang & Olufsen Advanced 3D Sound, and HD Matrix LED Headlights.'
   },
-  { 
-    id: 10, 
-    name: 'BMW X6 Individual Edition Twin Turbo', 
-    make: 'BMW', 
-    model: 'X6', 
-    year: 2015, 
-    price: '$39,900', 
-    mileage: '92,000 km', 
-    fuel: 'Petrol', 
-    transmission: 'Automatic', 
-    image: '/bmw-x6/front-angle.jpg', 
+  {
+    id: 10,
+    name: 'Range Rover SV Autobiography LWB',
+    make: 'Land Rover',
+    model: 'Range Rover SV Autobiography',
+    year: 2024,
+    price: '$235,000',
+    mileage: '2,900 miles',
+    fuel: 'Petrol',
+    transmission: 'Automatic',
+    image: 'https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?auto=format&fit=crop&w=1200&q=80',
     images: [
-      '/bmw-x6/front-angle.jpg',
-      '/bmw-x6/front.jpg',
-      '/bmw-x6/rear-angle.jpg',
-      '/bmw-x6/dashboard.jpg',
-      '/bmw-x6/rear-seats.jpg'
+      'https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1508974239320-0a029497e820?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1563720223185-11003d516935?auto=format&fit=crop&w=1200&q=80'
     ],
-    tag: 'INDIVIDUAL TWIN TURBO',
-    description: '2015 BMW X6 Individual Edition Twin Turbo featuring a 6-Cylinder Twin Turbo engine, Clean Carfax, Black exterior on Cognac Extra-vaganza leather interior, Premium Package, Sunroof, Adaptive LED headlights, New Bridgestone tires, Auto park system, Heated & Ventilated seats, and 360º View Camera.' 
+    tag: 'SV BESPOKE V8',
+    description: '2024 Land Rover Range Rover SV Long Wheelbase with SV Serenity Luxury Theme in Belgravia Green. Twin-Turbo 4.4L V8 generating 606 hp, Executive Class Comfort Plus rear seating with deployable club tables, refrigerated compartment, Meridian Signature 1,600W 3D sound with headrest noise cancellation.'
   },
-  { 
-    id: 11, 
-    name: 'Mercedes-Benz C300 AMG Package', 
-    make: 'Mercedes-Benz', 
-    model: 'C-Class', 
-    year: 2019, 
-    price: '$38,500', 
-    mileage: '82,000 miles', 
-    fuel: 'Petrol', 
-    transmission: 'Automatic', 
-    image: '/c300-white/front-angle.jpg', 
+  {
+    id: 11,
+    name: 'McLaren 750S Spider',
+    make: 'McLaren',
+    model: '750S Spider',
+    year: 2024,
+    price: '$375,000',
+    mileage: '650 miles',
+    fuel: 'Petrol',
+    transmission: 'Dual-Clutch',
+    image: 'https://images.unsplash.com/photo-1621135802920-133df287f89c?auto=format&fit=crop&w=1200&q=80',
     images: [
-      '/c300-white/front-angle.jpg',
-      '/c300-white/front.jpg',
-      '/c300-white/rear-angle.jpg',
-      '/c300-white/dashboard.jpg',
-      '/c300-white/interior-rear.jpg'
+      'https://images.unsplash.com/photo-1621135802920-133df287f89c?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1583121274602-3e2820c69888?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?auto=format&fit=crop&w=1200&q=80'
     ],
-    tag: 'WHITE AMG PACKAGE',
-    description: '2019 Mercedes-Benz C300 AMG Package featuring a Polar White exterior on Cognac interior, Clean Carfax, AMG Line styling, Widescreen Infotainment with Apple CarPlay & Android Auto, Radar Distronic Function, Panoramic Roof, Blind Spot Assist, and Paddle Shifters.' 
+    tag: 'CARBON MONOCAGE III',
+    description: '2024 McLaren 750S Spider in Papaya Spark with full Carbon Fiber Exterior Upgrade Packs 1 & 2. 4.0L Twin-Turbo V8 pushing 740 hp (750 PS), 0-60 mph in 2.7 seconds, Proactive Chassis Control III, Electrochromic Retractable Hardtop, Bowers & Wilkins audio, and McLaren track telemetry.'
   },
-  { 
-    id: 12, 
-    name: 'Jeep Grand Cherokee Limited 4x4', 
-    make: 'Jeep', 
-    model: 'Grand Cherokee', 
-    year: 2018, 
-    price: '$31,900', 
-    mileage: '58,000 miles', 
-    fuel: 'Petrol', 
-    transmission: 'Automatic', 
-    image: '/jeep-grand-cherokee/front-angle.jpg', 
+  {
+    id: 12,
+    name: 'Mercedes-AMG GT 63 S 4-Door Coupé',
+    make: 'Mercedes-AMG',
+    model: 'AMG GT 63 S 4-Door',
+    year: 2023,
+    price: '$182,000',
+    mileage: '6,300 miles',
+    fuel: 'Petrol',
+    transmission: 'Automatic',
+    image: 'https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=1200&q=80',
     images: [
-      '/jeep-grand-cherokee/front-angle.jpg',
-      '/jeep-grand-cherokee/front.jpg',
-      '/jeep-grand-cherokee/rear.jpg',
-      '/jeep-grand-cherokee/cockpit.jpg',
-      '/jeep-grand-cherokee/dashboard.jpg'
+      'https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1606016159991-dfe4f2746ad5?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1508974239320-0a029497e820?auto=format&fit=crop&w=1200&q=80'
     ],
-    tag: 'LIMITED 4X4',
-    description: '2018 Jeep Grand Cherokee Limited featuring 4x4 Drive system, Grey exterior on Black leather interior, Sunroof, Touchscreen Infotainment System with Bluetooth & USB connectivity, Rear Camera + Parking Sensors, Lane Assist, Cruise Control, Keyless Entry & Push Button Start, and Electric Power Seats.' 
-  },
-  { 
-    id: 13, 
-    name: 'Range Rover Evoque HSE Dynamic V4', 
-    make: 'Land Rover', 
-    model: 'Range Rover Evoque', 
-    year: 2018, 
-    price: '$33,500', 
-    mileage: '74,000 miles', 
-    fuel: 'Petrol', 
-    transmission: 'Automatic', 
-    image: '/range-rover-evoque/front-angle.jpg', 
-    images: [
-      '/range-rover-evoque/front-angle.jpg',
-      '/range-rover-evoque/front.jpg',
-      '/range-rover-evoque/rear.jpg',
-      '/range-rover-evoque/cockpit.jpg',
-      '/range-rover-evoque/dashboard.jpg'
-    ],
-    tag: 'HSE DYNAMIC V4',
-    description: '2018 Land Rover Range Rover Evoque HSE Dynamic V4 featuring 4-cylinder engine, Clean CarFax, Black-on-Black specification, Front & Rear parking sensors, Multifunction steering wheel with Paddle shifters, Electric Trunk, Front and Rear heated seats + Front cooled seats, Meridian Surround Sound System, Memory Seats, Panoramic Sunroof, Terrain Selector, Park Assist, and LED headlights.' 
-  },
+    tag: 'V8 BITURBO 4MATIC+',
+    description: '2023 Mercedes-AMG GT 63 S 4MATIC+ in Designo Graphite Grey Magno. 4.0L AMG V8 Biturbo producing 630 hp with Drift Mode, AMG Aerodynamics Package, Yellow AMG brake calipers, Carbon ceramic composite brakes, AMG Performance Seats in Exclusive Nappa Leather, and Burmester High-End 3D Surround.'
+  }
 ];
 
 const inveltaClubPosts = [
@@ -449,7 +451,7 @@ function CarCard({ car, onClick }: { car: Car; onClick: () => void }) {
   return (
     <article className="car-card" onClick={onClick}>
       <div className="car-image-wrap">
-        <img src={car.image} alt={`${car.year} ${car.name}`} />
+        <img src={car.image} alt={`${car.year} ${car.name}`} loading="lazy" decoding="async" />
         <span className="car-badge">{car.year} • PRE-OWNED</span>
       </div>
       <div className="car-info">
@@ -585,35 +587,35 @@ function HomePage({
         </div>
         <div className="category-grid">
           <div className="category-card" onClick={() => onNavigate('inventory')}>
-            <img src="https://images.pexels.com/photos/27497571/pexels-photo-27497571.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Luxury SUVs" />
+            <img src="https://images.unsplash.com/photo-1583121274602-3e2820c69888?auto=format&fit=crop&w=900&q=80" alt="Exotics & Supercars" loading="lazy" decoding="async" />
             <div className="category-overlay">
-              <h3>LUXURY SUVS</h3>
-              <p>Range Rover, Macan, Grand Cherokee</p>
+              <h3>EXOTICS & SUPERCARS</h3>
+              <p>Ferrari, Porsche GT3 RS, McLaren</p>
+              <span className="category-cta">BROWSE SUPERCARS <ArrowRight size={13} /></span>
+            </div>
+          </div>
+          <div className="category-card" onClick={() => onNavigate('inventory')}>
+            <img src="https://images.unsplash.com/photo-1520050206274-a1ae44613e6d?auto=format&fit=crop&w=900&q=80" alt="Luxury SUVs & 4x4" loading="lazy" decoding="async" />
+            <div className="category-overlay">
+              <h3>LUXURY SUVS & 4X4</h3>
+              <p>AMG G 63, Urus Performante, Range Rover SV</p>
               <span className="category-cta">BROWSE SUVS <ArrowRight size={13} /></span>
             </div>
           </div>
           <div className="category-card" onClick={() => onNavigate('inventory')}>
-            <img src="https://images.pexels.com/photos/14217531/pexels-photo-14217531.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Executive Sedans" />
+            <img src="https://images.unsplash.com/photo-1631295868223-63265b40d9e4?auto=format&fit=crop&w=900&q=80" alt="Grand Tourers & Bespoke" loading="lazy" decoding="async" />
             <div className="category-overlay">
-              <h3>EXECUTIVE SEDANS</h3>
-              <p>Mercedes-Benz C-Class, BMW 3 Series</p>
-              <span className="category-cta">BROWSE SEDANS <ArrowRight size={13} /></span>
+              <h3>GRAND TOURERS & BESPOKE</h3>
+              <p>Rolls-Royce Ghost, Bentley Azure, DB12</p>
+              <span className="category-cta">BROWSE GRAND TOURERS <ArrowRight size={13} /></span>
             </div>
           </div>
           <div className="category-card" onClick={() => onNavigate('inventory')}>
-            <img src="https://images.pexels.com/photos/9803057/pexels-photo-9803057.png?auto=compress&cs=tinysrgb&h=650&w=940" alt="Performance Sports" />
+            <img src="https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?auto=format&fit=crop&w=900&q=80" alt="Performance & Sport" loading="lazy" decoding="async" />
             <div className="category-overlay">
               <h3>PERFORMANCE & SPORT</h3>
-              <p>AMG Line, Gran Coupé, Twin-Turbo V6</p>
+              <p>BMW M4 Comp, Audi RS6 Avant, AMG GT 63 S</p>
               <span className="category-cta">BROWSE PERFORMANCE <ArrowRight size={13} /></span>
-            </div>
-          </div>
-          <div className="category-card" onClick={() => onNavigate('inventory')}>
-            <img src="https://images.pexels.com/photos/18108314/pexels-photo-18108314.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Electric & Hybrid" />
-            <div className="category-overlay">
-              <h3>ELECTRIC & HYBRID</h3>
-              <p>Modern Eco-Luxury & Efficient Hybrids</p>
-              <span className="category-cta">BROWSE ELECTRICS <ArrowRight size={13} /></span>
             </div>
           </div>
         </div>
@@ -662,7 +664,7 @@ function HomePage({
           {inveltaClubPosts.map((post) => (
             <article key={post.title} className="home-journal-card" onClick={() => onNavigate('journal')}>
               <div className="hj-image-wrap">
-                <img src={post.image} alt={post.title} />
+                <img src={post.image} alt={post.title} loading="lazy" decoding="async" />
               </div>
               <div className="hj-content">
                 <span className="hj-category">{post.category}</span>
@@ -1068,7 +1070,7 @@ function CarDetailsPage({ carId, onNavigate }: { carId: number; onNavigate: (pag
           {/* Left Column: Photo Frame & Thumbnails */}
           <div className="car-gallery-column">
             <div className="car-main-photo-frame">
-              <img src={activeImage} alt={car.name} />
+              <img src={activeImage} alt={car.name} decoding="async" />
               {car.tag && <span className="photo-tag-badge">{car.tag}</span>}
             </div>
 
@@ -1080,7 +1082,7 @@ function CarDetailsPage({ carId, onNavigate }: { carId: number; onNavigate: (pag
                     className={`thumb-btn ${activeImgIndex === idx ? 'active' : ''}`}
                     onClick={() => setActiveImgIndex(idx)}
                   >
-                    <img src={imgUrl} alt={`${car.name} view ${idx + 1}`} />
+                    <img src={imgUrl} alt={`${car.name} view ${idx + 1}`} loading="lazy" decoding="async" />
                   </button>
                 ))}
               </div>
@@ -1186,7 +1188,7 @@ function About({ onNavigate }: { onNavigate: (page: Page) => void }) {
         <p>We believe the right car does more than take you somewhere. It changes the way you arrive.</p>
       </section>
       <section className="about-story">
-        <div className="about-image"><img src="https://images.pexels.com/photos/15513826/pexels-photo-15513826.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Showroom" /></div>
+        <div className="about-image"><img src="https://images.pexels.com/photos/15513826/pexels-photo-15513826.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Showroom" loading="lazy" decoding="async" /></div>
         <div className="about-copy">
           <h2>CHOSEN WITH CARE. KEPT WITHOUT COMPROMISE.</h2>
           <p>Premier Automotive began with a simple idea: buying a remarkable pre-owned vehicle should feel as remarkable as owning one.</p>
@@ -1214,7 +1216,7 @@ function InveltaClub() {
       <section className="club-grid">
         {inveltaClubPosts.map((post) => (
           <article className="club-card" key={post.title}>
-            <div className="club-image"><img src={post.image} alt={post.title} /></div>
+            <div className="club-image"><img src={post.image} alt={post.title} loading="lazy" decoding="async" /></div>
             <div className="club-copy">
               <p className="club-category">{post.category}</p>
               <h2>{post.title}</h2>
