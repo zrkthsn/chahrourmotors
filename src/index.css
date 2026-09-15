@@ -1885,22 +1885,79 @@ img { display: block; width: 100%; object-fit: cover; }
 
 @media (max-width: 768px) {
   .inventory-toolbar {
-    margin-bottom: 20px;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    width: 100% !important;
+    margin-bottom: 20px !important;
+    gap: 10px !important;
+  }
+  .results-count {
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.08em !important;
+    text-transform: uppercase !important;
+    color: #64748B !important;
+    text-align: left !important;
+    margin: 0 !important;
   }
   .toolbar-actions {
-    width: 100%;
-    justify-content: space-between;
-    gap: 8px;
+    width: 100% !important;
+    display: grid !important;
+    grid-template-columns: 1.25fr 1fr 1fr !important;
+    gap: 6px !important;
+    align-items: stretch !important;
+  }
+  .view-mode-toggle {
+    display: flex !important;
+    width: 100% !important;
+    justify-content: space-between !important;
+    padding: 2px !important;
+    height: 38px !important;
+    box-sizing: border-box !important;
   }
   .view-toggle-btn {
-    padding: 5px 8px;
-    font-size: 10px;
+    flex: 1 !important;
+    justify-content: center !important;
+    padding: 0 4px !important;
+    font-size: 9.5px !important;
+    gap: 4px !important;
+    height: 100% !important;
   }
   .view-toggle-text {
-    font-size: 10px;
+    font-size: 9.5px !important;
+  }
+  .mobile-filter-toggle-btn {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    height: 38px !important;
+    padding: 0 6px !important;
+    font-size: 10px !important;
+    letter-spacing: 0.06em !important;
+    box-sizing: border-box !important;
+    gap: 4px !important;
+    border-radius: 4px !important;
+  }
+  .sort-wrapper {
+    width: 100% !important;
+  }
+  .sort-btn {
+    width: 100% !important;
+    height: 38px !important;
+    padding: 0 6px !important;
+    justify-content: center !important;
+    font-size: 10px !important;
+    box-sizing: border-box !important;
+    border-radius: 4px !important;
+    gap: 3px !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
   }
 
-  /* 2x2 Grid Layout for Mobile: 2 columns × 2 rows (4 placeholders per screen) */
+  /* 2x2 Grid Layout for Mobile: 2 columns × 2 rows */
   .car-grid-grid,
   .featured-4-grid {
     grid-template-columns: repeat(2, 1fr) !important;
@@ -1992,12 +2049,13 @@ img { display: block; width: 100%; object-fit: cover; }
     display: none;
   }
 
-  /* Compact List View on Mobile: Fits 5+ cars per page smoothly */
+  /* Compact Balanced List View on Mobile */
   .car-grid-list {
     display: flex !important;
     flex-direction: column !important;
-    gap: 7px !important;
+    gap: 9px !important;
     margin-bottom: 30px !important;
+    width: 100% !important;
   }
 
   .car-card-list {
@@ -2006,10 +2064,13 @@ img { display: block; width: 100%; object-fit: cover; }
     align-items: center !important;
     background: #fff !important;
     border: 1px solid #E2E8F0 !important;
-    border-radius: 6px !important;
-    padding: 6px 10px 6px 6px !important;
-    gap: 10px !important;
-    min-height: 74px !important;
+    border-radius: 8px !important;
+    padding: 8px 12px 8px 8px !important;
+    gap: 12px !important;
+    min-height: 84px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.02) !important;
     transition: border-color 0.2s !important;
   }
 
@@ -2018,12 +2079,12 @@ img { display: block; width: 100%; object-fit: cover; }
   }
 
   .car-card-list .car-image-wrap {
-    width: 84px !important;
-    min-width: 84px !important;
-    height: 66px !important;
-    min-height: 66px !important;
-    aspect-ratio: 16 / 12.5 !important;
-    border-radius: 4px !important;
+    width: 95px !important;
+    min-width: 95px !important;
+    height: 72px !important;
+    min-height: 72px !important;
+    aspect-ratio: 16 / 12 !important;
+    border-radius: 5px !important;
     overflow: hidden !important;
     background: #09090b !important;
     margin: 0 !important;
@@ -2038,12 +2099,13 @@ img { display: block; width: 100%; object-fit: cover; }
   }
 
   .car-card-list .car-badge {
-    top: 3px !important;
-    left: 3px !important;
-    font-size: 6.5px !important;
-    padding: 1.5px 4px !important;
+    top: 4px !important;
+    left: 4px !important;
+    font-size: 7px !important;
+    padding: 2px 5px !important;
     letter-spacing: 0.04em !important;
-    background: rgba(0, 0, 0, 0.75) !important;
+    background: rgba(0, 0, 0, 0.8) !important;
+    border-radius: 3px !important;
   }
 
   .car-card-list .car-info {
@@ -2053,7 +2115,7 @@ img { display: block; width: 100%; object-fit: cover; }
     justify-content: center !important;
     flex: 1 !important;
     min-width: 0 !important;
-    gap: 2px !important;
+    gap: 3px !important;
   }
 
   .car-card-list .car-list-top {
@@ -2070,11 +2132,11 @@ img { display: block; width: 100%; object-fit: cover; }
   }
 
   .car-card-list .car-name {
-    font-size: 11.5px !important;
+    font-size: 13px !important;
     font-weight: 700 !important;
     color: #0F172A !important;
     margin: 0 !important;
-    line-height: 1.25 !important;
+    line-height: 1.3 !important;
     white-space: nowrap !important;
     overflow: hidden !important;
     text-overflow: ellipsis !important;
@@ -2089,9 +2151,9 @@ img { display: block; width: 100%; object-fit: cover; }
   }
 
   .car-card-list .car-specs-line {
-    font-size: 8.5px !important;
+    font-size: 9.5px !important;
     color: #64748B !important;
-    margin: 1px 0 0 !important;
+    margin: 1px 0 2px !important;
     white-space: nowrap !important;
     overflow: hidden !important;
     text-overflow: ellipsis !important;
@@ -2105,7 +2167,7 @@ img { display: block; width: 100%; object-fit: cover; }
   .car-card-list .car-price-row {
     border: none !important;
     padding: 0 !important;
-    margin-top: 3px !important;
+    margin-top: 2px !important;
     display: flex !important;
     align-items: center !important;
     justify-content: space-between !important;
@@ -2113,16 +2175,16 @@ img { display: block; width: 100%; object-fit: cover; }
 
   .car-card-list .car-mobile-price {
     display: inline-block !important;
-    font-size: 11.5px !important;
+    font-size: 12px !important;
     font-weight: 800 !important;
     color: #0F172A !important;
     letter-spacing: -0.01em !important;
   }
 
   .car-card-list .car-more-details-btn {
-    padding: 3px 8px !important;
-    font-size: 8px !important;
-    letter-spacing: 0.05em !important;
+    padding: 4px 9px !important;
+    font-size: 8.5px !important;
+    letter-spacing: 0.06em !important;
     width: auto !important;
     background: #0F172A !important;
     color: #fff !important;
@@ -2137,10 +2199,29 @@ img { display: block; width: 100%; object-fit: cover; }
 }
 
 @media (max-width: 600px) {
-  .inventory-page-wrapper { padding: 24px 12px; }
-  .inventory-title { font-size: 22px; margin-bottom: 20px; letter-spacing: 0.25em; }
-  .main-search-bar { padding: 10px 16px; margin-bottom: 20px; }
-  .main-search-bar input { font-size: 13.5px; }
+  .inventory-page-wrapper {
+    padding: 24px 16px !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+  }
+  .inventory-title {
+    font-size: 22px !important;
+    margin-bottom: 20px !important;
+    letter-spacing: 0.25em !important;
+    text-align: center !important;
+  }
+  .main-search-bar {
+    padding: 12px 14px !important;
+    margin-bottom: 20px !important;
+    border-radius: 6px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  .main-search-bar input {
+    font-size: 16px !important; /* 16px prevents iOS automatic zoom on focus */
+  }
   .site-footer { flex-direction: column; text-align: center; padding: 40px 20px; gap: 20px; }
   .site-footer .logo { margin: 0 auto; text-align: center; }
   .site-footer > div { justify-content: center; flex-wrap: wrap; }
