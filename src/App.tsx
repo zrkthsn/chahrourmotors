@@ -232,7 +232,7 @@ const cars: Car[] = [
     make: 'Land Rover',
     model: 'Defender 110 P400',
     year: 2020,
-    price: '$78,000',
+    price: 'Price on Request',
     mileage: '42,000 miles',
     fuel: 'Petrol (MHEV)',
     transmission: 'Automatic',
@@ -316,7 +316,7 @@ const cars: Car[] = [
     make: 'Land Rover',
     model: 'Range Rover Vogue HSE',
     year: 2018,
-    price: '$69,000',
+    price: 'Price on Request',
     mileage: '80,000 km',
     fuel: 'Petrol',
     transmission: 'Automatic',
@@ -358,7 +358,7 @@ const cars: Car[] = [
     make: 'Jetour',
     model: 'G700 Flagship',
     year: 2026,
-    price: '$39,500',
+    price: 'Price on Request',
     mileage: '0 km (Brand New)',
     fuel: 'Petrol',
     transmission: 'Automatic',
@@ -400,7 +400,7 @@ const cars: Car[] = [
     make: 'Voyah',
     model: 'Passion EV',
     year: 2023,
-    price: '$38,500',
+    price: 'Price on Request',
     mileage: '18,000 km',
     fuel: 'Electric',
     transmission: 'Automatic (Electric Drive)',
@@ -421,7 +421,7 @@ const cars: Car[] = [
     make: 'Changan',
     model: 'Deepal G318 4WD',
     year: 2024,
-    price: '$46,500',
+    price: 'Price on Request',
     mileage: '0 km (Brand New)',
     fuel: 'Hybrid (EREV AWD)',
     transmission: 'Automatic (Intelligent 4WD)',
@@ -442,7 +442,7 @@ const cars: Car[] = [
     make: 'BMW',
     model: '530i xDrive Sport Line',
     year: 2018,
-    price: '$28,500',
+    price: 'Price on Request',
     mileage: '85,000 miles',
     fuel: 'Petrol',
     transmission: 'Automatic (Steptronic)',
@@ -463,7 +463,7 @@ const cars: Car[] = [
     make: 'Mercedes-Benz',
     model: 'Maybach GLS 600',
     year: 2023,
-    price: '$215,000',
+    price: 'Price on Request',
     mileage: '7,000 km only',
     fuel: 'Petrol (MHEV)',
     transmission: 'Automatic (9G-TRONIC)',
@@ -505,7 +505,7 @@ const cars: Car[] = [
     make: 'Toyota',
     model: 'Land Cruiser Prado R3',
     year: 2024,
-    price: '$82,000',
+    price: 'Price on Request',
     mileage: '26,000 km',
     fuel: 'Petrol',
     transmission: 'Automatic',
@@ -526,7 +526,7 @@ const cars: Car[] = [
     make: 'Jetour',
     model: 'T2 Travel Plus',
     year: 2025,
-    price: '$37,500',
+    price: 'Price on Request',
     mileage: '0 km (Brand New)',
     fuel: 'Petrol',
     transmission: 'Automatic (XWD 4WD)',
@@ -547,7 +547,7 @@ const cars: Car[] = [
     make: 'Land Rover',
     model: 'Range Rover Velar P250 S',
     year: 2023,
-    price: '$54,500',
+    price: 'Price on Request',
     mileage: '49,000 miles',
     fuel: 'Petrol',
     transmission: 'Automatic',
@@ -589,7 +589,7 @@ const cars: Car[] = [
     make: 'Nissan',
     model: 'Kicks SV',
     year: 2025,
-    price: '$23,500',
+    price: 'Price on Request',
     mileage: '0 km (Brand New)',
     fuel: 'Petrol',
     transmission: 'Automatic (Xtronic CVT)',
@@ -610,7 +610,7 @@ const cars: Car[] = [
     make: 'Mercedes-Benz',
     model: 'C 300 AMG Package',
     year: 2016,
-    price: '$21,500',
+    price: 'Price on Request',
     mileage: '68,000 miles',
     fuel: 'Petrol',
     transmission: 'Automatic (7G-TRONIC)',
@@ -631,7 +631,7 @@ const cars: Car[] = [
     make: 'Toyota',
     model: 'bZ3X Pro',
     year: 2025,
-    price: '$28,500',
+    price: 'Price on Request',
     mileage: '0 km (Brand New)',
     fuel: 'Electric',
     transmission: 'Automatic (Electric Drive)',
@@ -652,7 +652,7 @@ const cars: Car[] = [
     make: 'Land Rover',
     model: 'Range Rover Vogue P525 HSE',
     year: 2020,
-    price: '$82,500',
+    price: 'Price on Request',
     mileage: '90,000 miles',
     fuel: 'Petrol',
     transmission: 'Automatic (8-Speed)',
@@ -673,7 +673,7 @@ const cars: Car[] = [
     make: 'Hyundai',
     model: 'Elantra',
     year: 2025,
-    price: '$22,500',
+    price: 'Price on Request',
     mileage: '0 km (Brand New)',
     fuel: 'Petrol',
     transmission: 'Automatic (IVT)',
@@ -694,7 +694,7 @@ const cars: Car[] = [
     make: 'MG',
     model: 'E-RX5 Plug-in Hybrid',
     year: 2023,
-    price: '$24,500',
+    price: 'Price on Request',
     mileage: '0 km (Brand New)',
     fuel: 'Plug-in Hybrid (PHEV)',
     transmission: '10-Speed EDU G2 Hybrid Automatic',
@@ -715,7 +715,7 @@ const cars: Car[] = [
     make: 'Toyota',
     model: 'bZ3',
     year: 2025,
-    price: '$25,500',
+    price: 'Price on Request',
     mileage: '0 km (Brand New)',
     fuel: 'Full Electric (BEV)',
     transmission: 'Single-Speed Automatic',
@@ -736,7 +736,7 @@ const cars: Car[] = [
     make: 'Toyota',
     model: 'bZ3X Pro',
     year: 2025,
-    price: '$28,500',
+    price: 'Price on Request',
     mileage: '0 km (Brand New)',
     fuel: 'Full Electric (BEV)',
     transmission: 'Single-Speed Automatic',
@@ -778,7 +778,7 @@ const cars: Car[] = [
     make: 'Audi',
     model: 'Q8 Premium Plus',
     year: 2019,
-    price: '$54,500',
+    price: 'Price on Request',
     mileage: '58,000 km',
     fuel: 'Petrol Mild-Hybrid (MHEV)',
     transmission: '8-Speed Tiptronic Automatic',
@@ -799,7 +799,7 @@ const cars: Car[] = [
     make: 'DongFeng',
     model: 'M-Hero 2 817 ULTRA',
     year: 2025,
-    price: '$69,000',
+    price: 'Price on Request',
     mileage: '0 km (Brand New)',
     fuel: 'PHEV (Extended Range EV)',
     transmission: 'Automatic (Quad-Motor 4WD)',
@@ -820,7 +820,7 @@ const cars: Car[] = [
     make: 'Mercedes-Benz',
     model: 'A 180 AMG Package',
     year: 2020,
-    price: '$28,500',
+    price: 'Price on Request',
     mileage: '28,000 km',
     fuel: 'Petrol',
     transmission: 'Automatic (7G-DCT)',
@@ -841,7 +841,7 @@ const cars: Car[] = [
     make: 'Jetour',
     model: 'T2 Travel Plus',
     year: 2025,
-    price: '$38,500',
+    price: 'Price on Request',
     mileage: '0 km (Brand New)',
     fuel: 'Petrol',
     transmission: 'Automatic (XWD 4WD)',
@@ -1738,13 +1738,18 @@ function InventoryPage({
     // Year Range
     result = result.filter(car => car.year >= filters.minYear && car.year <= filters.maxYear);
 
-    // Price — strip non-digits then compare (allow 'Call for Price' cars to always pass)
+    // Price — strip non-digits then compare (allow 'Price on Request' cars to always pass unless price filtered)
     result = result.filter(car => {
-      if (car.price.toLowerCase().includes('call') || car.price.toLowerCase().includes('inquire') || car.price.toLowerCase().includes('poa')) {
+      if (
+        car.price.toLowerCase().includes('call') ||
+        car.price.toLowerCase().includes('inquire') ||
+        car.price.toLowerCase().includes('poa') ||
+        car.price.toLowerCase().includes('request')
+      ) {
         return true;
       }
       const p = parseInt(car.price.replace(/\D/g, ''), 10);
-      if (isNaN(p)) return true;
+      if (isNaN(p) || p === 0) return true;
       return p >= filters.minPrice && p <= filters.maxPrice;
     });
 
@@ -1753,6 +1758,8 @@ function InventoryPage({
       result = [...result].sort((a, b) => {
         const pA = parseInt(a.price.replace(/\D/g, ''), 10) || 0;
         const pB = parseInt(b.price.replace(/\D/g, ''), 10) || 0;
+        if (!pA && pB) return 1;
+        if (pA && !pB) return -1;
         return pA - pB;
       });
     } else if (sort === 'Price: high to low') {
