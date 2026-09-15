@@ -81,7 +81,7 @@ const MAKE_MODELS_MAP: Record<string, string[]> = {
   'MG': ['E-RX5 Plug-in Hybrid', 'E-RX5', 'RX5', 'MG4', 'Cyberster', 'ZS EV'],
   'Voyah': ['Passion EV', 'Free', 'Dreamer', 'Courage'],
   'DongFeng': ['M-Hero M817 Platinum', 'M-Hero 2 817 ULTRA', 'M-Hero 917', 'Mengshi M817', 'M-Hero 1'],
-  'Mercedes-Benz': ['A 180 AMG Package', 'A 180', 'Maybach GLS 600', 'GLS 600 Maybach', 'G 63 AMG Night Package', 'G 63 AMG', 'C 300 AMG Package', 'AMG GT 63 S', 'SL 63 AMG', 'C 300'],
+  'Mercedes-Benz': ['G 500', 'A 180 AMG Package', 'A 180', 'Maybach GLS 600', 'GLS 600 Maybach', 'G 63 AMG Night Package', 'G 63 AMG', 'C 300 AMG Package', 'AMG GT 63 S', 'SL 63 AMG', 'C 300'],
   'Land Rover': ['Range Rover Vogue P525 HSE', 'Range Rover Vogue P525 Autobiography', 'Range Rover Velar P250 S', 'Velar P250 S', 'Range Rover Vogue HSE', 'Defender 110 P400', 'Defender 110', 'Range Rover Vogue', 'Range Rover SV Autobiography', 'Range Rover Sport SV'],
   'Toyota': ['bZ3', 'bZ3X Pro', 'bZ3X', 'Land Cruiser Prado R3', 'Prado R3', 'Land Cruiser VX-R Grand Touring S', 'Land Cruiser VX-R', 'Land Cruiser 300', 'Prado'],
   'Nissan': ['Kicks SV', 'Kicks', 'Patrol', 'X-Trail'],
@@ -101,6 +101,7 @@ const MAKE_MODELS_MAP: Record<string, string[]> = {
 };
 
 const ALL_MODELS = [
+  'G 500',
   'A 180 AMG Package',
   'A 180',
   'Q8 Premium Plus',
@@ -855,6 +856,27 @@ const cars: Car[] = [
     ],
     tag: 'BRAND NEW • TOP VERSION • BLACK ON BROWN',
     description: 'Jetour T2 2025 Travel Plus (Traveller 2.0T AWD - Top Version). Brand New Car (0 Km Delivery Mileage). Finished in Midnight Gloss Black exterior over Saddle Brown / Cognac Luxury Leather interior. Powered by a 2.0L Kunpeng Turbo engine producing 254 hp with 390 Nm torque paired with BorgWarner Sixth-Generation Intelligent XWD All-Wheel Drive and electronic rear differential lock. Top version equipped with illuminated JETOUR front grille lettering, matrix cube LED headlights, bronze off-road recovery tow hooks, 20" bronze multi-spoke alloy wheels, rear-mounted full-size spare wheel, 15.6" central floating touchscreen display, aviation-inspired multi-function steering wheel, full digital cockpit, 540° panoramic transparent chassis camera, panoramic sunroof, ambient interior lighting, and premium Sony audio system.'
+  },
+  {
+    id: 32,
+    name: 'Mercedes-Benz G 500 2022',
+    make: 'Mercedes-Benz',
+    model: 'G 500',
+    year: 2022,
+    price: '$169,000',
+    mileage: '70,000 km',
+    fuel: 'Petrol',
+    transmission: 'Automatic (9G-TRONIC)',
+    image: '/inventory/mercedes-g500-2022/g500-1.jpg',
+    images: [
+      '/inventory/mercedes-g500-2022/g500-1.jpg',
+      '/inventory/mercedes-g500-2022/g500-2.jpg',
+      '/inventory/mercedes-g500-2022/g500-3.jpg',
+      '/inventory/mercedes-g500-2022/g500-4.jpg',
+      '/inventory/mercedes-g500-2022/g500-5.jpg'
+    ],
+    tag: 'GERMAN SOURCE • 70,000 KM • BLACK ON RED',
+    description: 'Mercedes-Benz G 500 2022. Official German Dealer Source with 70,000 KM. Finished in commanding Obsidian Black Metallic exterior over Classic Red & Black Two-Tone Designo Nappa Leather interior with contrast red seatbelts. Powered by a potent 4.0L Biturbo V8 engine producing 416 hp and 450 lb-ft of torque paired with 9G-TRONIC Automatic Transmission, permanent all-wheel drive, and 3 independent 100% differential locks. Equipped with Stainless Steel Exterior Package, 20" Multi-Spoke Alloy Wheels, MULTIBEAM LED Headlights, Widescreen Digital Cockpit displays with COMAND Navigation, Burmester Surround Sound System, Heated & Ventilated Multi-Contour Front Seats with Memory, Glass Sunroof, 360-degree Surround View Cameras, and Driver Assistance Package.'
   }
 ];
 
