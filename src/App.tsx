@@ -83,7 +83,7 @@ const MAKE_MODELS_MAP: Record<string, string[]> = {
   'DongFeng': ['M-Hero M817 Platinum', 'M-Hero 2 817 ULTRA', 'M-Hero 917', 'Mengshi M817', 'M-Hero 1'],
   'Mercedes-Benz': ['G 500', 'A 180 AMG Package', 'A 180', 'Maybach GLS 600', 'GLS 600 Maybach', 'G 63 AMG Night Package', 'G 63 AMG', 'C 300 AMG Package', 'AMG GT 63 S', 'SL 63 AMG', 'C 300'],
   'Land Rover': ['Range Rover Vogue P525 HSE', 'Range Rover Vogue P525 Autobiography', 'Range Rover Velar P250 S', 'Velar P250 S', 'Range Rover Vogue HSE', 'Defender 110 P400', 'Defender 110', 'Range Rover Vogue', 'Range Rover SV Autobiography', 'Range Rover Sport SV'],
-  'Toyota': ['bZ3', 'bZ3X Pro', 'bZ3X', 'Land Cruiser Prado R3', 'Prado R3', 'Land Cruiser VX-R Grand Touring S', 'Land Cruiser VX-R', 'Land Cruiser 300', 'Prado'],
+  'Toyota': ['Land Cruiser GX-R', 'Land Cruiser GX-R V6', 'bZ3', 'bZ3X Pro', 'bZ3X', 'Land Cruiser Prado R3', 'Prado R3', 'Land Cruiser VX-R Grand Touring S', 'Land Cruiser VX-R', 'Land Cruiser 300', 'Prado'],
   'Nissan': ['Kicks SV', 'Kicks', 'Patrol', 'X-Trail'],
   'Hyundai': ['Elantra', 'Sonata', 'Tucson', 'Santa Fe', 'Palisade'],
   'Jetour': ['T2 Travel Plus', 'G700 Flagship', 'T2', 'Dashing', 'X70 Plus', 'X90 Plus'],
@@ -101,6 +101,7 @@ const MAKE_MODELS_MAP: Record<string, string[]> = {
 };
 
 const ALL_MODELS = [
+  'Land Cruiser GX-R',
   'G 500',
   'A 180 AMG Package',
   'A 180',
@@ -877,6 +878,27 @@ const cars: Car[] = [
     ],
     tag: 'GERMAN SOURCE • 70,000 KM • BLACK ON RED',
     description: 'Mercedes-Benz G 500 2022. Official German Dealer Source with 70,000 KM. Finished in commanding Obsidian Black Metallic exterior over Classic Red & Black Two-Tone Designo Nappa Leather interior with contrast red seatbelts. Powered by a potent 4.0L Biturbo V8 engine producing 416 hp and 450 lb-ft of torque paired with 9G-TRONIC Automatic Transmission, permanent all-wheel drive, and 3 independent 100% differential locks. Equipped with Stainless Steel Exterior Package, 20" Multi-Spoke Alloy Wheels, MULTIBEAM LED Headlights, Widescreen Digital Cockpit displays with COMAND Navigation, Burmester Surround Sound System, Heated & Ventilated Multi-Contour Front Seats with Memory, Glass Sunroof, 360-degree Surround View Cameras, and Driver Assistance Package.'
+  },
+  {
+    id: 33,
+    name: 'Toyota Land Cruiser GX-R 2017 V6',
+    make: 'Toyota',
+    model: 'Land Cruiser GX-R',
+    year: 2017,
+    price: 'Price on Request',
+    mileage: '80,000 km',
+    fuel: 'Petrol',
+    transmission: 'Automatic (6-Speed Super ECT)',
+    image: '/inventory/toyota-landcruiser-gxr-2017/lc-gxr-1.jpg',
+    images: [
+      '/inventory/toyota-landcruiser-gxr-2017/lc-gxr-1.jpg',
+      '/inventory/toyota-landcruiser-gxr-2017/lc-gxr-2.jpg',
+      '/inventory/toyota-landcruiser-gxr-2017/lc-gxr-3.jpg',
+      '/inventory/toyota-landcruiser-gxr-2017/lc-gxr-4.jpg',
+      '/inventory/toyota-landcruiser-gxr-2017/lc-gxr-5.jpg'
+    ],
+    tag: 'BUMC SOURCE & SERVICES • 80,000 KM • 1 OWNER',
+    description: 'Toyota Land Cruiser GX-R 2017 V6. 1 Single Owner from new. Official Lebanese Dealership Source (BUMC) with full comprehensive BUMC service history and genuine low mileage of only 80,000 KM. Finished in Attitude Black Metallic exterior over Black Leather interior with dark wood trim accents. Powered by the renowned 4.0L 1GR-FE V6 engine with Dual VVT-i paired with 6-Speed Super ECT Automatic Transmission and Full-Time 4WD with Torsen limited-slip center differential. Equipped with GX-R aero styling package, multi-reflector LED headlamps with integrated LED DRLs, 18-inch multi-spoke alloy wheels, rear roof spoiler, heavy-duty rear tow hitch, electric glass sunroof, 8-way power adjustable driver seat, upgraded touchscreen infotainment display with navigation and Bluetooth, multi-zone automatic climate control, push-button start with smart entry, and Crawl Control / Multi-Terrain select.'
   }
 ];
 
