@@ -1,4 +1,4 @@
-import { useMemo, useState, useEffect } from 'react';
+import { useMemo, useState, useEffect, useLayoutEffect } from 'react';
 import {
   ArrowRight,
   CalendarDays,
@@ -889,7 +889,7 @@ function Header({ page, onNavigate }: { page: Page; onNavigate: (page: Page) => 
   const navigate = (nextPage: Page) => {
     onNavigate(nextPage);
     setMenuOpen(false);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo(0, 0);
   };
   const isHero = page === 'home';
   return (
@@ -2349,22 +2349,29 @@ function App() {
     setGalleryState(null);
   };
 
+  // Always reset scroll position to the very top whenever navigating between pages or selecting a vehicle
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0);
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+  }, [page, activeCarId]);
+
   const navigate = (nextPage: Page) => {
     setPage(nextPage);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo(0, 0);
   };
 
   const handleHeroSearch = (query: string) => {
     setSearchQuery(query);
     setFilters(DEFAULT_FILTERS);
     setPage('inventory');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo(0, 0);
   };
 
   const handleSelectCar = (id: number) => {
     setActiveCarId(id);
     setPage('car');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo(0, 0);
   };
 
   return (
