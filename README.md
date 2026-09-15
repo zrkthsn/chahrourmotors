@@ -1,6 +1,6 @@
-# Premier Automotive Showroom
+# Luxury Automotive Showroom Template
 
-Modern luxury web platform for **Premier Automotive**, showcasing certified pre-owned and premium vehicles.
+Modern luxury showroom web platform showcasing certified pre-owned and premium vehicles.
 
 ## Features
 - Dynamic vehicle inventory with multi-faceted filtering (brand, model, year, fuel, transmission, price).
