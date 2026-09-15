@@ -5,7 +5,6 @@ import {
   CheckCircle,
   ChevronDown,
   ChevronLeft,
-  ChevronRight,
   Clock,
   Facebook,
   Fuel,
@@ -1069,12 +1068,6 @@ function FullscreenGalleryModal({
           onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}
         >
-          {images.length > 1 && (
-            <button className="gallery-nav-btn prev-btn" onClick={prevImage} aria-label="Previous Image">
-              <ChevronLeft size={30} />
-            </button>
-          )}
-
           <div className="fullscreen-img-container">
             <img
               key={currentIndex}
@@ -1084,12 +1077,6 @@ function FullscreenGalleryModal({
               decoding="async"
             />
           </div>
-
-          {images.length > 1 && (
-            <button className="gallery-nav-btn next-btn" onClick={nextImage} aria-label="Next Image">
-              <ChevronRight size={30} />
-            </button>
-          )}
         </div>
 
         {/* Bottom thumbnail strip */}
