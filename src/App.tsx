@@ -383,6 +383,27 @@ const cars: Car[] = [
     ],
     tag: 'CARBON FIBER PACK • 4,000 KM 🇩🇪 • DOUBLE NIGHT PKG • PERFORMANCE PKG',
     description: '2025 Mercedes-AMG G 63 (W465 Facelift / New Generation) with Carbon Fiber Package & Double AMG Night Package. Imported from Germany (🇩🇪) with only 4,000 KM in showroom-fresh condition. Finished in iconic Nardo Gray exterior with high-gloss Carbon Fiber exterior package (carbon mirror caps, carbon spare tire cover ring, and carbon bumper accents) over Exclusive Black Nappa Leather interior with red contrast stitching and genuine carbon fiber structure trim. Powered by the handcrafted 4.0L V8 Biturbo engine with 48V Integrated Starter-Generator producing 577 hp (plus 20 hp EQ Boost) and 850 Nm of torque, paired with AMG SPEEDSHIFT TCT 9-Speed Sports Transmission and AMG Performance 4MATIC all-wheel drive with 3 lockable differentials. Equipped with the AMG Performance Package, AMG Active Balance Control suspension, 22" AMG cross-spoke forged alloy wheels, AMG high-performance braking system with Red brake calipers, KEYLESS-GO entry with push-button start, factory Rear Seat Entertainment Package (dual MBUX displays), 360-degree Surround Vision cameras, Burmester 3D Surround Sound System, sliding glass sunroof, and AMG switchable side-pipe performance exhaust.'
+  },
+  {
+    id: 9,
+    name: 'Jetour T2 Travel+ 2025',
+    make: 'Jetour',
+    model: 'T2 Travel Plus',
+    year: 2025,
+    price: 'Price on Request',
+    mileage: '0 km (Brand New)',
+    fuel: 'Petrol',
+    transmission: 'Automatic (7-Speed Dual-Clutch DCT)',
+    image: '/inventory/jetour-t2-travel-plus-2025/t2-1.jpg',
+    images: [
+      '/inventory/jetour-t2-travel-plus-2025/t2-1.jpg',
+      '/inventory/jetour-t2-travel-plus-2025/t2-2.jpg',
+      '/inventory/jetour-t2-travel-plus-2025/t2-3.jpg',
+      '/inventory/jetour-t2-travel-plus-2025/t2-4.jpg',
+      '/inventory/jetour-t2-travel-plus-2025/t2-5.jpg'
+    ],
+    tag: 'TRAVEL+ EDITION • 0 KM BRAND NEW • FULLY LOADED • BLACK / BLACK',
+    description: '2025 Jetour T2 Travel+ Edition — The ultimate modern rugged adventure 4x4. Brand new with 0 km. Finished in deep Night Black exterior over Black Leather sport interior. Fully loaded top-of-the-line Travel+ specification. Powered by the high-output 2.0L Turbocharged GDI 4-cylinder engine producing 254 hp and 390 Nm of torque, mated to an ultra-responsive 7-Speed Dual-Clutch (DCT) transmission and BorgWarner sixth-generation intelligent XWD (Four-Wheel Drive) with electronic limited-slip differential (eLSD). Equipped with factory external side gear box carrier, adventure roof rack, bronze multi-spoke off-road wheels with all-terrain tires and neon yellow accents, illuminated JETOUR matrix front grille, matrix LED headlights with square auxiliary bumper lighting, panoramic glass sunroof, external spare tire carrier, 15.6" central multimedia touchscreen with Qualcomm Snapdragon 8155 processor, 10.25" digital instrument cluster, Sony Premium Audio with headrest speakers, 540° panoramic transparent chassis surround view camera system, wireless smartphone fast-charging, multi-terrain drive selector, and full L2 advanced driver assistance suite.'
   }
 ];
 
