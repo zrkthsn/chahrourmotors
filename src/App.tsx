@@ -82,7 +82,7 @@ const MAKE_MODELS_MAP: Record<string, string[]> = {
   'MG': ['E-RX5 Plug-in Hybrid', 'E-RX5', 'RX5', 'MG4', 'Cyberster', 'ZS EV'],
   'Voyah': ['Passion EV', 'Free', 'Dreamer', 'Courage'],
   'DongFeng': ['M-Hero M817 Platinum', 'M-Hero 2 817 ULTRA', 'M-Hero 917', 'Mengshi M817', 'M-Hero 1'],
-  'Mercedes-Benz': ['CLE 300 4MATIC', 'CLE 300 AMG Package', 'CLE 300', 'G 500', 'A 180 AMG Package', 'A 180', 'Maybach GLS 600', 'GLS 600 Maybach', 'G 63 AMG Night Package', 'G 63 AMG', 'C 300 AMG Package', 'AMG GT 63 S', 'SL 63 AMG', 'C 300'],
+  'Mercedes-Benz': ['G 63 AMG Carbon Fiber Pack', 'CLE 300 4MATIC', 'CLE 300 AMG Package', 'CLE 300', 'G 500', 'A 180 AMG Package', 'A 180', 'Maybach GLS 600', 'GLS 600 Maybach', 'G 63 AMG Night Package', 'G 63 AMG', 'C 300 AMG Package', 'AMG GT 63 S', 'SL 63 AMG', 'C 300'],
   'Land Rover': ['Range Rover Vogue HSE V8', 'Range Rover Sport V6 P400 Dynamic', 'Range Rover Sport P400 Dynamic', 'Range Rover Sport', 'Range Rover Vogue P525 HSE', 'Range Rover Vogue P525 Autobiography', 'Range Rover Velar P250 S', 'Velar P250 S', 'Range Rover Vogue HSE', 'Defender 110 P400', 'Defender 110', 'Range Rover Vogue', 'Range Rover SV Autobiography', 'Range Rover Sport SV'],
   'Toyota': ['Land Cruiser GX.R Twin Turbo', 'Land Cruiser GX-R', 'Land Cruiser GX-R V6', 'bZ3', 'bZ3X Pro', 'bZ3X', 'Land Cruiser Prado R3', 'Prado R3', 'Land Cruiser VX-R Grand Touring S', 'Land Cruiser VX-R', 'Land Cruiser 300', 'Prado'],
   'Nissan': ['Kicks SV', 'Kicks', 'Patrol', 'X-Trail'],
@@ -102,6 +102,7 @@ const MAKE_MODELS_MAP: Record<string, string[]> = {
 };
 
 const ALL_MODELS = [
+  'G 63 AMG Carbon Fiber Pack',
   'Range Rover Vogue HSE V8',
   'Range Rover Sport V6 P400 Dynamic',
   'CLE 300 4MATIC',
@@ -361,6 +362,27 @@ const cars: Car[] = [
     ],
     tag: 'AMG PACKAGE • TGF SOURCE • 25,000 KM • 100% ORIGINAL PAINT',
     description: 'Mercedes-Benz G 500 2019 (W463A) with AMG Line Package — Only 25,000 original kilometers. Official Lebanese Dealer Source (T. Gargour & Fils - TGF) with full complete service history recorded strictly at TGF agency. 100% original factory paint throughout — accident-free in pristine showroom collector condition. Finished in Obsidian Black Metallic over an exclusive Two-Tone Platinum White & Black Nappa Leather interior with contrast stitching and black Alcantara microfiber roof liner. Powered by the legendary 4.0L Bi-Turbo V8 engine generating 416 hp and 610 Nm of torque, mated to a 9G-TRONIC 9-Speed Automatic Transmission, permanent all-wheel drive, and 3 independent 100% differential locks. Equipped with AMG Line exterior package, flared wheel arches, 20" AMG multi-spoke titanium-finish alloy wheels, stainless steel running boards and spare wheel cover, Multibeam LED headlights with circular signature DRLs, electric glass sunroof, dual 12.3" widescreen digital cockpit and MBUX displays, Burmester Surround Sound System, ambient lighting, heated and ventilated multi-contour dynamic seats with memory, 360° surround camera, and driving assistance package.'
+  },
+  {
+    id: 8,
+    name: 'Mercedes-AMG G 63 Carbon Fiber Pack 2025',
+    make: 'Mercedes-Benz',
+    model: 'G 63 AMG Carbon Fiber Pack',
+    year: 2025,
+    price: 'Price on Request',
+    mileage: '4,000 km',
+    fuel: 'Petrol',
+    transmission: 'Automatic (AMG SPEEDSHIFT TCT 9G)',
+    image: '/inventory/mercedes-g63-amg-2025/g63-1.jpg',
+    images: [
+      '/inventory/mercedes-g63-amg-2025/g63-1.jpg',
+      '/inventory/mercedes-g63-amg-2025/g63-2.jpg',
+      '/inventory/mercedes-g63-amg-2025/g63-3.jpg',
+      '/inventory/mercedes-g63-amg-2025/g63-4.jpg',
+      '/inventory/mercedes-g63-amg-2025/g63-5.jpg'
+    ],
+    tag: 'CARBON FIBER PACK • 4,000 KM 🇩🇪 • DOUBLE NIGHT PKG • PERFORMANCE PKG',
+    description: '2025 Mercedes-AMG G 63 (W465 Facelift / New Generation) with Carbon Fiber Package & Double AMG Night Package. Imported from Germany (🇩🇪) with only 4,000 KM in showroom-fresh condition. Finished in iconic Nardo Gray exterior with high-gloss Carbon Fiber exterior package (carbon mirror caps, carbon spare tire cover ring, and carbon bumper accents) over Exclusive Black Nappa Leather interior with red contrast stitching and genuine carbon fiber structure trim. Powered by the handcrafted 4.0L V8 Biturbo engine with 48V Integrated Starter-Generator producing 577 hp (plus 20 hp EQ Boost) and 850 Nm of torque, paired with AMG SPEEDSHIFT TCT 9-Speed Sports Transmission and AMG Performance 4MATIC all-wheel drive with 3 lockable differentials. Equipped with the AMG Performance Package, AMG Active Balance Control suspension, 22" AMG cross-spoke forged alloy wheels, AMG high-performance braking system with Red brake calipers, KEYLESS-GO entry with push-button start, factory Rear Seat Entertainment Package (dual MBUX displays), 360-degree Surround Vision cameras, Burmester 3D Surround Sound System, sliding glass sunroof, and AMG switchable side-pipe performance exhaust.'
   }
 ];
 
