@@ -82,7 +82,7 @@ const MAKE_MODELS_MAP: Record<string, string[]> = {
   'DongFeng': ['M-Hero M817 Platinum', 'M-Hero 2 817 ULTRA', 'M-Hero 917', 'Mengshi M817', 'M-Hero 1'],
   'Mercedes-Benz': ['G 500', 'A 180 AMG Package', 'A 180', 'Maybach GLS 600', 'GLS 600 Maybach', 'G 63 AMG Night Package', 'G 63 AMG', 'C 300 AMG Package', 'AMG GT 63 S', 'SL 63 AMG', 'C 300'],
   'Land Rover': ['Range Rover Vogue P525 HSE', 'Range Rover Vogue P525 Autobiography', 'Range Rover Velar P250 S', 'Velar P250 S', 'Range Rover Vogue HSE', 'Defender 110 P400', 'Defender 110', 'Range Rover Vogue', 'Range Rover SV Autobiography', 'Range Rover Sport SV'],
-  'Toyota': ['Land Cruiser GX-R', 'Land Cruiser GX-R V6', 'bZ3', 'bZ3X Pro', 'bZ3X', 'Land Cruiser Prado R3', 'Prado R3', 'Land Cruiser VX-R Grand Touring S', 'Land Cruiser VX-R', 'Land Cruiser 300', 'Prado'],
+  'Toyota': ['Land Cruiser GX.R Twin Turbo', 'Land Cruiser GX-R', 'Land Cruiser GX-R V6', 'bZ3', 'bZ3X Pro', 'bZ3X', 'Land Cruiser Prado R3', 'Prado R3', 'Land Cruiser VX-R Grand Touring S', 'Land Cruiser VX-R', 'Land Cruiser 300', 'Prado'],
   'Nissan': ['Kicks SV', 'Kicks', 'Patrol', 'X-Trail'],
   'Hyundai': ['Elantra', 'Sonata', 'Tucson', 'Santa Fe', 'Palisade'],
   'Jetour': ['T2 Travel Plus', 'G700 Flagship', 'T2', 'Dashing', 'X70 Plus', 'X90 Plus'],
@@ -100,6 +100,7 @@ const MAKE_MODELS_MAP: Record<string, string[]> = {
 };
 
 const ALL_MODELS = [
+  'Land Cruiser GX.R Twin Turbo',
   'Land Cruiser GX-R',
   'G 500',
   'A 180 AMG Package',
@@ -186,7 +187,7 @@ const ALL_MODELS = [
 
 const ALL_YEARS = [2027, 2026, 2025, 2024, 2023, 2022, 2021, 2020, 2019, 2018];
 const ALL_FUELS = ['Petrol', 'Petrol (MHEV)', 'Electric', 'Hybrid', 'Hybrid (M Hybrid V8)', 'Hybrid (DMO PHEV)', 'Hybrid (EREV AWD)', 'Diesel'];
-const ALL_TRANSMISSIONS = ['Automatic (8-Speed M Steptronic)', 'Automatic (9G-TRONIC)', 'Automatic (Steptronic Sport)', 'Automatic', 'Automatic (Electric Drive)', 'Automatic (E-CVT)', 'Automatic (Multi-Motor Drive)', 'Automatic (PDK)', 'Dual-Clutch'];
+const ALL_TRANSMISSIONS = ['Automatic (10-Speed Direct Shift)', 'Automatic (8-Speed M Steptronic)', 'Automatic (9G-TRONIC)', 'Automatic (Steptronic Sport)', 'Automatic', 'Automatic (Electric Drive)', 'Automatic (E-CVT)', 'Automatic (Multi-Motor Drive)', 'Automatic (PDK)', 'Dual-Clutch'];
 
 type Page = 'home' | 'inventory' | 'about' | 'journal' | 'car' | 'contact';
 
@@ -227,6 +228,27 @@ const cars: Car[] = [
     ],
     tag: '727 HP • BASSOUL HENEINE • 4,000 KM • FROZEN DEEP GREY',
     description: '2027 BMW M5 Sedan (G90) — 727 HP. Finished in rare factory Frozen Deep Grey Metallic exterior over Merino Red / Black Full Leather interior. Official Lebanese Dealer Source (Bassoul Heneine) with only 4,000 KM. Covered by 3 Years Official Dealer Warranty and 5 Years Free Maintenance Package. Powered by the groundbreaking M Hybrid powertrain combining a 4.4L M TwinPower Turbo V8 engine with a high-performance electric motor producing a massive 727 horsepower and 1,000 Nm of torque paired with an 8-Speed M Steptronic transmission and M xDrive with selectable 2WD mode. Equipped with Full Carbon Fiber Package (Carbon fiber front & rear attachments, rocker panels / side skirts, rear carbon diffuser), Performance Titanium Exhaust System with quad tips, Interior Carbon Fiber structure trim, 20"/21" Double-Spoke Black Light Alloy M Wheels, M Compound Braking System with Red High-Gloss Calipers, M Seat Belts with signature stitching, and Full-Color Head-Up Display.'
+  },
+  {
+    id: 2,
+    name: 'Toyota Land Cruiser GX.R Twin Turbo 2022',
+    make: 'Toyota',
+    model: 'Land Cruiser GX.R Twin Turbo',
+    year: 2022,
+    price: 'Price on Request',
+    mileage: '48,000 km',
+    fuel: 'Petrol',
+    transmission: 'Automatic (10-Speed Direct Shift)',
+    image: '/inventory/toyota-landcruiser-gxr-2022/lc-1.jpg',
+    images: [
+      '/inventory/toyota-landcruiser-gxr-2022/lc-1.jpg',
+      '/inventory/toyota-landcruiser-gxr-2022/lc-2.jpg',
+      '/inventory/toyota-landcruiser-gxr-2022/lc-3.jpg',
+      '/inventory/toyota-landcruiser-gxr-2022/lc-4.jpg',
+      '/inventory/toyota-landcruiser-gxr-2022/lc-5.jpg'
+    ],
+    tag: 'TWIN TURBO • BUMC SOURCE • 48,000 KM • LIKE NEW',
+    description: 'Toyota Land Cruiser 300 GX.R 2022 Twin Turbo. Finished in commanding Attitude Black Metallic exterior over Black Premium Leather interior. Official Lebanese Company Dealer Source (BUMC) with only 48,000 KM. Pristine showroom condition — like new throughout. Powered by the high-performance 3.5L Twin-Turbo V6 engine producing 409 hp and 650 Nm of torque paired with an advanced 10-Speed Direct Shift Automatic Transmission and Full-Time 4WD with Torsen limited-slip center differential. Equipped with GX.R Twin Turbo aero exterior package, multi-reflector LED headlights with integrated LED DRLs, 20" high-gloss chrome multi-spoke alloy wheels, heavy-duty rear tow hitch, electric glass sunroof, power-adjustable leather seating, upgraded central touchscreen infotainment with navigation and smartphone integration, multi-zone automatic climate control, cool box, push-button start with smart keyless entry, Crawl Control, and Multi-Terrain Select.'
   }
 ];
 
