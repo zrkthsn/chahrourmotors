@@ -205,701 +205,7 @@ type Car = {
   description: string;
 };
 
-const cars: Car[] = [
-  {
-    id: 1,
-    name: 'Mercedes-Benz G 63 AMG Night Package 2020',
-    make: 'Mercedes-Benz',
-    model: 'G 63 AMG Night Package',
-    year: 2020,
-    price: '$189,000',
-    mileage: '44,000 km',
-    fuel: 'Petrol',
-    transmission: 'Automatic (9G-TRONIC)',
-    image: '/inventory/mercedes-g63-2020/g63-1.jpg',
-    images: [
-      '/inventory/mercedes-g63-2020/g63-1.jpg',
-      '/inventory/mercedes-g63-2020/g63-2.jpg',
-      '/inventory/mercedes-g63-2020/g63-3.jpg',
-      '/inventory/mercedes-g63-2020/g63-4.jpg',
-      '/inventory/mercedes-g63-2020/g63-5.jpg'
-    ],
-    tag: 'NIGHT PACKAGE • FULL PPF',
-    description: 'Mercedes-Benz G 63 2020 Night Package. Finished in Black on Black with Obsidian Black exterior and Black Exclusive Nappa Leather interior. German Source with 44,000 Km. Full Body PPF Installed (Paint Protection Film). Powered by a 4.0L Handcrafted AMG V8 Biturbo engine with 577 hp and 627 lb-ft of torque. Features AMG Night Package, 22" Matte Black Forged Cross-Spoke AMG Wheels, Red AMG Calipers, AMG Side-Exit Sport Exhaust, Burmester Surround Audio, Multi-beam LED, 360-degree Cameras, Glass Sunroof, and full carbon accents.'
-  },
-  {
-    id: 2,
-    name: 'Land Rover Defender 110 P400',
-    make: 'Land Rover',
-    model: 'Defender 110 P400',
-    year: 2020,
-    price: 'Price on Request',
-    mileage: '42,000 miles',
-    fuel: 'Petrol (MHEV)',
-    transmission: 'Automatic',
-    image: '/inventory/defender-110-p400-2020/defender-1.jpg',
-    images: [
-      '/inventory/defender-110-p400-2020/defender-1.jpg',
-      '/inventory/defender-110-p400-2020/defender-2.jpg',
-      '/inventory/defender-110-p400-2020/defender-3.jpg',
-      '/inventory/defender-110-p400-2020/defender-4.jpg',
-      '/inventory/defender-110-p400-2020/defender-5.jpg'
-    ],
-    tag: 'CLEAN CARFAX • EXPEDITION PACK',
-    description: 'Land Rover Defender P400 110 2020. Finished in Fuji White on Ebony Black Leather interior. Clean Carfax with only 42,000 miles. Equipped with the powerful 3.0L Turbocharged i6 engine producing 395 hp with Mild Hybrid (MHEV) technology and permanent All-Wheel Drive. Features Expedition Roof Rack with Deployable Side Ladder, Raised Air Intake Snorkel, Exterior Side-Mounted Gear Carrier, Full Size Spare Wheel with Defender Cover, Panoramic Glass Sunroof, Premium LED Headlights with Signature DRLs, 3D Surround Camera System, Meridian Sound System, and Terrain Response 2.'
-  },
-  {
-    id: 3,
-    name: 'Changan Deepal S07 2025',
-    make: 'Changan',
-    model: 'Deepal S07',
-    year: 2025,
-    price: '$33,000',
-    mileage: '0 km (Brand New)',
-    fuel: 'Electric',
-    transmission: 'Automatic (Electric Drive)',
-    image: '/inventory/changan-deepal-s07-2025/deepal-1.jpg',
-    images: [
-      '/inventory/changan-deepal-s07-2025/deepal-1.jpg',
-      '/inventory/changan-deepal-s07-2025/deepal-2.jpg',
-      '/inventory/changan-deepal-s07-2025/deepal-3.jpg',
-      '/inventory/changan-deepal-s07-2025/deepal-4.jpg',
-      '/inventory/changan-deepal-s07-2025/deepal-5.jpg'
-    ],
-    tag: 'BRAND NEW • 500KM RANGE',
-    description: 'Changan Deepal S07 2025. Brand New Car (0 Km Delivery Mileage). Finished in Metallic Black on Black / Basket luxury interior. Pure Electric SUV delivering up to 500 KM Electric Range on a single charge. Features futuristic aerodynamic styling with frameless doors, interactive intelligent LED matrix headlights, full-width illuminated rear lightbar with illuminated Deepal emblem, aero turbine alloy wheels, panoramic glass canopy, AR-HUD augmented reality display, rotating central infotainment touchscreen, 360-degree HD panoramic parking system, and Level 2+ intelligent driver assistance.'
-  },
-  {
-    id: 4,
-    name: 'BMW 530i xDrive M-Package 2022',
-    make: 'BMW',
-    model: '530i xDrive M-Package',
-    year: 2022,
-    price: '$45,000',
-    mileage: '13,000 miles',
-    fuel: 'Petrol',
-    transmission: 'Automatic (Steptronic Sport)',
-    image: '/inventory/bmw-530i-xdrive-2022/bmw-1.jpg',
-    images: [
-      '/inventory/bmw-530i-xdrive-2022/bmw-1.jpg',
-      '/inventory/bmw-530i-xdrive-2022/bmw-2.jpg',
-      '/inventory/bmw-530i-xdrive-2022/bmw-3.jpg',
-      '/inventory/bmw-530i-xdrive-2022/bmw-4.jpg',
-      '/inventory/bmw-530i-xdrive-2022/bmw-5.jpg'
-    ],
-    tag: 'M-PACKAGE • CLEAN CARFAX',
-    description: 'BMW 530i xDrive 2022 M-Package. Finished in Alvite Grey Metallic over Ivory White & Black Two-Tone Extended Leather interior. Clean Carfax with only 13,000 miles. 2.0L BMW TwinPower Turbo engine producing 248 hp paired with xDrive Intelligent All-Wheel Drive and 8-Speed Steptronic Sport Transmission. Equipped with Full M Sport Aerodynamics Package, Shadowline High-Gloss Black Kidney Grille and Trim, 19" M Multi-Spoke Two-Tone Diamond Cut Alloy Wheels, Adaptive LED Headlights, M Sport Leather Steering Wheel with Paddle Shifters, Live Cockpit Professional with 12.3" Navigation Screen, Ambient Interior Lighting, Sunroof, and Harman Kardon Surround Sound.'
-  },
-  {
-    id: 5,
-    name: 'BYD Leopard 7 ULTRA 2025',
-    make: 'BYD',
-    model: 'Leopard 7 ULTRA',
-    year: 2025,
-    price: '$52,000',
-    mileage: '0 km (Brand New)',
-    fuel: 'Hybrid (DMO PHEV)',
-    transmission: 'Automatic (E-CVT)',
-    image: '/inventory/byd-leopard-7-ultra-2025/leopard-1.jpg',
-    images: [
-      '/inventory/byd-leopard-7-ultra-2025/leopard-1.jpg',
-      '/inventory/byd-leopard-7-ultra-2025/leopard-2.jpg',
-      '/inventory/byd-leopard-7-ultra-2025/leopard-3.jpg',
-      '/inventory/byd-leopard-7-ultra-2025/leopard-4.jpg',
-      '/inventory/byd-leopard-7-ultra-2025/leopard-5.jpg'
-    ],
-    tag: 'BRAND NEW • 1,300KM RANGE',
-    description: 'BYD Leopard 7 ULTRA 2025 (Fangchengbao). Brand New Car (0 Km Delivery Mileage). Finished in Obsidian Black Metallic over Dark Blue Luxury Nappa Leather interior. Built on the revolutionary DMO Super Hybrid Off-Road platform offering an incredible 1,300 KM Combined Range with Dual-Motor Intelligent Electric 4WD. Equipped with Roof-Mounted LiDAR Smart Driving Sensor, Illuminated Diamond Grille & LED Matrix Lighting, 20" Matte Black Heavy-Duty Off-Road Wheels, Tailgate-Mounted Spare Wheel with Glowing Emblem, Multi-Screen Cockpit with Rotating Central Display, DiSus-P Hydraulic Suspension System, Wireless Fast Charging, and 360° Transparent Chassis Camera.'
-  },
-  {
-    id: 6,
-    name: 'Range Rover Vogue HSE 2018',
-    make: 'Land Rover',
-    model: 'Range Rover Vogue HSE',
-    year: 2018,
-    price: 'Price on Request',
-    mileage: '80,000 km',
-    fuel: 'Petrol',
-    transmission: 'Automatic',
-    image: '/inventory/range-rover-vogue-hse-2018/vogue-1.jpg',
-    images: [
-      '/inventory/range-rover-vogue-hse-2018/vogue-1.jpg',
-      '/inventory/range-rover-vogue-hse-2018/vogue-2.jpg',
-      '/inventory/range-rover-vogue-hse-2018/vogue-3.jpg',
-      '/inventory/range-rover-vogue-hse-2018/vogue-4.jpg',
-      '/inventory/range-rover-vogue-hse-2018/vogue-5.jpg'
-    ],
-    tag: 'TEWTEL SOURCE • BLACK PACK',
-    description: 'Range Rover Vogue HSE 2018. Finished in Santorini Black Metallic over Ebony Black Windsor Leather interior. Official Lebanese Dealer Source (Tewtel) with 80,000 KM. Equipped with 3.0L Supercharged V6 engine paired with 8-Speed Automatic Transmission and Intelligent Electronic Air Suspension. Features Full Black Exterior Design Package (Gloss Black Grille, Side Vents, Badging, and Accents), 21" Gloss Black Turbine Alloy Wheels, Matrix LED Headlights with Signature DRLs, InControl Touch Pro Duo dual-screen infotainment, Soft-Close Doors, Sliding Panoramic Glass Roof, Meridian Premium Sound System, and 360-degree Parking Camera.'
-  },
-  {
-    id: 7,
-    name: 'Toyota Land Cruiser VX-R Grand Touring S 5.7L 2021',
-    make: 'Toyota',
-    model: 'Land Cruiser VX-R Grand Touring S',
-    year: 2021,
-    price: '$79,500',
-    mileage: '70,000 km',
-    fuel: 'Petrol',
-    transmission: 'Automatic',
-    image: '/inventory/toyota-land-cruiser-vxr-57-2021/lc-1.jpg',
-    images: [
-      '/inventory/toyota-land-cruiser-vxr-57-2021/lc-1.jpg',
-      '/inventory/toyota-land-cruiser-vxr-57-2021/lc-2.jpg',
-      '/inventory/toyota-land-cruiser-vxr-57-2021/lc-3.jpg',
-      '/inventory/toyota-land-cruiser-vxr-57-2021/lc-4.jpg',
-      '/inventory/toyota-land-cruiser-vxr-57-2021/lc-5.jpg'
-    ],
-    tag: 'BUMC SERVICE • 1 OWNER',
-    description: 'Toyota Land Cruiser VX-R Grand Touring S 5.7L 2021. 1 Single Owner from new. Full Official Lebanese Dealership Service History (BUMC) with 70,000 KM. Finished in Attitude Black Metallic over Saddle Brown Premium Leather interior. Powered by the legendary 5.7L 3UR-FE V8 naturally aspirated engine producing 381 hp with 8-Speed Automatic Transmission and Full-Time 4WD. Features Grand Touring S Aero Body Kit & Spoilers, 20" Diamond Cut Multi-Spoke Alloy Wheels, LED Headlamps with Sequential Turn Indicators, Heated & Ventilated Front Seats, Wood/Leather Steering Wheel, Large Central Touchscreen Navigation, JBL Synthesis Premium Surround Audio, Cool Box, Crawl Control, and Multi-Terrain Select.'
-  },
-  {
-    id: 8,
-    name: 'Jetour G700 Flagship 2026',
-    make: 'Jetour',
-    model: 'G700 Flagship',
-    year: 2026,
-    price: 'Price on Request',
-    mileage: '0 km (Brand New)',
-    fuel: 'Petrol',
-    transmission: 'Automatic',
-    image: '/inventory/jetour-g700-flagship-2026/jetour-1.jpg',
-    images: [
-      '/inventory/jetour-g700-flagship-2026/jetour-1.jpg',
-      '/inventory/jetour-g700-flagship-2026/jetour-2.jpg',
-      '/inventory/jetour-g700-flagship-2026/jetour-3.jpg',
-      '/inventory/jetour-g700-flagship-2026/jetour-4.jpg',
-      '/inventory/jetour-g700-flagship-2026/jetour-5.jpg'
-    ],
-    tag: 'BRAND NEW • 2026 FLAGSHIP',
-    description: 'Jetour G700 Flagship 2026. Brand New Car (0 Km Delivery Mileage). Finished in Gloss Black exterior over White & Light Oyster Luxury Leather interior. Rugged boxy luxury off-road architecture with BorgWarner Intelligent 4WD (XWD) system and electronically controlled rear differential lock. Equipped with illuminated JETOUR front grille, matrix LED cube headlights, 20" two-tone off-road wheels, rear door-mounted spare wheel with illuminated JT emblem, ultra-luxury cabin with aviation-style flat-top/bottom steering wheel, 15.6" central console touchscreen, full digital cockpit, crystal gear selector, panoramic roof, and 540-degree panoramic transparent chassis camera.'
-  },
-  {
-    id: 9,
-    name: 'DongFeng M-Hero M817 Platinum 2025 PHEV',
-    make: 'DongFeng',
-    model: 'M-Hero M817 Platinum',
-    year: 2025,
-    price: '$69,000',
-    mileage: '0 km (Brand New)',
-    fuel: 'Hybrid (PHEV AWD)',
-    transmission: 'Automatic (Multi-Motor Drive)',
-    image: '/inventory/dongfeng-m-hero-m817-platinum-2025/mhero-1.jpg',
-    images: [
-      '/inventory/dongfeng-m-hero-m817-platinum-2025/mhero-1.jpg',
-      '/inventory/dongfeng-m-hero-m817-platinum-2025/mhero-2.jpg',
-      '/inventory/dongfeng-m-hero-m817-platinum-2025/mhero-3.jpg',
-      '/inventory/dongfeng-m-hero-m817-platinum-2025/mhero-4.jpg',
-      '/inventory/dongfeng-m-hero-m817-platinum-2025/mhero-5.jpg'
-    ],
-    tag: 'BRAND NEW • PLATINUM PHEV',
-    description: 'DongFeng M-Hero M817 Platinum 2025 PHEV (Mengshi M817). Brand New Car (0 Km Delivery Mileage). Finished in commanding Santorini Black Metallic exterior over Caraway Tan Luxury Leather interior with full Alcantara accents. Built on the ultra-heavy-duty M-Tech platform with multi-motor electric drive, intelligent 4WD with crab-walk steering mode, deployable side ladder, roof rack, and adaptive air suspension. Equipped with roof-mounted LiDAR intelligent driving sensor array, illuminated M front emblem and cross-blade LED matrix lights, rugged military-style rear tailgate cargo box with illuminated M-HERO badge and M817 insignia, 20" dual-tone heavy-duty alloy wheels on Continental tires, multi-screen intelligent cockpit with ambient lighting, heated & cooled massage seating, panoramic glass roof, and 540° transparent chassis HD surround camera system.'
-  },
-  {
-    id: 10,
-    name: 'Voyah Passion EV 2023',
-    make: 'Voyah',
-    model: 'Passion EV',
-    year: 2023,
-    price: 'Price on Request',
-    mileage: '18,000 km',
-    fuel: 'Electric',
-    transmission: 'Automatic (Electric Drive)',
-    image: '/inventory/voyah-passion-ev-2023/voyah-1.jpg',
-    images: [
-      '/inventory/voyah-passion-ev-2023/voyah-1.jpg',
-      '/inventory/voyah-passion-ev-2023/voyah-2.jpg',
-      '/inventory/voyah-passion-ev-2023/voyah-3.jpg',
-      '/inventory/voyah-passion-ev-2023/voyah-4.jpg',
-      '/inventory/voyah-passion-ev-2023/voyah-5.jpg'
-    ],
-    tag: 'COMPANY SOURCE • 18,000 KM • 7-YR WARRANTY',
-    description: 'Voyah Passion 2023 EV (Voyah Zhuiguang Luxury Electric Flagship). Finished in Fuji White exterior over Slate Grey Luxury Leather interior. Official Lebanese Company Source with only 18,000 KM. Covered by official 6-Year Vehicle Warranty & 7-Year Battery Warranty. Dual-motor Intelligent Electric AWD delivering instant supercar acceleration with quiet luxury refinement. Equipped with full-width illuminated front wing badge and animated LED light bar, dynamic deployable active rear spoiler wing, continuous illuminated rear tailbar with VOYAH script, 1.4-meter triple wide panoramic cockpit display with dedicated lower comfort touchscreen, luxury executive seating with massage and ventilation, panoramic glass canopy, and Level 2.5 intelligent driver assistance.'
-  },
-  {
-    id: 11,
-    name: 'Deepal G318 (EREV) 4WD 2024',
-    make: 'Changan',
-    model: 'Deepal G318 4WD',
-    year: 2024,
-    price: 'Price on Request',
-    mileage: '0 km (Brand New)',
-    fuel: 'Hybrid (EREV AWD)',
-    transmission: 'Automatic (Intelligent 4WD)',
-    image: '/inventory/deepal-g318-erev-4wd-2024/g318-1.jpg',
-    images: [
-      '/inventory/deepal-g318-erev-4wd-2024/g318-1.jpg',
-      '/inventory/deepal-g318-erev-4wd-2024/g318-2.jpg',
-      '/inventory/deepal-g318-erev-4wd-2024/g318-3.jpg',
-      '/inventory/deepal-g318-erev-4wd-2024/g318-4.jpg',
-      '/inventory/deepal-g318-erev-4wd-2024/g318-5.jpg'
-    ],
-    tag: 'BRAND NEW • 1,448 KM RANGE • 424 HP',
-    description: 'Deepal G318 (EREV) 4WD 2024. Brand New Car (0 Km Delivery Mileage). Available in Midnight Blue, Gloss Black & Forest Green. High-performance dual electric motors paired with 1.5L Turbo Generator delivering a massive 424 HP (316 kW). 35.07 kWh battery pack providing 190 KM Pure Electric Range and an incredible 1,448 KM Combined Total Range. Equipped with Intelligent 4WD, Multiple Driving & Off-Road Modes, Roof-Mounted Quad Spotlight Pods, Tailgate Full-Size Spare Wheel, 360° Cameras with Transparent Chassis, Adaptive Cruise Control, Lane Keep Assist, Blind Spot Assist, Panoramic Sunroof, Digital Dashboard + Large Center Touchscreen, Wireless Phone Charger, Keyless Go, Ventilated & Heated Premium Seats, Ambient LED Interior Lighting, High-Quality Sound System, Auto-Park Assist, and EV/HEV Mode Selector.'
-  },
-  {
-    id: 12,
-    name: 'BMW 530i xDrive Sport Line 2018',
-    make: 'BMW',
-    model: '530i xDrive Sport Line',
-    year: 2018,
-    price: 'Price on Request',
-    mileage: '85,000 miles',
-    fuel: 'Petrol',
-    transmission: 'Automatic (Steptronic)',
-    image: '/inventory/bmw-530i-xdrive-sport-line-2018/bmw2018-1.jpg',
-    images: [
-      '/inventory/bmw-530i-xdrive-sport-line-2018/bmw2018-1.jpg',
-      '/inventory/bmw-530i-xdrive-sport-line-2018/bmw2018-2.jpg',
-      '/inventory/bmw-530i-xdrive-sport-line-2018/bmw2018-3.jpg',
-      '/inventory/bmw-530i-xdrive-sport-line-2018/bmw2018-4.jpg',
-      '/inventory/bmw-530i-xdrive-sport-line-2018/bmw2018-5.jpg'
-    ],
-    tag: 'CLEAN CARFAX • SPORT LINE',
-    description: 'BMW 530i xDrive 2018 Sport Line. Finished in Black Sapphire Metallic exterior over Black Dakota Luxury Leather interior. Clean Carfax verified history with 85,000 miles. Powered by BMW 2.0L TwinPower Turbo inline 4-cylinder engine producing 248 hp paired with xDrive Intelligent All-Wheel Drive and smooth 8-Speed Steptronic Automatic Transmission. Equipped with Sport Line design package featuring high-gloss black exterior accents, 18" multi-spoke alloy wheels, Adaptive LED headlights with signature Corona daytime running rings, dual chrome exhaust outlets, Sport multi-function leather steering wheel, iDrive navigation infotainment system, ambient interior LED illumination, power glass sunroof, comfort access keyless entry, and rear backup camera.'
-  },
-  {
-    id: 13,
-    name: 'Mercedes-Maybach GLS 600 4MATIC 2023',
-    make: 'Mercedes-Benz',
-    model: 'Maybach GLS 600',
-    year: 2023,
-    price: 'Price on Request',
-    mileage: '7,000 km only',
-    fuel: 'Petrol (MHEV)',
-    transmission: 'Automatic (9G-TRONIC)',
-    image: '/inventory/mercedes-maybach-gls-600-2023/maybach-1.jpg',
-    images: [
-      '/inventory/mercedes-maybach-gls-600-2023/maybach-1.jpg',
-      '/inventory/mercedes-maybach-gls-600-2023/maybach-2.jpg',
-      '/inventory/mercedes-maybach-gls-600-2023/maybach-3.jpg',
-      '/inventory/mercedes-maybach-gls-600-2023/maybach-4.jpg',
-      '/inventory/mercedes-maybach-gls-600-2023/maybach-5.jpg'
-    ],
-    tag: 'TWO-TONE • 7,000 KM • FULLY LOADED',
-    description: 'Mercedes-Benz GLS 600 Maybach 2023 4MATIC. Fully Loaded with only 7,000 KM. Finished in iconic Two-Tone Polar White over Obsidian Black Metallic with bespoke pinstriping, over Mahogany Brown & Macchiato Beige / Silk White Exclusive Designo Nappa Leather. Powered by a 4.0L Handcrafted Biturbo V8 with EQ Boost producing 550 hp + 21 hp electric assist paired with 9G-TRONIC and Maybach-tuned E-ACTIVE BODY CONTROL air suspension. Features Signature Maybach vertical chrome grille and mesh bumper, 23" Maybach Multi-Spoke Polished Forged Wheels, Power-deployable illuminated running boards with Maybach crest, First-Class Rear Lounge with dual executive reclining massage seats, folding tables, refrigerated compartment, rear MBUX tablets & dual 11.6" rear entertainment displays, Burmester High-End 3D Surround Sound, and panoramic glass roof.'
-  },
-  {
-    id: 14,
-    name: 'BYD Song Plus EV 2025',
-    make: 'BYD',
-    model: 'Song Plus EV',
-    year: 2025,
-    price: '$31,500',
-    mileage: '0 km (Brand New)',
-    fuel: 'Electric',
-    transmission: 'Automatic (Electric Drive)',
-    image: '/inventory/byd-song-plus-ev-2025/song-1.jpg',
-    images: [
-      '/inventory/byd-song-plus-ev-2025/song-1.jpg',
-      '/inventory/byd-song-plus-ev-2025/song-2.jpg',
-      '/inventory/byd-song-plus-ev-2025/song-3.jpg',
-      '/inventory/byd-song-plus-ev-2025/song-4.jpg',
-      '/inventory/byd-song-plus-ev-2025/song-5.jpg'
-    ],
-    tag: 'BRAND NEW • 87KWH • 520KM RANGE',
-    description: 'BYD Song Plus EV 2025 (Ocean Series Champion Edition). Brand New Car (0 Km Delivery Mileage). Finished in sleek Nardo Grey Metallic over Two-Tone Silk White and Saddle Brown Luxury Leather interior. Powered by an 87 kWh Blade Battery pack delivering up to 520 KM Pure Electric Range on a single charge. Features aerodynamic marine-inspired styling with crystal LED headlights, full-width illuminated rear lightbar with illuminated BYD script, 19" two-tone aero-blade alloy wheels, rotating central infotainment touchscreen, panoramic glass roof, wireless smartphone charging, 360-degree HD panoramic parking camera, and DiPilot intelligent driver assistance suite.'
-  },
-  {
-    id: 15,
-    name: 'Toyota Land Cruiser Prado R3 2024',
-    make: 'Toyota',
-    model: 'Land Cruiser Prado R3',
-    year: 2024,
-    price: 'Price on Request',
-    mileage: '26,000 km',
-    fuel: 'Petrol',
-    transmission: 'Automatic',
-    image: '/inventory/toyota-prado-r3-2024/prado-1.jpg',
-    images: [
-      '/inventory/toyota-prado-r3-2024/prado-1.jpg',
-      '/inventory/toyota-prado-r3-2024/prado-2.jpg',
-      '/inventory/toyota-prado-r3-2024/prado-3.jpg',
-      '/inventory/toyota-prado-r3-2024/prado-4.jpg',
-      '/inventory/toyota-prado-r3-2024/prado-5.jpg'
-    ],
-    tag: 'BUMC SOURCE • 26,000 KM • UNDER WARRANTY',
-    description: 'All-New Toyota Land Cruiser Prado R3 2024 (250 Series). Official Lebanese Dealership Source (BUMC) with only 26,000 KM, fully maintained and under factory warranty. Finished in Attitude Black Metallic over Warm Beige Premium Leather interior. Built on the TNGA-F global platform with full-time 4WD and center locking differential. Equipped with heritage-inspired TOYOTA front grille, rectangular LED headlights, 20" gloss black multi-spoke alloy wheels, 12.3" central touchscreen with wireless Apple CarPlay & Android Auto, digital cockpit, heated & ventilated power seating, sunroof, Multi-Terrain Select with Crawl Control, and Toyota Safety Sense 3.0.'
-  },
-  {
-    id: 16,
-    name: 'Jetour T2 Travel Plus 2025',
-    make: 'Jetour',
-    model: 'T2 Travel Plus',
-    year: 2025,
-    price: 'Price on Request',
-    mileage: '0 km (Brand New)',
-    fuel: 'Petrol',
-    transmission: 'Automatic (XWD 4WD)',
-    image: '/inventory/jetour-t2-travel-plus-2025/t2-1.jpg',
-    images: [
-      '/inventory/jetour-t2-travel-plus-2025/t2-1.jpg',
-      '/inventory/jetour-t2-travel-plus-2025/t2-2.jpg',
-      '/inventory/jetour-t2-travel-plus-2025/t2-3.jpg',
-      '/inventory/jetour-t2-travel-plus-2025/t2-4.jpg',
-      '/inventory/jetour-t2-travel-plus-2025/t2-5.jpg'
-    ],
-    tag: 'BRAND NEW • TRAVEL PLUS • BLACK ON BLACK',
-    description: 'Jetour T2 Travel Plus 2025 (Traveller 2.0T AWD). Brand New Car (0 Km Delivery Mileage). Finished in Gloss Black exterior over Black Suede & Leather interior with contrast sports stitching and diamond-pattern floor mats. Powered by a 2.0L Kunpeng Turbo engine producing 254 hp with 390 Nm torque paired with BorgWarner Sixth-Generation Intelligent XWD All-Wheel Drive and rear electronic differential lock. Equipped with illuminated JETOUR front grille lettering, matrix LED cube headlamps, signature yellow off-road recovery tow hooks, 20" bronze alloy wheels with yellow center caps, tailgate-mounted full-size spare wheel, aviation-style flat-top/bottom multi-function steering wheel, 15.6" central touchscreen display, 540-degree panoramic transparent chassis camera, panoramic glass sunroof, and 12-speaker Sony premium audio.'
-  },
-  {
-    id: 17,
-    name: 'Range Rover Velar P250 S 2023',
-    make: 'Land Rover',
-    model: 'Range Rover Velar P250 S',
-    year: 2023,
-    price: 'Price on Request',
-    mileage: '49,000 miles',
-    fuel: 'Petrol',
-    transmission: 'Automatic',
-    image: '/inventory/range-rover-velar-p250-s-2023/velar-1.jpg',
-    images: [
-      '/inventory/range-rover-velar-p250-s-2023/velar-1.jpg',
-      '/inventory/range-rover-velar-p250-s-2023/velar-2.jpg',
-      '/inventory/range-rover-velar-p250-s-2023/velar-3.jpg',
-      '/inventory/range-rover-velar-p250-s-2023/velar-4.jpg',
-      '/inventory/range-rover-velar-p250-s-2023/velar-5.jpg'
-    ],
-    tag: 'CLEAN CARFAX • BLACK PACK • SANTORINI BLACK',
-    description: 'Range Rover Velar P250 S 2023. Finished in striking Santorini Black Metallic over Ebony Black Perforated Grained Leather interior. Clean Carfax certified history with 49,000 miles. Powered by a 2.0L Turbocharged Ingenium 4-cylinder engine producing 247 hp paired with 8-Speed Automatic Transmission and Intelligent All-Wheel Drive with Terrain Response. Equipped with Black Exterior Styling Package (Gloss Black grille, bonnet lettering, side fender vents, and mirror caps), 20" Gloss Black multi-spoke alloy wheels, Premium LED Headlights with Signature DRLs, flush deployable door handles, curved Pivi Pro infotainment touchscreen with navigation, panoramic sliding glass sunroof, Meridian Sound System, and 360-degree parking surround sensors.'
-  },
-  {
-    id: 18,
-    name: 'Range Rover Vogue P525 Autobiography 2022',
-    make: 'Land Rover',
-    model: 'Range Rover Vogue P525 Autobiography',
-    year: 2022,
-    price: '$175,000',
-    mileage: '11,000 km',
-    fuel: 'Petrol',
-    transmission: 'Automatic (8-Speed)',
-    image: '/inventory/range-rover-vogue-p525-autobiography-2022/rrvogue-1.jpg',
-    images: [
-      '/inventory/range-rover-vogue-p525-autobiography-2022/rrvogue-1.jpg',
-      '/inventory/range-rover-vogue-p525-autobiography-2022/rrvogue-2.jpg',
-      '/inventory/range-rover-vogue-p525-autobiography-2022/rrvogue-3.jpg',
-      '/inventory/range-rover-vogue-p525-autobiography-2022/rrvogue-4.jpg',
-      '/inventory/range-rover-vogue-p525-autobiography-2022/rrvogue-5.jpg'
-    ],
-    tag: 'TEWTEL SERVICE • 11,000 KM • AUTOBIOGRAPHY',
-    description: 'Range Rover Vogue P525 Autobiography 2022. Finished in immaculate Fuji White exterior over Deep Garnet & Ebony Luxury Semi-Aniline Leather interior. Official Lebanese Dealership Source with Full Service History at Tewtel and only 11,000 KM. Powered by the commanding 5.0L Supercharged V8 engine producing 525 hp paired with 8-Speed Automatic Transmission, Intelligent All-Wheel Drive, and Electronic Air Suspension with Dynamic Response Pro. Features Autobiography luxury specification, 22" Diamond Turned Multi-Spoke Alloy Wheels, Digital LED Headlights with Signature DRL, Illuminated Autobiography Metal Treadplates, Soft-Close Doors, Sliding Panoramic Glass Sunroof, Executive Class Comfort Plus Rear Seating with Massage, Heating & Ventilation, Meridian Signature 3D Sound System, Curved Pivi Pro Infotainment, and 3D Surround Camera System.'
-  },
-  {
-    id: 19,
-    name: 'Nissan Kicks SV 2025',
-    make: 'Nissan',
-    model: 'Kicks SV',
-    year: 2025,
-    price: 'Price on Request',
-    mileage: '0 km (Brand New)',
-    fuel: 'Petrol',
-    transmission: 'Automatic (Xtronic CVT)',
-    image: '/inventory/nissan-kicks-sv-2025/kicks-1.jpg',
-    images: [
-      '/inventory/nissan-kicks-sv-2025/kicks-1.jpg',
-      '/inventory/nissan-kicks-sv-2025/kicks-2.jpg',
-      '/inventory/nissan-kicks-sv-2025/kicks-3.jpg',
-      '/inventory/nissan-kicks-sv-2025/kicks-4.jpg',
-      '/inventory/nissan-kicks-sv-2025/kicks-5.jpg'
-    ],
-    tag: 'BRAND NEW • SV TRIM • ZERO KM',
-    description: 'Nissan Kicks SV 2025. Brand New Car (0 Km Delivery Mileage). Finished in crisp Fuji White exterior over Ebony Black Sport Fabric/Leather-trimmed interior. Efficient 1.6L 4-cylinder engine paired with smooth Xtronic CVT Automatic Transmission delivering outstanding fuel economy and agile urban performance. Equipped with SV Grade styling package, Signature V-Motion black & chrome front grille, LED headlights with LED signature DRLs, 17" two-tone machined-finish alloy wheels, sport rear roof spoiler, 8" NissanConnect touchscreen infotainment with Apple CarPlay & Android Auto, digital driver display, Push Button Ignition with Intelligent Keyless Entry, Rear Parking Sensors & Rearview Camera, and Nissan Safety Shield 360.'
-  },
-  {
-    id: 20,
-    name: 'Mercedes-Benz C 300 4MATIC AMG Package 2016',
-    make: 'Mercedes-Benz',
-    model: 'C 300 AMG Package',
-    year: 2016,
-    price: 'Price on Request',
-    mileage: '68,000 miles',
-    fuel: 'Petrol',
-    transmission: 'Automatic (7G-TRONIC)',
-    image: '/inventory/mercedes-c300-amg-package-2016/c300-1.jpg',
-    images: [
-      '/inventory/mercedes-c300-amg-package-2016/c300-1.jpg',
-      '/inventory/mercedes-c300-amg-package-2016/c300-2.jpg',
-      '/inventory/mercedes-c300-amg-package-2016/c300-3.jpg',
-      '/inventory/mercedes-c300-amg-package-2016/c300-4.jpg',
-      '/inventory/mercedes-c300-amg-package-2016/c300-5.jpg'
-    ],
-    tag: 'AMG PACKAGE • 4MATIC • VERY CLEAN',
-    description: 'Mercedes-Benz C 300 4MATIC AMG Package 2016. Very Clean Car. Finished in timeless Iridium Silver Metallic exterior over Black Artico / Leather interior with Brushed Aluminum & Piano Black trim accents. Powered by a responsive 2.0L Turbocharged 4-cylinder engine producing 241 hp paired with 7G-TRONIC PLUS Automatic Transmission and 4MATIC Permanent All-Wheel Drive. Equipped with AMG Sport Styling Package (Diamond Grille with Chrome Pins, Aggressive Front & Rear AMG Bumpers, Side Skirts, and Rear Diffuser with Dual Chrome Exhausts), 18" AMG 5-Spoke Star Alloy Wheels, High-Performance LED Headlights with Signature LED Daytime Running Lights, Panoramic Sliding Glass Sunroof, Flat-Bottom AMG Leather Sport Steering Wheel with Paddle Shifters, COMAND Infotainment with Center Controller Dial, DYNAMIC SELECT Driving Modes (Eco, Comfort, Sport, Sport+), Heated Front Seats, and Rearview Backup Camera.'
-  },
-  {
-    id: 21,
-    name: 'Toyota BZ3 X Pro 2025',
-    make: 'Toyota',
-    model: 'bZ3X Pro',
-    year: 2025,
-    price: 'Price on Request',
-    mileage: '0 km (Brand New)',
-    fuel: 'Electric',
-    transmission: 'Automatic (Electric Drive)',
-    image: '/inventory/toyota-bz3x-pro-2025/bz3x-1.jpg',
-    images: [
-      '/inventory/toyota-bz3x-pro-2025/bz3x-1.jpg',
-      '/inventory/toyota-bz3x-pro-2025/bz3x-2.jpg',
-      '/inventory/toyota-bz3x-pro-2025/bz3x-3.jpg',
-      '/inventory/toyota-bz3x-pro-2025/bz3x-4.jpg',
-      '/inventory/toyota-bz3x-pro-2025/bz3x-5.jpg'
-    ],
-    tag: 'BRAND NEW • 58.37 KWH • 520KM RANGE',
-    description: 'Toyota BZ3 X Pro 2025 (bZ3X Pro Intelligent EV). Brand New Car (0 Km Delivery Mileage). Finished in sophisticated Eiger Gray Metallic over Premium Black interior. Equipped with high-efficiency 58.37 kWh battery pack delivering up to 520 KM Pure Electric Range on a single charge and 204 HP electric motor. Features cutting-edge Roof-Mounted LiDAR Smart Sensor, Intelligent Driving Assistance Package, 19" Two-Tone Diamond Cut Aerodynamic Alloy Wheels, Full-Width Animated LED Front & Rear Lightbars, Premium Yamaha High-Fidelity Audio System, Fast Wireless Phone Charging Pad with Active Cooling Fan, Ultra-Wide Touchscreen Infotainment, 360-Degree Panoramic Parking Camera, and Panoramic Glass Canopy.'
-  },
-  {
-    id: 22,
-    name: 'Range Rover Vogue P525 HSE V8 2020',
-    make: 'Land Rover',
-    model: 'Range Rover Vogue P525 HSE',
-    year: 2020,
-    price: 'Price on Request',
-    mileage: '90,000 miles',
-    fuel: 'Petrol',
-    transmission: 'Automatic (8-Speed)',
-    image: '/inventory/range-rover-vogue-2020-p525-hse-v8/rrvogue2020-1.jpg',
-    images: [
-      '/inventory/range-rover-vogue-2020-p525-hse-v8/rrvogue2020-1.jpg',
-      '/inventory/range-rover-vogue-2020-p525-hse-v8/rrvogue2020-2.jpg',
-      '/inventory/range-rover-vogue-2020-p525-hse-v8/rrvogue2020-3.jpg',
-      '/inventory/range-rover-vogue-2020-p525-hse-v8/rrvogue2020-4.jpg',
-      '/inventory/range-rover-vogue-2020-p525-hse-v8/rrvogue2020-5.jpg'
-    ],
-    tag: 'CLEAN CARFAX • 5.0L V8 525HP • BLACK ON BLACK',
-    description: 'Range Rover Vogue P525 HSE V8 2020. Finished in stunning Santorini Black Metallic over Ebony Black Windsor Leather interior. Clean Carfax verified history with 90,000 miles. Powered by the legendary 5.0L Supercharged V8 engine producing a thrilling 525 hp and 461 lb-ft of torque paired with 8-Speed Automatic Transmission and Intelligent All-Wheel Drive with Electronic Air Suspension. Equipped with Full Black Exterior Styling Package (Gloss Black Grille, Black Lettering, Side Gills, and Window Trim), 22" Gloss Black Turbine Style Multi-Spoke Alloy Wheels, Matrix LED Headlights with Signature DRLs, Touch Pro Duo dual 10" touchscreens, Soft-Close Doors, Sliding Panoramic Sunroof, Meridian Surround Sound System, Heated & Cooled Front Seats, and 360-degree Surround Camera.'
-  },
-  {
-    id: 23,
-    name: 'Hyundai Elantra 2025',
-    make: 'Hyundai',
-    model: 'Elantra',
-    year: 2025,
-    price: 'Price on Request',
-    mileage: '0 km (Brand New)',
-    fuel: 'Petrol',
-    transmission: 'Automatic (IVT)',
-    image: '/inventory/hyundai-elantra-2025/elantra-1.jpg',
-    images: [
-      '/inventory/hyundai-elantra-2025/elantra-1.jpg',
-      '/inventory/hyundai-elantra-2025/elantra-2.jpg',
-      '/inventory/hyundai-elantra-2025/elantra-3.jpg',
-      '/inventory/hyundai-elantra-2025/elantra-4.jpg',
-      '/inventory/hyundai-elantra-2025/elantra-5.jpg'
-    ],
-    tag: 'BRAND NEW • FULLY LOADED • BLACK ON BLACK',
-    description: 'Hyundai Elantra 2025. Brand New Car (0 Km Delivery Mileage). Fully Loaded Specification. Finished in stunning Abyss Black Metallic exterior over Black Leather-appointed interior. Powered by an ultra-refined Smartstream 2.0L 4-cylinder engine paired with Intelligent Variable Transmission (IVT) offering incredible fuel efficiency and smooth driving dynamics. Equipped with redesigned Parametric Jewel front grille, slim full-width LED horizon DRL lightbar with LED projector headlamps, 17" Turbine Two-Tone Machined Alloy Wheels, Rear H-Light connected LED tailbar with integrated sports diffuser, Dual 10.25" Panoramic Digital Cockpit & Navigation Touchscreens with Apple CarPlay & Android Auto, Wireless Smartphone Charger, Power Sunroof, Push Button Start with Smart Key, Drive Mode Select, and Hyundai SmartSense Safety Suite.'
-  },
-  {
-    id: 24,
-    name: 'MG E-RX5 2023 Plug in Hybrid',
-    make: 'MG',
-    model: 'E-RX5 Plug-in Hybrid',
-    year: 2023,
-    price: 'Price on Request',
-    mileage: '0 km (Brand New)',
-    fuel: 'Plug-in Hybrid (PHEV)',
-    transmission: '10-Speed EDU G2 Hybrid Automatic',
-    image: '/inventory/mg-e-rx5-2023/erx5-1.jpg',
-    images: [
-      '/inventory/mg-e-rx5-2023/erx5-1.jpg',
-      '/inventory/mg-e-rx5-2023/erx5-2.jpg',
-      '/inventory/mg-e-rx5-2023/erx5-3.jpg',
-      '/inventory/mg-e-rx5-2023/erx5-4.jpg',
-      '/inventory/mg-e-rx5-2023/erx5-5.jpg'
-    ],
-    tag: 'BRAND NEW • FULLY LOADED • 1050 KM RANGE • 3YR/8YR WARRANTY',
-    description: 'MG E-RX5 2023 Plug in Hybrid. Brand New Car (0 km Delivery Mileage). Fully Loaded Luxury Specification. Features an impressive 1,050 KM Combined Range with 3 Years Warranty on Car and 8 Years Warranty on Battery. Powered by an advanced Plug-in Hybrid powertrain delivering exceptional power, rapid response, and ultra-low fuel consumption. Finished in refined Titanium Grey Metallic with parametric sport front grille matrix, dynamic full-LED headlights, 19" multi-spoke turbine alloy wheels, flush pop-out smart aerodynamic door handles, and full-width rear LED lightbar. Interior highlights include a futuristic cockpit with 27-inch sliding 4K ultra-wide interactive touchscreen display, crystal gear shift lever, wireless phone charging pad, panoramic sunroof, premium sports leather seating, 360-degree HD surround camera system, and comprehensive intelligent driver assistance suite.'
-  },
-  {
-    id: 25,
-    name: 'Toyota bZ3 2025',
-    make: 'Toyota',
-    model: 'bZ3',
-    year: 2025,
-    price: 'Price on Request',
-    mileage: '0 km (Brand New)',
-    fuel: 'Full Electric (BEV)',
-    transmission: 'Single-Speed Automatic',
-    image: '/inventory/toyota-bz3-2025/bz3-1.jpg',
-    images: [
-      '/inventory/toyota-bz3-2025/bz3-1.jpg',
-      '/inventory/toyota-bz3-2025/bz3-2.jpg',
-      '/inventory/toyota-bz3-2025/bz3-3.jpg',
-      '/inventory/toyota-bz3-2025/bz3-4.jpg',
-      '/inventory/toyota-bz3-2025/bz3-5.jpg'
-    ],
-    tag: 'BRAND NEW • FULL ELECTRIC • 540 KM RANGE • STONE GREY',
-    description: 'Toyota bZ3 2025 Full Electric Sedan. Brand New Car (0 km Delivery Mileage). Finished in elegant Stone Grey Metallic exterior over Black Luxury Leather interior. Powered by an ultra-efficient 100% Electric powertrain with high-safety Blade Battery technology delivering an exceptional 540 KM range per full charge. Features Toyota\'s signature hammerhead aerodynamic front profile with continuous LED lightbar, flush pop-out smart aerodynamic door handles, 18" aerodynamically optimized multi-spoke wheels, and distinctive geometric full-width rear LED taillight bar. The interior is highlighted by the "Digital Island" center console equipped with a large 12.8-inch vertical multimedia portrait touchscreen with Apple CarPlay infotainment entertainment system, wireless phone charging tray, rotary gear selector dial, digital driver cockpit display, power sunroof, and Toyota Safety Sense active driver assistance suite.'
-  },
-  {
-    id: 26,
-    name: 'Toyota BZ3X Pro 2025',
-    make: 'Toyota',
-    model: 'bZ3X Pro',
-    year: 2025,
-    price: 'Price on Request',
-    mileage: '0 km (Brand New)',
-    fuel: 'Full Electric (BEV)',
-    transmission: 'Single-Speed Automatic',
-    image: '/inventory/toyota-bz3x-pro-black-2025/bz3x-blk-1.jpg',
-    images: [
-      '/inventory/toyota-bz3x-pro-black-2025/bz3x-blk-1.jpg',
-      '/inventory/toyota-bz3x-pro-black-2025/bz3x-blk-2.jpg',
-      '/inventory/toyota-bz3x-pro-black-2025/bz3x-blk-3.jpg',
-      '/inventory/toyota-bz3x-pro-black-2025/bz3x-blk-4.jpg',
-      '/inventory/toyota-bz3x-pro-black-2025/bz3x-blk-5.jpg'
-    ],
-    tag: 'BRAND NEW • 520 KM RANGE • 204 HP • BLACK ON BLACK',
-    description: 'Toyota BZ3X Pro 2025. Brand New Car (Zero Km Delivery Mileage). Black on Black Luxury Specification. Powered by a 150 kW (204 HP) electric motor paired with a 58.37 kWh high-capacity battery pack delivering an electric range up to 520 KM on a single charge. Features full LED headlights & animated lightbar, 18-inch alloy wheels, 3 selectable driving modes, and 360-degree panoramic view monitor cameras. Interior highlights include a massive 14.6-inch multimedia touchscreen entertainment system with integrated Apple CarPlay & Android Auto, Arabic language system menu, 8.8-inch LCD driver dashboard, premium Yamaha audio speaker system, customizable ambient interior lighting, wireless smartphone charger, heated & ventilated seats with memory function, electronic parking brake with auto-hold, pre-collision safety system with intersection detection, and comprehensive day & night pedestrian, cyclist & motorbike protection.'
-  },
-  {
-    id: 27,
-    name: 'Bentley Arnage T-Mulliner Presidential 2006',
-    make: 'Bentley',
-    model: 'Arnage T-Mulliner Presidential',
-    year: 2006,
-    price: '$65,000',
-    mileage: '31,000 miles',
-    fuel: 'Petrol',
-    transmission: 'Automatic',
-    image: '/inventory/bentley-arnage-t-2006/arnage-1.jpg',
-    images: [
-      '/inventory/bentley-arnage-t-2006/arnage-1.jpg',
-      '/inventory/bentley-arnage-t-2006/arnage-2.jpg',
-      '/inventory/bentley-arnage-t-2006/arnage-3.jpg',
-      '/inventory/bentley-arnage-t-2006/arnage-4.jpg',
-      '/inventory/bentley-arnage-t-2006/arnage-5.jpg'
-    ],
-    tag: '1/4 IN LEBANON 🇱🇧 • FULL SERVICE HISTORY @SAAD&TRAD • 31,000 MILES',
-    description: 'Bentley Arnage T-Mulliner Presidential 2006. Extremely rare collector masterpiece — 1 of only 4 units delivered to Lebanon 🇱🇧. Finished in deep Beluga Black Metallic over bespoke Mulliner Diamond-Quilted Beluga Black Leather interior. Complete Full Service History documented at Saad & Trad (Official Bentley Lebanon). Genuine collector low mileage of only 31,000 miles. Hand-built at Crewe, powered by Bentley\'s legendary 6.75-litre Twin-Turbocharged V8 engine delivering 450+ hp and an immense 875 Nm of torque. Exquisite bespoke craftsmanship throughout featuring dark burr walnut wood veneers with inlaid winged "B" emblems, traditional chrome organ-stop ventilation controls, Breitling center timepiece, embossed Mulliner winged headrests, rear passenger privacy curtains, and classic multi-piece modular alloy wheels.'
-  },
-  {
-    id: 28,
-    name: 'Audi Q8 Premium Plus 2019',
-    make: 'Audi',
-    model: 'Q8 Premium Plus',
-    year: 2019,
-    price: 'Price on Request',
-    mileage: '58,000 km',
-    fuel: 'Petrol Mild-Hybrid (MHEV)',
-    transmission: '8-Speed Tiptronic Automatic',
-    image: '/inventory/audi-q8-2019/q8-1.jpg',
-    images: [
-      '/inventory/audi-q8-2019/q8-1.jpg',
-      '/inventory/audi-q8-2019/q8-2.jpg',
-      '/inventory/audi-q8-2019/q8-3.jpg',
-      '/inventory/audi-q8-2019/q8-4.jpg',
-      '/inventory/audi-q8-2019/q8-5.jpg'
-    ],
-    tag: 'KETTANEH SOURCE • 58,000 KM • 3 YEARS FREE SERVICE @ KETTANEH',
-    description: 'Audi Q8 Premium Plus 2019 (55 TFSI quattro). Official Lebanese Dealer Source (Kettaneh) with only 58,000 KM. Includes 3 Years Free Service at Kettaneh. Finished in sleek Mythos Black Metallic exterior over Black Luxury Leather interior. Powered by a 3.0L Turbocharged TFSI V6 with 48V Mild Hybrid system delivering 335 HP and 369 lb-ft of torque paired with an 8-Speed Tiptronic Automatic Transmission and legendary quattro Permanent All-Wheel Drive. Equipped with HD Matrix-design LED headlights with dynamic front & rear animated turn signals, iconic Singleframe Octagonal mask grille, 21-inch 5-segment-spoke alloy wheels, continuous full-width rear LED lightbar, Dual MMI Touch Response screens with haptic feedback, Audi Virtual Cockpit digital instrument cluster, Bang & Olufsen 3D Premium Sound System, Panoramic Sunroof, 360-degree Top View Camera System, and Audi Pre-Sense Safety Suite.'
-  },
-  {
-    id: 29,
-    name: 'DongFeng M-Hero 2 817 2025 ULTRA',
-    make: 'DongFeng',
-    model: 'M-Hero 2 817 ULTRA',
-    year: 2025,
-    price: 'Price on Request',
-    mileage: '0 km (Brand New)',
-    fuel: 'PHEV (Extended Range EV)',
-    transmission: 'Automatic (Quad-Motor 4WD)',
-    image: '/inventory/dongfeng-m-hero-2-817-2025/mhero-1.jpg',
-    images: [
-      '/inventory/dongfeng-m-hero-2-817-2025/mhero-1.jpg',
-      '/inventory/dongfeng-m-hero-2-817-2025/mhero-2.jpg',
-      '/inventory/dongfeng-m-hero-2-817-2025/mhero-3.jpg',
-      '/inventory/dongfeng-m-hero-2-817-2025/mhero-4.jpg',
-      '/inventory/dongfeng-m-hero-2-817-2025/mhero-5.jpg'
-    ],
-    tag: 'BRAND NEW • ULTRA EDITION • OLIVE GREEN ON CARAWAY',
-    description: 'DongFeng M-Hero 2 817 2025 ULTRA. Brand New Car (0 Km Delivery Mileage). Finished in exclusive Matte Olive Green exterior over luxury Caraway Nappa Leather interior. Military-inspired design with aggressive angular body panels, massive tactical all-terrain wheel package, and rear exterior gear box. Powered by an advanced Quad-Motor Extended Range Electric (EREV) powertrain producing over 816 hp and 1,050 Nm of torque with Crab Walk mode, adaptive air suspension, and comprehensive intelligent off-road assistance suite.'
-  },
-  {
-    id: 30,
-    name: 'Mercedes-Benz A 180 2020 AMG Package',
-    make: 'Mercedes-Benz',
-    model: 'A 180 AMG Package',
-    year: 2020,
-    price: 'Price on Request',
-    mileage: '28,000 km',
-    fuel: 'Petrol',
-    transmission: 'Automatic (7G-DCT)',
-    image: '/inventory/mercedes-a180-amg-2020/a180-1.jpg',
-    images: [
-      '/inventory/mercedes-a180-amg-2020/a180-1.jpg',
-      '/inventory/mercedes-a180-amg-2020/a180-2.jpg',
-      '/inventory/mercedes-a180-amg-2020/a180-3.jpg',
-      '/inventory/mercedes-a180-amg-2020/a180-4.jpg',
-      '/inventory/mercedes-a180-amg-2020/a180-5.jpg'
-    ],
-    tag: 'TGF SOURCE • 28,000 KM • AMG PACKAGE',
-    description: 'Mercedes-Benz A 180 2020 AMG Package (W177). Official Lebanese Dealership Source (T. Gargour & Fils - TGF) with low genuine mileage of only 28,000 KM. Finished in crisp Fuji White exterior over two-tone Ivory & Black Sport Leather interior. Powered by a responsive and fuel-efficient 1.33L Turbocharged 4-cylinder engine paired with 7G-DCT Dual-Clutch Automatic Transmission. Equipped with full AMG Aerodynamics Package featuring high-gloss black rear roof spoiler wing, AMG diamond front grille with chrome pins, aggressive front & rear AMG aprons with lower air flics, dual chrome exhaust outlets with rear sports diffuser, 18-inch AMG 5-twin-spoke alloy wheels, High-Performance LED Headlights with torch-design LED DRLs, MBUX dual widescreen digital cockpit displays, ambient interior lighting, and DYNAMIC SELECT driving modes.'
-  },
-  {
-    id: 31,
-    name: 'Jetour T2 2025 Travel Plus Top Version',
-    make: 'Jetour',
-    model: 'T2 Travel Plus',
-    year: 2025,
-    price: 'Price on Request',
-    mileage: '0 km (Brand New)',
-    fuel: 'Petrol',
-    transmission: 'Automatic (XWD 4WD)',
-    image: '/inventory/jetour-t2-travel-plus-black-brown-2025/t2b-1.jpg',
-    images: [
-      '/inventory/jetour-t2-travel-plus-black-brown-2025/t2b-1.jpg',
-      '/inventory/jetour-t2-travel-plus-black-brown-2025/t2b-2.jpg',
-      '/inventory/jetour-t2-travel-plus-black-brown-2025/t2b-3.jpg',
-      '/inventory/jetour-t2-travel-plus-black-brown-2025/t2b-4.jpg',
-      '/inventory/jetour-t2-travel-plus-black-brown-2025/t2b-5.jpg'
-    ],
-    tag: 'BRAND NEW • TOP VERSION • BLACK ON BROWN',
-    description: 'Jetour T2 2025 Travel Plus (Traveller 2.0T AWD - Top Version). Brand New Car (0 Km Delivery Mileage). Finished in Midnight Gloss Black exterior over Saddle Brown / Cognac Luxury Leather interior. Powered by a 2.0L Kunpeng Turbo engine producing 254 hp with 390 Nm torque paired with BorgWarner Sixth-Generation Intelligent XWD All-Wheel Drive and electronic rear differential lock. Top version equipped with illuminated JETOUR front grille lettering, matrix cube LED headlights, bronze off-road recovery tow hooks, 20" bronze multi-spoke alloy wheels, rear-mounted full-size spare wheel, 15.6" central floating touchscreen display, aviation-inspired multi-function steering wheel, full digital cockpit, 540° panoramic transparent chassis camera, panoramic sunroof, ambient interior lighting, and premium Sony audio system.'
-  },
-  {
-    id: 32,
-    name: 'Mercedes-Benz G 500 2022',
-    make: 'Mercedes-Benz',
-    model: 'G 500',
-    year: 2022,
-    price: '$169,000',
-    mileage: '70,000 km',
-    fuel: 'Petrol',
-    transmission: 'Automatic (9G-TRONIC)',
-    image: '/inventory/mercedes-g500-2022/g500-1.jpg',
-    images: [
-      '/inventory/mercedes-g500-2022/g500-1.jpg',
-      '/inventory/mercedes-g500-2022/g500-2.jpg',
-      '/inventory/mercedes-g500-2022/g500-3.jpg',
-      '/inventory/mercedes-g500-2022/g500-4.jpg',
-      '/inventory/mercedes-g500-2022/g500-5.jpg'
-    ],
-    tag: 'GERMAN SOURCE • 70,000 KM • BLACK ON RED',
-    description: 'Mercedes-Benz G 500 2022. Official German Dealer Source with 70,000 KM. Finished in commanding Obsidian Black Metallic exterior over Classic Red & Black Two-Tone Designo Nappa Leather interior with contrast red seatbelts. Powered by a potent 4.0L Biturbo V8 engine producing 416 hp and 450 lb-ft of torque paired with 9G-TRONIC Automatic Transmission, permanent all-wheel drive, and 3 independent 100% differential locks. Equipped with Stainless Steel Exterior Package, 20" Multi-Spoke Alloy Wheels, MULTIBEAM LED Headlights, Widescreen Digital Cockpit displays with COMAND Navigation, Burmester Surround Sound System, Heated & Ventilated Multi-Contour Front Seats with Memory, Glass Sunroof, 360-degree Surround View Cameras, and Driver Assistance Package.'
-  },
-  {
-    id: 33,
-    name: 'Toyota Land Cruiser GX-R 2017 V6',
-    make: 'Toyota',
-    model: 'Land Cruiser GX-R',
-    year: 2017,
-    price: 'Price on Request',
-    mileage: '80,000 km',
-    fuel: 'Petrol',
-    transmission: 'Automatic (6-Speed Super ECT)',
-    image: '/inventory/toyota-landcruiser-gxr-2017/lc-gxr-1.jpg',
-    images: [
-      '/inventory/toyota-landcruiser-gxr-2017/lc-gxr-1.jpg',
-      '/inventory/toyota-landcruiser-gxr-2017/lc-gxr-2.jpg',
-      '/inventory/toyota-landcruiser-gxr-2017/lc-gxr-3.jpg',
-      '/inventory/toyota-landcruiser-gxr-2017/lc-gxr-4.jpg',
-      '/inventory/toyota-landcruiser-gxr-2017/lc-gxr-5.jpg'
-    ],
-    tag: 'BUMC SOURCE & SERVICES • 80,000 KM • 1 OWNER',
-    description: 'Toyota Land Cruiser GX-R 2017 V6. 1 Single Owner from new. Official Lebanese Dealership Source (BUMC) with full comprehensive BUMC service history and genuine low mileage of only 80,000 KM. Finished in Attitude Black Metallic exterior over Black Leather interior with dark wood trim accents. Powered by the renowned 4.0L 1GR-FE V6 engine with Dual VVT-i paired with 6-Speed Super ECT Automatic Transmission and Full-Time 4WD with Torsen limited-slip center differential. Equipped with GX-R aero styling package, multi-reflector LED headlamps with integrated LED DRLs, 18-inch multi-spoke alloy wheels, rear roof spoiler, heavy-duty rear tow hitch, electric glass sunroof, 8-way power adjustable driver seat, upgraded touchscreen infotainment display with navigation and Bluetooth, multi-zone automatic climate control, push-button start with smart entry, and Crawl Control / Multi-Terrain select.'
-  }
-];
+const cars: Car[] = [];
 
 const inveltaClubPosts = [
   { category: 'News', title: 'The arrival of the 2024 collection', date: 'August 18, 2024', image: 'https://images.pexels.com/photos/14217531/pexels-photo-14217531.jpeg?auto=compress&cs=tinysrgb&h=650&w=940' },
@@ -910,7 +216,7 @@ const inveltaClubPosts = [
 function Logo({ onNavigate }: { onNavigate: (p: Page) => void }) {
   return (
     <div className="logo" onClick={() => onNavigate('home')}>
-      <span>AUTO HIJAZI<br /><small>HIJAZI MOTORS</small></span>
+      <span>FARAH MOTORS<br /><small>ANTELIAS • LEBANON</small></span>
     </div>
   );
 }
@@ -1189,10 +495,10 @@ function HomePage({
       {/* Hero Section */}
       <section className="hero-section dark-emblem-hero">
         <div className="hero-content">
-          <p className="hero-eyebrow">AUTO HIJAZI FOR CARS • BEIRUT</p>
-          <h1 className="hero-headline">AUTO HIJAZI <em>MOTORS</em></h1>
+          <p className="hero-eyebrow">FARAH MOTORS • LEBANON</p>
+          <h1 className="hero-headline">FARAH <em>MOTORS</em></h1>
           <p className="hero-subtext-clean">
-            CERTIFIED PRE-OWNED LUXURY & PREMIUM VEHICLES • UNESCO, BEIRUT, LEBANON
+            PREMIER LUXURY & CERTIFIED MOTORCARS • ANTELIAS, LEBANON
           </p>
           <form className="hero-search" onSubmit={handleSearch}>
             <Search size={20} className="hero-search-icon" />
@@ -1205,9 +511,9 @@ function HomePage({
             <button type="submit" className="hero-search-btn">SEARCH</button>
           </form>
           <div className="hero-cta-row">
-            <button className="hero-cta-primary" onClick={() => onNavigate('inventory')}>EXPLORE INVENTORY</button>
+            <button className="hero-cta-primary" onClick={() => onNavigate('inventory')}>EXPLORE SHOWROOM</button>
             <a
-              href="https://wa.me/96171630003?text=Hello%20Auto%20Hijazi,%20I%20would%20like%20to%20inquire%20about%20your%20available%20cars."
+              href="https://wa.me/96170576797?text=Hello%20Farah%20Motors,%20I%20would%20like%20to%20inquire%20about%20your%20available%20cars."
               target="_blank"
               rel="noopener noreferrer"
               className="hero-cta-ghost"
@@ -1223,8 +529,8 @@ function HomePage({
       <section className="home-stats-bar">
         <div className="home-stats-inner">
           <div className="stat-item">
-            <span className="stat-number">150+</span>
-            <span className="stat-label">CERTIFIED VEHICLES</span>
+            <span className="stat-number">PREMIER</span>
+            <span className="stat-label">LUXURY COLLECTION</span>
           </div>
           <div className="stat-divider" />
           <div className="stat-item">
@@ -1234,7 +540,7 @@ function HomePage({
           <div className="stat-divider" />
           <div className="stat-item">
             <span className="stat-number">100%</span>
-            <span className="stat-label">TRANSPARENT PRICING</span>
+            <span className="stat-label">AUTHENTIC PROVENANCE</span>
           </div>
           <div className="stat-divider" />
           <div className="stat-item">
@@ -1244,36 +550,71 @@ function HomePage({
         </div>
       </section>
 
-      {/* Featured Cars Section (4 in a row) */}
+      {/* Featured Cars / Showroom Refresh Announcement */}
       <section className="home-featured-section">
-        <div className="home-section-header">
-          <p className="home-section-eyebrow">HANDPICKED SELECTION</p>
-          <h2 className="home-section-title">Featured Inventory</h2>
-          <p className="home-section-subtitle">
-            Discover our newest arrivals, meticulously inspected and prepared for delivery.
-          </p>
-        </div>
+        {featuredCars.length > 0 ? (
+          <>
+            <div className="home-section-header">
+              <p className="home-section-eyebrow">HANDPICKED SELECTION</p>
+              <h2 className="home-section-title">Featured Inventory</h2>
+              <p className="home-section-subtitle">
+                Discover our newest arrivals, meticulously inspected and prepared for delivery.
+              </p>
+            </div>
 
-        {/* 4 Cars Grid */}
-        <div className="featured-4-grid">
-          {featuredCars.map((car) => (
-            <CarCard
-              key={car.id}
-              car={car}
-              onClick={() => onSelectCar(car.id)}
-            />
-          ))}
-        </div>
+            {/* 4 Cars Grid */}
+            <div className="featured-4-grid">
+              {featuredCars.map((car) => (
+                <CarCard
+                  key={car.id}
+                  car={car}
+                  onClick={() => onSelectCar(car.id)}
+                />
+              ))}
+            </div>
 
-        {/* CTAs */}
-        <div className="home-featured-ctas">
-          <button className="primary-button" onClick={() => onNavigate('inventory')}>
-            VIEW FULL COLLECTION ({cars.length} CARS) <ArrowRight size={14} />
-          </button>
-          <button className="outline-button" onClick={() => onNavigate('about')}>
-            THE SHOWROOM STANDARD
-          </button>
-        </div>
+            {/* CTAs */}
+            <div className="home-featured-ctas">
+              <button className="primary-button" onClick={() => onNavigate('inventory')}>
+                VIEW FULL COLLECTION ({cars.length} CARS) <ArrowRight size={14} />
+              </button>
+              <button className="outline-button" onClick={() => onNavigate('about')}>
+                THE SHOWROOM STANDARD
+              </button>
+            </div>
+          </>
+        ) : (
+          <div className="collection-refresh-banner">
+            <div className="cr-badge">
+              <Sparkles size={14} /> NEW ARRIVALS IN TRANSIT
+            </div>
+            <h2 className="cr-title">Showroom Collection Refresh in Progress</h2>
+            <p className="cr-desc">
+              We are currently preparing and cataloging our upcoming collection of luxury motorcars, supercars, and premium SUVs. Connect directly with our showroom team on WhatsApp or follow our Instagram for live vehicle drops and custom vehicle sourcing.
+            </p>
+            <div className="cr-actions">
+              <a
+                href="https://wa.me/96170576797?text=Hello%20Farah%20Motors,%20I%20would%20like%20to%20inquire%20about%20available%20and%20incoming%20vehicles."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="cr-btn-primary"
+              >
+                <MessageSquare size={16} /> INQUIRE ON WHATSAPP (+961 70 576 797)
+              </a>
+              <a
+                href="https://www.instagram.com/farah_motors/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="cr-btn-ghost"
+              >
+                <Instagram size={16} /> VIEW LIVE ON INSTAGRAM @farah_motors
+              </a>
+              <button className="cr-btn-outline" onClick={() => onNavigate('contact')}>
+                CUSTOM VEHICLE SOURCING <ArrowRight size={14} />
+              </button>
+            </div>
+          </div>
+        )}
       </section>
 
       {/* Category Spotlight Grid */}
@@ -1901,7 +1242,40 @@ function InventoryPage({
                 />
               ))
             ) : (
-              <div className="no-results">No vehicles match your search. Try a different keyword or clear filters.</div>
+              <div className="inventory-empty-state">
+                <div className="empty-state-icon">
+                  <Sparkles size={32} />
+                </div>
+                <h3>Showroom Collection Updating</h3>
+                <p>
+                  Our upcoming lineup of luxury and certified pre-owned vehicles is currently being cataloged and prepared.
+                  Looking for a specific vehicle? Farah Motors sources elite vehicles on demand.
+                </p>
+                <div className="empty-state-actions">
+                  <a
+                    href="https://wa.me/96170576797?text=Hello%20Farah%20Motors,%20I%20am%20looking%20for%20a%20specific%20vehicle%20and%20would%20like%20your%20assistance."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="empty-state-btn primary"
+                  >
+                    <MessageSquare size={15} /> CHAT ON WHATSAPP (+961 70 576 797)
+                  </a>
+                  <a
+                    href="tel:+96170576797"
+                    className="empty-state-btn secondary"
+                  >
+                    <Phone size={15} /> CALL SHOWROOM
+                  </a>
+                  <a
+                    href="https://www.instagram.com/farah_motors/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="empty-state-btn outline"
+                  >
+                    <Instagram size={15} /> @farah_motors
+                  </a>
+                </div>
+              </div>
             )}
           </div>
         </main>
@@ -1948,7 +1322,7 @@ function CarDetailsPage({
 
   const gallery = car.images && car.images.length > 0 ? car.images : [car.image];
   const activeImage = gallery[activeImgIndex] || car.image;
-  const whatsappMessage = encodeURIComponent(`Hello Auto Hijazi, I am interested in the ${car.year} ${car.name}.`);
+  const whatsappMessage = encodeURIComponent(`Hello Farah Motors, I am interested in the ${car.year} ${car.name}.`);
 
   const handleMainPhotoClick = () => {
     if (onOpenGallery) {
@@ -1999,7 +1373,7 @@ function CarDetailsPage({
           {/* Right Column: Information, Specs & Actions */}
           <div className="car-info-column">
             <div className="car-title-block">
-              <span className="car-eyebrow">AUTO HIJAZI • {car.make.toUpperCase()}</span>
+              <span className="car-eyebrow">FARAH MOTORS • {car.make.toUpperCase()}</span>
               <h1>{car.name.includes(String(car.year)) ? car.name : `${car.name} ${car.year}`}</h1>
               <div className="car-badges">
                 {car.tag && <span className="badge tag-badge">{car.tag}</span>}
@@ -2061,7 +1435,7 @@ function CarDetailsPage({
             {/* CTAs */}
             <div className="car-action-buttons">
               <a
-                href={`https://wa.me/96171630003?text=${whatsappMessage}`}
+                href={`https://wa.me/96170576797?text=${whatsappMessage}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="whatsapp-concierge-btn"
@@ -2101,23 +1475,35 @@ function About({ onNavigate }: { onNavigate: (page: Page) => void }) {
   return (
     <main className="page-main about-page">
       <section className="standard-hero">
-        <p className="eyebrow">ABOUT AUTO HIJAZI</p>
-        <h1>PASSION FOR CARS. DRIVEN BY TRUST.</h1>
-        <p>Auto Hijazi for cars — providing premium certified pre-owned motorcars in Beirut, Lebanon.</p>
+        <p className="eyebrow">ABOUT FARAH MOTORS</p>
+        <h1>PASSION FOR EXCELLENCE. DRIVEN BY DISTINCTION.</h1>
+        <p>Farah Motors — delivering premier luxury and certified pre-owned motorcars in Antelias, Mount Lebanon.</p>
       </section>
       <section className="about-story">
-        <div className="about-image"><img src="https://images.pexels.com/photos/15513826/pexels-photo-15513826.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Auto Hijazi Showroom" loading="lazy" decoding="async" /></div>
+        <div className="about-image"><img src="https://images.pexels.com/photos/15513826/pexels-photo-15513826.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Farah Motors Showroom" loading="lazy" decoding="async" /></div>
         <div className="about-copy">
           <h2>CURATED SELECTION. UNCOMPROMISED QUALITY.</h2>
-          <p>Located in the heart of Beirut (Unesco, facing the Ministry of Education), Auto Hijazi (Hijazi Motors) delivers a premier automotive showroom experience tailored to car enthusiasts and discerning drivers.</p>
-          <p>Every vehicle in our collection undergoes stringent multi-point verification for condition, provenance, and performance so you can drive away with complete peace of mind.</p>
-          <button className="outline-button" onClick={() => onNavigate('inventory')}>VIEW OUR INVENTORY</button>
+          <p>Located on the seaside corridor in Antelias / Jal El Dib, Mount Lebanon, Farah Motors delivers a premier automotive showroom experience tailored to car enthusiasts and discerning drivers.</p>
+          <p>From high-performance supercars and prestigious luxury SUVs to hand-selected certified pre-owned vehicles, every automobile in our care undergoes rigorous verification for mechanical integrity, provenance, and condition.</p>
+          <p>We pride ourselves on unmatched customer transparency, bespoke vehicle sourcing upon request, and comprehensive concierge service.</p>
+          <div style={{ display: 'flex', gap: '12px', marginTop: '20px', flexWrap: 'wrap' }}>
+            <button className="outline-button" onClick={() => onNavigate('inventory')}>EXPLORE SHOWROOM</button>
+            <a
+              href="https://wa.me/96170576797?text=Hello%20Farah%20Motors,%20I%20would%20like%20to%20know%20more%20about%20your%20services."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="primary-button"
+              style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '6px' }}
+            >
+              CONTACT CONCIERGE <ArrowRight size={14} />
+            </a>
+          </div>
         </div>
       </section>
       <section className="values">
-        <div><ShieldCheck size={28} strokeWidth={1.5} /><h3>THOROUGHLY INSPECTED</h3><p>Every car is checked, verified, and detailed to pristine showroom condition.</p></div>
-        <div><Sparkles size={28} strokeWidth={1.5} /><h3>VIP SERVICE</h3><p>Personalized WhatsApp concierge assistance, transparent pricing, and seamless trade-ins.</p></div>
-        <div><CalendarDays size={28} strokeWidth={1.5} /><h3>BEIRUT HERITAGE</h3><p>Proudly serving clients in Beirut, Lebanon with trusted automotive expertise.</p></div>
+        <div><ShieldCheck size={28} strokeWidth={1.5} /><h3>THOROUGHLY INSPECTED</h3><p>Every vehicle is meticulously checked, verified, and detailed to pristine showroom condition.</p></div>
+        <div><Sparkles size={28} strokeWidth={1.5} /><h3>VIP CONCIERGE</h3><p>Personalized WhatsApp concierge assistance, transparent pricing, and on-demand vehicle sourcing.</p></div>
+        <div><CalendarDays size={28} strokeWidth={1.5} /><h3>LEBANON HERITAGE</h3><p>Proudly serving clients across Lebanon from our prime Antelias / Jal El Dib showroom location.</p></div>
       </section>
     </main>
   );
@@ -2175,8 +1561,8 @@ function ContactPage() {
       {/* Hero Header */}
       <section className="standard-hero contact-hero">
         <p className="eyebrow">SHOWROOM & CONCIERGE</p>
-        <h1>AUTO HIJAZI / HIJAZI MOTORS</h1>
-        <p>Located in Unesco, Beirut, facing the Ministry of Education. Whether you're looking for your next vehicle, scheduling a viewing, or inquiring about our collection, our showroom team is at your service.</p>
+        <h1>FARAH MOTORS</h1>
+        <p>Located on the seaside corridor in Antelias / Jal El Dib, Mount Lebanon. Whether you're looking for your next vehicle, inquiring about incoming shipments, or scheduling a visit, our team is at your service.</p>
       </section>
 
       {/* Main Channels Grid */}
@@ -2187,13 +1573,13 @@ function ContactPage() {
             <div className="contact-card-icon">
               <Phone size={24} />
             </div>
-            <h3>PHONE & CALLS</h3>
-            <p className="contact-card-desc">Call our showroom directly for immediate assistance.</p>
+            <h3>PHONE & DIRECT CALLS</h3>
+            <p className="contact-card-desc">Call our showroom sales desk directly for immediate assistance.</p>
             <div className="contact-card-details">
-              <a href="tel:+96171630003" className="contact-link-bold">+961 71 630 003</a>
-              <span className="contact-link-sub">Auto Hijazi Hotline</span>
+              <a href="tel:+96170576797" className="contact-link-bold">+961 70 576 797</a>
+              <span className="contact-link-sub">Farah Motors Hotline</span>
             </div>
-            <a href="tel:+96171630003" className="contact-card-action">CALL US NOW <ArrowRight size={14} /></a>
+            <a href="tel:+96170576797" className="contact-card-action">CALL US NOW <ArrowRight size={14} /></a>
           </div>
 
           {/* WhatsApp */}
@@ -2201,14 +1587,14 @@ function ContactPage() {
             <div className="contact-card-icon whatsapp-icon">
               <MessageSquare size={24} />
             </div>
-            <h3>WHATSAPP CHAT</h3>
-            <p className="contact-card-desc">Direct 1-on-1 concierge assistance for quick inquiries, specs, and vehicle photos.</p>
+            <h3>WHATSAPP CONCIERGE</h3>
+            <p className="contact-card-desc">Direct 1-on-1 concierge assistance for quick inquiries, vehicle specs, and incoming arrivals.</p>
             <div className="contact-card-details">
-              <span className="contact-link-bold">71 630003 (+961)</span>
+              <span className="contact-link-bold">+961 70 576 797</span>
               <span className="contact-status-badge">• Online & Ready</span>
             </div>
             <a
-              href="https://wa.me/96171630003?text=Hello%20Auto%20Hijazi,%20I%20would%20like%20to%20inquire%20about%20a%20vehicle."
+              href="https://wa.me/96170576797?text=Hello%20Farah%20Motors,%20I%20would%20like%20to%20inquire%20about%20a%20vehicle."
               target="_blank"
               rel="noopener noreferrer"
               className="contact-card-action whatsapp-action"
@@ -2217,19 +1603,22 @@ function ContactPage() {
             </a>
           </div>
 
-          {/* Social Media & Instagram */}
+          {/* Social Channels (Instagram & Facebook) */}
           <div className="contact-card">
             <div className="contact-card-icon">
               <Instagram size={24} />
             </div>
-            <h3>INSTAGRAM & SOCIAL</h3>
-            <p className="contact-card-desc">Follow our official Instagram for new car arrivals, reels, and showroom stories.</p>
-            <div className="social-links-grid">
-              <a href="https://www.instagram.com/auto_hijazi_/" target="_blank" rel="noreferrer" className="social-chip">
-                <Instagram size={14} /> @auto_hijazi_
+            <h3>SOCIAL CHANNELS</h3>
+            <p className="contact-card-desc">Follow our official channels for real-time deliveries, video walkthroughs, and updates.</p>
+            <div className="social-links-grid" style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginTop: '10px' }}>
+              <a href="https://www.instagram.com/farah_motors/" target="_blank" rel="noreferrer" className="social-chip" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
+                <Instagram size={15} /> @farah_motors
+              </a>
+              <a href="https://www.facebook.com/abidaherfarah/" target="_blank" rel="noreferrer" className="social-chip" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
+                <Facebook size={15} /> Farah Motors (Abi Daher & Farah)
               </a>
             </div>
-            <a href="https://www.instagram.com/auto_hijazi_/" target="_blank" rel="noreferrer" className="contact-card-action">
+            <a href="https://www.instagram.com/farah_motors/" target="_blank" rel="noreferrer" className="contact-card-action">
               FOLLOW ON INSTAGRAM <ArrowRight size={14} />
             </a>
           </div>
@@ -2241,14 +1630,14 @@ function ContactPage() {
         <div className="contact-map-form-container">
           {/* Left: Contact Form */}
           <div className="contact-form-wrap">
-            <h2>SEND US A MESSAGE</h2>
+            <h2>SEND US AN INQUIRY</h2>
             <p className="form-subtext">Fill out the form below and our vehicle specialist will get back to you promptly.</p>
 
             {formSubmitted ? (
               <div className="form-success-box">
                 <CheckCircle size={32} color="#10b981" />
-                <h3>THANK YOU FOR YOUR MESSAGE</h3>
-                <p>Your inquiry has been received. One of our concierges will reach out to you shortly via phone or WhatsApp.</p>
+                <h3>THANK YOU FOR YOUR INQUIRY</h3>
+                <p>Your message has been received. One of our concierges will reach out to you shortly via phone or WhatsApp.</p>
               </div>
             ) : (
               <form className="contact-form" onSubmit={handleSubmit}>
@@ -2283,7 +1672,7 @@ function ContactPage() {
                       id="c-phone"
                       type="tel"
                       required
-                      placeholder="+961 71 630 003"
+                      placeholder="+961 70 576 797"
                       value={formData.phone}
                       onChange={e => setFormData({ ...formData, phone: e.target.value })}
                     />
@@ -2296,9 +1685,9 @@ function ContactPage() {
                       onChange={e => setFormData({ ...formData, subject: e.target.value })}
                     >
                       <option value="Vehicle Purchase">Vehicle Purchase</option>
-                      <option value="Book Test Drive">Book Test Drive</option>
+                      <option value="Custom Vehicle Sourcing">Custom Vehicle Sourcing</option>
                       <option value="Sell / Trade-in">Sell / Trade-in Vehicle</option>
-                      <option value="Car Financing">Car Financing / Loan</option>
+                      <option value="Book Showroom Visit">Book Showroom Visit</option>
                       <option value="General Inquiry">General Inquiry</option>
                     </select>
                   </div>
@@ -2310,7 +1699,7 @@ function ContactPage() {
                     id="c-message"
                     rows={4}
                     required
-                    placeholder="Tell us about the vehicle you're interested in or how we can assist you..."
+                    placeholder="Tell us about the vehicle you're looking for or how we can assist you..."
                     value={formData.message}
                     onChange={e => setFormData({ ...formData, message: e.target.value })}
                   />
@@ -2331,7 +1720,7 @@ function ContactPage() {
                 <MapPin size={20} className="info-icon" />
                 <div>
                   <span className="info-label">SHOWROOM ADDRESS</span>
-                  <span className="info-val">Facing Ministry of Education<br />Unesco, Beirut, Lebanon</span>
+                  <span className="info-val">Antelias / Jal El Dib Coastal Highway<br />Mount Lebanon, Lebanon</span>
                 </div>
               </div>
               <div className="info-item">
@@ -2346,8 +1735,8 @@ function ContactPage() {
             {/* Google Map iFrame */}
             <div className="google-map-wrapper">
               <iframe
-                title="Auto Hijazi Showroom Location"
-                src="https://maps.google.com/maps?q=Ministry%20of%20Education%20and%20Higher%20Education,%20Unesco,%20Beirut,%20Lebanon&t=&z=16&ie=UTF8&iwloc=&output=embed"
+                title="Farah Motors Showroom Location"
+                src="https://maps.google.com/maps?q=33.9143323,35.5827235&t=&z=16&ie=UTF8&iwloc=&output=embed"
                 width="100%"
                 height="320"
                 style={{ border: 0 }}
@@ -2355,6 +1744,25 @@ function ContactPage() {
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
               />
+            </div>
+            <div style={{ marginTop: '14px', textAlign: 'center' }}>
+              <a
+                href="https://www.google.com/maps/place/Farah+Motors/@33.9143323,35.5827235,17z/data=!4m16!1m9!3m8!1s0x151f3ff5641f1f4b:0x4c0ff0185db3149c!2sFarah+Motors!8m2!3d33.9143323!4d35.5827235!9m1!1b1!16s%2Fg%2F11gn02f5xn!3m5!1s0x151f3ff5641f1f4b:0x4c0ff0185db3149c!8m2!3d33.9143323!4d35.5827235!16s%2Fg%2F11gn02f5xn?hl=en-LB&entry=ttu&g_ep=EgoyMDI2MDkxMy4wIKXMDSoASAFQAw%3D%3D"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '6px',
+                  color: '#111',
+                  fontWeight: 700,
+                  fontSize: '12px',
+                  letterSpacing: '0.05em',
+                  textDecoration: 'none'
+                }}
+              >
+                <MapPin size={14} /> VIEW ON GOOGLE MAPS <ArrowRight size={12} />
+              </a>
             </div>
           </div>
         </div>
@@ -2444,11 +1852,14 @@ function App() {
           <button onClick={() => navigate('about')}>ABOUT</button>
           <button onClick={() => navigate('journal')}>JOURNAL</button>
           <button onClick={() => navigate('contact')}>CONTACT US</button>
-          <a href="https://www.instagram.com/auto_hijazi_/" target="_blank" rel="noreferrer" style={{ color: 'inherit', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '4px', fontSize: '11px', fontWeight: 600 }}>
-            <Instagram size={14} /> @auto_hijazi_
+          <a href="https://www.instagram.com/farah_motors/" target="_blank" rel="noreferrer" style={{ color: 'inherit', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '4px', fontSize: '11px', fontWeight: 600 }}>
+            <Instagram size={14} /> @farah_motors
+          </a>
+          <a href="https://www.facebook.com/abidaherfarah/" target="_blank" rel="noreferrer" style={{ color: 'inherit', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '4px', fontSize: '11px', fontWeight: 600 }}>
+            <Facebook size={14} /> Facebook
           </a>
         </div>
-        <span>© 2025 Auto Hijazi (Hijazi Motors). All rights reserved. Unesco, Beirut, Lebanon.</span>
+        <span>© 2025 Farah Motors. All rights reserved. Antelias, Lebanon.</span>
       </footer>
     </div>
   );

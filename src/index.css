@@ -2886,3 +2886,225 @@ img { display: block; width: 100%; object-fit: cover; }
   }
 }
 
+/* ═══════════════════════════════════════════════
+   FARAH MOTORS COLLECTION REFRESH & EMPTY STATES
+═══════════════════════════════════════════════ */
+.collection-refresh-banner {
+  background: linear-gradient(135deg, #0a0d14 0%, #161b26 50%, #0a0d14 100%);
+  border: 1px solid rgba(232, 213, 176, 0.28);
+  padding: 60px 32px;
+  text-align: center;
+  max-width: 1040px;
+  margin: 0 auto 50px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+  position: relative;
+  overflow: hidden;
+}
+
+.collection-refresh-banner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #e8d5b0, transparent);
+}
+
+.cr-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(232, 213, 176, 0.12);
+  color: #e8d5b0;
+  border: 1px solid rgba(232, 213, 176, 0.3);
+  padding: 6px 14px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.cr-title {
+  font-size: clamp(24px, 4vw, 36px);
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.01em;
+  margin: 0 0 16px;
+  line-height: 1.2;
+}
+
+.cr-desc {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.78);
+  line-height: 1.75;
+  max-width: 720px;
+  margin: 0 auto 32px;
+}
+
+.cr-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.cr-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #25D366;
+  color: #ffffff;
+  padding: 14px 24px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  box-shadow: 0 6px 16px rgba(37, 211, 102, 0.3);
+}
+
+.cr-btn-primary:hover {
+  background: #20bd5a;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(37, 211, 102, 0.4);
+}
+
+.cr-btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 14px 24px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.cr-btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: translateY(-2px);
+}
+
+.cr-btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  color: #e8d5b0;
+  border: 1px solid #e8d5b0;
+  padding: 14px 24px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.cr-btn-outline:hover {
+  background: #e8d5b0;
+  color: #111;
+  transform: translateY(-2px);
+}
+
+/* Inventory Empty State */
+.inventory-empty-state {
+  grid-column: 1 / -1;
+  padding: 80px 30px;
+  text-align: center;
+  background: #fbfbfb;
+  border: 1px dashed #d1d5db;
+  margin: 20px 0 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.empty-state-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50% !important;
+  background: #111;
+  color: #e8d5b0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.inventory-empty-state h3 {
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  margin: 0 0 12px;
+  color: #111;
+}
+
+.inventory-empty-state p {
+  font-size: 14.5px;
+  color: #666;
+  max-width: 600px;
+  margin: 0 auto 28px;
+  line-height: 1.65;
+}
+
+.empty-state-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.empty-state-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 12px 20px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.empty-state-btn.primary {
+  background: #25D366;
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.25);
+}
+
+.empty-state-btn.primary:hover {
+  background: #20bd5a;
+  transform: translateY(-1px);
+}
+
+.empty-state-btn.secondary {
+  background: #111;
+  color: #fff;
+}
+
+.empty-state-btn.secondary:hover {
+  background: #222;
+  transform: translateY(-1px);
+}
+
+.empty-state-btn.outline {
+  background: transparent;
+  color: #111;
+  border: 1px solid #111;
+}
+
+.empty-state-btn.outline:hover {
+  background: #111;
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+
