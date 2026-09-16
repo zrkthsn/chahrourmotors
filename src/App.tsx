@@ -46,7 +46,7 @@ const DEFAULT_FILTERS: FilterState = {
   fuels: [],
   transmissions: [],
   minYear: 2005,
-  maxYear: 2026,
+  maxYear: 2028,
   minPrice: 0,
   maxPrice: 600000,
 };
@@ -87,7 +87,7 @@ const MAKE_MODELS_MAP: Record<string, string[]> = {
   'Hyundai': ['Elantra', 'Sonata', 'Tucson', 'Santa Fe', 'Palisade'],
   'Jetour': ['T2 Travel Plus', 'G700 Flagship', 'T2', 'Dashing', 'X70 Plus', 'X90 Plus'],
   'Changan': ['Deepal G318 4WD', 'Deepal G318', 'Deepal S07 EV', 'Deepal S07', 'UNI-K', 'CS95'],
-  'BMW': ['530i xDrive Sport Line', '530i xDrive M-Package', '530i xDrive', 'M4 Competition xDrive', 'M8 Competition Gran Coupé', 'M3 CS'],
+  'BMW': ['M5', '530i xDrive Sport Line', '530i xDrive M-Package', '530i xDrive', 'M4 Competition xDrive', 'M8 Competition Gran Coupé', 'M3 CS'],
   'BYD': ['Song Plus EV', 'Song Plus', 'Leopard 7 ULTRA', 'Leopard 5', 'Yangwang U8', 'Seal'],
   'Porsche': ['911 GT3 RS', 'Taycan Turbo S', 'Cayenne Turbo GT'],
   'Ferrari': ['296 GTB Assetto Fiorano', 'Roma Spider', 'SF90 Stradale'],
@@ -177,15 +177,16 @@ const ALL_MODELS = [
   'M3 CS',
   'RS6 Avant Dynamic',
   'RS e-tron GT',
+  'M5',
   'Range Rover SV Autobiography',
   'Range Rover Sport SV',
   '750S Spider',
   'Artura',
 ];
 
-const ALL_YEARS = [2026, 2025, 2024, 2023, 2022, 2021, 2020, 2019, 2018];
-const ALL_FUELS = ['Petrol', 'Petrol (MHEV)', 'Electric', 'Hybrid', 'Hybrid (DMO PHEV)', 'Hybrid (EREV AWD)', 'Diesel'];
-const ALL_TRANSMISSIONS = ['Automatic (9G-TRONIC)', 'Automatic (Steptronic Sport)', 'Automatic', 'Automatic (Electric Drive)', 'Automatic (E-CVT)', 'Automatic (Multi-Motor Drive)', 'Automatic (PDK)', 'Dual-Clutch'];
+const ALL_YEARS = [2027, 2026, 2025, 2024, 2023, 2022, 2021, 2020, 2019, 2018];
+const ALL_FUELS = ['Petrol', 'Petrol (MHEV)', 'Electric', 'Hybrid', 'Hybrid (M Hybrid V8)', 'Hybrid (DMO PHEV)', 'Hybrid (EREV AWD)', 'Diesel'];
+const ALL_TRANSMISSIONS = ['Automatic (8-Speed M Steptronic)', 'Automatic (9G-TRONIC)', 'Automatic (Steptronic Sport)', 'Automatic', 'Automatic (Electric Drive)', 'Automatic (E-CVT)', 'Automatic (Multi-Motor Drive)', 'Automatic (PDK)', 'Dual-Clutch'];
 
 type Page = 'home' | 'inventory' | 'about' | 'journal' | 'car' | 'contact';
 
@@ -205,7 +206,29 @@ type Car = {
   description: string;
 };
 
-const cars: Car[] = [];
+const cars: Car[] = [
+  {
+    id: 1,
+    name: 'BMW M5 2027 (727 HP)',
+    make: 'BMW',
+    model: 'M5',
+    year: 2027,
+    price: 'Price on Request',
+    mileage: '4,000 km',
+    fuel: 'Hybrid (M Hybrid V8)',
+    transmission: 'Automatic (8-Speed M Steptronic)',
+    image: '/inventory/bmw-m5-2027/m5-1.jpg',
+    images: [
+      '/inventory/bmw-m5-2027/m5-1.jpg',
+      '/inventory/bmw-m5-2027/m5-2.jpg',
+      '/inventory/bmw-m5-2027/m5-3.jpg',
+      '/inventory/bmw-m5-2027/m5-4.jpg',
+      '/inventory/bmw-m5-2027/m5-5.jpg'
+    ],
+    tag: '727 HP • BASSOUL HENEINE • 4,000 KM • FROZEN DEEP GREY',
+    description: '2027 BMW M5 Sedan (G90) — 727 HP. Finished in rare factory Frozen Deep Grey Metallic exterior over Merino Red / Black Full Leather interior. Official Lebanese Dealer Source (Bassoul Heneine) with only 4,000 KM. Covered by 3 Years Official Dealer Warranty and 5 Years Free Maintenance Package. Powered by the groundbreaking M Hybrid powertrain combining a 4.4L M TwinPower Turbo V8 engine with a high-performance electric motor producing a massive 727 horsepower and 1,000 Nm of torque paired with an 8-Speed M Steptronic transmission and M xDrive with selectable 2WD mode. Equipped with Full Carbon Fiber Package (Carbon fiber front & rear attachments, rocker panels / side skirts, rear carbon diffuser), Performance Titanium Exhaust System with quad tips, Interior Carbon Fiber structure trim, 20"/21" Double-Spoke Black Light Alloy M Wheels, M Compound Braking System with Red High-Gloss Calipers, M Seat Belts with signature stitching, and Full-Color Head-Up Display.'
+  }
+];
 
 const inveltaClubPosts = [
   { category: 'News', title: 'The arrival of the 2024 collection', date: 'August 18, 2024', image: 'https://images.pexels.com/photos/14217531/pexels-photo-14217531.jpeg?auto=compress&cs=tinysrgb&h=650&w=940' },
