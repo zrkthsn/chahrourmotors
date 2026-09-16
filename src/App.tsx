@@ -82,7 +82,7 @@ const MAKE_MODELS_MAP: Record<string, string[]> = {
   'MG': ['E-RX5 Plug-in Hybrid', 'E-RX5', 'RX5', 'MG4', 'Cyberster', 'ZS EV'],
   'Voyah': ['Passion EV', 'Free', 'Dreamer', 'Courage'],
   'DongFeng': ['M-Hero M817 Platinum', 'M-Hero 2 817 ULTRA', 'M-Hero 917', 'Mengshi M817', 'M-Hero 1'],
-  'Mercedes-Benz': ['G 500', 'A 180 AMG Package', 'A 180', 'Maybach GLS 600', 'GLS 600 Maybach', 'G 63 AMG Night Package', 'G 63 AMG', 'C 300 AMG Package', 'AMG GT 63 S', 'SL 63 AMG', 'C 300'],
+  'Mercedes-Benz': ['CLE 300 4MATIC', 'CLE 300 AMG Package', 'CLE 300', 'G 500', 'A 180 AMG Package', 'A 180', 'Maybach GLS 600', 'GLS 600 Maybach', 'G 63 AMG Night Package', 'G 63 AMG', 'C 300 AMG Package', 'AMG GT 63 S', 'SL 63 AMG', 'C 300'],
   'Land Rover': ['Range Rover Vogue P525 HSE', 'Range Rover Vogue P525 Autobiography', 'Range Rover Velar P250 S', 'Velar P250 S', 'Range Rover Vogue HSE', 'Defender 110 P400', 'Defender 110', 'Range Rover Vogue', 'Range Rover SV Autobiography', 'Range Rover Sport SV'],
   'Toyota': ['Land Cruiser GX.R Twin Turbo', 'Land Cruiser GX-R', 'Land Cruiser GX-R V6', 'bZ3', 'bZ3X Pro', 'bZ3X', 'Land Cruiser Prado R3', 'Prado R3', 'Land Cruiser VX-R Grand Touring S', 'Land Cruiser VX-R', 'Land Cruiser 300', 'Prado'],
   'Nissan': ['Kicks SV', 'Kicks', 'Patrol', 'X-Trail'],
@@ -102,6 +102,7 @@ const MAKE_MODELS_MAP: Record<string, string[]> = {
 };
 
 const ALL_MODELS = [
+  'CLE 300 4MATIC',
   'Yukon Denali',
   'M5',
   'Land Cruiser GX.R Twin Turbo',
@@ -274,6 +275,27 @@ const cars: Car[] = [
     ],
     tag: 'DENALI • COMPANY SOURCE • 70,000 KM • LIKE NEW',
     description: 'GMC Yukon DENALI 2021 — The definition of American luxury and commanding road presence. Finished in Onyx Black over Black Premium Perforated Leather interior with Denali signature contrast stitching and dark ash wood decor. Official Lebanese Company Dealer Source with only 70,000 KM in immaculate, like-new showroom condition. Powered by the proven 6.2L EcoTec3 V8 engine producing 420 hp and 460 lb-ft of torque, paired with a smooth 10-Speed Automatic Transmission and Autotrac 4WD system with 2-speed transfer case. Equipped with the iconic Denali multidimensional chrome/blackout grille, dual twin-tip performance exhaust, 22" gloss black multispoke wheels, Magnetic Ride Control adaptive suspension, panoramic sunroof, power-retractable running boards, 10.2" GMC Premium Infotainment System with wireless Apple CarPlay and Android Auto, 15" multicolor Head-Up Display, Bose 14-speaker Surround Sound System, High Definition Surround 360° Vision Cameras, heated and ventilated front seats, heated second-row executive bucket seats, power-folding 3rd row, and GMC Pro Safety Plus driver assist suite.'
+  },
+  {
+    id: 4,
+    name: 'Mercedes-Benz CLE 300 4-MATIC Coupé 2024',
+    make: 'Mercedes-Benz',
+    model: 'CLE 300 4MATIC',
+    year: 2024,
+    price: 'Price on Request',
+    mileage: '0 km (Brand New)',
+    fuel: 'Petrol',
+    transmission: 'Automatic (9G-TRONIC 9-Speed)',
+    image: '/inventory/mercedes-cle300-2024/cle-1.jpg',
+    images: [
+      '/inventory/mercedes-cle300-2024/cle-1.jpg',
+      '/inventory/mercedes-cle300-2024/cle-2.jpg',
+      '/inventory/mercedes-cle300-2024/cle-3.jpg',
+      '/inventory/mercedes-cle300-2024/cle-4.jpg',
+      '/inventory/mercedes-cle300-2024/cle-5.jpg'
+    ],
+    tag: 'AMG PACKAGE • 0 KM BRAND NEW • 4-MATIC • GRAY / BLACK',
+    description: '2024 Mercedes-Benz CLE 300 4-MATIC Coupé with AMG Styling Package. Brand new condition with 0 km. Finished in stunning Selenite Gray Metallic exterior over Anthracite / Black Leather sport interior. Powered by a 2.0L Turbocharged inline-4 engine with 48V Mild Hybrid EQ Boost delivering 255 hp and 400 Nm of torque, paired with a seamless 9G-TRONIC 9-Speed Automatic Transmission and 4MATIC intelligent All-Wheel Drive. Equipped with AMG Line exterior and interior package, Star-pattern chrome diamond radiator grille, AMG aerodynamic front apron and side skirts, 20" AMG multi-spoke two-tone light alloy wheels with ventilated performance brakes, LED High Performance headlamps with signature daytime running lights, dual chrome exhaust finishers, panoramic sliding glass sunroof, MBUX multimedia touchscreen display with wireless Apple CarPlay and Android Auto, high-resolution digital driver cockpit, multi-color ambient lighting, AMG sport contour seats, and comprehensive active safety driver assist suite.'
   }
 ];
 
