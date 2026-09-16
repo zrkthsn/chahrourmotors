@@ -83,7 +83,7 @@ const MAKE_MODELS_MAP: Record<string, string[]> = {
   'Voyah': ['Passion EV', 'Free', 'Dreamer', 'Courage'],
   'DongFeng': ['M-Hero M817 Platinum', 'M-Hero 2 817 ULTRA', 'M-Hero 917', 'Mengshi M817', 'M-Hero 1'],
   'Mercedes-Benz': ['CLE 300 4MATIC', 'CLE 300 AMG Package', 'CLE 300', 'G 500', 'A 180 AMG Package', 'A 180', 'Maybach GLS 600', 'GLS 600 Maybach', 'G 63 AMG Night Package', 'G 63 AMG', 'C 300 AMG Package', 'AMG GT 63 S', 'SL 63 AMG', 'C 300'],
-  'Land Rover': ['Range Rover Vogue P525 HSE', 'Range Rover Vogue P525 Autobiography', 'Range Rover Velar P250 S', 'Velar P250 S', 'Range Rover Vogue HSE', 'Defender 110 P400', 'Defender 110', 'Range Rover Vogue', 'Range Rover SV Autobiography', 'Range Rover Sport SV'],
+  'Land Rover': ['Range Rover Sport V6 P400 Dynamic', 'Range Rover Sport P400 Dynamic', 'Range Rover Sport', 'Range Rover Vogue P525 HSE', 'Range Rover Vogue P525 Autobiography', 'Range Rover Velar P250 S', 'Velar P250 S', 'Range Rover Vogue HSE', 'Defender 110 P400', 'Defender 110', 'Range Rover Vogue', 'Range Rover SV Autobiography', 'Range Rover Sport SV'],
   'Toyota': ['Land Cruiser GX.R Twin Turbo', 'Land Cruiser GX-R', 'Land Cruiser GX-R V6', 'bZ3', 'bZ3X Pro', 'bZ3X', 'Land Cruiser Prado R3', 'Prado R3', 'Land Cruiser VX-R Grand Touring S', 'Land Cruiser VX-R', 'Land Cruiser 300', 'Prado'],
   'Nissan': ['Kicks SV', 'Kicks', 'Patrol', 'X-Trail'],
   'Hyundai': ['Elantra', 'Sonata', 'Tucson', 'Santa Fe', 'Palisade'],
@@ -102,6 +102,7 @@ const MAKE_MODELS_MAP: Record<string, string[]> = {
 };
 
 const ALL_MODELS = [
+  'Range Rover Sport V6 P400 Dynamic',
   'CLE 300 4MATIC',
   'Yukon Denali',
   'M5',
@@ -296,6 +297,27 @@ const cars: Car[] = [
     ],
     tag: 'AMG PACKAGE • 0 KM BRAND NEW • 4-MATIC • GRAY / BLACK',
     description: '2024 Mercedes-Benz CLE 300 4-MATIC Coupé with AMG Styling Package. Brand new condition with 0 km. Finished in stunning Selenite Gray Metallic exterior over Anthracite / Black Leather sport interior. Powered by a 2.0L Turbocharged inline-4 engine with 48V Mild Hybrid EQ Boost delivering 255 hp and 400 Nm of torque, paired with a seamless 9G-TRONIC 9-Speed Automatic Transmission and 4MATIC intelligent All-Wheel Drive. Equipped with AMG Line exterior and interior package, Star-pattern chrome diamond radiator grille, AMG aerodynamic front apron and side skirts, 20" AMG multi-spoke two-tone light alloy wheels with ventilated performance brakes, LED High Performance headlamps with signature daytime running lights, dual chrome exhaust finishers, panoramic sliding glass sunroof, MBUX multimedia touchscreen display with wireless Apple CarPlay and Android Auto, high-resolution digital driver cockpit, multi-color ambient lighting, AMG sport contour seats, and comprehensive active safety driver assist suite.'
+  },
+  {
+    id: 5,
+    name: 'Range Rover Sport V6 P400 Dynamic 2025',
+    make: 'Land Rover',
+    model: 'Range Rover Sport V6 P400 Dynamic',
+    year: 2025,
+    price: 'Price on Request',
+    mileage: '0 km (Brand New)',
+    fuel: 'Petrol',
+    transmission: 'Automatic (8-Speed ZF)',
+    image: '/inventory/range-rover-sport-dynamic-2025/rrs-1.jpg',
+    images: [
+      '/inventory/range-rover-sport-dynamic-2025/rrs-1.jpg',
+      '/inventory/range-rover-sport-dynamic-2025/rrs-2.jpg',
+      '/inventory/range-rover-sport-dynamic-2025/rrs-3.jpg',
+      '/inventory/range-rover-sport-dynamic-2025/rrs-4.jpg',
+      '/inventory/range-rover-sport-dynamic-2025/rrs-5.jpg'
+    ],
+    tag: 'DYNAMIC SE • 0 KM BRAND NEW • FULLY LOADED • BLACK / BLACK',
+    description: '2025 Range Rover Sport V6 P400 Dynamic — The pinnacle of modern sporting luxury and athletic capability. Brand new showroom delivery with 0 km. Finished in iconic Santorini Black Metallic exterior over Ebony / Black Windsor Perforated Leather interior with Dynamic Satin Chrome accents. Fully loaded specification. Powered by the 3.0L Turbocharged Ingenium Inline-6 Mild-Hybrid (MHEV) engine outputting 400 hp and 550 Nm of torque, paired with an ultra-responsive 8-Speed ZF Automatic Transmission and Intelligent All-Wheel Drive (iAWD). Equipped with Dynamic Exterior Pack, 22" Diamond-Turned Multi-Spoke Alloy Wheels, Dynamic Air Suspension with Adaptive Dynamics, Pixel LED Headlights with Signature DRLs, Sliding Panoramic Glass Roof, 13.1" curved Pivi Pro Touchscreen, Meridian 3D Surround Sound System, Head-Up Display, 3D Surround Camera with ClearSight Ground View, Soft-Close Doors, Heated & Ventilated 22-Way Power Massage Front Seats, Heated Rear Seats, and Configurable Terrain Response 2.'
   }
 ];
 
