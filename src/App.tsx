@@ -83,7 +83,7 @@ const MAKE_MODELS_MAP: Record<string, string[]> = {
   'Voyah': ['Passion EV', 'Free', 'Dreamer', 'Courage'],
   'DongFeng': ['M-Hero M817 Platinum', 'M-Hero 2 817 ULTRA', 'M-Hero 917', 'Mengshi M817', 'M-Hero 1'],
   'Mercedes-Benz': ['G 63 AMG Carbon Fiber Pack', 'CLE 300 4MATIC', 'CLE 300 AMG Package', 'CLE 300', 'G 500', 'A 180 AMG Package', 'A 180', 'Maybach GLS 600', 'GLS 600 Maybach', 'G 63 AMG Night Package', 'G 63 AMG', 'C 300 AMG Package', 'AMG GT 63 S', 'SL 63 AMG', 'C 300'],
-  'Land Rover': ['Range Rover Vogue HSE V8', 'Range Rover Sport V6 P400 Dynamic', 'Range Rover Sport P400 Dynamic', 'Range Rover Sport', 'Range Rover Vogue P525 HSE', 'Range Rover Vogue P525 Autobiography', 'Range Rover Velar P250 S', 'Velar P250 S', 'Range Rover Vogue HSE', 'Defender 110 P400', 'Defender 110', 'Range Rover Vogue', 'Range Rover SV Autobiography', 'Range Rover Sport SV'],
+  'Land Rover': ['Range Rover Vogue P530 Autobiography', 'Range Rover Vogue HSE V8', 'Range Rover Sport V6 P400 Dynamic', 'Range Rover Sport P400 Dynamic', 'Range Rover Sport', 'Range Rover Vogue P525 HSE', 'Range Rover Vogue P525 Autobiography', 'Range Rover Velar P250 S', 'Velar P250 S', 'Range Rover Vogue HSE', 'Defender 110 P400', 'Defender 110', 'Range Rover Vogue', 'Range Rover SV Autobiography', 'Range Rover Sport SV'],
   'Toyota': ['Land Cruiser GX.R Twin Turbo', 'Land Cruiser GX-R', 'Land Cruiser GX-R V6', 'bZ3', 'bZ3X Pro', 'bZ3X', 'Land Cruiser Prado R3', 'Prado R3', 'Land Cruiser VX-R Grand Touring S', 'Land Cruiser VX-R', 'Land Cruiser 300', 'Prado'],
   'Nissan': ['Kicks SV', 'Kicks', 'Patrol', 'X-Trail'],
   'Hyundai': ['Elantra', 'Sonata', 'Tucson', 'Santa Fe', 'Palisade'],
@@ -102,6 +102,7 @@ const MAKE_MODELS_MAP: Record<string, string[]> = {
 };
 
 const ALL_MODELS = [
+  'Range Rover Vogue P530 Autobiography',
   'G 63 AMG Carbon Fiber Pack',
   'Range Rover Vogue HSE V8',
   'Range Rover Sport V6 P400 Dynamic',
@@ -404,6 +405,27 @@ const cars: Car[] = [
     ],
     tag: 'TRAVEL+ EDITION • 0 KM BRAND NEW • FULLY LOADED • BLACK / BLACK',
     description: '2025 Jetour T2 Travel+ Edition — The ultimate modern rugged adventure 4x4. Brand new with 0 km. Finished in deep Night Black exterior over Black Leather sport interior. Fully loaded top-of-the-line Travel+ specification. Powered by the high-output 2.0L Turbocharged GDI 4-cylinder engine producing 254 hp and 390 Nm of torque, mated to an ultra-responsive 7-Speed Dual-Clutch (DCT) transmission and BorgWarner sixth-generation intelligent XWD (Four-Wheel Drive) with electronic limited-slip differential (eLSD). Equipped with factory external side gear box carrier, adventure roof rack, bronze multi-spoke off-road wheels with all-terrain tires and neon yellow accents, illuminated JETOUR matrix front grille, matrix LED headlights with square auxiliary bumper lighting, panoramic glass sunroof, external spare tire carrier, 15.6" central multimedia touchscreen with Qualcomm Snapdragon 8155 processor, 10.25" digital instrument cluster, Sony Premium Audio with headrest speakers, 540° panoramic transparent chassis surround view camera system, wireless smartphone fast-charging, multi-terrain drive selector, and full L2 advanced driver assistance suite.'
+  },
+  {
+    id: 10,
+    name: 'Range Rover Vogue P530 Autobiography 2024',
+    make: 'Land Rover',
+    model: 'Range Rover Vogue P530 Autobiography',
+    year: 2024,
+    price: 'Price on Request',
+    mileage: '11,000 km only',
+    fuel: 'Petrol',
+    transmission: 'Automatic (8-Speed ZF)',
+    image: '/inventory/range-rover-vogue-p530-autobiography-2024/p530-1.jpg',
+    images: [
+      '/inventory/range-rover-vogue-p530-autobiography-2024/p530-1.jpg',
+      '/inventory/range-rover-vogue-p530-autobiography-2024/p530-2.jpg',
+      '/inventory/range-rover-vogue-p530-autobiography-2024/p530-3.jpg',
+      '/inventory/range-rover-vogue-p530-autobiography-2024/p530-4.jpg',
+      '/inventory/range-rover-vogue-p530-autobiography-2024/p530-5.jpg'
+    ],
+    tag: 'AUTOBIOGRAPHY P530 • TEWTEL SOURCE • 11,000 KM • WARRANTY 2029',
+    description: '2024 Range Rover Vogue P530 Autobiography (L460 Generation) — The ultimate flagship expression of British ultra-luxury. Finished in Santorini Black Metallic with Shadow Exterior Pack over Ebony / Black Semi-Aniline Perforated Leather interior with Grand Black wood veneer. Official Lebanese Dealer Source (Tewtel) with only 11,000 original kilometers. Covered by Official Dealer Warranty until 2029. Powered by the high-performance BMW-engineered 4.4L Twin-Turbocharged V8 engine producing a staggering 530 hp and 750 Nm of torque, paired with an 8-Speed ZF Automatic Transmission, Electronic Air Suspension with Dynamic Response Pro, and All-Wheel Steering. Equipped with Autobiography top-tier package, 23" gloss black forged alloy wheels, Digital LED Headlights with Image Projection, Soft-Close Doors with Power Assist, Executive Class Rear Seating, Meridian Signature 35-Speaker 1,600W 3D Sound System with active noise cancellation, 13.1" curved Pivi Pro touchscreen, Heads-Up Display, 3D Surround Vision Camera, Sliding Panoramic Sunroof, illuminated Autobiography treadplates, and full driver assistance suite.'
   }
 ];
 
