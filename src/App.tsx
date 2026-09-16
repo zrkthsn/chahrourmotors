@@ -52,151 +52,53 @@ const DEFAULT_FILTERS: FilterState = {
 };
 
 const ALL_MAKES = [
-  'GMC',
   'BMW',
   'Toyota',
-  'Audi',
-  'MG',
-  'Voyah',
-  'DongFeng',
+  'GMC',
   'Mercedes-Benz',
   'Land Rover',
-  'Nissan',
-  'Hyundai',
   'Jetour',
-  'Changan',
-  'BYD',
   'Porsche',
-  'Ferrari',
-  'Lamborghini',
-  'Aston Martin',
-  'Rolls-Royce',
-  'Bentley',
-  'Audi Sport',
-  'McLaren',
 ];
 
 const MAKE_MODELS_MAP: Record<string, string[]> = {
-  'GMC': ['Yukon Denali', 'Yukon', 'Sierra'],
-  'Audi': ['Q8 Premium Plus', 'Q8 55 TFSI', 'Q8', 'Q7', 'RS6 Avant', 'RSQ8', 'e-tron GT'],
-  'MG': ['E-RX5 Plug-in Hybrid', 'E-RX5', 'RX5', 'MG4', 'Cyberster', 'ZS EV'],
-  'Voyah': ['Passion EV', 'Free', 'Dreamer', 'Courage'],
-  'DongFeng': ['M-Hero M817 Platinum', 'M-Hero 2 817 ULTRA', 'M-Hero 917', 'Mengshi M817', 'M-Hero 1'],
-  'Mercedes-Benz': ['G 63 AMG Carbon Fiber Pack', 'CLE 300 4MATIC', 'CLE 300 AMG Package', 'CLE 300', 'G 500', 'A 180 AMG Package', 'A 180', 'Maybach GLS 600', 'GLS 600 Maybach', 'G 63 AMG Night Package', 'G 63 AMG', 'C 300 AMG Package', 'AMG GT 63 S', 'SL 63 AMG', 'C 300'],
-  'Land Rover': ['Range Rover Vogue P530 Autobiography', 'Range Rover Vogue HSE V8', 'Range Rover Sport V6 P400 Dynamic', 'Range Rover Sport P400 Dynamic', 'Range Rover Sport', 'Range Rover Vogue P525 HSE', 'Range Rover Vogue P525 Autobiography', 'Range Rover Velar P250 S', 'Velar P250 S', 'Range Rover Vogue HSE', 'Defender 110 P400', 'Defender 110', 'Range Rover Vogue', 'Range Rover SV Autobiography', 'Range Rover Sport SV'],
-  'Toyota': ['Land Cruiser GX.R Twin Turbo', 'Land Cruiser GX-R', 'Land Cruiser GX-R V6', 'bZ3', 'bZ3X Pro', 'bZ3X', 'Land Cruiser Prado R3', 'Prado R3', 'Land Cruiser VX-R Grand Touring S', 'Land Cruiser VX-R', 'Land Cruiser 300', 'Prado'],
-  'Nissan': ['Kicks SV', 'Kicks', 'Patrol', 'X-Trail'],
-  'Hyundai': ['Elantra', 'Sonata', 'Tucson', 'Santa Fe', 'Palisade'],
-  'Jetour': ['T2 Travel Plus', 'G700 Flagship', 'T2', 'Dashing', 'X70 Plus', 'X90 Plus'],
-  'Changan': ['Deepal G318 4WD', 'Deepal G318', 'Deepal S07 EV', 'Deepal S07', 'UNI-K', 'CS95'],
-  'BMW': ['M5', '530i xDrive Sport Line', '530i xDrive M-Package', '530i xDrive', 'M4 Competition xDrive', 'M8 Competition Gran Coupé', 'M3 CS'],
-  'BYD': ['Song Plus EV', 'Song Plus', 'Leopard 7 ULTRA', 'Leopard 5', 'Yangwang U8', 'Seal'],
-  'Porsche': ['911 GT3 RS', 'Taycan Turbo S', 'Cayenne Turbo GT'],
-  'Ferrari': ['296 GTB Assetto Fiorano', 'Roma Spider', 'SF90 Stradale'],
-  'Lamborghini': ['Urus Performante', 'Huracán Tecnica', 'Revuelto'],
-  'Aston Martin': ['DB12 Coupe', 'Vantage V8', 'DBX 707'],
-  'Rolls-Royce': ['Ghost Black Badge', 'Cullinan Series II'],
-  'Bentley': ['Arnage T-Mulliner Presidential', 'Arnage T', 'Arnage', 'Continental GT V8 Azure', 'Flying Spur Speed'],
-  'Audi Sport': ['RS6 Avant Dynamic', 'RS e-tron GT'],
-  'McLaren': ['750S Spider', 'Artura'],
+  'BMW': ['M5 (727 HP)'],
+  'Toyota': ['Land Cruiser GX.R Twin Turbo', 'Land Cruiser VX Twin Turbo'],
+  'GMC': ['Yukon Denali'],
+  'Mercedes-Benz': ['CLE 300 4MATIC', 'G 500 AMG Package', 'G 63 AMG Carbon Fiber Pack'],
+  'Land Rover': ['Range Rover Sport V6 P400 Dynamic', 'Range Rover Vogue HSE V8', 'Range Rover Vogue P530 Autobiography', 'Defender 110 P400 HSE'],
+  'Jetour': ['T2 Travel+'],
+  'Porsche': ['Macan S'],
 };
 
 const ALL_MODELS = [
-  'Range Rover Vogue P530 Autobiography',
-  'G 63 AMG Carbon Fiber Pack',
-  'Range Rover Vogue HSE V8',
-  'Range Rover Sport V6 P400 Dynamic',
-  'CLE 300 4MATIC',
-  'Yukon Denali',
-  'M5',
+  'M5 (727 HP)',
   'Land Cruiser GX.R Twin Turbo',
-  'Land Cruiser GX-R',
-  'G 500',
-  'A 180 AMG Package',
-  'A 180',
-  'Q8 Premium Plus',
-  'Q8',
-  'Arnage T-Mulliner Presidential',
-  'Arnage T',
-  'bZ3',
-  'E-RX5 Plug-in Hybrid',
-  'E-RX5',
-  'Elantra',
-  'Range Rover Vogue P525 HSE',
-  'bZ3X Pro',
-  'bZ3X',
-  'C 300 AMG Package',
-  'Kicks SV',
-  'Kicks',
-  'M-Hero M817 Platinum',
-  'Range Rover Vogue P525 Autobiography',
-  'Range Rover Velar P250 S',
-  'Velar P250 S',
-  'T2 Travel Plus',
-  'Land Cruiser Prado R3',
-  'Prado R3',
-  'Song Plus EV',
-  'Song Plus',
-  'Maybach GLS 600',
-  'GLS 600 Maybach',
-  '530i xDrive Sport Line',
-  'Deepal G318 4WD',
-  'Deepal G318',
-  'Passion EV',
-  'M-Hero 2 817 ULTRA',
-  'G 63 AMG Night Package',
-  'Defender 110 P400',
-  'Land Cruiser VX-R Grand Touring S',
-  'Jetour G700 Flagship',
-  'Deepal S07 EV',
-  '530i xDrive M-Package',
-  'Leopard 7 ULTRA',
-  'Range Rover Vogue HSE',
-  'Voyah Passion',
-  'M-Hero 917',
-  'Mengshi M817',
-  'G700 Flagship',
-  'T2',
-  'Land Cruiser VX-R',
-  '530i xDrive',
-  'Deepal S07',
-  'G 63 AMG',
-  'Defender 110',
-  'AMG GT 63 S',
-  '911 GT3 RS',
-  'Taycan Turbo S',
-  'Cayenne Turbo GT',
-  '296 GTB Assetto Fiorano',
-  'Roma Spider',
-  'SF90 Stradale',
-  'G 63 AMG Edition 55',
-  'AMG GT 63 S 4-Door',
-  'SL 63 AMG',
-  'Urus Performante',
-  'Huracán Tecnica',
-  'Revuelto',
-  'DB12 Coupe',
-  'Vantage V8',
-  'DBX 707',
-  'Ghost Black Badge',
-  'Cullinan Series II',
-  'Continental GT V8 Azure',
-  'Flying Spur Speed',
-  'M4 Competition xDrive',
-  'M8 Competition Gran Coupé',
-  'M3 CS',
-  'RS6 Avant Dynamic',
-  'RS e-tron GT',
-  'M5',
-  'Range Rover SV Autobiography',
-  'Range Rover Sport SV',
-  '750S Spider',
-  'Artura',
+  'Land Cruiser VX Twin Turbo',
+  'Yukon Denali',
+  'CLE 300 4MATIC',
+  'Range Rover Sport V6 P400 Dynamic',
+  'Range Rover Vogue HSE V8',
+  'Range Rover Vogue P530 Autobiography',
+  'Defender 110 P400 HSE',
+  'G 500 AMG Package',
+  'G 63 AMG Carbon Fiber Pack',
+  'T2 Travel+',
+  'Macan S',
 ];
 
-const ALL_YEARS = [2027, 2026, 2025, 2024, 2023, 2022, 2021, 2020, 2019, 2018, 2017, 2016, 2015];
-const ALL_FUELS = ['Petrol', 'Petrol (MHEV)', 'Electric', 'Hybrid', 'Hybrid (M Hybrid V8)', 'Hybrid (DMO PHEV)', 'Hybrid (EREV AWD)', 'Diesel'];
-const ALL_TRANSMISSIONS = ['Automatic (10-Speed Direct Shift)', 'Automatic (8-Speed M Steptronic)', 'Automatic (9G-TRONIC)', 'Automatic (Steptronic Sport)', 'Automatic', 'Automatic (Electric Drive)', 'Automatic (E-CVT)', 'Automatic (Multi-Motor Drive)', 'Automatic (PDK)', 'Dual-Clutch'];
+const ALL_YEARS = [2027, 2025, 2024, 2022, 2021, 2020, 2019, 2016, 2015];
+const ALL_FUELS = ['Petrol', 'Hybrid (M Hybrid V8)'];
+const ALL_TRANSMISSIONS = [
+  'Automatic (8-Speed M Steptronic)',
+  'Automatic (10-Speed Direct Shift)',
+  'Automatic (10-Speed Electronic)',
+  'Automatic (9G-TRONIC 9-Speed)',
+  'Automatic (8-Speed ZF)',
+  'Automatic (AMG SPEEDSHIFT TCT 9G)',
+  'Automatic (7-Speed Dual-Clutch DCT)',
+  'Automatic (7-Speed PDK)',
+];
 
 type Page = 'home' | 'inventory' | 'about' | 'journal' | 'car' | 'contact';
 
@@ -426,10 +328,73 @@ const cars: Car[] = [
     ],
     tag: 'AUTOBIOGRAPHY P530 • TEWTEL SOURCE • 11,000 KM • WARRANTY 2029',
     description: '2024 Range Rover Vogue P530 Autobiography (L460 Generation) — The ultimate flagship expression of British ultra-luxury. Finished in Santorini Black Metallic with Shadow Exterior Pack over Ebony / Black Semi-Aniline Perforated Leather interior with Grand Black wood veneer. Official Lebanese Dealer Source (Tewtel) with only 11,000 original kilometers. Covered by Official Dealer Warranty until 2029. Powered by the high-performance BMW-engineered 4.4L Twin-Turbocharged V8 engine producing a staggering 530 hp and 750 Nm of torque, paired with an 8-Speed ZF Automatic Transmission, Electronic Air Suspension with Dynamic Response Pro, and All-Wheel Steering. Equipped with Autobiography top-tier package, 23" gloss black forged alloy wheels, Digital LED Headlights with Image Projection, Soft-Close Doors with Power Assist, Executive Class Rear Seating, Meridian Signature 35-Speaker 1,600W 3D Sound System with active noise cancellation, 13.1" curved Pivi Pro touchscreen, Heads-Up Display, 3D Surround Vision Camera, Sliding Panoramic Sunroof, illuminated Autobiography treadplates, and full driver assistance suite.'
+  },
+  {
+    id: 11,
+    name: 'Land Rover Defender 110 P400 HSE 2020',
+    make: 'Land Rover',
+    model: 'Defender 110 P400 HSE',
+    year: 2020,
+    price: 'Price on Request',
+    mileage: '61,000 miles',
+    fuel: 'Petrol',
+    transmission: 'Automatic (8-Speed ZF)',
+    image: '/inventory/land-rover-defender-110-2020/def-1.jpg',
+    images: [
+      '/inventory/land-rover-defender-110-2020/def-1.jpg',
+      '/inventory/land-rover-defender-110-2020/def-2.jpg',
+      '/inventory/land-rover-defender-110-2020/def-3.jpg',
+      '/inventory/land-rover-defender-110-2020/def-4.jpg',
+      '/inventory/land-rover-defender-110-2020/def-5.jpg'
+    ],
+    tag: '7 SEATS • HEAD-UP DISPLAY • 5 CAMERAS • COOLING BOX • CLEAN CARFAX',
+    description: '2020 Land Rover Defender 110 P400 HSE — Finished in Santorini Black exterior over Ebony / Black Windsor Leather interior. Clean Carfax, fully loaded specification with 61,000 miles. 7-Seater interior configuration (3 rows of seating). Powered by the robust 3.0L Turbocharged Inline-6 with MHEV producing 395 hp and 406 lb-ft of torque, paired with an 8-Speed ZF Automatic Transmission and permanent All-Wheel Drive with twin-speed transfer box. Equipped with Head-Up Display (HUD), 5 Surround Cameras with 3D View, Meridian Surround Sound System, Center Console Cooling Box, Panoramic Sunroof, Roof Rack with side gear carrier and snorkel, 20" gloss dark alloy wheels, Matrix LED headlights, Keyless Entry, and full off-road terrain response package. Showroom condition throughout.'
+  },
+  {
+    id: 12,
+    name: 'Porsche Macan S 2015',
+    make: 'Porsche',
+    model: 'Macan S',
+    year: 2015,
+    price: 'Price on Request',
+    mileage: '100,000 km',
+    fuel: 'Petrol',
+    transmission: 'Automatic (7-Speed PDK)',
+    image: '/inventory/porsche-macan-s-2015/macan-1.jpg',
+    images: [
+      '/inventory/porsche-macan-s-2015/macan-1.jpg',
+      '/inventory/porsche-macan-s-2015/macan-2.jpg',
+      '/inventory/porsche-macan-s-2015/macan-3.jpg',
+      '/inventory/porsche-macan-s-2015/macan-4.jpg',
+      '/inventory/porsche-macan-s-2015/macan-5.jpg'
+    ],
+    tag: 'PORSCHE LEBANON SERVICE HISTORY • BLACK / RED • SHOWROOM CONDITION',
+    description: '2015 Porsche Macan S — In immaculate, like-new showroom condition with 100,000 km. All services recorded strictly at Porsche Center Lebanon. Finished in Deep Black Metallic exterior over an ultra-clean Garnet Red / Black two-tone Leather interior. Powered by the high-revving 3.0L Twin-Turbo V6 engine producing 340 hp and 460 Nm of torque, mated to Porsche\'s lightning-fast 7-Speed Dual-Clutch (PDK) transmission and Porsche Traction Management (PTM) active all-wheel drive. Equipped with Bi-Xenon headlights with Porsche Dynamic Light System (PDLS), quad sports exhaust tips, 20" RS Spyder Design wheels with red Porsche crest center caps, Panoramic roof system, PCM navigation system with Bluetooth and premium audio, 14-way power memory sport seats with heating, multi-function sport steering wheel with paddle shifters, ParkAssist with reversing camera, and power tailgate.'
+  },
+  {
+    id: 13,
+    name: 'Toyota Land Cruiser VX Twin Turbo 2022',
+    make: 'Toyota',
+    model: 'Land Cruiser VX Twin Turbo',
+    year: 2022,
+    price: 'Price on Request',
+    mileage: '27,000 km only',
+    fuel: 'Petrol',
+    transmission: 'Automatic (10-Speed Direct Shift)',
+    image: '/inventory/toyota-landcruiser-vx-2022/lc-vx-1.jpg',
+    images: [
+      '/inventory/toyota-landcruiser-vx-2022/lc-vx-1.jpg',
+      '/inventory/toyota-landcruiser-vx-2022/lc-vx-2.jpg',
+      '/inventory/toyota-landcruiser-vx-2022/lc-vx-3.jpg',
+      '/inventory/toyota-landcruiser-vx-2022/lc-vx-4.jpg',
+      '/inventory/toyota-landcruiser-vx-2022/lc-vx-5.jpg'
+    ],
+    tag: 'VX TWIN TURBO • BUMC SOURCE • 27,000 KM ONLY • SHOWROOM CONDITION',
+    description: '2022 Toyota Land Cruiser 300 VX Twin Turbo — In pristine, showroom condition with only 27,000 original kilometers. Official Lebanese Company Dealer Source (BUMC). Finished in Attitude Black Metallic over Black Premium Perforated Leather interior with dark wood trim. Powered by the advanced 3.5L Twin-Turbo V6 engine developing 409 hp and 650 Nm of torque, paired with a 10-Speed Direct Shift Automatic Transmission and Full-Time 4WD system. Equipped with VX chrome front grille with integrated LED signature headlights, 20" multi-spoke alloy wheels, 7-seater luxury cabin, electric glass sunroof, large central multimedia display with Apple CarPlay/Android Auto, premium surround audio system, cool box, multi-zone climate control, smart keyless entry with push start, 360-degree camera system, Crawl Control, and Multi-Terrain Select.'
   }
 ];
 
-const inveltaClubPosts = [
+const farahJournalPosts = [
   { category: 'News', title: 'The arrival of the 2024 collection', date: 'August 18, 2024', image: 'https://images.pexels.com/photos/14217531/pexels-photo-14217531.jpeg?auto=compress&cs=tinysrgb&h=650&w=940' },
   { category: 'Editorial', title: 'Why the V8 engine still matters', date: 'July 02, 2024', image: 'https://images.pexels.com/photos/18108314/pexels-photo-18108314.jpeg?auto=compress&cs=tinysrgb&h=650&w=940' },
   { category: 'Culture', title: 'Inside Our Standard of Care', date: 'June 11, 2024', image: 'https://images.pexels.com/photos/29566879/pexels-photo-29566879.jpeg?auto=compress&cs=tinysrgb&h=650&w=940' },
@@ -921,7 +886,7 @@ function HomePage({
           <h2 className="home-section-title">Latest Journal Stories</h2>
         </div>
         <div className="journal-preview-grid">
-          {inveltaClubPosts.map((post) => (
+          {farahJournalPosts.map((post) => (
             <article key={post.title} className="home-journal-card" onClick={() => onNavigate('journal')}>
               <div className="hj-image-wrap">
                 <img src={post.image} alt={post.title} loading="lazy" decoding="async" />
@@ -1731,7 +1696,7 @@ function About({ onNavigate }: { onNavigate: (page: Page) => void }) {
   );
 }
 
-function InveltaClub() {
+function FarahJournal() {
   return (
     <main className="page-main club-page">
       <section className="standard-hero dark-hero">
@@ -1740,7 +1705,7 @@ function InveltaClub() {
         <p>Stories, ideas, and considered advice for a life in motion.</p>
       </section>
       <section className="club-grid">
-        {inveltaClubPosts.map((post) => (
+        {farahJournalPosts.map((post) => (
           <article className="club-card" key={post.title}>
             <div className="club-image"><img src={post.image} alt={post.title} loading="lazy" decoding="async" /></div>
             <div className="club-copy">
@@ -2053,7 +2018,7 @@ function App() {
         />
       )}
       {page === 'about'     && <About onNavigate={navigate} />}
-      {page === 'journal'   && <InveltaClub />}
+      {page === 'journal'   && <FarahJournal />}
       {page === 'contact'   && <ContactPage />}
       {page === 'car' && activeCarId && <CarDetailsPage carId={activeCarId} onNavigate={navigate} onOpenGallery={handleOpenGallery} />}
 
