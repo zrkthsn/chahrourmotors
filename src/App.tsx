@@ -52,18 +52,19 @@ const DEFAULT_FILTERS: FilterState = {
 };
 
 const ALL_MAKES = [
+  'GMC',
+  'BMW',
+  'Toyota',
   'Audi',
   'MG',
   'Voyah',
   'DongFeng',
   'Mercedes-Benz',
   'Land Rover',
-  'Toyota',
   'Nissan',
   'Hyundai',
   'Jetour',
   'Changan',
-  'BMW',
   'BYD',
   'Porsche',
   'Ferrari',
@@ -76,6 +77,7 @@ const ALL_MAKES = [
 ];
 
 const MAKE_MODELS_MAP: Record<string, string[]> = {
+  'GMC': ['Yukon Denali', 'Yukon', 'Sierra'],
   'Audi': ['Q8 Premium Plus', 'Q8 55 TFSI', 'Q8', 'Q7', 'RS6 Avant', 'RSQ8', 'e-tron GT'],
   'MG': ['E-RX5 Plug-in Hybrid', 'E-RX5', 'RX5', 'MG4', 'Cyberster', 'ZS EV'],
   'Voyah': ['Passion EV', 'Free', 'Dreamer', 'Courage'],
@@ -100,6 +102,8 @@ const MAKE_MODELS_MAP: Record<string, string[]> = {
 };
 
 const ALL_MODELS = [
+  'Yukon Denali',
+  'M5',
   'Land Cruiser GX.R Twin Turbo',
   'Land Cruiser GX-R',
   'G 500',
@@ -249,6 +253,27 @@ const cars: Car[] = [
     ],
     tag: 'TWIN TURBO • BUMC SOURCE • 48,000 KM • LIKE NEW',
     description: 'Toyota Land Cruiser 300 GX.R 2022 Twin Turbo. Finished in commanding Attitude Black Metallic exterior over Black Premium Leather interior. Official Lebanese Company Dealer Source (BUMC) with only 48,000 KM. Pristine showroom condition — like new throughout. Powered by the high-performance 3.5L Twin-Turbo V6 engine producing 409 hp and 650 Nm of torque paired with an advanced 10-Speed Direct Shift Automatic Transmission and Full-Time 4WD with Torsen limited-slip center differential. Equipped with GX.R Twin Turbo aero exterior package, multi-reflector LED headlights with integrated LED DRLs, 20" high-gloss chrome multi-spoke alloy wheels, heavy-duty rear tow hitch, electric glass sunroof, power-adjustable leather seating, upgraded central touchscreen infotainment with navigation and smartphone integration, multi-zone automatic climate control, cool box, push-button start with smart keyless entry, Crawl Control, and Multi-Terrain Select.'
+  },
+  {
+    id: 3,
+    name: 'GMC Yukon DENALI 2021',
+    make: 'GMC',
+    model: 'Yukon Denali',
+    year: 2021,
+    price: 'Price on Request',
+    mileage: '70,000 km',
+    fuel: 'Petrol',
+    transmission: 'Automatic (10-Speed Electronic)',
+    image: '/inventory/gmc-yukon-denali-2021/yukon-1.jpg',
+    images: [
+      '/inventory/gmc-yukon-denali-2021/yukon-1.jpg',
+      '/inventory/gmc-yukon-denali-2021/yukon-2.jpg',
+      '/inventory/gmc-yukon-denali-2021/yukon-3.jpg',
+      '/inventory/gmc-yukon-denali-2021/yukon-4.jpg',
+      '/inventory/gmc-yukon-denali-2021/yukon-5.jpg'
+    ],
+    tag: 'DENALI • COMPANY SOURCE • 70,000 KM • LIKE NEW',
+    description: 'GMC Yukon DENALI 2021 — The definition of American luxury and commanding road presence. Finished in Onyx Black over Black Premium Perforated Leather interior with Denali signature contrast stitching and dark ash wood decor. Official Lebanese Company Dealer Source with only 70,000 KM in immaculate, like-new showroom condition. Powered by the proven 6.2L EcoTec3 V8 engine producing 420 hp and 460 lb-ft of torque, paired with a smooth 10-Speed Automatic Transmission and Autotrac 4WD system with 2-speed transfer case. Equipped with the iconic Denali multidimensional chrome/blackout grille, dual twin-tip performance exhaust, 22" gloss black multispoke wheels, Magnetic Ride Control adaptive suspension, panoramic sunroof, power-retractable running boards, 10.2" GMC Premium Infotainment System with wireless Apple CarPlay and Android Auto, 15" multicolor Head-Up Display, Bose 14-speaker Surround Sound System, High Definition Surround 360° Vision Cameras, heated and ventilated front seats, heated second-row executive bucket seats, power-folding 3rd row, and GMC Pro Safety Plus driver assist suite.'
   }
 ];
 
