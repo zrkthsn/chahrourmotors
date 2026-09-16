@@ -340,6 +340,27 @@ const cars: Car[] = [
     ],
     tag: 'V8 HSE • COMPANY SOURCE • 32,000 KM • 100% ORIGINAL PAINT',
     description: 'Range Rover Vogue HSE V8 2016 — In pristine, museum-grade condition with only 32,000 original kilometers. Official Lebanese Company Dealer Source (Saad & Trad). 100% original factory paint throughout — zero accidents, completely original and meticulously preserved. Finished in elegant Carpathian Grey Metallic exterior with signature Atlas silver side gills and exterior accents, over a lavish Ebony / Black Oxford Perforated Leather interior with high-gloss wood veneer decor. Powered by the potent 5.0L V8 powertrain paired with a silk-smooth 8-Speed ZF Automatic Transmission and Land Rover Full-Time 4WD system with twin-speed transfer box. Equipped with Electronic Air Suspension with Terrain Response, Signature Xenon/LED headlights with washers, 20" 10-spoke split-finish alloy wheels, panoramic sliding glass roof, soft-close doors, power split-folding tailgate, Meridian Premium Sound System, touchscreen infotainment with navigation and backup camera, heated and cooled electric memory front seats, heated rear seats, 4-zone climate control, and electronic deployable tow provisions.'
+  },
+  {
+    id: 7,
+    name: 'Mercedes-Benz G 500 AMG Package 2019',
+    make: 'Mercedes-Benz',
+    model: 'G 500',
+    year: 2019,
+    price: 'Price on Request',
+    mileage: '25,000 km only',
+    fuel: 'Petrol',
+    transmission: 'Automatic (9G-TRONIC 9-Speed)',
+    image: '/inventory/mercedes-g500-2019/g500-1.jpg',
+    images: [
+      '/inventory/mercedes-g500-2019/g500-1.jpg',
+      '/inventory/mercedes-g500-2019/g500-2.jpg',
+      '/inventory/mercedes-g500-2019/g500-3.jpg',
+      '/inventory/mercedes-g500-2019/g500-4.jpg',
+      '/inventory/mercedes-g500-2019/g500-5.jpg'
+    ],
+    tag: 'AMG PACKAGE • TGF SOURCE • 25,000 KM • 100% ORIGINAL PAINT',
+    description: 'Mercedes-Benz G 500 2019 (W463A) with AMG Line Package — Only 25,000 original kilometers. Official Lebanese Dealer Source (T. Gargour & Fils - TGF) with full complete service history recorded strictly at TGF agency. 100% original factory paint throughout — accident-free in pristine showroom collector condition. Finished in Obsidian Black Metallic over an exclusive Two-Tone Platinum White & Black Nappa Leather interior with contrast stitching and black Alcantara microfiber roof liner. Powered by the legendary 4.0L Bi-Turbo V8 engine generating 416 hp and 610 Nm of torque, mated to a 9G-TRONIC 9-Speed Automatic Transmission, permanent all-wheel drive, and 3 independent 100% differential locks. Equipped with AMG Line exterior package, flared wheel arches, 20" AMG multi-spoke titanium-finish alloy wheels, stainless steel running boards and spare wheel cover, Multibeam LED headlights with circular signature DRLs, electric glass sunroof, dual 12.3" widescreen digital cockpit and MBUX displays, Burmester Surround Sound System, ambient lighting, heated and ventilated multi-contour dynamic seats with memory, 360° surround camera, and driving assistance package.'
   }
 ];
 
