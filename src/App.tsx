@@ -83,7 +83,7 @@ const MAKE_MODELS_MAP: Record<string, string[]> = {
   'Voyah': ['Passion EV', 'Free', 'Dreamer', 'Courage'],
   'DongFeng': ['M-Hero M817 Platinum', 'M-Hero 2 817 ULTRA', 'M-Hero 917', 'Mengshi M817', 'M-Hero 1'],
   'Mercedes-Benz': ['CLE 300 4MATIC', 'CLE 300 AMG Package', 'CLE 300', 'G 500', 'A 180 AMG Package', 'A 180', 'Maybach GLS 600', 'GLS 600 Maybach', 'G 63 AMG Night Package', 'G 63 AMG', 'C 300 AMG Package', 'AMG GT 63 S', 'SL 63 AMG', 'C 300'],
-  'Land Rover': ['Range Rover Sport V6 P400 Dynamic', 'Range Rover Sport P400 Dynamic', 'Range Rover Sport', 'Range Rover Vogue P525 HSE', 'Range Rover Vogue P525 Autobiography', 'Range Rover Velar P250 S', 'Velar P250 S', 'Range Rover Vogue HSE', 'Defender 110 P400', 'Defender 110', 'Range Rover Vogue', 'Range Rover SV Autobiography', 'Range Rover Sport SV'],
+  'Land Rover': ['Range Rover Vogue HSE V8', 'Range Rover Sport V6 P400 Dynamic', 'Range Rover Sport P400 Dynamic', 'Range Rover Sport', 'Range Rover Vogue P525 HSE', 'Range Rover Vogue P525 Autobiography', 'Range Rover Velar P250 S', 'Velar P250 S', 'Range Rover Vogue HSE', 'Defender 110 P400', 'Defender 110', 'Range Rover Vogue', 'Range Rover SV Autobiography', 'Range Rover Sport SV'],
   'Toyota': ['Land Cruiser GX.R Twin Turbo', 'Land Cruiser GX-R', 'Land Cruiser GX-R V6', 'bZ3', 'bZ3X Pro', 'bZ3X', 'Land Cruiser Prado R3', 'Prado R3', 'Land Cruiser VX-R Grand Touring S', 'Land Cruiser VX-R', 'Land Cruiser 300', 'Prado'],
   'Nissan': ['Kicks SV', 'Kicks', 'Patrol', 'X-Trail'],
   'Hyundai': ['Elantra', 'Sonata', 'Tucson', 'Santa Fe', 'Palisade'],
@@ -102,6 +102,7 @@ const MAKE_MODELS_MAP: Record<string, string[]> = {
 };
 
 const ALL_MODELS = [
+  'Range Rover Vogue HSE V8',
   'Range Rover Sport V6 P400 Dynamic',
   'CLE 300 4MATIC',
   'Yukon Denali',
@@ -191,7 +192,7 @@ const ALL_MODELS = [
   'Artura',
 ];
 
-const ALL_YEARS = [2027, 2026, 2025, 2024, 2023, 2022, 2021, 2020, 2019, 2018];
+const ALL_YEARS = [2027, 2026, 2025, 2024, 2023, 2022, 2021, 2020, 2019, 2018, 2017, 2016, 2015];
 const ALL_FUELS = ['Petrol', 'Petrol (MHEV)', 'Electric', 'Hybrid', 'Hybrid (M Hybrid V8)', 'Hybrid (DMO PHEV)', 'Hybrid (EREV AWD)', 'Diesel'];
 const ALL_TRANSMISSIONS = ['Automatic (10-Speed Direct Shift)', 'Automatic (8-Speed M Steptronic)', 'Automatic (9G-TRONIC)', 'Automatic (Steptronic Sport)', 'Automatic', 'Automatic (Electric Drive)', 'Automatic (E-CVT)', 'Automatic (Multi-Motor Drive)', 'Automatic (PDK)', 'Dual-Clutch'];
 
@@ -318,6 +319,27 @@ const cars: Car[] = [
     ],
     tag: 'DYNAMIC SE • 0 KM BRAND NEW • FULLY LOADED • BLACK / BLACK',
     description: '2025 Range Rover Sport V6 P400 Dynamic — The pinnacle of modern sporting luxury and athletic capability. Brand new showroom delivery with 0 km. Finished in iconic Santorini Black Metallic exterior over Ebony / Black Windsor Perforated Leather interior with Dynamic Satin Chrome accents. Fully loaded specification. Powered by the 3.0L Turbocharged Ingenium Inline-6 Mild-Hybrid (MHEV) engine outputting 400 hp and 550 Nm of torque, paired with an ultra-responsive 8-Speed ZF Automatic Transmission and Intelligent All-Wheel Drive (iAWD). Equipped with Dynamic Exterior Pack, 22" Diamond-Turned Multi-Spoke Alloy Wheels, Dynamic Air Suspension with Adaptive Dynamics, Pixel LED Headlights with Signature DRLs, Sliding Panoramic Glass Roof, 13.1" curved Pivi Pro Touchscreen, Meridian 3D Surround Sound System, Head-Up Display, 3D Surround Camera with ClearSight Ground View, Soft-Close Doors, Heated & Ventilated 22-Way Power Massage Front Seats, Heated Rear Seats, and Configurable Terrain Response 2.'
+  },
+  {
+    id: 6,
+    name: 'Range Rover Vogue HSE V8 2016',
+    make: 'Land Rover',
+    model: 'Range Rover Vogue HSE V8',
+    year: 2016,
+    price: 'Price on Request',
+    mileage: '32,000 km only',
+    fuel: 'Petrol',
+    transmission: 'Automatic (8-Speed ZF)',
+    image: '/inventory/range-rover-vogue-hse-v8-2016/vogue-1.jpg',
+    images: [
+      '/inventory/range-rover-vogue-hse-v8-2016/vogue-1.jpg',
+      '/inventory/range-rover-vogue-hse-v8-2016/vogue-2.jpg',
+      '/inventory/range-rover-vogue-hse-v8-2016/vogue-3.jpg',
+      '/inventory/range-rover-vogue-hse-v8-2016/vogue-4.jpg',
+      '/inventory/range-rover-vogue-hse-v8-2016/vogue-5.jpg'
+    ],
+    tag: 'V8 HSE • COMPANY SOURCE • 32,000 KM • 100% ORIGINAL PAINT',
+    description: 'Range Rover Vogue HSE V8 2016 — In pristine, museum-grade condition with only 32,000 original kilometers. Official Lebanese Company Dealer Source (Saad & Trad). 100% original factory paint throughout — zero accidents, completely original and meticulously preserved. Finished in elegant Carpathian Grey Metallic exterior with signature Atlas silver side gills and exterior accents, over a lavish Ebony / Black Oxford Perforated Leather interior with high-gloss wood veneer decor. Powered by the potent 5.0L V8 powertrain paired with a silk-smooth 8-Speed ZF Automatic Transmission and Land Rover Full-Time 4WD system with twin-speed transfer box. Equipped with Electronic Air Suspension with Terrain Response, Signature Xenon/LED headlights with washers, 20" 10-spoke split-finish alloy wheels, panoramic sliding glass roof, soft-close doors, power split-folding tailgate, Meridian Premium Sound System, touchscreen infotainment with navigation and backup camera, heated and cooled electric memory front seats, heated rear seats, 4-zone climate control, and electronic deployable tow provisions.'
   }
 ];
 
