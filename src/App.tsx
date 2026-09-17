@@ -95,18 +95,8 @@ const ALL_MODELS = [
 ];
 
 const ALL_YEARS = [2027, 2025, 2024, 2023, 2022, 2021, 2020, 2019, 2018, 2016, 2015];
-const ALL_FUELS = ['Petrol', 'Hybrid (M Hybrid V8)'];
-const ALL_TRANSMISSIONS = [
-  'Automatic (8-Speed M Steptronic)',
-  'Automatic (10-Speed Direct Shift)',
-  'Automatic (10-Speed Electronic)',
-  'Automatic (9G-TRONIC 9-Speed)',
-  'Automatic (8-Speed ZF)',
-  'Automatic (AMG SPEEDSHIFT TCT 9G)',
-  'Automatic (7-Speed Dual-Clutch DCT)',
-  'Automatic (7-Speed PDK)',
-  'Automatic (6-Speed Super ECT)',
-];
+const ALL_FUELS = ['Petrol', 'Hybrid'];
+const ALL_TRANSMISSIONS = ['Automatic'];
 
 type Page = 'home' | 'inventory' | 'about' | 'journal' | 'car' | 'contact';
 
@@ -135,8 +125,8 @@ const cars: Car[] = [
     year: 2027,
     price: 'Price on Request',
     mileage: '4,000 km',
-    fuel: 'Hybrid (M Hybrid V8)',
-    transmission: 'Automatic (8-Speed M Steptronic)',
+    fuel: 'Hybrid',
+    transmission: 'Automatic',
     image: '/inventory/bmw-m5-2027/m5-1.jpg',
     images: [
       '/inventory/bmw-m5-2027/m5-1.jpg',
@@ -145,8 +135,8 @@ const cars: Car[] = [
       '/inventory/bmw-m5-2027/m5-4.jpg',
       '/inventory/bmw-m5-2027/m5-5.jpg'
     ],
-    tag: '727 HP • BASSOUL HENEINE • 4,000 KM • FROZEN DEEP GREY',
-    description: '2027 BMW M5 Sedan (G90) — 727 HP. Finished in rare factory Frozen Deep Grey Metallic exterior over Merino Red / Black Full Leather interior. Official Lebanese Dealer Source (Bassoul Heneine) with only 4,000 KM. Covered by 3 Years Official Dealer Warranty and 5 Years Free Maintenance Package. Powered by the groundbreaking M Hybrid powertrain combining a 4.4L M TwinPower Turbo V8 engine with a high-performance electric motor producing a massive 727 horsepower and 1,000 Nm of torque paired with an 8-Speed M Steptronic transmission and M xDrive with selectable 2WD mode. Equipped with Full Carbon Fiber Package (Carbon fiber front & rear attachments, rocker panels / side skirts, rear carbon diffuser), Performance Titanium Exhaust System with quad tips, Interior Carbon Fiber structure trim, 20"/21" Double-Spoke Black Light Alloy M Wheels, M Compound Braking System with Red High-Gloss Calipers, M Seat Belts with signature stitching, and Full-Color Head-Up Display.'
+    tag: '727 HP • BASSOUL HENEINE • 4,000 KM • WARRANTY & MAINTENANCE',
+    description: 'Frozen Deep Grey • Merino Red Leather • 4,000 km • Bassoul Heneine source • 3 Years Warranty • 5 Years Free Maintenance • Carbon fiber front & rear attach • Rocker panels • Rear carbon diffuser • Exhaust system titanium • Interior carbon fiber • Black light alloy M wheels 20/21 • M compound red high gloss calipers • M seat belts • Head up display • 727 HP'
   },
   {
     id: 2,
@@ -157,7 +147,7 @@ const cars: Car[] = [
     price: 'Price on Request',
     mileage: '48,000 km',
     fuel: 'Petrol',
-    transmission: 'Automatic (10-Speed Direct Shift)',
+    transmission: 'Automatic',
     image: '/inventory/toyota-landcruiser-gxr-2022/lc-1.jpg',
     images: [
       '/inventory/toyota-landcruiser-gxr-2022/lc-1.jpg',
@@ -166,8 +156,8 @@ const cars: Car[] = [
       '/inventory/toyota-landcruiser-gxr-2022/lc-4.jpg',
       '/inventory/toyota-landcruiser-gxr-2022/lc-5.jpg'
     ],
-    tag: 'TWIN TURBO • BUMC SOURCE • 48,000 KM • LIKE NEW',
-    description: 'Toyota Land Cruiser 300 GX.R 2022 Twin Turbo. Finished in commanding Attitude Black Metallic exterior over Black Premium Leather interior. Official Lebanese Company Dealer Source (BUMC) with only 48,000 KM. Pristine showroom condition — like new throughout. Powered by the high-performance 3.5L Twin-Turbo V6 engine producing 409 hp and 650 Nm of torque paired with an advanced 10-Speed Direct Shift Automatic Transmission and Full-Time 4WD with Torsen limited-slip center differential. Equipped with GX.R Twin Turbo aero exterior package, multi-reflector LED headlights with integrated LED DRLs, 20" high-gloss chrome multi-spoke alloy wheels, heavy-duty rear tow hitch, electric glass sunroof, power-adjustable leather seating, upgraded central touchscreen infotainment with navigation and smartphone integration, multi-zone automatic climate control, cool box, push-button start with smart keyless entry, Crawl Control, and Multi-Terrain Select.'
+    tag: 'GX.R TWIN TURBO • COMPANY SOURCE • 48,000 KM • LIKE NEW',
+    description: 'GX.R Twin Turbo • Black / Black • 48,000 km • Company source • Like new'
   },
   {
     id: 3,
@@ -178,7 +168,7 @@ const cars: Car[] = [
     price: 'Price on Request',
     mileage: '70,000 km',
     fuel: 'Petrol',
-    transmission: 'Automatic (10-Speed Electronic)',
+    transmission: 'Automatic',
     image: '/inventory/gmc-yukon-denali-2021/yukon-1.jpg',
     images: [
       '/inventory/gmc-yukon-denali-2021/yukon-1.jpg',
@@ -188,7 +178,7 @@ const cars: Car[] = [
       '/inventory/gmc-yukon-denali-2021/yukon-5.jpg'
     ],
     tag: 'DENALI • COMPANY SOURCE • 70,000 KM • LIKE NEW',
-    description: 'GMC Yukon DENALI 2021 — The definition of American luxury and commanding road presence. Finished in Onyx Black over Black Premium Perforated Leather interior with Denali signature contrast stitching and dark ash wood decor. Official Lebanese Company Dealer Source with only 70,000 KM in immaculate, like-new showroom condition. Powered by the proven 6.2L EcoTec3 V8 engine producing 420 hp and 460 lb-ft of torque, paired with a smooth 10-Speed Automatic Transmission and Autotrac 4WD system with 2-speed transfer case. Equipped with the iconic Denali multidimensional chrome/blackout grille, dual twin-tip performance exhaust, 22" gloss black multispoke wheels, Magnetic Ride Control adaptive suspension, panoramic sunroof, power-retractable running boards, 10.2" GMC Premium Infotainment System with wireless Apple CarPlay and Android Auto, 15" multicolor Head-Up Display, Bose 14-speaker Surround Sound System, High Definition Surround 360° Vision Cameras, heated and ventilated front seats, heated second-row executive bucket seats, power-folding 3rd row, and GMC Pro Safety Plus driver assist suite.'
+    description: 'Yukon DENALI • Black / Black • Company source • 70,000 km • Like new'
   },
   {
     id: 4,
@@ -197,9 +187,9 @@ const cars: Car[] = [
     model: 'CLE 300 4MATIC',
     year: 2024,
     price: 'Price on Request',
-    mileage: '0 km (Brand New)',
+    mileage: '0 km',
     fuel: 'Petrol',
-    transmission: 'Automatic (9G-TRONIC 9-Speed)',
+    transmission: 'Automatic',
     image: '/inventory/mercedes-cle300-2024/cle-1.jpg',
     images: [
       '/inventory/mercedes-cle300-2024/cle-1.jpg',
@@ -208,8 +198,8 @@ const cars: Car[] = [
       '/inventory/mercedes-cle300-2024/cle-4.jpg',
       '/inventory/mercedes-cle300-2024/cle-5.jpg'
     ],
-    tag: 'AMG PACKAGE • 0 KM BRAND NEW • 4-MATIC • GRAY / BLACK',
-    description: '2024 Mercedes-Benz CLE 300 4-MATIC Coupé with AMG Styling Package. Brand new condition with 0 km. Finished in stunning Selenite Gray Metallic exterior over Anthracite / Black Leather sport interior. Powered by a 2.0L Turbocharged inline-4 engine with 48V Mild Hybrid EQ Boost delivering 255 hp and 400 Nm of torque, paired with a seamless 9G-TRONIC 9-Speed Automatic Transmission and 4MATIC intelligent All-Wheel Drive. Equipped with AMG Line exterior and interior package, Star-pattern chrome diamond radiator grille, AMG aerodynamic front apron and side skirts, 20" AMG multi-spoke two-tone light alloy wheels with ventilated performance brakes, LED High Performance headlamps with signature daytime running lights, dual chrome exhaust finishers, panoramic sliding glass sunroof, MBUX multimedia touchscreen display with wireless Apple CarPlay and Android Auto, high-resolution digital driver cockpit, multi-color ambient lighting, AMG sport contour seats, and comprehensive active safety driver assist suite.'
+    tag: 'CLE 300 4-MATIC • 0 KM • AMG PACKAGE',
+    description: 'CLE 300 4-MATIC • Gray / Black • 0 km • AMG package'
   },
   {
     id: 5,
@@ -218,9 +208,9 @@ const cars: Car[] = [
     model: 'Range Rover Sport V6 P400 Dynamic',
     year: 2025,
     price: 'Price on Request',
-    mileage: '0 km (Brand New)',
+    mileage: '0 km',
     fuel: 'Petrol',
-    transmission: 'Automatic (8-Speed ZF)',
+    transmission: 'Automatic',
     image: '/inventory/range-rover-sport-dynamic-2025/rrs-1.jpg',
     images: [
       '/inventory/range-rover-sport-dynamic-2025/rrs-1.jpg',
@@ -229,8 +219,8 @@ const cars: Car[] = [
       '/inventory/range-rover-sport-dynamic-2025/rrs-4.jpg',
       '/inventory/range-rover-sport-dynamic-2025/rrs-5.jpg'
     ],
-    tag: 'DYNAMIC SE • 0 KM BRAND NEW • FULLY LOADED • BLACK / BLACK',
-    description: '2025 Range Rover Sport V6 P400 Dynamic — The pinnacle of modern sporting luxury and athletic capability. Brand new showroom delivery with 0 km. Finished in iconic Santorini Black Metallic exterior over Ebony / Black Windsor Perforated Leather interior with Dynamic Satin Chrome accents. Fully loaded specification. Powered by the 3.0L Turbocharged Ingenium Inline-6 Mild-Hybrid (MHEV) engine outputting 400 hp and 550 Nm of torque, paired with an ultra-responsive 8-Speed ZF Automatic Transmission and Intelligent All-Wheel Drive (iAWD). Equipped with Dynamic Exterior Pack, 22" Diamond-Turned Multi-Spoke Alloy Wheels, Dynamic Air Suspension with Adaptive Dynamics, Pixel LED Headlights with Signature DRLs, Sliding Panoramic Glass Roof, 13.1" curved Pivi Pro Touchscreen, Meridian 3D Surround Sound System, Head-Up Display, 3D Surround Camera with ClearSight Ground View, Soft-Close Doors, Heated & Ventilated 22-Way Power Massage Front Seats, Heated Rear Seats, and Configurable Terrain Response 2.'
+    tag: 'V6 P400 DYNAMIC • 0 KM • FULLY LOADED',
+    description: 'Range Rover Sport 2025 • V6 P400 Dynamic • Black / Black • 0 km • Fully loaded'
   },
   {
     id: 6,
@@ -241,7 +231,7 @@ const cars: Car[] = [
     price: 'Price on Request',
     mileage: '32,000 km only',
     fuel: 'Petrol',
-    transmission: 'Automatic (8-Speed ZF)',
+    transmission: 'Automatic',
     image: '/inventory/range-rover-vogue-hse-v8-2016/vogue-1.jpg',
     images: [
       '/inventory/range-rover-vogue-hse-v8-2016/vogue-1.jpg',
@@ -250,8 +240,8 @@ const cars: Car[] = [
       '/inventory/range-rover-vogue-hse-v8-2016/vogue-4.jpg',
       '/inventory/range-rover-vogue-hse-v8-2016/vogue-5.jpg'
     ],
-    tag: 'V8 HSE • COMPANY SOURCE • 32,000 KM • 100% ORIGINAL PAINT',
-    description: 'Range Rover Vogue HSE V8 2016 — In pristine, museum-grade condition with only 32,000 original kilometers. Official Lebanese Company Dealer Source (Saad & Trad). 100% original factory paint throughout — zero accidents, completely original and meticulously preserved. Finished in elegant Carpathian Grey Metallic exterior with signature Atlas silver side gills and exterior accents, over a lavish Ebony / Black Oxford Perforated Leather interior with high-gloss wood veneer decor. Powered by the potent 5.0L V8 powertrain paired with a silk-smooth 8-Speed ZF Automatic Transmission and Land Rover Full-Time 4WD system with twin-speed transfer box. Equipped with Electronic Air Suspension with Terrain Response, Signature Xenon/LED headlights with washers, 20" 10-spoke split-finish alloy wheels, panoramic sliding glass roof, soft-close doors, power split-folding tailgate, Meridian Premium Sound System, touchscreen infotainment with navigation and backup camera, heated and cooled electric memory front seats, heated rear seats, 4-zone climate control, and electronic deployable tow provisions.'
+    tag: 'HSE V8 • COMPANY SOURCE • 32,000 KM ONLY • 100% ORIGINAL PAINT',
+    description: 'Range Rover Vogue 2016 • HSE V8 • 32,000 km only • Company source • 100% original factory paint'
   },
   {
     id: 7,
@@ -262,7 +252,7 @@ const cars: Car[] = [
     price: 'Price on Request',
     mileage: '25,000 km only',
     fuel: 'Petrol',
-    transmission: 'Automatic (9G-TRONIC 9-Speed)',
+    transmission: 'Automatic',
     image: '/inventory/mercedes-g500-2019/g500-1.jpg',
     images: [
       '/inventory/mercedes-g500-2019/g500-1.jpg',
@@ -271,8 +261,8 @@ const cars: Car[] = [
       '/inventory/mercedes-g500-2019/g500-4.jpg',
       '/inventory/mercedes-g500-2019/g500-5.jpg'
     ],
-    tag: 'AMG PACKAGE • TGF SOURCE • 25,000 KM • 100% ORIGINAL PAINT',
-    description: 'Mercedes-Benz G 500 2019 (W463A) with AMG Line Package — Only 25,000 original kilometers. Official Lebanese Dealer Source (T. Gargour & Fils - TGF) with full complete service history recorded strictly at TGF agency. 100% original factory paint throughout — accident-free in pristine showroom collector condition. Finished in Obsidian Black Metallic over an exclusive Two-Tone Platinum White & Black Nappa Leather interior with contrast stitching and black Alcantara microfiber roof liner. Powered by the legendary 4.0L Bi-Turbo V8 engine generating 416 hp and 610 Nm of torque, mated to a 9G-TRONIC 9-Speed Automatic Transmission, permanent all-wheel drive, and 3 independent 100% differential locks. Equipped with AMG Line exterior package, flared wheel arches, 20" AMG multi-spoke titanium-finish alloy wheels, stainless steel running boards and spare wheel cover, Multibeam LED headlights with circular signature DRLs, electric glass sunroof, dual 12.3" widescreen digital cockpit and MBUX displays, Burmester Surround Sound System, ambient lighting, heated and ventilated multi-contour dynamic seats with memory, 360° surround camera, and driving assistance package.'
+    tag: 'AMG PACKAGE • TGF SOURCE • 25,000 KM ONLY • 100% ORIGINAL PAINT',
+    description: 'Mercedes-Benz G 500 2019 • 25,000 km only • TGF source • AMG package • All services done at TGF • Black / 2 tone interior • 100% original paint'
   },
   {
     id: 8,
@@ -283,7 +273,7 @@ const cars: Car[] = [
     price: 'Price on Request',
     mileage: '4,000 km',
     fuel: 'Petrol',
-    transmission: 'Automatic (AMG SPEEDSHIFT TCT 9G)',
+    transmission: 'Automatic',
     image: '/inventory/mercedes-g63-amg-2025/g63-1.jpg',
     images: [
       '/inventory/mercedes-g63-amg-2025/g63-1.jpg',
@@ -292,8 +282,8 @@ const cars: Car[] = [
       '/inventory/mercedes-g63-amg-2025/g63-4.jpg',
       '/inventory/mercedes-g63-amg-2025/g63-5.jpg'
     ],
-    tag: 'CARBON FIBER PACK • 4,000 KM 🇩🇪 • DOUBLE NIGHT PKG • PERFORMANCE PKG',
-    description: '2025 Mercedes-AMG G 63 (W465 Facelift / New Generation) with Carbon Fiber Package & Double AMG Night Package. Imported from Germany (🇩🇪) with only 4,000 KM in showroom-fresh condition. Finished in iconic Nardo Gray exterior with high-gloss Carbon Fiber exterior package (carbon mirror caps, carbon spare tire cover ring, and carbon bumper accents) over Exclusive Black Nappa Leather interior with red contrast stitching and genuine carbon fiber structure trim. Powered by the handcrafted 4.0L V8 Biturbo engine with 48V Integrated Starter-Generator producing 577 hp (plus 20 hp EQ Boost) and 850 Nm of torque, paired with AMG SPEEDSHIFT TCT 9-Speed Sports Transmission and AMG Performance 4MATIC all-wheel drive with 3 lockable differentials. Equipped with the AMG Performance Package, AMG Active Balance Control suspension, 22" AMG cross-spoke forged alloy wheels, AMG high-performance braking system with Red brake calipers, KEYLESS-GO entry with push-button start, factory Rear Seat Entertainment Package (dual MBUX displays), 360-degree Surround Vision cameras, Burmester 3D Surround Sound System, sliding glass sunroof, and AMG switchable side-pipe performance exhaust.'
+    tag: 'CARBON FIBER PACK • 4,000 KM 🇩🇪 • DOUBLE NIGHT PKG • FULLY LOADED',
+    description: 'Mercedes-AMG G 63 2025 • Carbon fiber pack • Nardo gray / Black • 4,000 km 🇩🇪 • Double night package • Performance package • Keyless entry • Red brake calipers • 22” rims • Rear entertainment (DVDs) • 360 degree camera • Fully loaded'
   },
   {
     id: 9,
@@ -302,9 +292,9 @@ const cars: Car[] = [
     model: 'T2 Travel Plus',
     year: 2025,
     price: 'Price on Request',
-    mileage: '0 km (Brand New)',
+    mileage: '0 km',
     fuel: 'Petrol',
-    transmission: 'Automatic (7-Speed Dual-Clutch DCT)',
+    transmission: 'Automatic',
     image: '/inventory/jetour-t2-travel-plus-2025/t2-1.jpg',
     images: [
       '/inventory/jetour-t2-travel-plus-2025/t2-1.jpg',
@@ -313,8 +303,8 @@ const cars: Car[] = [
       '/inventory/jetour-t2-travel-plus-2025/t2-4.jpg',
       '/inventory/jetour-t2-travel-plus-2025/t2-5.jpg'
     ],
-    tag: 'TRAVEL+ EDITION • 0 KM BRAND NEW • FULLY LOADED • BLACK / BLACK',
-    description: '2025 Jetour T2 Travel+ Edition — The ultimate modern rugged adventure 4x4. Brand new with 0 km. Finished in deep Night Black exterior over Black Leather sport interior. Fully loaded top-of-the-line Travel+ specification. Powered by the high-output 2.0L Turbocharged GDI 4-cylinder engine producing 254 hp and 390 Nm of torque, mated to an ultra-responsive 7-Speed Dual-Clutch (DCT) transmission and BorgWarner sixth-generation intelligent XWD (Four-Wheel Drive) with electronic limited-slip differential (eLSD). Equipped with factory external side gear box carrier, adventure roof rack, bronze multi-spoke off-road wheels with all-terrain tires and neon yellow accents, illuminated JETOUR matrix front grille, matrix LED headlights with square auxiliary bumper lighting, panoramic glass sunroof, external spare tire carrier, 15.6" central multimedia touchscreen with Qualcomm Snapdragon 8155 processor, 10.25" digital instrument cluster, Sony Premium Audio with headrest speakers, 540° panoramic transparent chassis surround view camera system, wireless smartphone fast-charging, multi-terrain drive selector, and full L2 advanced driver assistance suite.'
+    tag: 'TRAVEL+ • 0 KM • FULLY LOADED',
+    description: 'Jetour T2 Travel+ 2025 • Black / Black • 0 km • Fully loaded'
   },
   {
     id: 10,
@@ -325,7 +315,7 @@ const cars: Car[] = [
     price: 'Price on Request',
     mileage: '11,000 km only',
     fuel: 'Petrol',
-    transmission: 'Automatic (8-Speed ZF)',
+    transmission: 'Automatic',
     image: '/inventory/range-rover-vogue-p530-autobiography-2024/p530-1.jpg',
     images: [
       '/inventory/range-rover-vogue-p530-autobiography-2024/p530-1.jpg',
@@ -334,8 +324,8 @@ const cars: Car[] = [
       '/inventory/range-rover-vogue-p530-autobiography-2024/p530-4.jpg',
       '/inventory/range-rover-vogue-p530-autobiography-2024/p530-5.jpg'
     ],
-    tag: 'AUTOBIOGRAPHY P530 • TEWTEL SOURCE • 11,000 KM • WARRANTY 2029',
-    description: '2024 Range Rover Vogue P530 Autobiography (L460 Generation) — The ultimate flagship expression of British ultra-luxury. Finished in Santorini Black Metallic with Shadow Exterior Pack over Ebony / Black Semi-Aniline Perforated Leather interior with Grand Black wood veneer. Official Lebanese Dealer Source (Tewtel) with only 11,000 original kilometers. Covered by Official Dealer Warranty until 2029. Powered by the high-performance BMW-engineered 4.4L Twin-Turbocharged V8 engine producing a staggering 530 hp and 750 Nm of torque, paired with an 8-Speed ZF Automatic Transmission, Electronic Air Suspension with Dynamic Response Pro, and All-Wheel Steering. Equipped with Autobiography top-tier package, 23" gloss black forged alloy wheels, Digital LED Headlights with Image Projection, Soft-Close Doors with Power Assist, Executive Class Rear Seating, Meridian Signature 35-Speaker 1,600W 3D Sound System with active noise cancellation, 13.1" curved Pivi Pro touchscreen, Heads-Up Display, 3D Surround Vision Camera, Sliding Panoramic Sunroof, illuminated Autobiography treadplates, and full driver assistance suite.'
+    tag: 'P530 AUTOBIOGRAPHY • TEWTEL SOURCE • 11,000 KM ONLY • WARRANTY TILL 2029',
+    description: 'Range Rover Vogue 2024 • P530 Autobiography • 11,000 km only • Tewtel source • Under warranty till 2029'
   },
   {
     id: 11,
@@ -346,7 +336,7 @@ const cars: Car[] = [
     price: 'Price on Request',
     mileage: '61,000 miles',
     fuel: 'Petrol',
-    transmission: 'Automatic (8-Speed ZF)',
+    transmission: 'Automatic',
     image: '/inventory/land-rover-defender-110-2020/def-1.jpg',
     images: [
       '/inventory/land-rover-defender-110-2020/def-1.jpg',
@@ -355,8 +345,8 @@ const cars: Car[] = [
       '/inventory/land-rover-defender-110-2020/def-4.jpg',
       '/inventory/land-rover-defender-110-2020/def-5.jpg'
     ],
-    tag: '7 SEATS • HEAD-UP DISPLAY • 5 CAMERAS • COOLING BOX • CLEAN CARFAX',
-    description: '2020 Land Rover Defender 110 P400 HSE — Finished in Santorini Black exterior over Ebony / Black Windsor Leather interior. Clean Carfax, fully loaded specification with 61,000 miles. 7-Seater interior configuration (3 rows of seating). Powered by the robust 3.0L Turbocharged Inline-6 with MHEV producing 395 hp and 406 lb-ft of torque, paired with an 8-Speed ZF Automatic Transmission and permanent All-Wheel Drive with twin-speed transfer box. Equipped with Head-Up Display (HUD), 5 Surround Cameras with 3D View, Meridian Surround Sound System, Center Console Cooling Box, Panoramic Sunroof, Roof Rack with side gear carrier and snorkel, 20" gloss dark alloy wheels, Matrix LED headlights, Keyless Entry, and full off-road terrain response package. Showroom condition throughout.'
+    tag: 'P400 HSE • 7 SEATS • MERIDIAN • 5 CAMERAS • CLEAN CARFAX',
+    description: 'Land Rover Defender 110 2020 • P400 HSE • 61,000 miles • 7 seats • Head up display • 5 cameras • MERIDIAN surround sound system • Cooling box • Panoramic sunroof • Clean Carfax • Fully loaded'
   },
   {
     id: 12,
@@ -367,7 +357,7 @@ const cars: Car[] = [
     price: 'Price on Request',
     mileage: '100,000 km',
     fuel: 'Petrol',
-    transmission: 'Automatic (7-Speed PDK)',
+    transmission: 'Automatic',
     image: '/inventory/porsche-macan-s-2015/macan-1.jpg',
     images: [
       '/inventory/porsche-macan-s-2015/macan-1.jpg',
@@ -376,8 +366,8 @@ const cars: Car[] = [
       '/inventory/porsche-macan-s-2015/macan-4.jpg',
       '/inventory/porsche-macan-s-2015/macan-5.jpg'
     ],
-    tag: 'PORSCHE LEBANON SERVICE HISTORY • BLACK / RED • SHOWROOM CONDITION',
-    description: '2015 Porsche Macan S — In immaculate, like-new showroom condition with 100,000 km. All services recorded strictly at Porsche Center Lebanon. Finished in Deep Black Metallic exterior over an ultra-clean Garnet Red / Black two-tone Leather interior. Powered by the high-revving 3.0L Twin-Turbo V6 engine producing 340 hp and 460 Nm of torque, mated to Porsche\'s lightning-fast 7-Speed Dual-Clutch (PDK) transmission and Porsche Traction Management (PTM) active all-wheel drive. Equipped with Bi-Xenon headlights with Porsche Dynamic Light System (PDLS), quad sports exhaust tips, 20" RS Spyder Design wheels with red Porsche crest center caps, Panoramic roof system, PCM navigation system with Bluetooth and premium audio, 14-way power memory sport seats with heating, multi-function sport steering wheel with paddle shifters, ParkAssist with reversing camera, and power tailgate.'
+    tag: 'PORSCHE CENTER LEBANON SERVICES • 100,000 KM • SHOWROOM CONDITION',
+    description: 'Porsche Macan S 2015 • Black / Red • 100,000 km • All services done at Porsche Center Lebanon • Like new showroom condition'
   },
   {
     id: 13,
@@ -388,7 +378,7 @@ const cars: Car[] = [
     price: 'Price on Request',
     mileage: '27,000 km only',
     fuel: 'Petrol',
-    transmission: 'Automatic (10-Speed Direct Shift)',
+    transmission: 'Automatic',
     image: '/inventory/toyota-landcruiser-vx-2022/lc-vx-1.jpg',
     images: [
       '/inventory/toyota-landcruiser-vx-2022/lc-vx-1.jpg',
@@ -398,7 +388,7 @@ const cars: Car[] = [
       '/inventory/toyota-landcruiser-vx-2022/lc-vx-5.jpg'
     ],
     tag: 'VX TWIN TURBO • BUMC SOURCE • 27,000 KM ONLY • SHOWROOM CONDITION',
-    description: '2022 Toyota Land Cruiser 300 VX Twin Turbo — In pristine, showroom condition with only 27,000 original kilometers. Official Lebanese Company Dealer Source (BUMC). Finished in Attitude Black Metallic over Black Premium Perforated Leather interior with dark wood trim. Powered by the advanced 3.5L Twin-Turbo V6 engine developing 409 hp and 650 Nm of torque, paired with a 10-Speed Direct Shift Automatic Transmission and Full-Time 4WD system. Equipped with VX chrome front grille with integrated LED signature headlights, 20" multi-spoke alloy wheels, 7-seater luxury cabin, electric glass sunroof, large central multimedia display with Apple CarPlay/Android Auto, premium surround audio system, cool box, multi-zone climate control, smart keyless entry with push start, 360-degree camera system, Crawl Control, and Multi-Terrain Select.'
+    description: 'Toyota Land Cruiser 2022 VX • Twin turbo • Black / Black • 27,000 km only • BUMC source • Showroom condition'
   },
   {
     id: 14,
@@ -409,7 +399,7 @@ const cars: Car[] = [
     price: 'Price on Request',
     mileage: '58,000 km only',
     fuel: 'Petrol',
-    transmission: 'Automatic (6-Speed Super ECT)',
+    transmission: 'Automatic',
     image: '/inventory/toyota-prado-vx-2022/prado-1.jpg',
     images: [
       '/inventory/toyota-prado-vx-2022/prado-1.jpg',
@@ -418,8 +408,8 @@ const cars: Car[] = [
       '/inventory/toyota-prado-vx-2022/prado-4.jpg',
       '/inventory/toyota-prado-vx-2022/prado-5.jpg'
     ],
-    tag: 'PRADO VX • COMPANY SOURCE • 58,000 KM • LIKE NEW • BLACK / BLACK',
-    description: '2022 Toyota Land Cruiser Prado VX — Finished in Attitude Black Metallic exterior over Black Premium Leather interior. Official Lebanese Company Dealer Source (BUMC) with only 58,000 original kilometers in immaculate showroom condition — like new throughout. Powered by the reliable 4.0L Dual VVT-i V6 engine paired with a 6-Speed Super ECT Automatic Transmission and Full-Time 4WD system with Torsen limited-slip center differential. Equipped with Prado VX luxury chrome vertical front grille, multi-reflector LED headlamps with DRLs, 19" two-tone machined alloy wheels, roof rails, side steps, electric glass sunroof, 7-seater configuration, central multimedia touchscreen with navigation and smartphone connectivity, multi-zone automatic climate control, cool box, smart keyless entry with push-button start, rear camera with parking sensors, and full active safety suite.'
+    tag: 'COMPANY SOURCE • 58,000 KM ONLY • BLACK / BLACK • LIKE NEW',
+    description: 'Toyota Prado 2022 • Black / Black • Company source • 58,000 km only • Like new'
   },
   {
     id: 15,
@@ -430,7 +420,7 @@ const cars: Car[] = [
     price: 'Price on Request',
     mileage: '40,000 miles',
     fuel: 'Petrol',
-    transmission: 'Automatic (8-Speed ZF)',
+    transmission: 'Automatic',
     image: '/inventory/range-rover-sport-svr-2015/svr-1.jpg',
     images: [
       '/inventory/range-rover-sport-svr-2015/svr-1.jpg',
@@ -439,8 +429,8 @@ const cars: Car[] = [
       '/inventory/range-rover-sport-svr-2015/svr-4.jpg',
       '/inventory/range-rover-sport-svr-2015/svr-5.jpg'
     ],
-    tag: 'TRUE MASTERPIECE • INCREDIBLY RARE 💫 • 40,000 MILES • ORIGINAL FACTORY PAINT',
-    description: '2015 Range Rover Sport SVR — A true automotive masterpiece and an incredibly rare high-performance flagship crafted by Jaguar Land Rover Special Vehicle Operations (SVO). Only 40,000 miles from new in pristine showroom condition with 100% original factory paint throughout. Finished in the iconic SVO signature Estoril Blue Metallic exterior with contrasting Santorini Black roof and gloss black aero accents over an exclusive Two-Tone Cirrus / Ebony Oxford Perforated Leather interior with SVR embossed sports bucket seats. Powered by the legendary handcrafted 5.0L Supercharged V8 engine unleashing 550 hp and 680 Nm of torque, paired with an 8-Speed ZF Quickshift Automatic Transmission, SVR Active Sports Exhaust system with switchable quad chrome tailpipes, and sport-tuned Dynamic Air Suspension. Equipped with 21" gloss black SVR alloy wheels, Brembo performance brakes with blue calipers, SVR aerodynamic front bumper with high-flow cooling ducts, functional hood vents, Meridian Surround Sound System, dual-screen touchscreen cockpit, panoramic sunroof, and carbon fiber interior trim.'
+    tag: 'TRUE MASTERPIECE • INCREDIBLY RARE 💫💫 • 40,000 MILES • ORIGINAL PAINT',
+    description: 'Range Rover SVR 2015 • True Masterpiece • Incredibly Rare 💫💫 • 40,000 miles • Original factory paint • Showroom condition'
   },
   {
     id: 16,
@@ -451,7 +441,7 @@ const cars: Car[] = [
     price: 'Price on Request',
     mileage: '59,000 miles only',
     fuel: 'Petrol',
-    transmission: 'Automatic (8-Speed ZF)',
+    transmission: 'Automatic',
     image: '/inventory/range-rover-sport-v8-autobiography-2018/rrs-auto-1.jpg',
     images: [
       '/inventory/range-rover-sport-v8-autobiography-2018/rrs-auto-1.jpg',
@@ -460,19 +450,19 @@ const cars: Car[] = [
       '/inventory/range-rover-sport-v8-autobiography-2018/rrs-auto-4.jpg',
       '/inventory/range-rover-sport-v8-autobiography-2018/rrs-auto-5.jpg'
     ],
-    tag: 'AUTOBIOGRAPHY V8 • ORIGINAL PAINT • 59,000 MILES • WHITE / RED • FULLY LOADED',
-    description: '2018 Range Rover Sport V8 Autobiography (Facelift Generation) — Finished in Fuji White exterior with contrasting Santorini Black roof and gloss black exterior package, over an exclusive Two-Tone Pimento Red & Ebony Semi-Aniline Perforated Leather interior with genuine Carbon Fiber structure trim. Only 59,000 original miles in pristine showroom condition with 100% original factory paint throughout. Powered by the commanding 5.0L Supercharged V8 engine producing 518 hp and 625 Nm of torque, paired with an 8-Speed ZF Automatic Transmission, Electronic Air Suspension with Dynamic Response, and Terrain Response 2. Fully loaded flagship Autobiography specification equipped with 22" gloss black multi-spoke alloy wheels, Matrix LED headlights with signature daytime running lights, Soft-Close power doors, Head-Up Display, 360-degree Surround Vision cameras, Meridian Surround Sound System, Heated & Cooled 22-way power memory dynamic sport seats with massage, front center console cooling refrigerator box, dual Touch Pro Duo high-resolution touchscreens, panoramic sliding glass roof, and adaptive cruise control.'
+    tag: 'V8 AUTOBIOGRAPHY • 59,000 MILES • ORIGINAL PAINT • FULLY LOADED',
+    description: 'Range Rover Sport 2018 V8 Autobiography • 59,000 miles only • White / Red • Original factory paint • Fully loaded • 22” Rims • Carbon fiber interior • Head-up display • 360 degree surround view • Soft doors • MERIDIAN sound system • Heating Seats • Cooling box and much more'
   },
   {
     id: 17,
-    name: 'Cadillac Escalade-V 2023 (682 HP)',
+    name: 'Cadillac Escalade-V 2023',
     make: 'Cadillac',
     model: 'Escalade-V',
     year: 2023,
     price: 'Price on Request',
-    mileage: '27,000 km only',
+    mileage: '27,000 km',
     fuel: 'Petrol',
-    transmission: 'Automatic (10-Speed Electronic)',
+    transmission: 'Automatic',
     image: '/inventory/cadillac-escalade-v-2023/escalade-1.jpg',
     images: [
       '/inventory/cadillac-escalade-v-2023/escalade-1.jpg',
@@ -481,8 +471,8 @@ const cars: Car[] = [
       '/inventory/cadillac-escalade-v-2023/escalade-4.jpg',
       '/inventory/cadillac-escalade-v-2023/escalade-5.jpg'
     ],
-    tag: '682 HP ESCALADE-V • COMPANY SOURCE • 27,000 KM • WARRANTY TILL 2028',
-    description: '2023 Cadillac Escalade-V — The undisputed king of high-performance American luxury SUVs. Finished in Black Raven exterior with full V-Series sport blackout aero styling over a magnificent Dark Auburn Semi-Aniline Quilted Perforated Leather interior with Zebra wood decor. Official Company Dealer Source with only 27,000 original kilometers, covered by Official Dealer Warranty until 2028. Powered by the handcrafted 6.2L Supercharged V8 engine delivering a breathtaking 682 horsepower and 653 lb-ft of torque, mated to a 10-Speed Electronic Automatic Transmission and full-time active all-wheel drive. Equipped with active quad-exhaust with V-Mode performance valve selector, Brembo 6-piston front performance brakes with red calipers, Air Ride Adaptive Suspension with Magnetic Ride Control 4.0, curved 38-inch diagonal OLED display with augmented reality navigation, AKG Studio Reference 36-Speaker surround audio system, full-color Head-Up Display, Night Vision, panoramic sunroof, soft-close doors, power-retractable running boards, and full active safety suite.'
+    tag: 'ESCALADE V • COMPANY SOURCE • 27,000 KM • WARRANTY TILL 2028',
+    description: '2023 Escalade V • Black / Dark Auburn • 27,000 km • Company source • Warranty till 2028'
   },
   {
     id: 18,
@@ -493,7 +483,7 @@ const cars: Car[] = [
     price: 'Price on Request',
     mileage: 'Contact Showroom',
     fuel: 'Petrol',
-    transmission: 'Automatic (6-Speed Super ECT)',
+    transmission: 'Automatic',
     image: '/inventory/toyota-prado-vx-2019/prado-1.jpg',
     images: [
       '/inventory/toyota-prado-vx-2019/prado-1.jpg',
@@ -502,8 +492,8 @@ const cars: Car[] = [
       '/inventory/toyota-prado-vx-2019/prado-4.jpg',
       '/inventory/toyota-prado-vx-2019/prado-5.jpg'
     ],
-    tag: 'PRADO VX • COMPANY SOURCE • BLACK / BLACK • SHOWROOM CONDITION',
-    description: '2019 Toyota Land Cruiser Prado VX — The iconic definition of rugged durability combined with executive refinement. Official Lebanese Company Dealer Source (BUMC) in pristine, showroom condition throughout. Finished in Attitude Black Metallic exterior over an immaculate Black Premium Leather interior. Powered by the renowned and bulletproof 4.0L Dual VVT-i V6 engine paired with a 6-Speed Super ECT Automatic Transmission and Full-Time 4WD system with Torsen limited-slip center differential. Equipped with Prado VX chrome vertical radiator grille, multi-reflector LED headlights with daytime running lights, 18" multi-spoke machined alloy wheels, roof rails, side steps, electric glass sunroof, 7-passenger seating capacity, central touchscreen multimedia system, cool box, multi-zone automatic climate control, smart keyless entry with push-button start, and complete off-road multi-terrain capability.'
+    tag: 'PRADO 2019 VX • COMPANY SOURCE • BLACK / BLACK',
+    description: 'Toyota Prado 2019 VX • Black / Black • Company source'
   },
   {
     id: 19,
@@ -514,7 +504,7 @@ const cars: Car[] = [
     price: 'Price on Request',
     mileage: '2,500 km only',
     fuel: 'Petrol',
-    transmission: 'Automatic (9G-TRONIC 9-Speed)',
+    transmission: 'Automatic',
     image: '/inventory/mercedes-c200-amg-2022/c200-1.jpg',
     images: [
       '/inventory/mercedes-c200-amg-2022/c200-1.jpg',
@@ -523,8 +513,8 @@ const cars: Car[] = [
       '/inventory/mercedes-c200-amg-2022/c200-4.jpg',
       '/inventory/mercedes-c200-amg-2022/c200-5.jpg'
     ],
-    tag: 'AMG PACKAGE • TGF SOURCE • 2,500 KM ONLY • WHITE / BLACK • LIKE NEW',
-    description: '2022 Mercedes-Benz C 200 Sedan (W206 Generation) with AMG Line Styling Package — In virtually brand-new condition with only 2,500 original kilometers. Official Lebanese Dealer Source (T. Gargour & Fils - TGF). Finished in Polar White exterior over Anthracite / Black Artico Leather sport interior with carbon-structure dashboard accents. Powered by the efficient 1.5L Turbocharged 4-cylinder engine with 48V Mild Hybrid EQ Boost technology producing 204 hp and 300 Nm of torque, mated to a seamless 9G-TRONIC 9-Speed Automatic Transmission. Equipped with AMG Line exterior body styling with diamond star-pattern chrome radiator grille and sporty front splitter, 19" AMG multi-spoke high-gloss light-alloy wheels, High Performance LED headlights, dual chrome exhaust finishers, panoramic sliding glass sunroof, high-resolution portrait 11.9" central MBUX multimedia touchscreen display, 12.3" customizable digital driver cockpit, multi-color ambient lighting, flat-bottom multifunction AMG sport steering wheel in perforated nappa leather, heated power memory sport contour seats, wireless Apple CarPlay and Android Auto, wireless charging pad, 360-degree parking cameras with active park assist, and full active safety suite.'
+    tag: 'C200 AMG PACKAGE • TGF SOURCE • 2,500 KM ONLY • WHITE / BLACK',
+    description: '2022 C200 AMG Package • White / Black • TGF source • 2,500 km only'
   }
 ];
 
@@ -1398,7 +1388,7 @@ function InventoryPage({
     if (searchQuery.trim() !== '') {
       const terms = searchQuery.toLowerCase().trim().split(/\s+/);
       result = result.filter(car => {
-        const searchableText = `${car.name} ${car.make} ${car.model} ${car.tag || ''} ${car.year} ${car.fuel} ${car.transmission} ${car.description}`.toLowerCase();
+        const searchableText = `${car.name} ${car.make} ${car.model} ${car.tag || ''} ${car.year} ${car.fuel} ${car.transmission}`.toLowerCase();
         return terms.every(term => searchableText.includes(term));
       });
     }
