@@ -53,6 +53,7 @@ const DEFAULT_FILTERS: FilterState = {
 
 const ALL_MAKES = [
   'BMW',
+  'Cadillac',
   'Toyota',
   'GMC',
   'Mercedes-Benz',
@@ -62,21 +63,27 @@ const ALL_MAKES = [
 ];
 
 const MAKE_MODELS_MAP: Record<string, string[]> = {
+  'Cadillac': ['Escalade-V'],
   'BMW': ['M5 (727 HP)'],
-  'Toyota': ['Land Cruiser GX.R Twin Turbo', 'Land Cruiser VX Twin Turbo'],
+  'Toyota': ['Land Cruiser GX.R Twin Turbo', 'Land Cruiser VX Twin Turbo', 'Land Cruiser Prado VX'],
   'GMC': ['Yukon Denali'],
-  'Mercedes-Benz': ['CLE 300 4MATIC', 'G 500 AMG Package', 'G 63 AMG Carbon Fiber Pack'],
-  'Land Rover': ['Range Rover Sport V6 P400 Dynamic', 'Range Rover Vogue HSE V8', 'Range Rover Vogue P530 Autobiography', 'Defender 110 P400 HSE'],
+  'Mercedes-Benz': ['C 200 AMG Package', 'CLE 300 4MATIC', 'G 500 AMG Package', 'G 63 AMG Carbon Fiber Pack'],
+  'Land Rover': ['Range Rover Sport V8 Autobiography', 'Range Rover Sport SVR', 'Range Rover Sport V6 P400 Dynamic', 'Range Rover Vogue HSE V8', 'Range Rover Vogue P530 Autobiography', 'Defender 110 P400 HSE'],
   'Jetour': ['T2 Travel+'],
   'Porsche': ['Macan S'],
 };
 
 const ALL_MODELS = [
   'M5 (727 HP)',
+  'Escalade-V',
   'Land Cruiser GX.R Twin Turbo',
   'Land Cruiser VX Twin Turbo',
+  'Land Cruiser Prado VX',
   'Yukon Denali',
+  'C 200 AMG Package',
   'CLE 300 4MATIC',
+  'Range Rover Sport V8 Autobiography',
+  'Range Rover Sport SVR',
   'Range Rover Sport V6 P400 Dynamic',
   'Range Rover Vogue HSE V8',
   'Range Rover Vogue P530 Autobiography',
@@ -87,7 +94,7 @@ const ALL_MODELS = [
   'Macan S',
 ];
 
-const ALL_YEARS = [2027, 2025, 2024, 2022, 2021, 2020, 2019, 2016, 2015];
+const ALL_YEARS = [2027, 2025, 2024, 2023, 2022, 2021, 2020, 2019, 2018, 2016, 2015];
 const ALL_FUELS = ['Petrol', 'Hybrid (M Hybrid V8)'];
 const ALL_TRANSMISSIONS = [
   'Automatic (8-Speed M Steptronic)',
@@ -98,6 +105,7 @@ const ALL_TRANSMISSIONS = [
   'Automatic (AMG SPEEDSHIFT TCT 9G)',
   'Automatic (7-Speed Dual-Clutch DCT)',
   'Automatic (7-Speed PDK)',
+  'Automatic (6-Speed Super ECT)',
 ];
 
 type Page = 'home' | 'inventory' | 'about' | 'journal' | 'car' | 'contact';
@@ -391,6 +399,132 @@ const cars: Car[] = [
     ],
     tag: 'VX TWIN TURBO • BUMC SOURCE • 27,000 KM ONLY • SHOWROOM CONDITION',
     description: '2022 Toyota Land Cruiser 300 VX Twin Turbo — In pristine, showroom condition with only 27,000 original kilometers. Official Lebanese Company Dealer Source (BUMC). Finished in Attitude Black Metallic over Black Premium Perforated Leather interior with dark wood trim. Powered by the advanced 3.5L Twin-Turbo V6 engine developing 409 hp and 650 Nm of torque, paired with a 10-Speed Direct Shift Automatic Transmission and Full-Time 4WD system. Equipped with VX chrome front grille with integrated LED signature headlights, 20" multi-spoke alloy wheels, 7-seater luxury cabin, electric glass sunroof, large central multimedia display with Apple CarPlay/Android Auto, premium surround audio system, cool box, multi-zone climate control, smart keyless entry with push start, 360-degree camera system, Crawl Control, and Multi-Terrain Select.'
+  },
+  {
+    id: 14,
+    name: 'Toyota Land Cruiser Prado 2022',
+    make: 'Toyota',
+    model: 'Land Cruiser Prado VX',
+    year: 2022,
+    price: 'Price on Request',
+    mileage: '58,000 km only',
+    fuel: 'Petrol',
+    transmission: 'Automatic (6-Speed Super ECT)',
+    image: '/inventory/toyota-prado-vx-2022/prado-1.jpg',
+    images: [
+      '/inventory/toyota-prado-vx-2022/prado-1.jpg',
+      '/inventory/toyota-prado-vx-2022/prado-2.jpg',
+      '/inventory/toyota-prado-vx-2022/prado-3.jpg',
+      '/inventory/toyota-prado-vx-2022/prado-4.jpg',
+      '/inventory/toyota-prado-vx-2022/prado-5.jpg'
+    ],
+    tag: 'PRADO VX • COMPANY SOURCE • 58,000 KM • LIKE NEW • BLACK / BLACK',
+    description: '2022 Toyota Land Cruiser Prado VX — Finished in Attitude Black Metallic exterior over Black Premium Leather interior. Official Lebanese Company Dealer Source (BUMC) with only 58,000 original kilometers in immaculate showroom condition — like new throughout. Powered by the reliable 4.0L Dual VVT-i V6 engine paired with a 6-Speed Super ECT Automatic Transmission and Full-Time 4WD system with Torsen limited-slip center differential. Equipped with Prado VX luxury chrome vertical front grille, multi-reflector LED headlamps with DRLs, 19" two-tone machined alloy wheels, roof rails, side steps, electric glass sunroof, 7-seater configuration, central multimedia touchscreen with navigation and smartphone connectivity, multi-zone automatic climate control, cool box, smart keyless entry with push-button start, rear camera with parking sensors, and full active safety suite.'
+  },
+  {
+    id: 15,
+    name: 'Range Rover Sport SVR 2015',
+    make: 'Land Rover',
+    model: 'Range Rover Sport SVR',
+    year: 2015,
+    price: 'Price on Request',
+    mileage: '40,000 miles',
+    fuel: 'Petrol',
+    transmission: 'Automatic (8-Speed ZF)',
+    image: '/inventory/range-rover-sport-svr-2015/svr-1.jpg',
+    images: [
+      '/inventory/range-rover-sport-svr-2015/svr-1.jpg',
+      '/inventory/range-rover-sport-svr-2015/svr-2.jpg',
+      '/inventory/range-rover-sport-svr-2015/svr-3.jpg',
+      '/inventory/range-rover-sport-svr-2015/svr-4.jpg',
+      '/inventory/range-rover-sport-svr-2015/svr-5.jpg'
+    ],
+    tag: 'TRUE MASTERPIECE • INCREDIBLY RARE 💫 • 40,000 MILES • ORIGINAL FACTORY PAINT',
+    description: '2015 Range Rover Sport SVR — A true automotive masterpiece and an incredibly rare high-performance flagship crafted by Jaguar Land Rover Special Vehicle Operations (SVO). Only 40,000 miles from new in pristine showroom condition with 100% original factory paint throughout. Finished in the iconic SVO signature Estoril Blue Metallic exterior with contrasting Santorini Black roof and gloss black aero accents over an exclusive Two-Tone Cirrus / Ebony Oxford Perforated Leather interior with SVR embossed sports bucket seats. Powered by the legendary handcrafted 5.0L Supercharged V8 engine unleashing 550 hp and 680 Nm of torque, paired with an 8-Speed ZF Quickshift Automatic Transmission, SVR Active Sports Exhaust system with switchable quad chrome tailpipes, and sport-tuned Dynamic Air Suspension. Equipped with 21" gloss black SVR alloy wheels, Brembo performance brakes with blue calipers, SVR aerodynamic front bumper with high-flow cooling ducts, functional hood vents, Meridian Surround Sound System, dual-screen touchscreen cockpit, panoramic sunroof, and carbon fiber interior trim.'
+  },
+  {
+    id: 16,
+    name: 'Range Rover Sport V8 Autobiography 2018',
+    make: 'Land Rover',
+    model: 'Range Rover Sport V8 Autobiography',
+    year: 2018,
+    price: 'Price on Request',
+    mileage: '59,000 miles only',
+    fuel: 'Petrol',
+    transmission: 'Automatic (8-Speed ZF)',
+    image: '/inventory/range-rover-sport-v8-autobiography-2018/rrs-auto-1.jpg',
+    images: [
+      '/inventory/range-rover-sport-v8-autobiography-2018/rrs-auto-1.jpg',
+      '/inventory/range-rover-sport-v8-autobiography-2018/rrs-auto-2.jpg',
+      '/inventory/range-rover-sport-v8-autobiography-2018/rrs-auto-3.jpg',
+      '/inventory/range-rover-sport-v8-autobiography-2018/rrs-auto-4.jpg',
+      '/inventory/range-rover-sport-v8-autobiography-2018/rrs-auto-5.jpg'
+    ],
+    tag: 'AUTOBIOGRAPHY V8 • ORIGINAL PAINT • 59,000 MILES • WHITE / RED • FULLY LOADED',
+    description: '2018 Range Rover Sport V8 Autobiography (Facelift Generation) — Finished in Fuji White exterior with contrasting Santorini Black roof and gloss black exterior package, over an exclusive Two-Tone Pimento Red & Ebony Semi-Aniline Perforated Leather interior with genuine Carbon Fiber structure trim. Only 59,000 original miles in pristine showroom condition with 100% original factory paint throughout. Powered by the commanding 5.0L Supercharged V8 engine producing 518 hp and 625 Nm of torque, paired with an 8-Speed ZF Automatic Transmission, Electronic Air Suspension with Dynamic Response, and Terrain Response 2. Fully loaded flagship Autobiography specification equipped with 22" gloss black multi-spoke alloy wheels, Matrix LED headlights with signature daytime running lights, Soft-Close power doors, Head-Up Display, 360-degree Surround Vision cameras, Meridian Surround Sound System, Heated & Cooled 22-way power memory dynamic sport seats with massage, front center console cooling refrigerator box, dual Touch Pro Duo high-resolution touchscreens, panoramic sliding glass roof, and adaptive cruise control.'
+  },
+  {
+    id: 17,
+    name: 'Cadillac Escalade-V 2023 (682 HP)',
+    make: 'Cadillac',
+    model: 'Escalade-V',
+    year: 2023,
+    price: 'Price on Request',
+    mileage: '27,000 km only',
+    fuel: 'Petrol',
+    transmission: 'Automatic (10-Speed Electronic)',
+    image: '/inventory/cadillac-escalade-v-2023/escalade-1.jpg',
+    images: [
+      '/inventory/cadillac-escalade-v-2023/escalade-1.jpg',
+      '/inventory/cadillac-escalade-v-2023/escalade-2.jpg',
+      '/inventory/cadillac-escalade-v-2023/escalade-3.jpg',
+      '/inventory/cadillac-escalade-v-2023/escalade-4.jpg',
+      '/inventory/cadillac-escalade-v-2023/escalade-5.jpg'
+    ],
+    tag: '682 HP ESCALADE-V • COMPANY SOURCE • 27,000 KM • WARRANTY TILL 2028',
+    description: '2023 Cadillac Escalade-V — The undisputed king of high-performance American luxury SUVs. Finished in Black Raven exterior with full V-Series sport blackout aero styling over a magnificent Dark Auburn Semi-Aniline Quilted Perforated Leather interior with Zebra wood decor. Official Company Dealer Source with only 27,000 original kilometers, covered by Official Dealer Warranty until 2028. Powered by the handcrafted 6.2L Supercharged V8 engine delivering a breathtaking 682 horsepower and 653 lb-ft of torque, mated to a 10-Speed Electronic Automatic Transmission and full-time active all-wheel drive. Equipped with active quad-exhaust with V-Mode performance valve selector, Brembo 6-piston front performance brakes with red calipers, Air Ride Adaptive Suspension with Magnetic Ride Control 4.0, curved 38-inch diagonal OLED display with augmented reality navigation, AKG Studio Reference 36-Speaker surround audio system, full-color Head-Up Display, Night Vision, panoramic sunroof, soft-close doors, power-retractable running boards, and full active safety suite.'
+  },
+  {
+    id: 18,
+    name: 'Toyota Land Cruiser Prado VX 2019',
+    make: 'Toyota',
+    model: 'Land Cruiser Prado VX',
+    year: 2019,
+    price: 'Price on Request',
+    mileage: 'Contact Showroom',
+    fuel: 'Petrol',
+    transmission: 'Automatic (6-Speed Super ECT)',
+    image: '/inventory/toyota-prado-vx-2019/prado-1.jpg',
+    images: [
+      '/inventory/toyota-prado-vx-2019/prado-1.jpg',
+      '/inventory/toyota-prado-vx-2019/prado-2.jpg',
+      '/inventory/toyota-prado-vx-2019/prado-3.jpg',
+      '/inventory/toyota-prado-vx-2019/prado-4.jpg',
+      '/inventory/toyota-prado-vx-2019/prado-5.jpg'
+    ],
+    tag: 'PRADO VX • COMPANY SOURCE • BLACK / BLACK • SHOWROOM CONDITION',
+    description: '2019 Toyota Land Cruiser Prado VX — The iconic definition of rugged durability combined with executive refinement. Official Lebanese Company Dealer Source (BUMC) in pristine, showroom condition throughout. Finished in Attitude Black Metallic exterior over an immaculate Black Premium Leather interior. Powered by the renowned and bulletproof 4.0L Dual VVT-i V6 engine paired with a 6-Speed Super ECT Automatic Transmission and Full-Time 4WD system with Torsen limited-slip center differential. Equipped with Prado VX chrome vertical radiator grille, multi-reflector LED headlights with daytime running lights, 18" multi-spoke machined alloy wheels, roof rails, side steps, electric glass sunroof, 7-passenger seating capacity, central touchscreen multimedia system, cool box, multi-zone automatic climate control, smart keyless entry with push-button start, and complete off-road multi-terrain capability.'
+  },
+  {
+    id: 19,
+    name: 'Mercedes-Benz C 200 AMG Package 2022',
+    make: 'Mercedes-Benz',
+    model: 'C 200 AMG Package',
+    year: 2022,
+    price: 'Price on Request',
+    mileage: '2,500 km only',
+    fuel: 'Petrol',
+    transmission: 'Automatic (9G-TRONIC 9-Speed)',
+    image: '/inventory/mercedes-c200-amg-2022/c200-1.jpg',
+    images: [
+      '/inventory/mercedes-c200-amg-2022/c200-1.jpg',
+      '/inventory/mercedes-c200-amg-2022/c200-2.jpg',
+      '/inventory/mercedes-c200-amg-2022/c200-3.jpg',
+      '/inventory/mercedes-c200-amg-2022/c200-4.jpg',
+      '/inventory/mercedes-c200-amg-2022/c200-5.jpg'
+    ],
+    tag: 'AMG PACKAGE • TGF SOURCE • 2,500 KM ONLY • WHITE / BLACK • LIKE NEW',
+    description: '2022 Mercedes-Benz C 200 Sedan (W206 Generation) with AMG Line Styling Package — In virtually brand-new condition with only 2,500 original kilometers. Official Lebanese Dealer Source (T. Gargour & Fils - TGF). Finished in Polar White exterior over Anthracite / Black Artico Leather sport interior with carbon-structure dashboard accents. Powered by the efficient 1.5L Turbocharged 4-cylinder engine with 48V Mild Hybrid EQ Boost technology producing 204 hp and 300 Nm of torque, mated to a seamless 9G-TRONIC 9-Speed Automatic Transmission. Equipped with AMG Line exterior body styling with diamond star-pattern chrome radiator grille and sporty front splitter, 19" AMG multi-spoke high-gloss light-alloy wheels, High Performance LED headlights, dual chrome exhaust finishers, panoramic sliding glass sunroof, high-resolution portrait 11.9" central MBUX multimedia touchscreen display, 12.3" customizable digital driver cockpit, multi-color ambient lighting, flat-bottom multifunction AMG sport steering wheel in perforated nappa leather, heated power memory sport contour seats, wireless Apple CarPlay and Android Auto, wireless charging pad, 360-degree parking cameras with active park assist, and full active safety suite.'
   }
 ];
 
