@@ -22,6 +22,8 @@ import {
   ShieldCheck,
   SlidersHorizontal,
   Sparkles,
+  Volume2,
+  VolumeX,
   X,
   ZoomIn,
 } from 'lucide-react';
@@ -789,6 +791,7 @@ function HomePage({
   onSearch: (query: string) => void;
 }) {
   const [q, setQ] = useState('');
+  const [isVideoMuted, setIsVideoMuted] = useState(true);
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     if (q.trim()) {
@@ -805,12 +808,46 @@ function HomePage({
     <div className="home-page-container">
       {/* Hero Section */}
       <section className="hero-section dark-emblem-hero">
+        {/* Mobile Background Video (specifically fits whole hero on mobile) */}
+        <div className="hero-mobile-video-bg">
+          <video
+            className="hero-video-element"
+            autoPlay
+            muted={isVideoMuted}
+            loop
+            playsInline
+            src="/c300-coupe/farahvideotwo.mp4"
+          />
+          <div className="hero-video-gradient-overlay" />
+          <button
+            type="button"
+            className="hero-video-sound-toggle"
+            onClick={() => setIsVideoMuted(!isVideoMuted)}
+            aria-label={isVideoMuted ? 'Unmute video' : 'Mute video'}
+            title={isVideoMuted ? 'Unmute video' : 'Mute video'}
+          >
+            {isVideoMuted ? <VolumeX size={15} /> : <Volume2 size={15} />}
+          </button>
+        </div>
+
         <div className="hero-content">
-          <p className="hero-eyebrow">FARAH MOTORS • LEBANON</p>
-          <h1 className="hero-headline">FARAH <em>MOTORS</em></h1>
-          <p className="hero-subtext-clean">
-            PREMIER LUXURY & CERTIFIED MOTORCARS • ANTELIAS, LEBANON
-          </p>
+          {/* Desktop Hero Emblem Graphic */}
+          <div className="hero-desktop-emblem">
+            <img
+              src="/farah-motors-hero.jpg"
+              alt="Farah Motors Lebanon"
+              className="hero-desktop-emblem-img"
+            />
+          </div>
+
+          {/* Mobile Hero Typography (shown on mobile over video) */}
+          <div className="hero-mobile-text">
+            <p className="hero-eyebrow">FARAH MOTORS • LEBANON</p>
+            <h1 className="hero-headline">FARAH <em>MOTORS</em></h1>
+            <p className="hero-subtext-clean">
+              PREMIER LUXURY & CERTIFIED MOTORCARS • ANTELIAS, LEBANON
+            </p>
+          </div>
           <form className="hero-search" onSubmit={handleSearch}>
             <Search size={20} className="hero-search-icon" />
             <input
@@ -1783,6 +1820,8 @@ function CarDetailsPage({
 }
 
 function About({ onNavigate }: { onNavigate: (page: Page) => void }) {
+  const [isMuted, setIsMuted] = useState(true);
+
   return (
     <main className="page-main about-page">
       <section className="standard-hero">
@@ -1791,7 +1830,26 @@ function About({ onNavigate }: { onNavigate: (page: Page) => void }) {
         <p>Farah Motors — delivering premier luxury and certified pre-owned motorcars in Antelias, Mount Lebanon.</p>
       </section>
       <section className="about-story">
-        <div className="about-image"><img src="https://images.pexels.com/photos/15513826/pexels-photo-15513826.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Farah Motors Showroom" loading="lazy" decoding="async" /></div>
+        <div className="about-video-container">
+          <video
+            className="about-video-player"
+            src="/farahvideoone.mp4"
+            autoPlay
+            loop
+            muted={isMuted}
+            playsInline
+          />
+          <button
+            type="button"
+            className="about-video-sound-toggle"
+            onClick={() => setIsMuted(!isMuted)}
+            aria-label={isMuted ? 'Unmute video' : 'Mute video'}
+            title={isMuted ? 'Unmute video' : 'Mute video'}
+          >
+            {isMuted ? <VolumeX size={15} /> : <Volume2 size={15} />}
+            <span>{isMuted ? 'SOUND ON' : 'SOUND OFF'}</span>
+          </button>
+        </div>
         <div className="about-copy">
           <h2>CURATED SELECTION. UNCOMPROMISED QUALITY.</h2>
           <p>Located on the seaside corridor in Antelias / Jal El Dib, Mount Lebanon, Farah Motors delivers a premier automotive showroom experience tailored to car enthusiasts and discerning drivers.</p>
