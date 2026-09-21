@@ -182,6 +182,27 @@ export const INITIAL_CARS: Car[] = [
     ],
     tag: 'FULL OPTIONS • SUNROOF • ANDROID SCREEN • 17" ALLOY WHEELS',
     description: 'ODO: 116,000 km • Blue on Basket Interior • Full Options • Automatic / Steptronic • Electric Sunroof • Rear Parking Sensors • Rear View Camera • Android Screen • Immobilizer Anti-Theft System • Bluetooth & USB/iPod • Steering Controls • 4 Electric Windows • Folding Mirrors with Signals • Fog Lights • Five 17-Inch Alloy Wheels'
+  },
+  {
+    id: 9,
+    name: 'Mercedes-Benz C300 2019',
+    make: 'Mercedes-Benz',
+    model: 'C300',
+    year: 2019,
+    price: 'Price on Request',
+    mileage: 'Low Mileage',
+    fuel: 'Petrol',
+    transmission: 'Automatic',
+    image: '/inventory/mercedes-benz-c300-2019/c300-1.jpg',
+    images: [
+      '/inventory/mercedes-benz-c300-2019/c300-1.jpg',
+      '/inventory/mercedes-benz-c300-2019/c300-2.jpg',
+      '/inventory/mercedes-benz-c300-2019/c300-3.jpg',
+      '/inventory/mercedes-benz-c300-2019/c300-4.jpg',
+      '/inventory/mercedes-benz-c300-2019/c300-5.jpg'
+    ],
+    tag: 'LOW MILEAGE ✅ • RADAR • POWER TRUNK • AMBIENT LIGHTING',
+    description: 'Low Mileage ✅ • Polar White on Black • Keyless Entry • Keyless Start/Stop • Power Trunk • Blind Spot Assist • Radar Function • Ambient Lighting • Electric Sunroof • Heated Seats • Rear View Camera • LED Headlights & Taillights • Multi-Spoke Alloys'
   }
 ];
 
