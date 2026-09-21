@@ -161,6 +161,27 @@ export const INITIAL_CARS: Car[] = [
     ],
     tag: 'CLEAN CARFAX ✅ • V8 SUPERCHARGED • SOFT CLOSE & VENTILATED SEATS',
     description: 'Clean Carfax ✅ • Grey on Black • 98,000 Miles • Panoramic Sunroof • 2 Original Keys • Radar Function • Power Tailgate • Keyless Entry & Start/Stop • Soft Close Doors • 4 Heated and Ventilated Seats • Ambient Lighting • Front/Rear Sensors • Rear Camera • Original 21" Rims • All Service Done'
+  },
+  {
+    id: 8,
+    name: 'Kia Rio GS 2014',
+    make: 'Kia',
+    model: 'Rio GS',
+    year: 2014,
+    price: 'Price on Request',
+    mileage: '116,000 km',
+    fuel: 'Petrol',
+    transmission: 'Automatic',
+    image: '/inventory/kia-rio-gs-2014/rio-1.jpg',
+    images: [
+      '/inventory/kia-rio-gs-2014/rio-1.jpg',
+      '/inventory/kia-rio-gs-2014/rio-2.jpg',
+      '/inventory/kia-rio-gs-2014/rio-3.jpg',
+      '/inventory/kia-rio-gs-2014/rio-4.jpg',
+      '/inventory/kia-rio-gs-2014/rio-5.jpg'
+    ],
+    tag: 'FULL OPTIONS • SUNROOF • ANDROID SCREEN • 17" ALLOY WHEELS',
+    description: 'ODO: 116,000 km • Blue on Basket Interior • Full Options • Automatic / Steptronic • Electric Sunroof • Rear Parking Sensors • Rear View Camera • Android Screen • Immobilizer Anti-Theft System • Bluetooth & USB/iPod • Steering Controls • 4 Electric Windows • Folding Mirrors with Signals • Fog Lights • Five 17-Inch Alloy Wheels'
   }
 ];
 
