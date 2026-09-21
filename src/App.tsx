@@ -1,5 +1,15 @@
 import { useMemo, useState, useEffect, useLayoutEffect } from 'react';
 import {
+  Car,
+  INITIAL_CARS,
+  getMakes,
+  getMakeModelsMap,
+  getAllModels,
+  getYears,
+  getFuels,
+  getTransmissions,
+} from './data/cars';
+import {
   ArrowRight,
   CalendarDays,
   CheckCircle,
@@ -22,11 +32,24 @@ import {
   ShieldCheck,
   SlidersHorizontal,
   Sparkles,
-  Volume2,
-  VolumeX,
   X,
   ZoomIn,
 } from 'lucide-react';
+
+function TikTokIcon({ size = 16, className = '' }: { size?: number; className?: string }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      className={className}
+      style={{ display: 'inline-block', verticalAlign: 'middle' }}
+    >
+      <path d="M19.589 6.686a4.793 4.793 0 0 1-3.77-4.245V2h-3.445v13.672a2.896 2.896 0 0 1-5.201 1.743 2.895 2.895 0 0 1 2.312-4.634c.316 0 .621.052.906.148V9.458a6.34 6.34 0 0 0-.906-.065C6.012 9.393 3.197 12.214 3.2 15.69 3.203 19.167 6.024 22 9.5 22c3.486 0 6.309-2.833 6.309-6.31V9.123a8.212 8.212 0 0 0 4.78 1.524V7.202a4.78 4.78 0 0 1-.999-.516z" />
+    </svg>
+  );
+}
 
 /* ─── Filter State Types ────────────────────────── */
 type FilterState = {
@@ -53,474 +76,18 @@ const DEFAULT_FILTERS: FilterState = {
   maxPrice: 600000,
 };
 
-const ALL_MAKES = [
-  'BMW',
-  'Cadillac',
-  'Toyota',
-  'GMC',
-  'Mercedes-Benz',
-  'Land Rover',
-  'Jetour',
-  'Porsche',
-];
+const cars: Car[] = INITIAL_CARS;
 
-const MAKE_MODELS_MAP: Record<string, string[]> = {
-  'Cadillac': ['Escalade-V'],
-  'BMW': ['M5 (727 HP)'],
-  'Toyota': ['Land Cruiser GX.R Twin Turbo', 'Land Cruiser VX Twin Turbo', 'Land Cruiser Prado VX'],
-  'GMC': ['Yukon Denali'],
-  'Mercedes-Benz': ['C 200 AMG Package', 'CLE 300 4MATIC', 'G 500 AMG Package', 'G 63 AMG Carbon Fiber Pack'],
-  'Land Rover': ['Range Rover Sport V8 Autobiography', 'Range Rover Sport SVR', 'Range Rover Sport V6 P400 Dynamic', 'Range Rover Vogue HSE V8', 'Range Rover Vogue P530 Autobiography', 'Defender 110 P400 HSE'],
-  'Jetour': ['T2 Travel+'],
-  'Porsche': ['Macan S'],
-};
-
-const ALL_MODELS = [
-  'M5 (727 HP)',
-  'Escalade-V',
-  'Land Cruiser GX.R Twin Turbo',
-  'Land Cruiser VX Twin Turbo',
-  'Land Cruiser Prado VX',
-  'Yukon Denali',
-  'C 200 AMG Package',
-  'CLE 300 4MATIC',
-  'Range Rover Sport V8 Autobiography',
-  'Range Rover Sport SVR',
-  'Range Rover Sport V6 P400 Dynamic',
-  'Range Rover Vogue HSE V8',
-  'Range Rover Vogue P530 Autobiography',
-  'Defender 110 P400 HSE',
-  'G 500 AMG Package',
-  'G 63 AMG Carbon Fiber Pack',
-  'T2 Travel+',
-  'Macan S',
-];
-
-const ALL_YEARS = [2027, 2025, 2024, 2023, 2022, 2021, 2020, 2019, 2018, 2016, 2015];
-const ALL_FUELS = ['Petrol', 'Hybrid'];
-const ALL_TRANSMISSIONS = ['Automatic'];
+const ALL_MAKES = getMakes(cars);
+const MAKE_MODELS_MAP = getMakeModelsMap(cars);
+const ALL_MODELS = getAllModels(cars);
+const ALL_YEARS = getYears(cars);
+const ALL_FUELS = getFuels(cars);
+const ALL_TRANSMISSIONS = getTransmissions(cars);
 
 type Page = 'home' | 'inventory' | 'about' | 'journal' | 'car' | 'contact';
 
-type Car = {
-  id: number;
-  name: string;
-  make: string;
-  model: string;
-  year: number;
-  price: string;
-  mileage: string;
-  fuel: string;
-  transmission: string;
-  image: string;
-  images?: string[];
-  tag?: string;
-  description: string;
-};
-
-const cars: Car[] = [
-  {
-    id: 1,
-    name: 'BMW M5 2027 (727 HP)',
-    make: 'BMW',
-    model: 'M5',
-    year: 2027,
-    price: 'Price on Request',
-    mileage: '4,000 km',
-    fuel: 'Hybrid',
-    transmission: 'Automatic',
-    image: '/inventory/bmw-m5-2027/m5-1.jpg',
-    images: [
-      '/inventory/bmw-m5-2027/m5-1.jpg',
-      '/inventory/bmw-m5-2027/m5-2.jpg',
-      '/inventory/bmw-m5-2027/m5-3.jpg',
-      '/inventory/bmw-m5-2027/m5-4.jpg',
-      '/inventory/bmw-m5-2027/m5-5.jpg'
-    ],
-    tag: '727 HP • BASSOUL HENEINE • 4,000 KM • WARRANTY & MAINTENANCE',
-    description: 'Frozen Deep Grey • Merino Red Leather • 4,000 km • Bassoul Heneine source • 3 Years Warranty • 5 Years Free Maintenance • Carbon fiber front & rear attach • Rocker panels • Rear carbon diffuser • Exhaust system titanium • Interior carbon fiber • Black light alloy M wheels 20/21 • M compound red high gloss calipers • M seat belts • Head up display • 727 HP'
-  },
-  {
-    id: 2,
-    name: 'Toyota Land Cruiser GX.R Twin Turbo 2022',
-    make: 'Toyota',
-    model: 'Land Cruiser GX.R Twin Turbo',
-    year: 2022,
-    price: 'Price on Request',
-    mileage: '48,000 km',
-    fuel: 'Petrol',
-    transmission: 'Automatic',
-    image: '/inventory/toyota-landcruiser-gxr-2022/lc-1.jpg',
-    images: [
-      '/inventory/toyota-landcruiser-gxr-2022/lc-1.jpg',
-      '/inventory/toyota-landcruiser-gxr-2022/lc-2.jpg',
-      '/inventory/toyota-landcruiser-gxr-2022/lc-3.jpg',
-      '/inventory/toyota-landcruiser-gxr-2022/lc-4.jpg',
-      '/inventory/toyota-landcruiser-gxr-2022/lc-5.jpg'
-    ],
-    tag: 'GX.R TWIN TURBO • COMPANY SOURCE • 48,000 KM • LIKE NEW',
-    description: 'GX.R Twin Turbo • Black / Black • 48,000 km • Company source • Like new'
-  },
-  {
-    id: 3,
-    name: 'GMC Yukon DENALI 2021',
-    make: 'GMC',
-    model: 'Yukon Denali',
-    year: 2021,
-    price: 'Price on Request',
-    mileage: '70,000 km',
-    fuel: 'Petrol',
-    transmission: 'Automatic',
-    image: '/inventory/gmc-yukon-denali-2021/yukon-1.jpg',
-    images: [
-      '/inventory/gmc-yukon-denali-2021/yukon-1.jpg',
-      '/inventory/gmc-yukon-denali-2021/yukon-2.jpg',
-      '/inventory/gmc-yukon-denali-2021/yukon-3.jpg',
-      '/inventory/gmc-yukon-denali-2021/yukon-4.jpg',
-      '/inventory/gmc-yukon-denali-2021/yukon-5.jpg'
-    ],
-    tag: 'DENALI • COMPANY SOURCE • 70,000 KM • LIKE NEW',
-    description: 'Yukon DENALI • Black / Black • Company source • 70,000 km • Like new'
-  },
-  {
-    id: 4,
-    name: 'Mercedes-Benz CLE 300 4-MATIC Coupé 2024',
-    make: 'Mercedes-Benz',
-    model: 'CLE 300 4MATIC',
-    year: 2024,
-    price: 'Price on Request',
-    mileage: '0 km',
-    fuel: 'Petrol',
-    transmission: 'Automatic',
-    image: '/inventory/mercedes-cle300-2024/cle-1.jpg',
-    images: [
-      '/inventory/mercedes-cle300-2024/cle-1.jpg',
-      '/inventory/mercedes-cle300-2024/cle-2.jpg',
-      '/inventory/mercedes-cle300-2024/cle-3.jpg',
-      '/inventory/mercedes-cle300-2024/cle-4.jpg',
-      '/inventory/mercedes-cle300-2024/cle-5.jpg'
-    ],
-    tag: 'CLE 300 4-MATIC • 0 KM • AMG PACKAGE',
-    description: 'CLE 300 4-MATIC • Gray / Black • 0 km • AMG package'
-  },
-  {
-    id: 5,
-    name: 'Range Rover Sport V6 P400 Dynamic 2025',
-    make: 'Land Rover',
-    model: 'Range Rover Sport V6 P400 Dynamic',
-    year: 2025,
-    price: 'Price on Request',
-    mileage: '0 km',
-    fuel: 'Petrol',
-    transmission: 'Automatic',
-    image: '/inventory/range-rover-sport-dynamic-2025/rrs-1.jpg',
-    images: [
-      '/inventory/range-rover-sport-dynamic-2025/rrs-1.jpg',
-      '/inventory/range-rover-sport-dynamic-2025/rrs-2.jpg',
-      '/inventory/range-rover-sport-dynamic-2025/rrs-3.jpg',
-      '/inventory/range-rover-sport-dynamic-2025/rrs-4.jpg',
-      '/inventory/range-rover-sport-dynamic-2025/rrs-5.jpg'
-    ],
-    tag: 'V6 P400 DYNAMIC • 0 KM • FULLY LOADED',
-    description: 'Range Rover Sport 2025 • V6 P400 Dynamic • Black / Black • 0 km • Fully loaded'
-  },
-  {
-    id: 6,
-    name: 'Range Rover Vogue HSE V8 2016',
-    make: 'Land Rover',
-    model: 'Range Rover Vogue HSE V8',
-    year: 2016,
-    price: 'Price on Request',
-    mileage: '32,000 km only',
-    fuel: 'Petrol',
-    transmission: 'Automatic',
-    image: '/inventory/range-rover-vogue-hse-v8-2016/vogue-1.jpg',
-    images: [
-      '/inventory/range-rover-vogue-hse-v8-2016/vogue-1.jpg',
-      '/inventory/range-rover-vogue-hse-v8-2016/vogue-2.jpg',
-      '/inventory/range-rover-vogue-hse-v8-2016/vogue-3.jpg',
-      '/inventory/range-rover-vogue-hse-v8-2016/vogue-4.jpg',
-      '/inventory/range-rover-vogue-hse-v8-2016/vogue-5.jpg'
-    ],
-    tag: 'HSE V8 • COMPANY SOURCE • 32,000 KM ONLY • 100% ORIGINAL PAINT',
-    description: 'Range Rover Vogue 2016 • HSE V8 • 32,000 km only • Company source • 100% original factory paint'
-  },
-  {
-    id: 7,
-    name: 'Mercedes-Benz G 500 AMG Package 2019',
-    make: 'Mercedes-Benz',
-    model: 'G 500',
-    year: 2019,
-    price: 'Price on Request',
-    mileage: '25,000 km only',
-    fuel: 'Petrol',
-    transmission: 'Automatic',
-    image: '/inventory/mercedes-g500-2019/g500-1.jpg',
-    images: [
-      '/inventory/mercedes-g500-2019/g500-1.jpg',
-      '/inventory/mercedes-g500-2019/g500-2.jpg',
-      '/inventory/mercedes-g500-2019/g500-3.jpg',
-      '/inventory/mercedes-g500-2019/g500-4.jpg',
-      '/inventory/mercedes-g500-2019/g500-5.jpg'
-    ],
-    tag: 'AMG PACKAGE • TGF SOURCE • 25,000 KM ONLY • 100% ORIGINAL PAINT',
-    description: 'Mercedes-Benz G 500 2019 • 25,000 km only • TGF source • AMG package • All services done at TGF • Black / 2 tone interior • 100% original paint'
-  },
-  {
-    id: 8,
-    name: 'Mercedes-AMG G 63 Carbon Fiber Pack 2025',
-    make: 'Mercedes-Benz',
-    model: 'G 63 AMG Carbon Fiber Pack',
-    year: 2025,
-    price: 'Price on Request',
-    mileage: '4,000 km',
-    fuel: 'Petrol',
-    transmission: 'Automatic',
-    image: '/inventory/mercedes-g63-amg-2025/g63-1.jpg',
-    images: [
-      '/inventory/mercedes-g63-amg-2025/g63-1.jpg',
-      '/inventory/mercedes-g63-amg-2025/g63-2.jpg',
-      '/inventory/mercedes-g63-amg-2025/g63-3.jpg',
-      '/inventory/mercedes-g63-amg-2025/g63-4.jpg',
-      '/inventory/mercedes-g63-amg-2025/g63-5.jpg'
-    ],
-    tag: 'CARBON FIBER PACK • 4,000 KM 🇩🇪 • DOUBLE NIGHT PKG • FULLY LOADED',
-    description: 'Mercedes-AMG G 63 2025 • Carbon fiber pack • Nardo gray / Black • 4,000 km 🇩🇪 • Double night package • Performance package • Keyless entry • Red brake calipers • 22” rims • Rear entertainment (DVDs) • 360 degree camera • Fully loaded'
-  },
-  {
-    id: 9,
-    name: 'Jetour T2 Travel+ 2025',
-    make: 'Jetour',
-    model: 'T2 Travel Plus',
-    year: 2025,
-    price: 'Price on Request',
-    mileage: '0 km',
-    fuel: 'Petrol',
-    transmission: 'Automatic',
-    image: '/inventory/jetour-t2-travel-plus-2025/t2-1.jpg',
-    images: [
-      '/inventory/jetour-t2-travel-plus-2025/t2-1.jpg',
-      '/inventory/jetour-t2-travel-plus-2025/t2-2.jpg',
-      '/inventory/jetour-t2-travel-plus-2025/t2-3.jpg',
-      '/inventory/jetour-t2-travel-plus-2025/t2-4.jpg',
-      '/inventory/jetour-t2-travel-plus-2025/t2-5.jpg'
-    ],
-    tag: 'TRAVEL+ • 0 KM • FULLY LOADED',
-    description: 'Jetour T2 Travel+ 2025 • Black / Black • 0 km • Fully loaded'
-  },
-  {
-    id: 10,
-    name: 'Range Rover Vogue P530 Autobiography 2024',
-    make: 'Land Rover',
-    model: 'Range Rover Vogue P530 Autobiography',
-    year: 2024,
-    price: 'Price on Request',
-    mileage: '11,000 km only',
-    fuel: 'Petrol',
-    transmission: 'Automatic',
-    image: '/inventory/range-rover-vogue-p530-autobiography-2024/p530-1.jpg',
-    images: [
-      '/inventory/range-rover-vogue-p530-autobiography-2024/p530-1.jpg',
-      '/inventory/range-rover-vogue-p530-autobiography-2024/p530-2.jpg',
-      '/inventory/range-rover-vogue-p530-autobiography-2024/p530-3.jpg',
-      '/inventory/range-rover-vogue-p530-autobiography-2024/p530-4.jpg',
-      '/inventory/range-rover-vogue-p530-autobiography-2024/p530-5.jpg'
-    ],
-    tag: 'P530 AUTOBIOGRAPHY • TEWTEL SOURCE • 11,000 KM ONLY • WARRANTY TILL 2029',
-    description: 'Range Rover Vogue 2024 • P530 Autobiography • 11,000 km only • Tewtel source • Under warranty till 2029'
-  },
-  {
-    id: 11,
-    name: 'Land Rover Defender 110 P400 HSE 2020',
-    make: 'Land Rover',
-    model: 'Defender 110 P400 HSE',
-    year: 2020,
-    price: 'Price on Request',
-    mileage: '61,000 miles',
-    fuel: 'Petrol',
-    transmission: 'Automatic',
-    image: '/inventory/land-rover-defender-110-2020/def-1.jpg',
-    images: [
-      '/inventory/land-rover-defender-110-2020/def-1.jpg',
-      '/inventory/land-rover-defender-110-2020/def-2.jpg',
-      '/inventory/land-rover-defender-110-2020/def-3.jpg',
-      '/inventory/land-rover-defender-110-2020/def-4.jpg',
-      '/inventory/land-rover-defender-110-2020/def-5.jpg'
-    ],
-    tag: 'P400 HSE • 7 SEATS • MERIDIAN • 5 CAMERAS • CLEAN CARFAX',
-    description: 'Land Rover Defender 110 2020 • P400 HSE • 61,000 miles • 7 seats • Head up display • 5 cameras • MERIDIAN surround sound system • Cooling box • Panoramic sunroof • Clean Carfax • Fully loaded'
-  },
-  {
-    id: 12,
-    name: 'Porsche Macan S 2015',
-    make: 'Porsche',
-    model: 'Macan S',
-    year: 2015,
-    price: 'Price on Request',
-    mileage: '100,000 km',
-    fuel: 'Petrol',
-    transmission: 'Automatic',
-    image: '/inventory/porsche-macan-s-2015/macan-1.jpg',
-    images: [
-      '/inventory/porsche-macan-s-2015/macan-1.jpg',
-      '/inventory/porsche-macan-s-2015/macan-2.jpg',
-      '/inventory/porsche-macan-s-2015/macan-3.jpg',
-      '/inventory/porsche-macan-s-2015/macan-4.jpg',
-      '/inventory/porsche-macan-s-2015/macan-5.jpg'
-    ],
-    tag: 'PORSCHE CENTER LEBANON SERVICES • 100,000 KM • SHOWROOM CONDITION',
-    description: 'Porsche Macan S 2015 • Black / Red • 100,000 km • All services done at Porsche Center Lebanon • Like new showroom condition'
-  },
-  {
-    id: 13,
-    name: 'Toyota Land Cruiser VX Twin Turbo 2022',
-    make: 'Toyota',
-    model: 'Land Cruiser VX Twin Turbo',
-    year: 2022,
-    price: 'Price on Request',
-    mileage: '27,000 km only',
-    fuel: 'Petrol',
-    transmission: 'Automatic',
-    image: '/inventory/toyota-landcruiser-vx-2022/lc-vx-1.jpg',
-    images: [
-      '/inventory/toyota-landcruiser-vx-2022/lc-vx-1.jpg',
-      '/inventory/toyota-landcruiser-vx-2022/lc-vx-2.jpg',
-      '/inventory/toyota-landcruiser-vx-2022/lc-vx-3.jpg',
-      '/inventory/toyota-landcruiser-vx-2022/lc-vx-4.jpg',
-      '/inventory/toyota-landcruiser-vx-2022/lc-vx-5.jpg'
-    ],
-    tag: 'VX TWIN TURBO • BUMC SOURCE • 27,000 KM ONLY • SHOWROOM CONDITION',
-    description: 'Toyota Land Cruiser 2022 VX • Twin turbo • Black / Black • 27,000 km only • BUMC source • Showroom condition'
-  },
-  {
-    id: 14,
-    name: 'Toyota Land Cruiser Prado 2022',
-    make: 'Toyota',
-    model: 'Land Cruiser Prado VX',
-    year: 2022,
-    price: 'Price on Request',
-    mileage: '58,000 km only',
-    fuel: 'Petrol',
-    transmission: 'Automatic',
-    image: '/inventory/toyota-prado-vx-2022/prado-1.jpg',
-    images: [
-      '/inventory/toyota-prado-vx-2022/prado-1.jpg',
-      '/inventory/toyota-prado-vx-2022/prado-2.jpg',
-      '/inventory/toyota-prado-vx-2022/prado-3.jpg',
-      '/inventory/toyota-prado-vx-2022/prado-4.jpg',
-      '/inventory/toyota-prado-vx-2022/prado-5.jpg'
-    ],
-    tag: 'COMPANY SOURCE • 58,000 KM ONLY • BLACK / BLACK • LIKE NEW',
-    description: 'Toyota Prado 2022 • Black / Black • Company source • 58,000 km only • Like new'
-  },
-  {
-    id: 15,
-    name: 'Range Rover Sport SVR 2015',
-    make: 'Land Rover',
-    model: 'Range Rover Sport SVR',
-    year: 2015,
-    price: 'Price on Request',
-    mileage: '40,000 miles',
-    fuel: 'Petrol',
-    transmission: 'Automatic',
-    image: '/inventory/range-rover-sport-svr-2015/svr-1.jpg',
-    images: [
-      '/inventory/range-rover-sport-svr-2015/svr-1.jpg',
-      '/inventory/range-rover-sport-svr-2015/svr-2.jpg',
-      '/inventory/range-rover-sport-svr-2015/svr-3.jpg',
-      '/inventory/range-rover-sport-svr-2015/svr-4.jpg',
-      '/inventory/range-rover-sport-svr-2015/svr-5.jpg'
-    ],
-    tag: 'TRUE MASTERPIECE • INCREDIBLY RARE 💫💫 • 40,000 MILES • ORIGINAL PAINT',
-    description: 'Range Rover SVR 2015 • True Masterpiece • Incredibly Rare 💫💫 • 40,000 miles • Original factory paint • Showroom condition'
-  },
-  {
-    id: 16,
-    name: 'Range Rover Sport V8 Autobiography 2018',
-    make: 'Land Rover',
-    model: 'Range Rover Sport V8 Autobiography',
-    year: 2018,
-    price: 'Price on Request',
-    mileage: '59,000 miles only',
-    fuel: 'Petrol',
-    transmission: 'Automatic',
-    image: '/inventory/range-rover-sport-v8-autobiography-2018/rrs-auto-1.jpg',
-    images: [
-      '/inventory/range-rover-sport-v8-autobiography-2018/rrs-auto-1.jpg',
-      '/inventory/range-rover-sport-v8-autobiography-2018/rrs-auto-2.jpg',
-      '/inventory/range-rover-sport-v8-autobiography-2018/rrs-auto-3.jpg',
-      '/inventory/range-rover-sport-v8-autobiography-2018/rrs-auto-4.jpg',
-      '/inventory/range-rover-sport-v8-autobiography-2018/rrs-auto-5.jpg'
-    ],
-    tag: 'V8 AUTOBIOGRAPHY • 59,000 MILES • ORIGINAL PAINT • FULLY LOADED',
-    description: 'Range Rover Sport 2018 V8 Autobiography • 59,000 miles only • White / Red • Original factory paint • Fully loaded • 22” Rims • Carbon fiber interior • Head-up display • 360 degree surround view • Soft doors • MERIDIAN sound system • Heating Seats • Cooling box and much more'
-  },
-  {
-    id: 17,
-    name: 'Cadillac Escalade-V 2023',
-    make: 'Cadillac',
-    model: 'Escalade-V',
-    year: 2023,
-    price: 'Price on Request',
-    mileage: '27,000 km',
-    fuel: 'Petrol',
-    transmission: 'Automatic',
-    image: '/inventory/cadillac-escalade-v-2023/escalade-1.jpg',
-    images: [
-      '/inventory/cadillac-escalade-v-2023/escalade-1.jpg',
-      '/inventory/cadillac-escalade-v-2023/escalade-2.jpg',
-      '/inventory/cadillac-escalade-v-2023/escalade-3.jpg',
-      '/inventory/cadillac-escalade-v-2023/escalade-4.jpg',
-      '/inventory/cadillac-escalade-v-2023/escalade-5.jpg'
-    ],
-    tag: 'ESCALADE V • COMPANY SOURCE • 27,000 KM • WARRANTY TILL 2028',
-    description: '2023 Escalade V • Black / Dark Auburn • 27,000 km • Company source • Warranty till 2028'
-  },
-  {
-    id: 18,
-    name: 'Toyota Land Cruiser Prado VX 2019',
-    make: 'Toyota',
-    model: 'Land Cruiser Prado VX',
-    year: 2019,
-    price: 'Price on Request',
-    mileage: 'Contact Showroom',
-    fuel: 'Petrol',
-    transmission: 'Automatic',
-    image: '/inventory/toyota-prado-vx-2019/prado-1.jpg',
-    images: [
-      '/inventory/toyota-prado-vx-2019/prado-1.jpg',
-      '/inventory/toyota-prado-vx-2019/prado-2.jpg',
-      '/inventory/toyota-prado-vx-2019/prado-3.jpg',
-      '/inventory/toyota-prado-vx-2019/prado-4.jpg',
-      '/inventory/toyota-prado-vx-2019/prado-5.jpg'
-    ],
-    tag: 'PRADO 2019 VX • COMPANY SOURCE • BLACK / BLACK',
-    description: 'Toyota Prado 2019 VX • Black / Black • Company source'
-  },
-  {
-    id: 19,
-    name: 'Mercedes-Benz C 200 AMG Package 2022',
-    make: 'Mercedes-Benz',
-    model: 'C 200 AMG Package',
-    year: 2022,
-    price: 'Price on Request',
-    mileage: '2,500 km only',
-    fuel: 'Petrol',
-    transmission: 'Automatic',
-    image: '/inventory/mercedes-c200-amg-2022/c200-1.jpg',
-    images: [
-      '/inventory/mercedes-c200-amg-2022/c200-1.jpg',
-      '/inventory/mercedes-c200-amg-2022/c200-2.jpg',
-      '/inventory/mercedes-c200-amg-2022/c200-3.jpg',
-      '/inventory/mercedes-c200-amg-2022/c200-4.jpg',
-      '/inventory/mercedes-c200-amg-2022/c200-5.jpg'
-    ],
-    tag: 'C200 AMG PACKAGE • TGF SOURCE • 2,500 KM ONLY • WHITE / BLACK',
-    description: '2022 C200 AMG Package • White / Black • TGF source • 2,500 km only'
-  }
-];
-
-const farahJournalPosts = [
+const chahrourJournalPosts = [
   { category: 'News', title: 'The arrival of the 2024 collection', date: 'August 18, 2024', image: 'https://images.pexels.com/photos/14217531/pexels-photo-14217531.jpeg?auto=compress&cs=tinysrgb&h=650&w=940' },
   { category: 'Editorial', title: 'Why the V8 engine still matters', date: 'July 02, 2024', image: 'https://images.pexels.com/photos/18108314/pexels-photo-18108314.jpeg?auto=compress&cs=tinysrgb&h=650&w=940' },
   { category: 'Culture', title: 'Inside Our Standard of Care', date: 'June 11, 2024', image: 'https://images.pexels.com/photos/29566879/pexels-photo-29566879.jpeg?auto=compress&cs=tinysrgb&h=650&w=940' },
@@ -529,7 +96,7 @@ const farahJournalPosts = [
 function Logo({ onNavigate }: { onNavigate: (p: Page) => void }) {
   return (
     <div className="logo" onClick={() => onNavigate('home')}>
-      <span>FARAH MOTORS<br /><small>ANTELIAS • LEBANON</small></span>
+      <span>CHAHROUR MOTORS<br /><small>BAABDA • LEBANON</small></span>
     </div>
   );
 }
@@ -791,7 +358,6 @@ function HomePage({
   onSearch: (query: string) => void;
 }) {
   const [q, setQ] = useState('');
-  const [isVideoMuted, setIsVideoMuted] = useState(true);
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     if (q.trim()) {
@@ -808,46 +374,19 @@ function HomePage({
     <div className="home-page-container">
       {/* Hero Section */}
       <section className="hero-section dark-emblem-hero">
-        {/* Mobile Background Video (specifically fits whole hero on mobile) */}
-        <div className="hero-mobile-video-bg">
-          <video
-            className="hero-video-element"
-            autoPlay
-            muted={isVideoMuted}
-            loop
-            playsInline
-            src="/c300-coupe/farahvideotwo.mp4"
-          />
-          <div className="hero-video-gradient-overlay" />
-          <button
-            type="button"
-            className="hero-video-sound-toggle"
-            onClick={() => setIsVideoMuted(!isVideoMuted)}
-            aria-label={isVideoMuted ? 'Unmute video' : 'Mute video'}
-            title={isVideoMuted ? 'Unmute video' : 'Mute video'}
-          >
-            {isVideoMuted ? <VolumeX size={15} /> : <Volume2 size={15} />}
-          </button>
-        </div>
-
         <div className="hero-content">
-          {/* Desktop Hero Emblem Graphic */}
+          {/* Official Emblem Graphic */}
           <div className="hero-desktop-emblem">
             <img
-              src="/farah-motors-hero.jpg"
-              alt="Farah Motors Lebanon"
+              src="/chahrour-motors-hero.jpg"
+              alt="Chahrour Motors Lebanon - Find Your Perfect Ride"
               className="hero-desktop-emblem-img"
             />
           </div>
 
-          {/* Mobile Hero Typography (shown on mobile over video) */}
-          <div className="hero-mobile-text">
-            <p className="hero-eyebrow">FARAH MOTORS • LEBANON</p>
-            <h1 className="hero-headline">FARAH <em>MOTORS</em></h1>
-            <p className="hero-subtext-clean">
-              PREMIER LUXURY & CERTIFIED MOTORCARS • ANTELIAS, LEBANON
-            </p>
-          </div>
+          <p className="hero-subtext-clean">
+            PREMIER LUXURY &amp; CERTIFIED MOTORCARS • BAABDA, LEBANON
+          </p>
           <form className="hero-search" onSubmit={handleSearch}>
             <Search size={20} className="hero-search-icon" />
             <input
@@ -861,7 +400,7 @@ function HomePage({
           <div className="hero-cta-row">
             <button className="hero-cta-primary" onClick={() => onNavigate('inventory')}>EXPLORE SHOWROOM</button>
             <a
-              href="https://wa.me/96170576797?text=Hello%20Farah%20Motors,%20I%20would%20like%20to%20inquire%20about%20your%20available%20cars."
+              href="https://wa.me/96171561595?text=Hello%20Chahrour%20Motors,%20I%20would%20like%20to%20inquire%20about%20your%20available%20cars."
               target="_blank"
               rel="noopener noreferrer"
               className="hero-cta-ghost"
@@ -938,24 +477,32 @@ function HomePage({
             </div>
             <h2 className="cr-title">Showroom Collection Refresh in Progress</h2>
             <p className="cr-desc">
-              We are currently preparing and cataloging our upcoming collection of luxury motorcars, supercars, and premium SUVs. Connect directly with our showroom team on WhatsApp or follow our Instagram for live vehicle drops and custom vehicle sourcing.
+              We are currently preparing and cataloging our upcoming collection of luxury motorcars, supercars, and premium SUVs. Connect directly with our showroom team on WhatsApp or follow our official social channels for live vehicle drops and custom vehicle sourcing.
             </p>
             <div className="cr-actions">
               <a
-                href="https://wa.me/96170576797?text=Hello%20Farah%20Motors,%20I%20would%20like%20to%20inquire%20about%20available%20and%20incoming%20vehicles."
+                href="https://wa.me/96171561595?text=Hello%20Chahrour%20Motors,%20I%20would%20like%20to%20inquire%20about%20available%20and%20incoming%20vehicles."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="cr-btn-primary"
               >
-                <MessageSquare size={16} /> INQUIRE ON WHATSAPP (+961 70 576 797)
+                <MessageSquare size={16} /> INQUIRE ON WHATSAPP (+961 71 561 595)
               </a>
               <a
-                href="https://www.instagram.com/farah_motors/"
+                href="https://www.instagram.com/chahrourmotors/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="cr-btn-ghost"
               >
-                <Instagram size={16} /> VIEW LIVE ON INSTAGRAM @farah_motors
+                <Instagram size={16} /> INSTAGRAM @chahrourmotors
+              </a>
+              <a
+                href="https://www.tiktok.com/@chahrour.motors"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="cr-btn-ghost"
+              >
+                <TikTokIcon size={16} /> TIKTOK @chahrour.motors
               </a>
               <button className="cr-btn-outline" onClick={() => onNavigate('contact')}>
                 CUSTOM VEHICLE SOURCING <ArrowRight size={14} />
@@ -1046,8 +593,8 @@ function HomePage({
           <p className="home-section-eyebrow">SHOWROOM JOURNAL</p>
           <h2 className="home-section-title">Latest Journal Stories</h2>
         </div>
-        <div className="journal-preview-grid">
-          {farahJournalPosts.map((post) => (
+        <div className="home-journal-grid">
+          {chahrourJournalPosts.map((post) => (
             <article key={post.title} className="home-journal-card" onClick={() => onNavigate('journal')}>
               <div className="hj-image-wrap">
                 <img src={post.image} alt={post.title} loading="lazy" decoding="async" />
@@ -1597,30 +1144,38 @@ function InventoryPage({
                 <h3>Showroom Collection Updating</h3>
                 <p>
                   Our upcoming lineup of luxury and certified pre-owned vehicles is currently being cataloged and prepared.
-                  Looking for a specific vehicle? Farah Motors sources elite vehicles on demand.
+                  Looking for a specific vehicle? Chahrour Motors sources elite vehicles on demand.
                 </p>
                 <div className="empty-state-actions">
                   <a
-                    href="https://wa.me/96170576797?text=Hello%20Farah%20Motors,%20I%20am%20looking%20for%20a%20specific%20vehicle%20and%20would%20like%20your%20assistance."
+                    href="https://wa.me/96171561595?text=Hello%20Chahrour%20Motors,%20I%20am%20looking%20for%20a%20specific%20vehicle%20and%20would%20like%20your%20assistance."
                     target="_blank"
                     rel="noopener noreferrer"
                     className="empty-state-btn primary"
                   >
-                    <MessageSquare size={15} /> CHAT ON WHATSAPP (+961 70 576 797)
+                    <MessageSquare size={15} /> CHAT ON WHATSAPP (+961 71 561 595)
                   </a>
                   <a
-                    href="tel:+96170576797"
+                    href="tel:+96171561595"
                     className="empty-state-btn secondary"
                   >
                     <Phone size={15} /> CALL SHOWROOM
                   </a>
                   <a
-                    href="https://www.instagram.com/farah_motors/"
+                    href="https://www.instagram.com/chahrourmotors/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="empty-state-btn outline"
                   >
-                    <Instagram size={15} /> @farah_motors
+                    <Instagram size={15} /> @chahrourmotors
+                  </a>
+                  <a
+                    href="https://www.tiktok.com/@chahrour.motors"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="empty-state-btn outline"
+                  >
+                    <TikTokIcon size={15} /> @chahrour.motors
                   </a>
                 </div>
               </div>
@@ -1670,7 +1225,7 @@ function CarDetailsPage({
 
   const gallery = car.images && car.images.length > 0 ? car.images : [car.image];
   const activeImage = gallery[activeImgIndex] || car.image;
-  const whatsappMessage = encodeURIComponent(`Hello Farah Motors, I am interested in the ${car.year} ${car.name}.`);
+  const whatsappMessage = encodeURIComponent(`Hello Chahrour Motors, I am interested in the ${car.year} ${car.name}.`);
 
   const handleMainPhotoClick = () => {
     if (onOpenGallery) {
@@ -1721,7 +1276,7 @@ function CarDetailsPage({
           {/* Right Column: Information, Specs & Actions */}
           <div className="car-info-column">
             <div className="car-title-block">
-              <span className="car-eyebrow">FARAH MOTORS • {car.make.toUpperCase()}</span>
+              <span className="car-eyebrow">CHAHROUR MOTORS • {car.make.toUpperCase()}</span>
               <h1>{car.name.includes(String(car.year)) ? car.name : `${car.name} ${car.year}`}</h1>
               <div className="car-badges">
                 {car.tag && <span className="badge tag-badge">{car.tag}</span>}
@@ -1783,7 +1338,7 @@ function CarDetailsPage({
             {/* CTAs */}
             <div className="car-action-buttons">
               <a
-                href={`https://wa.me/96170576797?text=${whatsappMessage}`}
+                href={`https://wa.me/96171561595?text=${whatsappMessage}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="whatsapp-concierge-btn"
@@ -1820,45 +1375,30 @@ function CarDetailsPage({
 }
 
 function About({ onNavigate }: { onNavigate: (page: Page) => void }) {
-  const [isMuted, setIsMuted] = useState(true);
-
   return (
     <main className="page-main about-page">
       <section className="standard-hero">
-        <p className="eyebrow">ABOUT FARAH MOTORS</p>
+        <p className="eyebrow">ABOUT CHAHROUR MOTORS</p>
         <h1>PASSION FOR EXCELLENCE. DRIVEN BY DISTINCTION.</h1>
-        <p>Farah Motors — delivering premier luxury and certified pre-owned motorcars in Antelias, Mount Lebanon.</p>
+        <p>Chahrour Motors — delivering premier luxury and certified pre-owned motorcars in Baabda, Mount Lebanon.</p>
       </section>
       <section className="about-story">
-        <div className="about-video-container">
-          <video
-            className="about-video-player"
-            src="/farahvideoone.mp4"
-            autoPlay
-            loop
-            muted={isMuted}
-            playsInline
+        <div className="about-image">
+          <img
+            src="/inventory/mercedes-cla-45-amg-2014/cla-1.jpg"
+            alt="Chahrour Motors Showroom Collection"
+            style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '4px', display: 'block' }}
           />
-          <button
-            type="button"
-            className="about-video-sound-toggle"
-            onClick={() => setIsMuted(!isMuted)}
-            aria-label={isMuted ? 'Unmute video' : 'Mute video'}
-            title={isMuted ? 'Unmute video' : 'Mute video'}
-          >
-            {isMuted ? <VolumeX size={15} /> : <Volume2 size={15} />}
-            <span>{isMuted ? 'SOUND ON' : 'SOUND OFF'}</span>
-          </button>
         </div>
         <div className="about-copy">
           <h2>CURATED SELECTION. UNCOMPROMISED QUALITY.</h2>
-          <p>Located on the seaside corridor in Antelias / Jal El Dib, Mount Lebanon, Farah Motors delivers a premier automotive showroom experience tailored to car enthusiasts and discerning drivers.</p>
+          <p>Located in Baabda, Mount Lebanon, Chahrour Motors delivers a premier automotive showroom experience tailored to car enthusiasts and discerning drivers.</p>
           <p>From high-performance supercars and prestigious luxury SUVs to hand-selected certified pre-owned vehicles, every automobile in our care undergoes rigorous verification for mechanical integrity, provenance, and condition.</p>
           <p>We pride ourselves on unmatched customer transparency, bespoke vehicle sourcing upon request, and comprehensive concierge service.</p>
           <div style={{ display: 'flex', gap: '12px', marginTop: '20px', flexWrap: 'wrap' }}>
             <button className="outline-button" onClick={() => onNavigate('inventory')}>EXPLORE SHOWROOM</button>
             <a
-              href="https://wa.me/96170576797?text=Hello%20Farah%20Motors,%20I%20would%20like%20to%20know%20more%20about%20your%20services."
+              href="https://wa.me/96171561595?text=Hello%20Chahrour%20Motors,%20I%20would%20like%20to%20know%20more%20about%20your%20services."
               target="_blank"
               rel="noopener noreferrer"
               className="primary-button"
@@ -1872,13 +1412,13 @@ function About({ onNavigate }: { onNavigate: (page: Page) => void }) {
       <section className="values">
         <div><ShieldCheck size={28} strokeWidth={1.5} /><h3>THOROUGHLY INSPECTED</h3><p>Every vehicle is meticulously checked, verified, and detailed to pristine showroom condition.</p></div>
         <div><Sparkles size={28} strokeWidth={1.5} /><h3>VIP CONCIERGE</h3><p>Personalized WhatsApp concierge assistance, transparent pricing, and on-demand vehicle sourcing.</p></div>
-        <div><CalendarDays size={28} strokeWidth={1.5} /><h3>LEBANON HERITAGE</h3><p>Proudly serving clients across Lebanon from our prime Antelias / Jal El Dib showroom location.</p></div>
+        <div><CalendarDays size={28} strokeWidth={1.5} /><h3>LEBANON HERITAGE</h3><p>Proudly serving clients across Lebanon from our prime Baabda showroom location.</p></div>
       </section>
     </main>
   );
 }
 
-function FarahJournal() {
+function ChahrourJournal() {
   return (
     <main className="page-main club-page">
       <section className="standard-hero dark-hero">
@@ -1887,7 +1427,7 @@ function FarahJournal() {
         <p>Stories, ideas, and considered advice for a life in motion.</p>
       </section>
       <section className="club-grid">
-        {farahJournalPosts.map((post) => (
+        {chahrourJournalPosts.map((post) => (
           <article className="club-card" key={post.title}>
             <div className="club-image"><img src={post.image} alt={post.title} loading="lazy" decoding="async" /></div>
             <div className="club-copy">
@@ -1930,8 +1470,8 @@ function ContactPage() {
       {/* Hero Header */}
       <section className="standard-hero contact-hero">
         <p className="eyebrow">SHOWROOM & CONCIERGE</p>
-        <h1>FARAH MOTORS</h1>
-        <p>Located on the seaside corridor in Antelias / Jal El Dib, Mount Lebanon. Whether you're looking for your next vehicle, inquiring about incoming shipments, or scheduling a visit, our team is at your service.</p>
+        <h1>CHAHROUR MOTORS</h1>
+        <p>Located in Baabda, Mount Lebanon. Whether you're looking for your next vehicle, inquiring about incoming shipments, or scheduling a visit, our team is at your service.</p>
       </section>
 
       {/* Main Channels Grid */}
@@ -1945,10 +1485,10 @@ function ContactPage() {
             <h3>PHONE & DIRECT CALLS</h3>
             <p className="contact-card-desc">Call our showroom sales desk directly for immediate assistance.</p>
             <div className="contact-card-details">
-              <a href="tel:+96170576797" className="contact-link-bold">+961 70 576 797</a>
-              <span className="contact-link-sub">Farah Motors Hotline</span>
+              <a href="tel:+96171561595" className="contact-link-bold">+961 71 561 595</a>
+              <span className="contact-link-sub">Chahrour Motors Hotline</span>
             </div>
-            <a href="tel:+96170576797" className="contact-card-action">CALL US NOW <ArrowRight size={14} /></a>
+            <a href="tel:+96171561595" className="contact-card-action">CALL US NOW <ArrowRight size={14} /></a>
           </div>
 
           {/* WhatsApp */}
@@ -1959,11 +1499,11 @@ function ContactPage() {
             <h3>WHATSAPP CONCIERGE</h3>
             <p className="contact-card-desc">Direct 1-on-1 concierge assistance for quick inquiries, vehicle specs, and incoming arrivals.</p>
             <div className="contact-card-details">
-              <span className="contact-link-bold">+961 70 576 797</span>
+              <span className="contact-link-bold">+961 71 561 595</span>
               <span className="contact-status-badge">• Online & Ready</span>
             </div>
             <a
-              href="https://wa.me/96170576797?text=Hello%20Farah%20Motors,%20I%20would%20like%20to%20inquire%20about%20a%20vehicle."
+              href="https://wa.me/96171561595?text=Hello%20Chahrour%20Motors,%20I%20would%20like%20to%20inquire%20about%20a%20vehicle."
               target="_blank"
               rel="noopener noreferrer"
               className="contact-card-action whatsapp-action"
@@ -1972,7 +1512,7 @@ function ContactPage() {
             </a>
           </div>
 
-          {/* Social Channels (Instagram & Facebook) */}
+          {/* Social Channels (Instagram, Facebook & TikTok) */}
           <div className="contact-card">
             <div className="contact-card-icon">
               <Instagram size={24} />
@@ -1980,14 +1520,17 @@ function ContactPage() {
             <h3>SOCIAL CHANNELS</h3>
             <p className="contact-card-desc">Follow our official channels for real-time deliveries, video walkthroughs, and updates.</p>
             <div className="social-links-grid" style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginTop: '10px' }}>
-              <a href="https://www.instagram.com/farah_motors/" target="_blank" rel="noreferrer" className="social-chip" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
-                <Instagram size={15} /> @farah_motors
+              <a href="https://www.instagram.com/chahrourmotors/" target="_blank" rel="noreferrer" className="social-chip" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
+                <Instagram size={15} /> @chahrourmotors
               </a>
-              <a href="https://www.facebook.com/abidaherfarah/" target="_blank" rel="noreferrer" className="social-chip" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
-                <Facebook size={15} /> Farah Motors (Abi Daher & Farah)
+              <a href="https://www.facebook.com/profile.php?id=100085885269745" target="_blank" rel="noreferrer" className="social-chip" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
+                <Facebook size={15} /> Chahrour Motors Facebook
+              </a>
+              <a href="https://www.tiktok.com/@chahrour.motors" target="_blank" rel="noreferrer" className="social-chip" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
+                <TikTokIcon size={15} /> @chahrour.motors
               </a>
             </div>
-            <a href="https://www.instagram.com/farah_motors/" target="_blank" rel="noreferrer" className="contact-card-action">
+            <a href="https://www.instagram.com/chahrourmotors/" target="_blank" rel="noreferrer" className="contact-card-action">
               FOLLOW ON INSTAGRAM <ArrowRight size={14} />
             </a>
           </div>
@@ -2041,7 +1584,7 @@ function ContactPage() {
                       id="c-phone"
                       type="tel"
                       required
-                      placeholder="+961 70 576 797"
+                      placeholder="+961 71 561 595"
                       value={formData.phone}
                       onChange={e => setFormData({ ...formData, phone: e.target.value })}
                     />
@@ -2089,7 +1632,7 @@ function ContactPage() {
                 <MapPin size={20} className="info-icon" />
                 <div>
                   <span className="info-label">SHOWROOM ADDRESS</span>
-                  <span className="info-val">Antelias / Jal El Dib Coastal Highway<br />Mount Lebanon, Lebanon</span>
+                  <span className="info-val">Baabda, Mount Lebanon<br />Lebanon</span>
                 </div>
               </div>
               <div className="info-item">
@@ -2104,8 +1647,8 @@ function ContactPage() {
             {/* Google Map iFrame */}
             <div className="google-map-wrapper">
               <iframe
-                title="Farah Motors Showroom Location"
-                src="https://maps.google.com/maps?q=33.9143323,35.5827235&t=&z=16&ie=UTF8&iwloc=&output=embed"
+                title="Chahrour Motors Showroom Location"
+                src="https://maps.google.com/maps?q=Baabda%2C%20Lebanon&t=&z=15&ie=UTF8&iwloc=&output=embed"
                 width="100%"
                 height="320"
                 style={{ border: 0 }}
@@ -2116,7 +1659,7 @@ function ContactPage() {
             </div>
             <div style={{ marginTop: '14px', textAlign: 'center' }}>
               <a
-                href="https://www.google.com/maps/place/Farah+Motors/@33.9143323,35.5827235,17z/data=!4m16!1m9!3m8!1s0x151f3ff5641f1f4b:0x4c0ff0185db3149c!2sFarah+Motors!8m2!3d33.9143323!4d35.5827235!9m1!1b1!16s%2Fg%2F11gn02f5xn!3m5!1s0x151f3ff5641f1f4b:0x4c0ff0185db3149c!8m2!3d33.9143323!4d35.5827235!16s%2Fg%2F11gn02f5xn?hl=en-LB&entry=ttu&g_ep=EgoyMDI2MDkxMy4wIKXMDSoASAFQAw%3D%3D"
+                href="https://www.google.com/maps/search/?api=1&query=Chahrour+Motors+Baabda+Lebanon"
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{
@@ -2200,7 +1743,7 @@ function App() {
         />
       )}
       {page === 'about'     && <About onNavigate={navigate} />}
-      {page === 'journal'   && <FarahJournal />}
+      {page === 'journal'   && <ChahrourJournal />}
       {page === 'contact'   && <ContactPage />}
       {page === 'car' && activeCarId && <CarDetailsPage carId={activeCarId} onNavigate={navigate} onOpenGallery={handleOpenGallery} />}
 
@@ -2221,14 +1764,17 @@ function App() {
           <button onClick={() => navigate('about')}>ABOUT</button>
           <button onClick={() => navigate('journal')}>JOURNAL</button>
           <button onClick={() => navigate('contact')}>CONTACT US</button>
-          <a href="https://www.instagram.com/farah_motors/" target="_blank" rel="noreferrer" style={{ color: 'inherit', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '4px', fontSize: '11px', fontWeight: 600 }}>
-            <Instagram size={14} /> @farah_motors
+          <a href="https://www.instagram.com/chahrourmotors/" target="_blank" rel="noreferrer" style={{ color: 'inherit', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '4px', fontSize: '11px', fontWeight: 600 }}>
+            <Instagram size={14} /> @chahrourmotors
           </a>
-          <a href="https://www.facebook.com/abidaherfarah/" target="_blank" rel="noreferrer" style={{ color: 'inherit', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '4px', fontSize: '11px', fontWeight: 600 }}>
+          <a href="https://www.facebook.com/profile.php?id=100085885269745" target="_blank" rel="noreferrer" style={{ color: 'inherit', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '4px', fontSize: '11px', fontWeight: 600 }}>
             <Facebook size={14} /> Facebook
           </a>
+          <a href="https://www.tiktok.com/@chahrour.motors" target="_blank" rel="noreferrer" style={{ color: 'inherit', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '4px', fontSize: '11px', fontWeight: 600 }}>
+            <TikTokIcon size={14} /> TikTok
+          </a>
         </div>
-        <span>© 2025 Farah Motors. All rights reserved. Antelias, Lebanon.</span>
+        <span>© {new Date().getFullYear()} Chahrour Motors. All rights reserved. Baabda, Lebanon.</span>
       </footer>
     </div>
   );
