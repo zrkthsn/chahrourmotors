@@ -140,6 +140,27 @@ export const INITIAL_CARS: Car[] = [
     ],
     tag: 'ALTITUDE 4X4 • KEYLESS GO • HEATED SEATS & STEERING',
     description: 'Keyless Entry • Keyless Start/Stop Button • Rear Camera • Parking Sensors • Electric Trunk • Heated Seats • Heated Steering Wheel • Billet Silver Metallic with Gloss Black wheels & Altitude package styling • 4x4'
+  },
+  {
+    id: 7,
+    name: 'Land Rover Range Rover Vogue V8 Supercharged 2018',
+    make: 'Land Rover',
+    model: 'Range Rover Vogue V8 Supercharged',
+    year: 2018,
+    price: 'Price on Request',
+    mileage: '98,000 Miles',
+    fuel: 'Petrol',
+    transmission: 'Automatic',
+    image: '/inventory/range-rover-vogue-v8-supercharged-2018/vogue-1.jpg',
+    images: [
+      '/inventory/range-rover-vogue-v8-supercharged-2018/vogue-1.jpg',
+      '/inventory/range-rover-vogue-v8-supercharged-2018/vogue-2.jpg',
+      '/inventory/range-rover-vogue-v8-supercharged-2018/vogue-3.jpg',
+      '/inventory/range-rover-vogue-v8-supercharged-2018/vogue-4.jpg',
+      '/inventory/range-rover-vogue-v8-supercharged-2018/vogue-5.jpg'
+    ],
+    tag: 'CLEAN CARFAX ✅ • V8 SUPERCHARGED • SOFT CLOSE & VENTILATED SEATS',
+    description: 'Clean Carfax ✅ • Grey on Black • 98,000 Miles • Panoramic Sunroof • 2 Original Keys • Radar Function • Power Tailgate • Keyless Entry & Start/Stop • Soft Close Doors • 4 Heated and Ventilated Seats • Ambient Lighting • Front/Rear Sensors • Rear Camera • Original 21" Rims • All Service Done'
   }
 ];
 
